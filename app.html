@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>1XW Trading | Member Area</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0f17;
+  --bg2:#111827;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --muted2:#6b7280;
+  --hairline:#1a2232;
+  --accent:#7c9cff;
+
+  --radius-lg:22px;
+  --max:1120px;
+  --px:clamp(18px,5vw,64px);
+  --py:clamp(40px,6vw,80px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--text);
+  line-height:1.65;
+  background:
+    radial-gradient(900px 600px at 70% -10%, rgba(124,156,255,.12), transparent 60%),
+    radial-gradient(700px 500px at 20% 10%, rgba(124,156,255,.08), transparent 70%),
+    var(--bg);
+}
+a{color:inherit;text-decoration:none;}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--px);}
+
+/* NAVBAR */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,15,23,.75);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hairline);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px;}
+.logo{font-weight:900;letter-spacing:-.8px;text-transform:uppercase;color:var(--accent);}
+.nav-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+.nav-links a{
+  font-size:.9rem;font-weight:600;color:var(--accent);
+  padding:10px 12px;border-radius:999px;
+}
+.nav-links a:hover{color:var(--text);background:rgba(124,156,255,.10);}
+
+.btn{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid var(--accent);
+  background:var(--accent);
+  color:#0b0f17;
+  font-weight:800;
+  font-size:.9rem;
+  cursor:pointer;
+}
+.btn:hover{background:#9fb6ff;border-color:#9fb6ff;}
+.btn.ghost{
+  background:rgba(124,156,255,.06);
+  border-color:rgba(124,156,255,.35);
+  color:var(--accent);
+}
+.btn.ghost:hover{
+  background:rgba(124,156,255,.14);
+  border-color:#9fb6ff;
+  color:#9fb6ff;
+}
+
+/* LAYOUT */
+main{padding: var(--py) 0;}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+h1{font-size:1.65rem;letter-spacing:-.6px;}
+.sub{color:var(--muted);max-width:860px;}
+.badge{
+  display:inline-flex;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:1.6px;
+  color:var(--accent);
+  border:1px solid rgba(124,156,255,.35);
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(124,156,255,.12);
+  margin-bottom:10px;
+}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+
+.grid{display:grid;grid-template-columns: 1fr 1fr 1fr;gap:16px;}
+.panel{
+  background:var(--bg2);
+  border:1px solid var(--hairline);
+  border-radius:var(--radius-lg);
+  padding:22px;
+}
+.kicker{
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+  font-size:.72rem;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+.big{font-size:1.35rem;font-weight:900;letter-spacing:-.6px;margin-bottom:6px;}
+.p{color:var(--muted);font-size:.95rem;line-height:1.75;}
+
+.section{margin-top:16px;}
+.section .panel{padding:26px;}
+
+.table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.92rem;}
+.table th, .table td{
+  padding:12px 10px;
+  border-bottom:1px solid rgba(124,156,255,.10);
+  text-align:left;
+  color:var(--text);
+  vertical-align:top;
+}
+.table th{color:var(--muted2);font-weight:700;}
+
+.mini{font-size:.85rem;color:var(--muted2);margin-top:8px;}
+
+.notice{
+  display:none;
+  margin-top:10px;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(124,156,255,.25);
+  background:rgba(124,156,255,.08);
+  color:var(--text);
+  font-size:.9rem;
+}
+.error{
+  display:none;
+  margin-top:10px;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(248,113,113,.35);
+  background: rgba(248,113,113,.10);
+  color: #fecaca;
+  font-size:.9rem;
+}
+
+.chartWrap{
+  margin-top:14px;
+  border:1px solid rgba(124,156,255,.18);
+  background:rgba(15,23,42,.35);
+  border-radius:18px;
+  padding:14px;
+  height: 360px;
+}
+canvas{max-width:100%;}
+
+/* TRADE IDEAS + COMMENTARY */
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center;}
+.input{
+  background:rgba(15,23,42,.35);
+  border:1px solid rgba(124,156,255,.18);
+  color:var(--text);
+  border-radius:999px;
+  padding:10px 12px;
+  outline:none;
+  font-weight:600;
+  font-size:.9rem;
+}
+.select{
+  background:rgba(15,23,42,.35);
+  border:1px solid rgba(124,156,255,.18);
+  color:var(--text);
+  border-radius:999px;
+  padding:10px 12px;
+  outline:none;
+  font-weight:700;
+  font-size:.9rem;
+}
+.cards{margin-top:14px;display:grid;grid-template-columns: repeat(3, 1fr);gap:12px;}
+.card{
+  background:rgba(15,23,42,.35);
+  border:1px solid rgba(124,156,255,.18);
+  border-radius:18px;
+  padding:16px;
+  cursor:pointer;
+}
+.card:hover{border-color:rgba(124,156,255,.35); background:rgba(15,23,42,.45);}
+.card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.tagrow{display:flex;gap:8px;flex-wrap:wrap;}
+.tag{
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  color:rgba(229,231,235,.85);
+  border:1px solid rgba(124,156,255,.25);
+  background:rgba(124,156,255,.08);
+  padding:6px 10px;
+  border-radius:999px;
+}
+.status{
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(124,156,255,.25);
+  color:rgba(229,231,235,.85);
+}
+.status.open{background:rgba(34,197,94,.10); border-color:rgba(34,197,94,.25);}
+.status.closed{background:rgba(148,163,184,.10); border-color:rgba(148,163,184,.25);}
+.title{font-weight:900;letter-spacing:-.3px;margin-bottom:6px;}
+.meta{color:var(--muted);font-size:.86rem;line-height:1.5;}
+
+.feed{margin-top:14px; display:grid; gap:12px;}
+.post{
+  background:rgba(15,23,42,.35);
+  border:1px solid rgba(124,156,255,.18);
+  border-radius:18px;
+  padding:16px;
+}
+.post h3{font-size:1.05rem;letter-spacing:-.2px;margin-bottom:6px;}
+.post .date{color:var(--muted2);font-size:.86rem;margin-bottom:10px;}
+.post ul{margin-left:18px;color:var(--text);opacity:.92;}
+.post li{margin:6px 0;}
+.attachments{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;}
+.linkpill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 12px;
+  border-radius:999px;
+  border:1px solid rgba(124,156,255,.25);
+  background:rgba(124,156,255,.08);
+  color:rgba(229,231,235,.95);
+  font-weight:800;
+  font-size:.86rem;
+}
+.linkpill:hover{border-color:rgba(124,156,255,.45); background:rgba(124,156,255,.12);}
+
+/* MODAL */
+.modal{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:1000;
+}
+.modal.open{display:flex;}
+.modal-card{
+  width:min(860px, 100%);
+  background:var(--bg2);
+  border:1px solid rgba(124,156,255,.22);
+  border-radius:22px;
+  padding:18px;
+}
+.modal-head{
+  display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
+  border-bottom:1px solid rgba(124,156,255,.10);
+  padding-bottom:12px;
+  margin-bottom:12px;
+}
+.modal-head h2{font-size:1.2rem; letter-spacing:-.3px;}
+.close{
+  background:rgba(124,156,255,.10);
+  border:1px solid rgba(124,156,255,.20);
+  color:rgba(229,231,235,.92);
+  border-radius:999px;
+  padding:10px 12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.close:hover{border-color:rgba(124,156,255,.35); background:rgba(124,156,255,.14);}
+.modal-body{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
+.box{
+  border:1px solid rgba(124,156,255,.14);
+  background:rgba(15,23,42,.25);
+  border-radius:18px;
+  padding:14px;
+}
+.box h4{
+  font-size:.78rem;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+.box p{color:rgba(229,231,235,.92); font-size:.92rem; line-height:1.65;}
+.kv{display:grid; gap:6px; font-size:.92rem;}
+.kv div{display:flex; justify-content:space-between; gap:10px; color:rgba(229,231,235,.92);}
+.kv span{color:var(--muted); font-weight:700;}
+
+@media (max-width: 980px){
+  .grid{grid-template-columns: 1fr;}
+  .cards{grid-template-columns: 1fr;}
+  .modal-body{grid-template-columns: 1fr;}
+  .chartWrap{height: 320px;}
+}
+
+footer{
+  padding:22px 0 30px;
+  text-align:center;
+  color:rgba(100,116,139,.9);
+  font-size:.85rem;
+}
+
+  .pills{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .pill{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px;
+         border:1px solid rgba(160,200,255,.25); background: rgba(10, 30, 60, .35);
+         font-size:12px; color: rgba(230,245,255,.92); }
+  .pill .side{ font-size:11px; padding:2px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.18); opacity:.9; }
+  .pill.long .side{ background: rgba(60, 180, 120, .18); border-color: rgba(60, 180, 120, .35); }
+  .pill.short .side{ background: rgba(220, 80, 80, .18); border-color: rgba(220, 80, 80, .35); }
+
+</style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html">1XW TRADING</a>
+      <div class="nav-links">
+        <a href="app.html">Dashboard</a>
+        <a href="#performance">Performance</a>
+        <a href="#plb_chart">PLB Chart</a>
+        <a href="#trades">Model Trades</a>
+        <a href="#trade_ideas">Trade Ideas</a>
+        <a href="#comments">Market Commentary</a>
+        <button class="btn" id="logoutBtn" type="button">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="header">
+      <div>
+        <div class="badge">Member Area</div>
+        <h1>Dashboard</h1>
+        <div class="sub">
+          Trade Ideas, Market Commentary, and live portfolio monitoring in one place.
+        </div>
+      </div>
+
+      <div class="actions" id="adminTools">
+        <input id="modelInput" type="file" accept=".xlsx" style="display:none" />
+        <button class="btn" id="uploadModelBtn" type="button">Upload Model (XLSX)</button>
+        <button class="btn ghost" id="clearBtn" type="button">Clear Data</button>
+      </div>
+    </div>
+
+    <div class="notice" id="noticeBox"></div>
+    <div class="error" id="errorBox"></div>
+
+    <!-- TOP METRICS -->
+    <div class="grid">
+      <div class="panel">
+        <div class="kicker">Open Positions</div>
+        <div class="big" id="openPosValue">—</div>
+        <div class="p" id="openPosDesc">—</div>
+        <div class="pills" id="openPosPills" aria-label="Open positions list"></div>
+      </div>
+
+      <div class="panel">
+        <div class="kicker">Performance YTD</div>
+        <div class="big" id="ytdValue">—</div>
+        <div class="p" id="ytdDesc">—</div>
+      </div>
+
+      <div class="panel">
+        <div class="kicker">NAV vs PLB</div>
+        <div class="big" id="navPlbValue">—</div>
+        <div class="p" id="navPlbDesc">—</div>
+      </div>
+    </div>
+
+    <!-- 1) PERFORMANCE -->
+    <div class="section" id="performance">
+      <div class="panel">
+        <div class="kicker">Performance</div>
+        <div class="p">NAV curve from your model.</div>
+        <div class="chartWrap"><canvas id="navChart"></canvas></div>
+        <div class="mini" id="navMeta">No NAV loaded yet.</div>
+      </div>
+    </div>
+
+    <!-- 2) PLB CHART -->
+    <div class="section" id="plb_chart">
+      <div class="panel">
+        <div class="kicker">PLB Chart</div>
+        <div class="p">Initial PLB %, PLB %, PERF % (from PLB sheet).</div>
+        <div class="chartWrap"><canvas id="plbChart"></canvas></div>
+        <div class="mini" id="plbMeta">No PLB series loaded yet.</div>
+      </div>
+    </div>
+
+    <!-- 3) MODEL TRADES -->
+    <div class="section" id="trades">
+      <div class="panel">
+        <div class="kicker">Model Trades</div>
+        <div class="p">Trades extracted from your XLSX model (PLB sheet).</div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Instrument</th>
+              <th>Structure</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="tradesBody">
+            <tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+
+        <div class="mini" id="dataMeta">No uploaded model yet.</div>
+      </div>
+    </div>
+
+    <!-- 4) TRADE IDEAS -->
+    <div class="section" id="trade_ideas">
+      <div class="panel">
+        <div class="kicker">Trade Ideas</div>
+        <div class="p">Loaded from <b>content/trades.json</b>.</div>
+
+        <div class="toolbar">
+          <input class="input" id="tradeSearch" placeholder="Search trades…" />
+          <select class="select" id="tradeStatus">
+            <option value="all">All</option>
+            <option value="Open">Open</option>
+            <option value="Closed">Closed</option>
+          </select>
+          <select class="select" id="tradeAsset">
+            <option value="all">All asset classes</option>
+          </select>
+          <button class="btn ghost" id="reloadContentBtn" type="button">Reload Content</button>
+        </div>
+
+        <div class="cards" id="tradeCards"></div>
+        <div class="mini" id="tradeMeta">Loading trade ideas…</div>
+      </div>
+    </div>
+
+    <!-- 5) MARKET COMMENTARY -->
+    <div class="section" id="comments">
+      <div class="panel">
+        <div class="kicker">Market Commentary</div>
+        <div class="p">Loaded from <b>content/comments.json</b>.</div>
+
+        <div class="feed" id="commentFeed"></div>
+        <div class="mini" id="commentMeta">Loading commentary…</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>1XW TRADING © 2026. All rights reserved.</footer>
+
+  <!-- Trade modal -->
+  <div class="modal" id="tradeModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h2 id="mTitle">Trade</h2>
+          <div class="meta" id="mMeta"></div>
+        </div>
+        <button class="close" id="mClose" type="button">Close</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="box">
+          <h4>Thesis</h4>
+          <p id="mThesis"></p>
+        </div>
+        <div class="box">
+          <h4>Structure</h4>
+          <p id="mStructure"></p>
+        </div>
+        <div class="box">
+          <h4>Risk & Levels</h4>
+          <div class="kv" id="mKV"></div>
+        </div>
+        <div class="box">
+          <h4>Notes</h4>
+          <div id="mNotes"></div>
+          <div class="attachments" id="mAtt"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<script>
+(() => {
+  const TOKEN_KEY = "1xw_auth";
+  const MODEL_KEY = "1xw_model_static_plb_from_PLBsheet_v1";
+
+  const TRADES_URL = "content/trades.json";
+  const COMMENTS_URL = "content/comments.json";
+
+  // Auth gate
+  if (localStorage.getItem(TOKEN_KEY) !== "ok") {
+    window.location.href = "login.html";
+    return;
+  }
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    localStorage.removeItem(TOKEN_KEY);
+    window.location.href = "login.html";
+  });
+
+  // DOM refs
+  const modelInput = document.getElementById("modelInput");
+  const uploadModelBtn = document.getElementById("uploadModelBtn");
+  const clearBtn = document.getElementById("clearBtn");
+  const noticeBox = document.getElementById("noticeBox");
+  const errorBox = document.getElementById("errorBox");
+
+  // Hide admin-only controls (model upload/clear) for non-local viewers
+  (function(){
+    const host = window.location.hostname;
+    const isLocal = (host === "127.0.0.1" || host === "localhost" || host === "::1");
+    if (!isLocal){
+      const adminTools = document.getElementById("adminTools");
+      if (adminTools) adminTools.style.display = "none";
+    }
+  })();
+
+
+  const openPosValue = document.getElementById("openPosValue");
+  const openPosDesc  = document.getElementById("openPosDesc");
+
+  const ytdValue    = document.getElementById("ytdValue");
+  const ytdDesc     = document.getElementById("ytdDesc");
+
+  const navPlbValue = document.getElementById("navPlbValue");
+  const navPlbDesc  = document.getElementById("navPlbDesc");
+
+  const tradesBody  = document.getElementById("tradesBody");
+  const dataMeta    = document.getElementById("dataMeta");
+
+  const navMeta     = document.getElementById("navMeta");
+  const plbMeta     = document.getElementById("plbMeta");
+
+  const navCanvas   = document.getElementById("navChart");
+  const plbCanvas   = document.getElementById("plbChart");
+
+  const tradeCards = document.getElementById("tradeCards");
+  const tradeMeta  = document.getElementById("tradeMeta");
+  const tradeSearch = document.getElementById("tradeSearch");
+  const tradeStatus = document.getElementById("tradeStatus");
+  const tradeAsset = document.getElementById("tradeAsset");
+  const reloadContentBtn = document.getElementById("reloadContentBtn");
+
+  const commentFeed = document.getElementById("commentFeed");
+  const commentMeta = document.getElementById("commentMeta");
+
+  const tradeModal = document.getElementById("tradeModal");
+  const mClose = document.getElementById("mClose");
+  const mTitle = document.getElementById("mTitle");
+  const mMeta = document.getElementById("mMeta");
+  const mThesis = document.getElementById("mThesis");
+  const mStructure = document.getElementById("mStructure");
+  const mKV = document.getElementById("mKV");
+  const mNotes = document.getElementById("mNotes");
+  const mAtt = document.getElementById("mAtt");
+
+  let navChart = null;
+  let plbChart = null;
+  let tradesContent = [];
+  let commentsContent = [];
+
+  function showNotice(msg){
+    noticeBox.textContent = msg;
+    noticeBox.style.display = "block";
+    errorBox.style.display = "none";
+  }
+  function showError(msg){
+    errorBox.textContent = msg;
+    errorBox.style.display = "block";
+    noticeBox.style.display = "none";
+  }
+  function clearMessages(){
+    noticeBox.style.display = "none";
+    errorBox.style.display = "none";
+  }
+
+  function safeText(v, fallback){
+    const s = (v ?? "").toString().trim();
+    return s ? s : fallback;
+  }
+
+  function formatPct(x){
+    const n = Number(x);
+    if (!Number.isFinite(n)) return null;
+    return (n * 100).toFixed(2) + "%";
+  }
+
+  function formatMoney(x){
+    const n = Number(x);
+    if (!Number.isFinite(n)) return null;
+    return n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+  }
+
+  function toISODate(v){
+    if (!v) return "";
+    if (v instanceof Date && !isNaN(v)) return v.toISOString().slice(0,10);
+    if (typeof v === "number"){
+      const epoch = new Date(Date.UTC(1899, 11, 30));
+      const d = new Date(epoch.getTime() + v * 86400000);
+      return d.toISOString().slice(0,10);
+    }
+    const d = new Date(v);
+    return isNaN(d) ? String(v) : d.toISOString().slice(0,10);
+  }
+
+  function escapeHtml(s){
+    return (s ?? "").toString()
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#39;");
+  }
+
+  function uniq(arr){
+    return Array.from(new Set(arr));
+  }
+
+  // header helpers
+  function norm(x){
+    return (x ?? "").toString().trim().replace(/\s+/g, " ").toUpperCase();
+  }
+
+  function findHeaderRow(rows, requiredHeaders){
+    const req = requiredHeaders.map(norm);
+    for (let r = 0; r < Math.min(rows.length, 220); r++){
+      const row = rows[r] || [];
+      const hdr = row.map(norm);
+      const ok = req.every(k => hdr.includes(k));
+      if (ok) return { r, headers: hdr };
+    }
+    return null;
+  }
+
+  // Charts
+  function renderNAVChart(series){
+    if (navChart){ navChart.destroy(); navChart = null; }
+    if (!navCanvas){
+      navMeta.textContent = "NAV canvas not found.";
+      return;
+    }
+    if (!series || !Array.isArray(series.labels) || series.labels.length === 0){
+      navMeta.textContent = "No NAV loaded yet.";
+      return;
+    }
+
+    navMeta.textContent = `Loaded NAV series: ${series.labels.length} points.`;
+    navChart = new Chart(navCanvas, {
+      type: "line",
+      data: {
+        labels: series.labels,
+        datasets: [{
+          label: "NAV",
+          data: series.values,
+          borderColor: "rgba(124,156,255,0.95)",
+          backgroundColor: "rgba(124,156,255,0.10)",
+          tension: 0.25,
+          pointRadius: 0,
+          borderWidth: 2,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect:false },
+        plugins: { legend: { display:false } },
+        scales: {
+          x: { grid:{ color:"rgba(124,156,255,0.08)" }, ticks:{ color:"rgba(229,231,235,0.75)", maxTicksLimit:8 } },
+          y: { grid:{ color:"rgba(124,156,255,0.08)" }, ticks:{ color:"rgba(229,231,235,0.75)" } }
+        }
+      }
+    });
+  }
+
+  function renderPLBChart(series){
+    if (plbChart){ plbChart.destroy(); plbChart = null; }
+    if (!plbCanvas){
+      plbMeta.textContent = "PLB canvas not found (id=plbChart).";
+      return;
+    }
+    if (!series || !Array.isArray(series.labels) || series.labels.length === 0){
+      const why = series && series._err ? ` (${series._err})` : "";
+      plbMeta.textContent = "No PLB series loaded yet." + why;
+      return;
+    }
+
+    plbMeta.textContent = `Loaded PLB chart series: ${series.labels.length} points.`;
+    plbChart = new Chart(plbCanvas, {
+      type: "line",
+      data: {
+        labels: series.labels,
+        datasets: [
+          {
+            label: "Initial PLB %",
+            data: series.init,
+            borderColor: "rgba(80, 200, 170, 0.95)",
+            backgroundColor: "rgba(0,0,0,0)",
+            borderDash: [6,6],
+            tension: 0.15,
+            pointRadius: 0,
+            borderWidth: 2,
+            spanGaps: true
+          },
+          {
+            label: "PLB %",
+            data: series.plb,
+            borderColor: "rgba(124, 156, 255, 0.95)",
+            backgroundColor: "rgba(0,0,0,0)",
+            tension: 0.15,
+            pointRadius: 0,
+            borderWidth: 2,
+            spanGaps: true
+          },
+          {
+            label: "PERF %",
+            data: series.perf,
+            borderColor: "rgba(246, 173, 85, 0.95)",
+            backgroundColor: "rgba(246, 173, 85, 0.08)",
+            tension: 0.20,
+            pointRadius: 0,
+            borderWidth: 2,
+            fill: false,
+            spanGaps: true
+          }
+        ]
+      },
+      options: {
+        responsive:true,
+        maintainAspectRatio:false,
+        interaction:{ mode:"index", intersect:false },
+        plugins:{
+          legend:{ display:true, labels:{ color:"rgba(229,231,235,0.85)" } },
+          tooltip:{
+            mode:"index",
+            intersect:false,
+            callbacks:{
+              label:(ctx)=>{
+                const v = ctx.parsed.y;
+                if (v === null || v === undefined || Number.isNaN(v)) return `${ctx.dataset.label}: n/a`;
+                return `${ctx.dataset.label}: ${(v*100).toFixed(2)}%`;
+              }
+            }
+          }
+        },
+        scales:{
+          x:{ grid:{ color:"rgba(124,156,255,0.08)" }, ticks:{ color:"rgba(229,231,235,0.75)", maxTicksLimit:8 } },
+          y:{ grid:{ color:"rgba(124,156,255,0.08)" }, ticks:{ color:"rgba(229,231,235,0.75)", callback:(v)=>`${(v*100).toFixed(0)}%` } }
+        }
+      }
+    });
+  }
+
+  // Excel parsing
+  function buildNAVSeries(navAOA){
+    const h = findHeaderRow(navAOA, ["DATE","NAV"]);
+    if (!h) return { labels:[], values:[], _err:"NAV headers not found (DATE/NAV)." };
+    const idxD = h.headers.indexOf("DATE");
+    const idxN = h.headers.indexOf("NAV");
+    const labels=[]; const values=[];
+    for (let r = h.r+1; r < navAOA.length; r++){
+      const row = navAOA[r] || [];
+      const d = row[idxD];
+      const n = row[idxN];
+      if (!d || n===null || n===undefined || n==="") continue;
+      labels.push(toISODate(d));
+      values.push(Number(n));
+    }
+    return { labels, values };
+  }
+
+  // *** QUI: PLB CHART DAL FOGLIO "PLB" ***
+  function buildPLBChartSeries(plbAOA){
+    // Il tab PLB contiene: DATE, PERF %, PLB %, Initial PLB % nella parte sinistra.
+    const h = findHeaderRow(plbAOA, ["DATE","PERF %","PLB %","Initial PLB %"]);
+    if (!h){
+      return { labels:[], perf:[], plb:[], init:[], _err:"PLB headers not found in PLB sheet (DATE, PERF %, PLB %, Initial PLB %)." };
+    }
+
+    const idxDate = h.headers.indexOf("DATE");
+    const idxPerf = h.headers.indexOf("PERF %");
+    const idxPLB  = h.headers.indexOf("PLB %");
+    const idxInit = h.headers.indexOf("INITIAL PLB %");
+
+    const labels=[]; const perf=[]; const plb=[]; const init=[];
+    for (let r = h.r+1; r < plbAOA.length; r++){
+      const row = plbAOA[r] || [];
+      const d = row[idxDate];
+      if (!d) continue;
+      labels.push(toISODate(d));
+
+      const p = Number(row[idxPerf]);
+      const q = Number(row[idxPLB]);
+      const i = Number(row[idxInit]);
+
+      perf.push(Number.isFinite(p) ? p : null);
+      plb.push(Number.isFinite(q) ? q : null);
+      init.push(Number.isFinite(i) ? i : null);
+    }
+
+    return { labels, perf, plb, init };
+  }
+
+  function buildTradesFromPLB(plbAOA){
+    const h = findHeaderRow(plbAOA, ["DATE","INSTRUMENT"]);
+    if (!h) return [];
+    const idxDate  = h.headers.indexOf("DATE");
+    const idxInstr = h.headers.indexOf("INSTRUMENT");
+    const idxOC    = h.headers.indexOf("OPEN/CLOSE");
+
+    const out=[];
+    for (let r = h.r+1; r < plbAOA.length; r++){
+      const row = plbAOA[r] || [];
+      const d = row[idxDate];
+      const instr = row[idxInstr];
+      if (!d || !instr) continue;
+      const statusRaw = idxOC >= 0 ? row[idxOC] : "";
+      const s = (statusRaw ?? "").toString().trim().toUpperCase();
+      out.push({
+        date: toISODate(d),
+        instrument: (instr ?? "").toString().trim(),
+        structure: "",
+        status: s==="C" ? "Closed" : (s==="O" ? "Open" : (statusRaw ?? "").toString().trim())
+      });
+    }
+    out.sort((a,b)=> (b.date||"").localeCompare(a.date||""));
+    return out;
+  }
+
+  function buildOpenPositionsFromBlotter(blotterAOA){
+    const h = findHeaderRow(blotterAOA, ["QUANTITY","TICKER"]);
+    if (!h) return { count:null, items:[], names:[], _err:"Blotter headers not found." };
+
+    const idxQty    = h.headers.indexOf("QUANTITY");
+    const idxTicker = h.headers.indexOf("TICKER");
+const idxInstr  = h.headers.indexOf("INSTRUMENT");
+    const idxAsset  = h.headers.indexOf("ASSET CLASS");
+
+    let count = 0;
+    const items = [];
+    for (let r = h.r+1; r < blotterAOA.length; r++){
+      const row = blotterAOA[r] || [];
+      const qty = Number(row[idxQty]);
+      if (!Number.isFinite(qty) || qty===0) continue;
+
+      const ticker = idxTicker>=0 ? row[idxTicker] : null;
+const instr  = idxInstr>=0 ? row[idxInstr] : null;
+      const asset  = idxAsset>=0 ? row[idxAsset] : null;
+
+      // Prefer TICKER; fallback INSTRUMENT/ASSET CLASS (no UNDERLYING in UI)
+      const base = (ticker ?? instr ?? asset ?? "").toString().trim();
+      if (!base) continue;
+
+      const side = qty > 0 ? "Long" : "Short";
+      const sideKey = qty > 0 ? "long" : "short";
+
+      const label = base;
+
+      items.push({ label, side, sideKey });
+      count++;
+    }
+
+    // de-dup by label+side
+    const seen = new Set();
+    const uniqItems = [];
+    for (const it of items){
+      const k = `${it.label}__${it.sideKey}`;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      uniqItems.push(it);
+    }
+
+    return {
+      count: count ? uniqItems.length : 0,
+      items: uniqItems.slice(0,5),
+      names: uniqItems.map(x=>x.label).slice(0,5)
+    };
+  }
+
+
+  function findMetricInFirstSheet(firstAOA, label){
+    const target = label.trim();
+    for (let r=0; r<Math.min(firstAOA.length,160); r++){
+      const row = firstAOA[r] || [];
+      for (let c=0; c<Math.min(row.length,40); c++){
+        const key = (row[c] ?? "").toString().trim();
+        if (key === target) return row[c+1] ?? null;
+      }
+    }
+    return null;
+  }
+
+  function extractLastNumericByHeader(aoa, headerName){
+    const h = findHeaderRow(aoa, [headerName]);
+    if (!h) return null;
+    const idx = h.headers.indexOf(norm(headerName));
+    let last = null;
+    for (let r=h.r+1; r<aoa.length; r++){
+      const n = Number(aoa[r]?.[idx]);
+      if (Number.isFinite(n)) last = n;
+    }
+    return last;
+  }
+
+  // Top boxes + trades
+  function setTopBoxes(model){
+    if (model.openPos && Number.isFinite(model.openPos.count)){
+      openPosValue.textContent = String(model.openPos.count);
+
+      // Text line (fallback)
+      openPosDesc.textContent = model.openPos.count===0 ? "No open positions." : "";
+
+      // Pills
+      const pills = document.getElementById("openPosPills");
+      if (pills){
+        pills.innerHTML = "";
+        const items = (model.openPos.items && model.openPos.items.length) ? model.openPos.items : [];
+        if (items.length){
+          for (const it of items){
+            const el = document.createElement("span");
+            el.className = `pill ${it.sideKey || ""}`.trim();
+            el.innerHTML = `<span class="label">${escapeHtml(it.label)}</span><span class="side">${escapeHtml(it.side || "")}</span>`;
+            pills.appendChild(el);
+          }
+        }
+      }
+    } else {
+      openPosValue.textContent = "—";
+      openPosDesc.textContent  = "—";
+      const pills = document.getElementById("openPosPills");
+      if (pills) pills.innerHTML = "";
+    }
+
+    const ytdRaw = model.perfYTD ?? model.perfITD ?? null;
+    const ytd = formatPct(ytdRaw);
+    ytdValue.textContent = ytd ?? "—";
+    ytdDesc.textContent  = ytd ? "Year-to-date performance." : "—";
+
+    const nav$ = Number(model.aum);
+    const plb$ = Number(model.plbLevel);
+    if (Number.isFinite(nav$) && Number.isFinite(plb$)){
+      navPlbValue.textContent = `${formatMoney(nav$)} vs ${formatMoney(plb$)}`;
+      const gap = (nav$ - plb$) / nav$;
+      navPlbDesc.textContent = `Gap to PLB: ${(gap*100).toFixed(2)}%`;
+    } else {
+      navPlbValue.textContent = "—";
+      navPlbDesc.textContent  = "—";
+    }
+  }
+
+  function renderTrades(trades){
+    tradesBody.innerHTML = "";
+    if (!trades || trades.length===0){
+      tradesBody.innerHTML = `<tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>`;
+      dataMeta.textContent = "No uploaded model yet.";
+      return;
+    }
+    trades.forEach(t=>{
+      const tr=document.createElement("tr");
+      tr.innerHTML = `
+        <td>${escapeHtml(safeText(t.date,""))}</td>
+        <td>${escapeHtml(safeText(t.instrument,""))}</td>
+        <td>${escapeHtml(safeText(t.structure,""))}</td>
+        <td>${escapeHtml(safeText(t.status,""))}</td>
+      `;
+      tradesBody.appendChild(tr);
+    });
+    dataMeta.textContent = `Loaded ${trades.length} trades from model.`;
+  }
+
+  // JSON fetching (trade ideas & comments)
+  function cacheBust(url){
+    const sep = url.includes("?") ? "&" : "?";
+    return url + sep + "v=" + Date.now();
+  }
+
+  async function loadJson(url){
+    const res = await fetch(cacheBust(url), { cache:"no-store" });
+    if (!res.ok) throw new Error(`Failed to load ${url} (${res.status}).`);
+    const txt = await res.text();
+    try { return JSON.parse(txt); }
+    catch(e){ throw new Error(`Invalid JSON in ${url}: ${e.message}`); }
+  }
+
+  function renderAssetOptions(trades){
+    const assets = uniq((trades||[]).map(t => (t.asset_class || "").trim()).filter(Boolean)).sort();
+    tradeAsset.innerHTML =
+      `<option value="all">All asset classes</option>` +
+      assets.map(a=>`<option value="${escapeHtml(a)}">${escapeHtml(a)}</option>`).join("");
+  }
+
+  function filterTrades(){
+    const q = (tradeSearch.value || "").toLowerCase().trim();
+    const st = tradeStatus.value;
+    const ac = tradeAsset.value;
+
+    let out = tradesContent.slice();
+    if (st!=="all") out = out.filter(t => (t.status || "") === st);
+    if (ac!=="all") out = out.filter(t => (t.asset_class || "") === ac);
+
+    if (q){
+      out = out.filter(t => {
+        const blob = [
+          t.title, t.instrument, t.asset_class, t.status,
+          t.thesis, t.structure, t.timeframe, t.risk
+        ].join(" ").toLowerCase();
+        return blob.includes(q);
+      });
+    }
+    out.sort((a,b)=> (b.date||"").localeCompare(a.date||""));
+    return out;
+  }
+
+  function openTradeModal(t){
+    mTitle.textContent = t.title || "Trade Idea";
+    mMeta.textContent  = `${t.date || ""} • ${t.instrument || ""} • ${t.asset_class || ""} • ${t.status || ""}`;
+    mThesis.textContent = t.thesis || "";
+    mStructure.textContent = t.structure || "";
+
+    const levels = t.levels || {};
+    const kv = [
+      ["Risk", t.risk || ""],
+      ["Timeframe", t.timeframe || ""],
+      ["Entry", levels.entry || ""],
+      ["Max Loss", levels.max_loss || ""],
+      ["Target", levels.target || ""]
+    ].filter(([k,v]) => (v ?? "").toString().trim().length);
+
+    mKV.innerHTML = kv.map(([k,v])=>`<div><span>${escapeHtml(k)}</span><b>${escapeHtml(v)}</b></div>`).join("");
+
+    const notes = Array.isArray(t.notes) ? t.notes : [];
+    mNotes.innerHTML = notes.length ? `<ul>${notes.map(n=>`<li>${escapeHtml(n)}</li>`).join("")}</ul>` : `<div class="meta">No notes.</div>`;
+
+    const att = Array.isArray(t.attachments) ? t.attachments : [];
+    mAtt.innerHTML = att.map(a=>`<a class="linkpill" href="${escapeHtml(a.url)}" target="_blank" rel="noopener">${escapeHtml(a.label || "Attachment")}</a>`).join("");
+
+    tradeModal.classList.add("open");
+    tradeModal.setAttribute("aria-hidden","false");
+  }
+
+  function closeTradeModal(){
+    tradeModal.classList.remove("open");
+    tradeModal.setAttribute("aria-hidden","true");
+  }
+
+  function renderTradeCards(){
+    const items = filterTrades();
+    tradeCards.innerHTML = "";
+    if (!items.length){
+      tradeMeta.textContent = "No matching trade ideas.";
+      return;
+    }
+    items.forEach(t=>{
+      const card=document.createElement("div");
+      card.className="card";
+      card.addEventListener("click",()=>openTradeModal(t));
+      const statusClass = ((t.status||"").toLowerCase()==="open") ? "open" : "closed";
+      card.innerHTML = `
+        <div class="card-top">
+          <div class="tagrow">
+            ${t.asset_class ? `<span class="tag">${escapeHtml(t.asset_class)}</span>` : ""}
+            ${t.risk ? `<span class="tag">${escapeHtml(t.risk)}</span>` : ""}
+          </div>
+          ${t.status ? `<span class="status ${statusClass}">${escapeHtml(t.status)}</span>` : ""}
+        </div>
+        <div class="title">${escapeHtml(t.title || "Trade Idea")}</div>
+        <div class="meta">
+          <div><b>${escapeHtml(t.instrument || "")}</b> • ${escapeHtml(t.date || "")}</div>
+          <div>${escapeHtml(t.thesis || "")}</div>
+        </div>
+      `;
+      tradeCards.appendChild(card);
+    });
+    tradeMeta.textContent = `Loaded ${items.length} trade ideas.`;
+  }
+
+  function renderComments(){
+    commentFeed.innerHTML = "";
+    const items = commentsContent.slice().sort((a,b)=> (b.date||"").localeCompare(a.date||""));
+    if (!items.length){
+      commentMeta.textContent = "No commentary available.";
+      return;
+    }
+    items.forEach(c=>{
+      const post=document.createElement("div");
+      post.className="post";
+      const tags = Array.isArray(c.tags) ? c.tags : [];
+      const bullets = Array.isArray(c.bullets) ? c.bullets : [];
+      const att = Array.isArray(c.attachments) ? c.attachments : [];
+      post.innerHTML = `
+        <div class="tagrow" style="margin-bottom:10px;">
+          ${tags.map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join("")}
+        </div>
+        <h3>${escapeHtml(c.title || "Market Commentary")}</h3>
+        <div class="date">${escapeHtml(c.date || "")}</div>
+        <div class="meta" style="margin-bottom:10px;">${escapeHtml(c.summary || "")}</div>
+        ${bullets.length ? `<ul>${bullets.map(b=>`<li>${escapeHtml(b)}</li>`).join("")}</ul>` : ""}
+        ${att.length ? `<div class="attachments">${att.map(a=>`<a class="linkpill" href="${escapeHtml(a.url)}" target="_blank" rel="noopener">${escapeHtml(a.label || "Attachment")}</a>`).join("")}</div>` : ""}
+      `;
+      commentFeed.appendChild(post);
+    });
+    commentMeta.textContent = `Loaded ${items.length} market commentaries.`;
+  }
+
+  async function loadContent(){
+    try{
+      tradeMeta.textContent = "Loading trade ideas…";
+      commentMeta.textContent = "Loading commentary…";
+      const t = await loadJson(TRADES_URL);
+      const c = await loadJson(COMMENTS_URL);
+      tradesContent   = Array.isArray(t.trades)   ? t.trades   : [];
+      commentsContent = Array.isArray(c.comments) ? c.comments : [];
+      renderAssetOptions(tradesContent);
+      renderTradeCards();
+      renderComments();
+    } catch(e){
+      tradeMeta.textContent    = "Failed to load trades.json";
+      commentMeta.textContent  = "Failed to load comments.json";
+      showError((e && e.message) ? e.message : "Content load failed. NOTE: use http://localhost, not double-click.");
+      console.error(e);
+    }
+  }
+
+  // storage
+  function loadStored(){
+    const raw = localStorage.getItem(MODEL_KEY);
+    if (!raw) return null;
+    try { return JSON.parse(raw); } catch { return null; }
+  }
+  function saveStored(obj){
+    localStorage.setItem(MODEL_KEY, JSON.stringify(obj));
+  }
+
+  function renderAll(model){
+    setTopBoxes(model);
+    renderTrades(model.trades || []);
+    renderNAVChart(model.nav || { labels:[], values:[] });
+    renderPLBChart(model.plbChart || { labels:[], perf:[], plb:[], init:[] });
+  }
+
+  // events
+  tradeSearch.addEventListener("input", renderTradeCards);
+  tradeStatus.addEventListener("change", renderTradeCards);
+  tradeAsset.addEventListener("change", renderTradeCards);
+  reloadContentBtn.addEventListener("click", loadContent);
+
+  mClose.addEventListener("click", closeTradeModal);
+  tradeModal.addEventListener("click", e => { if (e.target===tradeModal) closeTradeModal(); });
+  document.addEventListener("keydown", e => { if (e.key==="Escape") closeTradeModal(); });
+
+  uploadModelBtn.addEventListener("click", () => {
+    clearMessages();
+    modelInput.value = "";
+    modelInput.click();
+  });
+
+  modelInput.addEventListener("change", async () => {
+    clearMessages();
+    const file = modelInput.files && modelInput.files[0];
+    if (!file) return;
+
+    try{
+      const buf = await file.arrayBuffer();
+      const wb  = XLSX.read(buf, { type:"array", cellDates:true });
+
+      // First sheet metrics
+      const firstName = wb.SheetNames[0];
+      const firstWS   = wb.Sheets[firstName];
+      const firstAOA  = XLSX.utils.sheet_to_json(firstWS, { header:1, raw:true });
+
+      const aum      = findMetricInFirstSheet(firstAOA, "AUM");
+      const perfYTD  = findMetricInFirstSheet(firstAOA, "Performance YTD %");
+      const perfITD  = findMetricInFirstSheet(firstAOA, "Performance ITD %");
+
+      // NAV
+      const navName = wb.SheetNames.find(n => norm(n)==="NAV");
+      if (!navName) throw new Error('Sheet "NAV" not found.');
+      const navAOA  = XLSX.utils.sheet_to_json(wb.Sheets[navName], { header:1, raw:true });
+      const navSeries = buildNAVSeries(navAOA);
+
+      // PLB (dati + trade + PLB chart)
+      const plbName = wb.SheetNames.find(n => norm(n)==="PLB");
+      if (!plbName) throw new Error('Sheet "PLB" not found.');
+      const plbAOA  = XLSX.utils.sheet_to_json(wb.Sheets[plbName], { header:1, raw:true });
+      const modelTrades   = buildTradesFromPLB(plbAOA);
+      const plbChartSeries= buildPLBChartSeries(plbAOA);
+
+      // Blotter (Open Positions)
+      const blotterName = wb.SheetNames.find(n => norm(n)==="BLOTTER");
+      if (!blotterName) throw new Error('Sheet "Blotter" not found.');
+      const blotterAOA  = XLSX.utils.sheet_to_json(wb.Sheets[blotterName], { header:1, raw:true });
+      const openPos     = buildOpenPositionsFromBlotter(blotterAOA);
+
+      // PLB level in $ from PLB col "EoP MIN NAV $"
+      const plbLevel    = extractLastNumericByHeader(plbAOA, "EoP MIN NAV $");
+
+      const model = {
+        uploadedAt: new Date().toISOString(),
+        filename: file.name,
+        firstSheetName: firstName,
+        aum,
+        perfYTD,
+        perfITD,
+        plbLevel,
+        openPos,
+        nav: navSeries,
+        plbChart: plbChartSeries,
+        trades: modelTrades
+      };
+
+      saveStored(model);
+      renderAll(model);
+      showNotice(`Model loaded: ${file.name}`);
+    } catch(e){
+      showError((e && e.message) ? e.message : "Upload failed.");
+      console.error(e);
+    }
+  });
+
+  clearBtn.addEventListener("click", () => {
+    localStorage.removeItem(MODEL_KEY);
+    renderAll({
+      aum:null, perfYTD:null, perfITD:null,
+      plbLevel:null,
+      openPos:{ count:null, names:[] },
+      trades:[],
+      nav:{ labels:[], values:[] },
+      plbChart:{ labels:[], perf:[], plb:[], init:[] }
+    });
+    showNotice("Data cleared.");
+  });
+
+  // init
+  const stored = loadStored();
+  if (stored){
+    renderAll(stored);
+    showNotice("Loaded model from previous session.");
+  } else {
+    renderAll({
+      aum:null, perfYTD:null, perfITD:null,
+      plbLevel:null,
+      openPos:{ count:null, names:[] },
+      trades:[],
+      nav:{ labels:[], values:[] },
+      plbChart:{ labels:[], perf:[], plb:[], init:[] }
+    });
+  }
+
+  // load JSON content (needs local server: python -m http.server)
+  loadContent();
+})();
+</script>
+</body>
+</html>
