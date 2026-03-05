@@ -1,7 +1,13 @@
 {
   "updatedAt": "2026-03-05T18:30:00Z",
   "modelTrades": [
-    { "date":"2026-03-01", "instrument":"ES", "structure":"Futures", "status":"Open" }
+    {
+      "date": null,
+      "instrument": "Long ETH",
+      "structure": "",
+      "status": "Open",
+      "notes": ""
+    }
   ],
   "tradeIdeas": [
     {
@@ -13,14 +19,31 @@
       "setup": "Compression → Breakout risk",
       "thesis": "Volatility bid remains sticky; breakout risk priced too low.",
       "structure": "Call spread / risk-defined",
-      "levels": { "trigger": 5250, "invalidate": 5180, "target": 5400 },
+      "levels": {
+        "trigger": 5250,
+        "invalidate": 5180,
+        "target": 5400
+      },
       "horizon": "1-3w",
       "confidence": 3,
-      "tags": ["volatility", "breakout"],
+      "tags": [
+        "volatility",
+        "breakout"
+      ],
       "notes": "Prefer entries on pullback; size small pre-event.",
       "attachments": [
-        { "label": "Chart", "url": "https://example.com/chart" }
+        {
+          "label": "Chart",
+          "url": "https://example.com/chart"
+        }
       ]
+    }
+  ],
+  "openPositions": [
+    {
+      "label": "ETH.USD-PAXOS",
+      "side": "Long",
+      "instrument": "Stocks"
     }
   ]
 }
