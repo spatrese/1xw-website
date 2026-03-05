@@ -19,8 +19,10 @@
   --hairline:#1a2232;
   --accent:#7c9cff;
 
+  --good:#34d399;
+  --bad:#fb7185;
+
   --radius-lg:22px;
-  --radius-md:14px;
   --max:1120px;
   --px:clamp(16px,4vw,60px);
 }
@@ -55,9 +57,7 @@ a{color:inherit;text-decoration:none;}
   font-weight:900;letter-spacing:-.8px;text-transform:uppercase;
   color:var(--accent);line-height:1;
 }
-.nav-links{
-  display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;
-}
+.nav-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
 .nav-links a{
   font-size:.9rem;font-weight:800;color:var(--accent);
   padding:10px 12px;border-radius:999px;
@@ -115,11 +115,7 @@ main{padding:12px 0 60px;}
 .p{color:var(--muted);}
 .hr{border:none;border-top:1px solid var(--hairline);margin:16px 0;}
 
-.grid-3{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
 .card{
   background:rgba(17,24,39,.70);
   border:1px solid var(--hairline);
@@ -127,18 +123,10 @@ main{padding:12px 0 60px;}
   padding:18px;
 }
 .big{
-  font-size:1.6rem;
+  font-size:1.55rem;
   font-weight:900;
   letter-spacing:-.6px;
   margin:2px 0 6px;
-}
-.badge{
-  display:inline-flex;align-items:center;
-  padding:6px 10px;border-radius:999px;
-  border:1px solid rgba(124,156,255,.22);
-  background:rgba(124,156,255,.08);
-  font-weight:900;font-size:.78rem;
-  color:rgba(229,231,235,.92);
 }
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
 .pill{
@@ -149,6 +137,17 @@ main{padding:12px 0 60px;}
   color:rgba(229,231,235,.92);
   font-weight:800;font-size:.82rem;
 }
+.side{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:.78rem;
+  border:1px solid rgba(255,255,255,.12);
+}
+.side.long{background:rgba(52,211,153,.10);border-color:rgba(52,211,153,.25);color:#bbf7d0;}
+.side.short{background:rgba(251,113,133,.10);border-color:rgba(251,113,133,.25);color:#fecdd3;}
 .mini{margin-top:10px;color:var(--muted2);font-size:.85rem;}
 
 .chartWrap{
@@ -182,6 +181,14 @@ main{padding:12px 0 60px;}
   background:rgba(124,156,255,.06);
 }
 .table tr:last-child td{border-bottom:none;}
+.badge{
+  display:inline-flex;align-items:center;
+  padding:6px 10px;border-radius:999px;
+  border:1px solid rgba(124,156,255,.22);
+  background:rgba(124,156,255,.08);
+  font-weight:900;font-size:.78rem;
+  color:rgba(229,231,235,.92);
+}
 
 @media (max-width:980px){
   .grid-3{grid-template-columns:1fr;}
@@ -233,7 +240,7 @@ footer{
   <div class="notice" id="noticeBox"></div>
   <div class="error" id="errorBox"></div>
 
-  <!-- TOP 3 BOXES (REINTRODUCED) -->
+  <!-- TOP 3 BOXES -->
   <section class="section" id="snapshot">
     <div class="panel">
       <div class="kicker">Snapshot</div>
@@ -376,6 +383,7 @@ footer{
     noticeBox.style.display = "none";
     errorBox.style.display = "none";
   }
+
   function cacheBust(url){
     const sep = url.includes("?") ? "&" : "?";
     return url + sep + "v=" + Date.now();
@@ -385,79 +393,147 @@ footer{
     if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
     return await res.json();
   }
+
   function safeText(x){ return (x === null || x === undefined) ? "" : String(x); }
-  function isNum(x){ return typeof x === "number" && !Number.isNaN(x); }
   function parseNum(x){
     const n = Number(x);
     return Number.isNaN(n) ? null : n;
   }
+  function isNum(x){ return typeof x === "number" && !Number.isNaN(x); }
+
   function fmtMoney(x){
     if (!isNum(x)) return "—";
     try{
-      return x.toLocaleString(undefined, { maximumFractionDigits: 0 });
+      return "$" + x.toLocaleString(undefined, { maximumFractionDigits: 0 });
     }catch{
-      return String(Math.round(x));
+      return "$" + String(Math.round(x));
     }
   }
-  function fmtPctFromDecimal(x){
-    // x is decimal (0.12 => 12%)
-    if (!isNum(x)) return "—";
-    return `${(x*100).toFixed(2)}%`;
-  }
-  function fmtPctFromAny(x){
-    // accept either decimal or already percent-ish; best effort
-    const n = parseNum(x);
-    if (n === null) return "—";
-    // heuristic: if abs(n) <= 2, assume decimal; else assume percent
-    if (Math.abs(n) <= 2) return `${(n*100).toFixed(2)}%`;
-    return `${n.toFixed(2)}%`;
+  function fmtPct(xDec){
+    // xDec is decimal (0.05 -> 5%)
+    if (!isNum(xDec)) return "—";
+    const s = (xDec >= 0 ? "+" : "") + (xDec * 100).toFixed(2) + "%";
+    return s;
   }
 
   function getNavSeries(perf){
-    // Accept multiple shapes
     const nav = perf && (perf.nav || perf.NAV || perf.performance || {});
     const labels = nav.labels || nav.dates || [];
     const values = nav.values || nav.nav || nav.series || [];
     return { labels, values };
   }
-
-  function computeYtd(labels, values){
-    // labels expected ISO-like dates; best effort
-    if (!Array.isArray(labels) || !Array.isArray(values) || labels.length !== values.length || labels.length < 2) return null;
-
-    const lastIdx = labels.length - 1;
-    const last = parseNum(values[lastIdx]);
-    if (last === null) return null;
-
-    const year = (safeText(labels[lastIdx]).slice(0,4));
-    if (!/^\d{4}$/.test(year)) return null;
-
-    // find first index in same year
-    let firstIdx = -1;
-    for (let i=0;i<labels.length;i++){
-      const y = safeText(labels[i]).slice(0,4);
-      if (y === year){
-        firstIdx = i;
-        break;
-      }
-    }
-    if (firstIdx === -1) return null;
-
-    const first = parseNum(values[firstIdx]);
-    if (first === null || first === 0) return null;
-
-    return (last / first) - 1.0; // decimal
-  }
-
   function getPlbSeries(perf){
     const plb = perf && (perf.plb || perf.PLB || {});
     const labels = plb.labels || plb.dates || [];
     const init = plb.init || plb.initial || [];
-    const plbLine = plb.plb || [];
-    const perfLine = plb.perf || plb.performance || [];
-    return { labels, init, plbLine, perfLine };
+    const plbLine = plb.plb || [];               // expected decimals
+    const perfLine = plb.perf || plb.performance || []; // expected decimals
+    // Some exporters may include floor in dollars directly:
+    const plbUsd = plb.plb_usd || plb.floor_usd || plb.floor || plb.plbValue || plb.plb_values || null;
+    return { labels, init, plbLine, perfLine, plbUsd };
   }
 
+  function computeYtd(labels, values){
+    if (!Array.isArray(labels) || !Array.isArray(values) || labels.length !== values.length || labels.length < 2) return null;
+    const lastIdx = labels.length - 1;
+    const last = parseNum(values[lastIdx]);
+    if (last === null) return null;
+
+    const year = safeText(labels[lastIdx]).slice(0,4);
+    if (!/^\d{4}$/.test(year)) return null;
+
+    let firstIdx = -1;
+    for (let i=0;i<labels.length;i++){
+      if (safeText(labels[i]).slice(0,4) === year){ firstIdx = i; break; }
+    }
+    if (firstIdx === -1) return null;
+    const first = parseNum(values[firstIdx]);
+    if (first === null || first === 0) return null;
+    return (last / first) - 1.0;
+  }
+
+  // --- Open positions rendering (with long/short badge if available)
+  function detectSide(p){
+    const cand = [
+      p.side, p.Side, p.direction, p.Direction, p.long_short, p.longShort,
+      p.position_side, p.positionSide, p.ls, p.LS, p.qty, p.quantity, p.position
+    ];
+    // explicit strings first
+    for (const v of cand){
+      if (typeof v === "string"){
+        const s = v.trim().toLowerCase();
+        if (s === "long" || s === "l" || s === "buy") return "LONG";
+        if (s === "short" || s === "s" || s === "sell") return "SHORT";
+      }
+    }
+    // numeric qty heuristic
+    const q = parseNum(p.qty ?? p.quantity ?? p.position ?? null);
+    if (q !== null){
+      if (q > 0) return "LONG";
+      if (q < 0) return "SHORT";
+    }
+    return ""; // unknown
+  }
+
+  function detectUnderlying(p){
+    return safeText(
+      p.underlying ?? p.Underlying ?? p.symbol ?? p.Symbol ?? p.instrument ?? p.Instrument ?? p.ticker ?? p.Ticker ?? p.name ?? p.Name ?? ""
+    ).trim();
+  }
+
+  function renderOpenPositions(screener){
+    const list =
+      (screener && Array.isArray(screener.openPositions) && screener.openPositions) ||
+      (screener && Array.isArray(screener.open_positions) && screener.open_positions) ||
+      [];
+
+    posPills.innerHTML = "";
+    posCount.textContent = String(list.length);
+    posMeta.textContent = list.length ? "Symbols shown below." : "No open positions.";
+
+    if (!list.length) return;
+
+    // Normalize and render
+    const norm = list.map(x => {
+      if (typeof x === "string") return { underlying: x };
+      return x || {};
+    });
+
+    norm.slice(0, 18).forEach(p => {
+      const und = detectUnderlying(p) || "—";
+      const side = detectSide(p); // LONG/SHORT/""
+
+      const pill = document.createElement("div");
+      pill.className = "pill";
+      pill.style.display = "inline-flex";
+      pill.style.alignItems = "center";
+      pill.style.gap = "8px";
+
+      const left = document.createElement("span");
+      left.style.fontWeight = "900";
+      left.textContent = und;
+
+      pill.appendChild(left);
+
+      if (side){
+        const b = document.createElement("span");
+        b.className = "side " + (side === "LONG" ? "long" : "short");
+        b.textContent = side;
+        pill.appendChild(b);
+      }
+
+      posPills.appendChild(pill);
+    });
+
+    if (list.length > 18){
+      const more = document.createElement("div");
+      more.className = "mini";
+      more.textContent = `+${list.length - 18} more`;
+      posPills.appendChild(more);
+    }
+  }
+
+  // --- Charts
   function renderNavChart(labels, values){
     if (navChart){ navChart.destroy(); navChart = null; }
 
@@ -569,89 +645,135 @@ footer{
     });
   }
 
-  function renderOpenPositions(screener){
-    const list =
-      (screener && Array.isArray(screener.openPositions) && screener.openPositions) ||
-      (screener && Array.isArray(screener.open_positions) && screener.open_positions) ||
-      [];
-
-    posPills.innerHTML = "";
-
-    const n = list.length;
-    posCount.textContent = String(n);
-    posMeta.textContent = n ? "Symbols shown below." : "No open positions.";
-
-    if (!n) return;
-
-    list.slice(0, 18).forEach(p => {
-      const sym = safeText(p.symbol || p.instrument || p.ticker || p.name || "—");
-      const pill = document.createElement("div");
-      pill.className = "pill";
-      pill.textContent = sym;
-      posPills.appendChild(pill);
-    });
-
-    if (n > 18){
-      const more = document.createElement("div");
-      more.className = "mini";
-      more.textContent = `+${n - 18} more`;
-      posPills.appendChild(more);
-    }
-  }
-
+  // --- Top boxes: NAV $, PLB $ and GAP = PLB/NAV - 1
   function renderTopBoxes(perf){
-    // NAV + YTD
-    const { labels, values } = getNavSeries(perf);
+    const ns = getNavSeries(perf);
+    const labels = ns.labels;
+    const values = ns.values;
 
+    // NAV (last)
+    let navLast = null;
+    let nav0 = null;
     if (Array.isArray(values) && values.length){
-      const last = parseNum(values[values.length - 1]);
-      navValue.textContent = last === null ? "—" : fmtMoney(last);
-      navMetaTop.textContent = (labels && labels.length) ? `As of ${safeText(labels[labels.length - 1])}` : "—";
-    } else {
-      navValue.textContent = "—";
-      navMetaTop.textContent = "NAV series not available.";
+      navLast = parseNum(values[values.length - 1]);
+      nav0 = parseNum(values[0]);
+    }
+    navValue.textContent = navLast === null ? "—" : fmtMoney(navLast);
+    navMetaTop.textContent = (Array.isArray(labels) && labels.length) ? `As of ${safeText(labels[labels.length - 1])}` : "—";
+
+    // YTD
+    const ytd = computeYtd(labels, values);
+    perfYtd.textContent = `Performance YTD: ${ytd === null ? "—" : fmtPct(ytd)}`;
+
+    // PLB $ (prefer direct series, else convert from PLB% using nav0)
+    const ps = getPlbSeries(perf);
+
+    // Try direct floor $ series first (best)
+    let plbUsdLast = null;
+    if (ps.plbUsd && Array.isArray(ps.plbUsd) && ps.plbUsd.length){
+      plbUsdLast = parseNum(ps.plbUsd[ps.plbUsd.length - 1]);
     }
 
-    const ytd = computeYtd(labels, values);
-    perfYtd.textContent = `Performance YTD: ${ytd === null ? "—" : fmtPctFromDecimal(ytd)}`;
-
-    // NAV vs PLB + Gap
-    const ps = getPlbSeries(perf);
-    const plbLine = ps.plbLine || [];
-    const perfLine = ps.perfLine || [];
-
-    if (Array.isArray(plbLine) && Array.isArray(perfLine) && plbLine.length && perfLine.length){
-      const plbLast = parseNum(plbLine[plbLine.length - 1]);   // decimals
-      const perfLast = parseNum(perfLine[perfLine.length - 1]); // decimals
-      if (plbLast !== null && perfLast !== null){
-        navVsPlb.textContent = `${fmtPctFromDecimal(perfLast)} vs ${fmtPctFromDecimal(plbLast)}`;
-        const gap = perfLast - plbLast; // decimal points
-        gapToPlb.textContent = `Gap to PLB: ${fmtPctFromDecimal(gap)}`;
-        plbMetaTop.textContent = "PERF% vs PLB% (gap in percentage points).";
-      } else {
-        navVsPlb.textContent = "—";
-        gapToPlb.textContent = "Gap to PLB: —";
-        plbMetaTop.textContent = "PLB series not available.";
+    // Else: infer from PLB% if present: PLB$ = NAV0 * (1 + PLB%)
+    if (plbUsdLast === null){
+      const plbPctArr = ps.plbLine;
+      if (Array.isArray(plbPctArr) && plbPctArr.length && nav0 !== null){
+        const plbPctLast = parseNum(plbPctArr[plbPctArr.length - 1]); // decimal, e.g. 0.08
+        if (plbPctLast !== null){
+          plbUsdLast = nav0 * (1.0 + plbPctLast);
+        }
       }
+    }
+
+    // Display NAV vs PLB in $
+    if (navLast !== null && plbUsdLast !== null){
+      navVsPlb.textContent = `${fmtMoney(navLast)} vs ${fmtMoney(plbUsdLast)}`;
+      const gap = (plbUsdLast / navLast) - 1.0; // requested
+      gapToPlb.textContent = `Gap to PLB: ${fmtPct(gap)}`;
+      plbMetaTop.textContent = "Amounts in USD. Gap = PLB/NAV − 1.";
     } else {
       navVsPlb.textContent = "—";
       gapToPlb.textContent = "Gap to PLB: —";
-      plbMetaTop.textContent = "PLB series not available.";
+      plbMetaTop.textContent = "PLB amount not available (missing NAV0 or PLB series).";
     }
   }
 
-  function pickTradeDate(t){
-    // robust date mapping
-    return (
-      t.date ||
-      t.trade_date ||
-      t.open_date ||
-      t.entry_date ||
-      t.start ||
-      t.openDate ||
-      t.entryDate ||
-      ""
+  // --- Robust trade date extraction
+  function isLikelyDateString(s){
+    return typeof s === "string" && (
+      /^\d{4}-\d{2}-\d{2}/.test(s) ||                 // 2026-03-05
+      /^\d{4}\/\d{2}\/\d{2}/.test(s) ||                // 2026/03/05
+      /^\d{2}\/\d{2}\/\d{4}/.test(s) ||                // 05/03/2026
+      /^\d{2}-\d{2}-\d{4}/.test(s)                     // 05-03-2026
     );
+  }
+
+  function excelSerialToISO(n){
+    // Excel serial date (days since 1899-12-30)
+    // best effort only
+    const ms = Math.round((n - 25569) * 86400 * 1000);
+    const d = new Date(ms);
+    if (Number.isNaN(d.getTime())) return "";
+    const yyyy = d.getUTCFullYear();
+    const mm = String(d.getUTCMonth()+1).padStart(2,"0");
+    const dd = String(d.getUTCDate()).padStart(2,"0");
+    return `${yyyy}-${mm}-${dd}`;
+  }
+
+  function epochToISO(n){
+    // handle seconds or ms
+    let ms = n;
+    if (n < 1e11) ms = n * 1000; // seconds -> ms
+    const d = new Date(ms);
+    if (Number.isNaN(d.getTime())) return "";
+    const yyyy = d.getUTCFullYear();
+    const mm = String(d.getUTCMonth()+1).padStart(2,"0");
+    const dd = String(d.getUTCDate()).padStart(2,"0");
+    return `${yyyy}-${mm}-${dd}`;
+  }
+
+  function pickAnyDateField(obj){
+    if (!obj || typeof obj !== "object") return "";
+
+    // preferred keys first
+    const preferred = [
+      "date","trade_date","tradeDate","open_date","openDate",
+      "entry_date","entryDate","start","start_date","startDate",
+      "timestamp","time","datetime","dt"
+    ];
+    for (const k of preferred){
+      if (obj[k] !== undefined && obj[k] !== null && String(obj[k]).trim() !== ""){
+        return obj[k];
+      }
+    }
+
+    // fallback: any key containing "date"
+    for (const k of Object.keys(obj)){
+      if (/date/i.test(k) && obj[k] !== undefined && obj[k] !== null && String(obj[k]).trim() !== ""){
+        return obj[k];
+      }
+    }
+
+    return "";
+  }
+
+  function normalizeDate(val){
+    if (val === null || val === undefined) return "";
+    if (typeof val === "string"){
+      const s = val.trim();
+      if (!s) return "";
+      if (isLikelyDateString(s)) return s.slice(0,10);
+      // Sometimes excel outputs like "2026-03-05 00:00:00"
+      if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0,10);
+      return s; // last resort
+    }
+    if (typeof val === "number"){
+      // excel serial usually ~45000; epoch seconds ~1.7e9; epoch ms ~1.7e12
+      if (val > 20000 && val < 80000) return excelSerialToISO(val);
+      if (val > 1e9) return epochToISO(val);
+      return String(val);
+    }
+    return safeText(val);
   }
 
   function renderTrades(screener){
@@ -668,10 +790,14 @@ footer{
 
     tradesBody.innerHTML = "";
     list.slice(0, 60).forEach(t => {
-      const dt = safeText(pickTradeDate(t) || "—");
-      const inst = safeText(t.instrument || t.symbol || t.underlying || t.name || "—");
-      const structure = safeText(t.structure || t.strategy || t.type || "—");
-      const status = safeText(t.status || t.state || "—");
+      const rawDate = pickAnyDateField(t);
+      const dt = normalizeDate(rawDate) || "—";
+
+      const inst = safeText(
+        t.instrument ?? t.symbol ?? t.underlying ?? t.name ?? t.ticker ?? "—"
+      );
+      const structure = safeText(t.structure ?? t.strategy ?? t.type ?? "—");
+      const status = safeText(t.status ?? t.state ?? "—");
 
       const tr = document.createElement("tr");
       tr.innerHTML = `
@@ -683,7 +809,9 @@ footer{
       tradesBody.appendChild(tr);
     });
 
-    tradesMeta.textContent = `Loaded model trades: ${list.length}. Showing up to 60.`;
+    // quick diagnostics in meta if dates missing
+    const sample = list[0] && typeof list[0] === "object" ? Object.keys(list[0]).slice(0,12).join(", ") : "";
+    tradesMeta.textContent = `Loaded model trades: ${list.length}. Showing up to 60. ${sample ? "Sample keys: " + sample : ""}`;
   }
 
   (async () => {
@@ -696,16 +824,11 @@ footer{
       if (!perf) showNotice("Performance data not available yet.");
       if (!screener) showNotice((noticeBox.style.display === "block" ? noticeBox.textContent + " " : "") + "Screener data not available yet.");
 
-      // header meta
       const asof = perf ? safeText(perf.asof || perf.date || "") : "";
       asofLine.textContent = asof ? `Updated ${asof}` : "";
 
-      // top boxes
       if (screener) renderOpenPositions(screener);
-      else {
-        posCount.textContent = "—";
-        posMeta.textContent = "—";
-      }
+      else { posCount.textContent = "—"; posMeta.textContent = "—"; }
 
       if (perf) renderTopBoxes(perf);
       else {
@@ -717,7 +840,6 @@ footer{
         plbMetaTop.textContent = "—";
       }
 
-      // charts
       if (perf){
         const ns = getNavSeries(perf);
         renderNavChart(ns.labels, ns.values);
@@ -729,7 +851,6 @@ footer{
         plbMeta.textContent = "—";
       }
 
-      // trades table
       if (screener) renderTrades(screener);
       else {
         tradesBody.innerHTML = `<tr><td colspan="4">—</td></tr>`;
