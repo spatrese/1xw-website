@@ -22,7 +22,7 @@
   --radius-lg:22px;
   --max:1120px;
   --px:clamp(18px,5vw,64px);
-  --py:clamp(34px,6vw,80px);
+  --py:clamp(40px,6vw,80px);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -46,37 +46,14 @@ a{color:inherit;text-decoration:none;}
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--hairline);
 }
-.nav-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:16px 0;
-  gap:16px;
-}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px;}
 .logo{font-weight:900;letter-spacing:-.8px;text-transform:uppercase;color:var(--accent);}
-.nav-links{
-  display:flex;gap:8px;align-items:center;
-  flex-wrap:wrap;justify-content:flex-end;
-}
+.nav-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
 .nav-links a{
   font-size:.9rem;font-weight:600;color:var(--accent);
   padding:10px 12px;border-radius:999px;
 }
 .nav-links a:hover{color:var(--text);background:rgba(124,156,255,.10);}
-
-.nav-toggle{
-  display:none;
-  align-items:center;
-  justify-content:center;
-  width:44px;height:44px;
-  border-radius:999px;
-  border:1px solid rgba(124,156,255,.25);
-  background:rgba(124,156,255,.08);
-  color:rgba(229,231,235,.9);
-  font-weight:900;
-  cursor:pointer;
-}
-.nav-toggle:hover{border-color:rgba(124,156,255,.45); background:rgba(124,156,255,.12);}
 
 .btn{
   padding:10px 14px;
@@ -147,19 +124,7 @@ h1{font-size:1.65rem;letter-spacing:-.6px;}
 .section{margin-top:16px;}
 .section .panel{padding:26px;}
 
-.table-wrap{
-  overflow:auto;
-  border-radius:16px;
-  border:1px solid rgba(124,156,255,.12);
-  background:rgba(15,23,42,.18);
-  margin-top:10px;
-}
-.table{
-  width:100%;
-  min-width:640px;
-  border-collapse:collapse;
-  font-size:.92rem;
-}
+.table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.92rem;}
 .table th, .table td{
   padding:12px 10px;
   border-bottom:1px solid rgba(124,156,255,.10);
@@ -169,7 +134,7 @@ h1{font-size:1.65rem;letter-spacing:-.6px;}
 }
 .table th{color:var(--muted2);font-weight:700;}
 
-.mini{font-size:.85rem;color:var(--muted2);margin-top:10px;}
+.mini{font-size:.85rem;color:var(--muted2);margin-top:8px;}
 
 .notice{
   display:none;
@@ -272,22 +237,6 @@ canvas{max-width:100%;}
 .post .date{color:var(--muted2);font-size:.86rem;margin-bottom:10px;}
 .post ul{margin-left:18px;color:var(--text);opacity:.92;}
 .post li{margin:6px 0;}
-.post p{margin-top:10px;color:rgba(229,231,235,.92);}
-
-.attachments{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;}
-.linkpill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:9px 12px;
-  border-radius:999px;
-  border:1px solid rgba(124,156,255,.25);
-  background:rgba(124,156,255,.08);
-  color:rgba(229,231,235,.95);
-  font-weight:800;
-  font-size:.86rem;
-}
-.linkpill:hover{border-color:rgba(124,156,255,.45); background:rgba(124,156,255,.12);}
 
 /* MODAL */
 .modal{
@@ -358,19 +307,6 @@ canvas{max-width:100%;}
   .chartWrap{height: 320px;}
 }
 
-/* Mobile nav */
-@media (max-width: 860px){
-  .nav-toggle{display:inline-flex;}
-  .nav-inner{flex-wrap:wrap;}
-  .nav-links{display:none; width:100%; flex-direction:column; align-items:stretch; gap:6px; padding:8px 0 14px;}
-  .nav.open .nav-links{display:flex;}
-}
-
-@media (max-width: 520px){
-  .chartWrap{height:260px;}
-  .modal-card{padding:14px;}
-}
-
 footer{
   padding:22px 0 30px;
   text-align:center;
@@ -381,12 +317,9 @@ footer{
 </head>
 
 <body>
-  <div class="nav" id="nav">
+  <div class="nav">
     <div class="container nav-inner">
       <a class="logo" href="index.html">1XW TRADING</a>
-
-      <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu">☰</button>
-
       <div class="nav-links">
         <a href="app.html">Dashboard</a>
         <a href="#performance">Performance</a>
@@ -405,12 +338,12 @@ footer{
         <div class="badge">Member Area</div>
         <h1>Dashboard</h1>
         <div class="sub">
-          Performance, Trade Ideas and Market Commentary — all updated directly from the engine outputs.
+          Trade Ideas, Market Commentary, and portfolio monitoring in one place.
         </div>
       </div>
 
       <div class="actions">
-        <button class="btn ghost" id="reloadAllBtn" type="button">Reload Data</button>
+        <button class="btn ghost" id="refreshBtn" type="button">Refresh</button>
       </div>
     </div>
 
@@ -427,7 +360,7 @@ footer{
       </div>
 
       <div class="panel">
-        <div class="kicker">Performance YTD</div>
+        <div class="kicker">Performance</div>
         <div class="big" id="ytdValue">—</div>
         <div class="p" id="ytdDesc">—</div>
       </div>
@@ -443,9 +376,9 @@ footer{
     <div class="section" id="performance">
       <div class="panel">
         <div class="kicker">Performance</div>
-        <div class="p">NAV curve (engine output).</div>
+        <div class="p">NAV curve (from <b>content/site_performance.json</b>).</div>
         <div class="chartWrap"><canvas id="navChart"></canvas></div>
-        <div class="mini" id="navMeta">Loading…</div>
+        <div class="mini" id="navMeta">Loading NAV…</div>
       </div>
     </div>
 
@@ -453,9 +386,9 @@ footer{
     <div class="section" id="plb_chart">
       <div class="panel">
         <div class="kicker">PLB Chart</div>
-        <div class="p">Initial PLB %, PLB %, PERF % (engine output).</div>
+        <div class="p">Initial PLB %, PLB %, PERF % (from <b>content/site_performance.json</b>).</div>
         <div class="chartWrap"><canvas id="plbChart"></canvas></div>
-        <div class="mini" id="plbMeta">Loading…</div>
+        <div class="mini" id="plbMeta">Loading PLB…</div>
       </div>
     </div>
 
@@ -463,25 +396,23 @@ footer{
     <div class="section" id="trades">
       <div class="panel">
         <div class="kicker">Model Trades</div>
-        <div class="p">Trades generated by the engine.</div>
+        <div class="p">Extracted from blotter (in <b>content/site_screener.json</b>).</div>
 
-        <div class="table-wrap">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Instrument</th>
-                <th>Structure</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody id="tradesBody">
-              <tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Instrument</th>
+              <th>Structure</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="tradesBody">
+            <tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
 
-        <div class="mini" id="dataMeta">Loading…</div>
+        <div class="mini" id="dataMeta">Loading model trades…</div>
       </div>
     </div>
 
@@ -489,23 +420,23 @@ footer{
     <div class="section" id="trade_ideas">
       <div class="panel">
         <div class="kicker">Trade Ideas</div>
-        <div class="p">Generated by the engine (<b>site_screener.json</b>).</div>
+        <div class="p">Loaded from <b>content/site_screener.json</b>.</div>
 
         <div class="toolbar">
-          <input class="input" id="tradeSearch" placeholder="Search trade ideas…" />
+          <input class="input" id="tradeSearch" placeholder="Search ideas…" />
           <select class="select" id="tradeStatus">
             <option value="all">All</option>
             <option value="Open">Open</option>
             <option value="Closed">Closed</option>
           </select>
           <select class="select" id="tradeAsset">
-            <option value="all">All assets</option>
+            <option value="all">All tags</option>
           </select>
-          <button class="btn ghost" id="reloadContentBtn" type="button">Reload Ideas</button>
+          <button class="btn ghost" id="reloadContentBtn" type="button">Reload</button>
         </div>
 
         <div class="cards" id="tradeCards"></div>
-        <div class="mini" id="tradeMeta">Loading…</div>
+        <div class="mini" id="tradeMeta">Loading trade ideas…</div>
       </div>
     </div>
 
@@ -513,10 +444,10 @@ footer{
     <div class="section" id="comments">
       <div class="panel">
         <div class="kicker">Market Commentary</div>
-        <div class="p">Generated by the engine (<b>site_commentary.json</b>).</div>
+        <div class="p">Loaded from <b>content/site_commentary.json</b>.</div>
 
         <div class="feed" id="commentFeed"></div>
-        <div class="mini" id="commentMeta">Loading…</div>
+        <div class="mini" id="commentMeta">Loading commentary…</div>
       </div>
     </div>
 
@@ -551,7 +482,6 @@ footer{
         <div class="box">
           <h4>Notes</h4>
           <div id="mNotes"></div>
-          <div class="attachments" id="mAtt"></div>
         </div>
       </div>
     </div>
@@ -561,518 +491,501 @@ footer{
 
 <script>
 (() => {
-  // ====== CONFIG ======
   const TOKEN_KEY = "1xw_auth";
 
-  const PERF_URL = "content/site_performance.json";
+  // Data sources (NEW)
   const SCREENER_URL = "content/site_screener.json";
   const COMMENTARY_URL = "content/site_commentary.json";
+  const PERFORMANCE_URL = "content/site_performance.json";
 
-  // ====== AUTH GATE ======
+  // Auth gate
   if (localStorage.getItem(TOKEN_KEY) !== "ok") {
     window.location.href = "login.html";
     return;
   }
-
-  // ====== DOM ======
-  const $ = (id) => document.getElementById(id);
-
-  const noticeBox = $("noticeBox");
-  const errorBox = $("errorBox");
-
-  const openPosValue = $("openPosValue");
-  const openPosDesc = $("openPosDesc");
-  const openPosPills = $("openPosPills");
-
-  const ytdValue = $("ytdValue");
-  const ytdDesc  = $("ytdDesc");
-
-  const navPlbValue = $("navPlbValue");
-  const navPlbDesc  = $("navPlbDesc");
-
-  const navMeta = $("navMeta");
-  const plbMeta = $("plbMeta");
-  const dataMeta = $("dataMeta");
-
-  const tradesBody = $("tradesBody");
-
-  const tradeSearch = $("tradeSearch");
-  const tradeStatus = $("tradeStatus");
-  const tradeAsset  = $("tradeAsset");
-  const tradeCards  = $("tradeCards");
-  const tradeMeta   = $("tradeMeta");
-
-  const commentFeed = $("commentFeed");
-  const commentMeta = $("commentMeta");
-
-  // Modal
-  const tradeModal = $("tradeModal");
-  const mClose = $("mClose");
-  const mTitle = $("mTitle");
-  const mMeta = $("mMeta");
-  const mThesis = $("mThesis");
-  const mStructure = $("mStructure");
-  const mKV = $("mKV");
-  const mNotes = $("mNotes");
-  const mAtt = $("mAtt");
-
-  // Charts
-  let navChart = null;
-  let plbChart = null;
-
-  // ====== HELPERS ======
-  function showNotice(msg){
-    if (!noticeBox) return;
-    noticeBox.style.display = "block";
-    noticeBox.textContent = msg;
-  }
-  function hideNotice(){ if (noticeBox) noticeBox.style.display = "none"; }
-  function showError(msg){
-    if (!errorBox) return;
-    errorBox.style.display = "block";
-    errorBox.textContent = msg;
-  }
-  function hideError(){ if (errorBox) errorBox.style.display = "none"; }
-
-  function cacheBust(url){
-    const sep = url.includes("?") ? "&" : "?";
-    return url + sep + "v=" + Date.now();
-  }
-
-  async function loadJson(url){
-    const res = await fetch(cacheBust(url), { cache:"no-store" });
-    if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
-    return await res.json();
-  }
-
-  function fmtPct(x){
-    if (x === null || x === undefined || Number.isNaN(Number(x))) return "—";
-    const v = Number(x) * 100;
-    const sign = v > 0 ? "+" : "";
-    return `${sign}${v.toFixed(2)}%`;
-  }
-  function fmtMoney(x){
-    if (x === null || x === undefined || Number.isNaN(Number(x))) return "—";
-    return new Intl.NumberFormat("en-US", { maximumFractionDigits:0 }).format(Number(x));
-  }
-  function safeStr(x){ return (x === null || x === undefined) ? "" : String(x); }
-
-  // ====== NAV / PLB / KPI ======
-  function setTopBoxes(kpis, openPositions){
-    // Open positions
-    const ops = Array.isArray(openPositions) ? openPositions : [];
-    openPosValue.textContent = ops.length ? String(ops.length) : "0";
-    openPosDesc.textContent = ops.length ? "Live positions from engine." : "No open positions.";
-
-    openPosPills.innerHTML = "";
-    ops.slice(0, 12).forEach(op => {
-      const label = safeStr(op.label || op.instrument || op.symbol || "—");
-      const side  = safeStr(op.side || op.direction || "").trim();
-      const isShort = side.toLowerCase().includes("short");
-
-      const pill = document.createElement("div");
-      pill.className = `pill ${isShort ? "short" : "long"}`;
-      pill.innerHTML = `<b>${label}</b><span class="side">${side || (isShort ? "Short" : "Long")}</span>`;
-      openPosPills.appendChild(pill);
-    });
-
-    // YTD
-    ytdValue.textContent = fmtPct(kpis?.perfYTD);
-    ytdDesc.textContent  = `ITD: ${fmtPct(kpis?.perfITD)} • AUM: ${fmtMoney(kpis?.aum)}`;
-
-    // NAV vs PLB
-    const nav = kpis?.navLevel;
-    const plb = kpis?.plbLevel;
-    if (nav !== undefined && plb !== undefined && nav !== null && plb !== null){
-      const diff = Number(nav) - Number(plb);
-      const sign = diff > 0 ? "+" : "";
-      navPlbValue.textContent = `${fmtMoney(nav)} vs ${fmtMoney(plb)}`;
-      navPlbDesc.textContent  = `Delta: ${sign}${fmtMoney(diff)}`;
-    } else {
-      navPlbValue.textContent = "—";
-      navPlbDesc.textContent  = "Waiting for engine performance output…";
-    }
-  }
-
-  function renderNAVChart(labels, values){
-    const ctx = document.getElementById("navChart");
-    if (!ctx) return;
-
-    if (navChart) navChart.destroy();
-
-    navChart = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: labels || [],
-        datasets: [{
-          label: "NAV",
-          data: values || [],
-          tension: 0.25,
-          pointRadius: 0
-        }]
-      },
-      options: {
-        responsive:true,
-        maintainAspectRatio:false,
-        plugins:{
-          legend:{ display:false },
-          tooltip:{ mode:"index", intersect:false }
-        },
-        scales:{
-          x:{ ticks:{ color:"#9ca3af" }, grid:{ color:"rgba(124,156,255,.08)" } },
-          y:{ ticks:{ color:"#9ca3af" }, grid:{ color:"rgba(124,156,255,.08)" } }
-        }
-      }
-    });
-  }
-
-  function renderPLBChart(labels, initSeries, plbSeries, perfSeries){
-    const ctx = document.getElementById("plbChart");
-    if (!ctx) return;
-
-    if (plbChart) plbChart.destroy();
-
-    plbChart = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: labels || [],
-        datasets: [
-          { label:"Init", data: initSeries || [], tension:0.25, pointRadius:0 },
-          { label:"PLB",  data: plbSeries  || [], tension:0.25, pointRadius:0 },
-          { label:"Perf", data: perfSeries || [], tension:0.25, pointRadius:0 }
-        ]
-      },
-      options: {
-        responsive:true,
-        maintainAspectRatio:false,
-        plugins:{
-          legend:{ display:true, labels:{ color:"#9ca3af" } },
-          tooltip:{ mode:"index", intersect:false }
-        },
-        scales:{
-          x:{ ticks:{ color:"#9ca3af" }, grid:{ color:"rgba(124,156,255,.08)" } },
-          y:{ ticks:{ color:"#9ca3af" }, grid:{ color:"rgba(124,156,255,.08)" } }
-        }
-      }
-    });
-  }
-
-  // ====== MODEL TRADES ======
-  function renderModelTrades(rows){
-    const trades = Array.isArray(rows) ? rows : [];
-    tradesBody.innerHTML = "";
-
-    if (!trades.length){
-      tradesBody.innerHTML = `<tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>`;
-      return;
-    }
-
-    trades.slice(0, 500).forEach(t => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${safeStr(t.date || t.dt || "")}</td>
-        <td>${safeStr(t.instrument || t.symbol || t.asset || "")}</td>
-        <td>${safeStr(t.structure || t.strategy || "")}</td>
-        <td>${safeStr(t.status || "")}</td>
-      `;
-      tradesBody.appendChild(tr);
-    });
-  }
-
-  // ====== TRADE IDEAS ======
-  let tradeIdeasAll = [];
-
-  function unique(arr){
-    return Array.from(new Set(arr.filter(Boolean)));
-  }
-
-  function rebuildAssetFilter(){
-    const assets = unique(tradeIdeasAll.map(x => safeStr(x.asset || x.underlying || x.instrument || "").trim()));
-    tradeAsset.innerHTML = `<option value="all">All assets</option>` + assets
-      .sort((a,b)=>a.localeCompare(b))
-      .map(a => `<option value="${a}">${a}</option>`).join("");
-  }
-
-  function ideaStatus(x){
-    const s = safeStr(x.status || "").trim();
-    if (s) return s;
-    // fallback: if explicitly "closed" flag
-    if (x.closed === true) return "Closed";
-    return "Open";
-  }
-
-  function renderTradeIdeas(){
-    const q = safeStr(tradeSearch.value).toLowerCase().trim();
-    const st = safeStr(tradeStatus.value);
-    const as = safeStr(tradeAsset.value);
-
-    const filtered = tradeIdeasAll.filter(x => {
-      const text = JSON.stringify(x).toLowerCase();
-      if (q && !text.includes(q)) return false;
-
-      const s = ideaStatus(x);
-      if (st !== "all" && s !== st) return false;
-
-      const a = safeStr(x.asset || x.underlying || x.instrument || "").trim();
-      if (as !== "all" && a !== as) return false;
-
-      return true;
-    });
-
-    tradeCards.innerHTML = "";
-    if (!filtered.length){
-      tradeCards.innerHTML = `<div class="p" style="grid-column: 1 / -1; color: var(--muted);">No trade ideas match the filters.</div>`;
-      return;
-    }
-
-    filtered.slice(0, 120).forEach(x => {
-      const a = safeStr(x.asset || x.underlying || x.instrument || "").trim() || "—";
-      const dir = safeStr(x.direction || x.side || "").trim();
-      const setup = safeStr(x.setup || x.title || x.thesis || "").trim();
-      const horizon = safeStr(x.horizon || "").trim();
-      const conf = (x.confidence !== undefined && x.confidence !== null) ? `C${x.confidence}` : "";
-      const tags = Array.isArray(x.tags) ? x.tags : [];
-
-      const card = document.createElement("div");
-      card.className = "card";
-      const s = ideaStatus(x);
-      card.innerHTML = `
-        <div class="card-top">
-          <div class="tagrow">
-            <span class="tag">${a}</span>
-            ${dir ? `<span class="tag">${dir}</span>` : ``}
-            ${horizon ? `<span class="tag">${horizon}</span>` : ``}
-            ${conf ? `<span class="tag">${conf}</span>` : ``}
-          </div>
-          <span class="status ${s === "Closed" ? "closed" : "open"}">${s}</span>
-        </div>
-        <div class="title">${setup || "Trade idea"}</div>
-        <div class="meta">
-          ${safeStr(x.date || "")}
-          ${tags.length ? `<br/>Tags: ${tags.slice(0,4).map(t=>safeStr(t)).join(", ")}` : ``}
-        </div>
-      `;
-      card.addEventListener("click", () => openTradeModal(x));
-      tradeCards.appendChild(card);
-    });
-  }
-
-  function openTradeModal(x){
-    const a = safeStr(x.asset || x.underlying || x.instrument || "").trim() || "—";
-    const title = safeStr(x.setup || x.title || "Trade Idea");
-    const s = ideaStatus(x);
-    const dir = safeStr(x.direction || x.side || "").trim();
-    const horizon = safeStr(x.horizon || "").trim();
-    const date = safeStr(x.date || "").trim();
-
-    mTitle.textContent = `${a} — ${title}`;
-    mMeta.textContent = [date, s, dir, horizon].filter(Boolean).join(" • ");
-
-    mThesis.textContent = safeStr(x.thesis || x.setup || x.rationale || x.summary || "—");
-    mStructure.textContent = safeStr(x.structure || x.payoff || x.instrumentation || "—");
-
-    // key-values
-    mKV.innerHTML = "";
-    const levels = x.levels || {};
-    const kvPairs = [
-      ["Trigger", levels.trigger ?? x.trigger],
-      ["Invalidate", levels.invalidate ?? x.invalidate],
-      ["Stop", levels.stop ?? x.stop],
-      ["Target", levels.target ?? x.target],
-      ["Sizing", x.sizing],
-      ["Risk", x.risk],
-    ].filter(([_,v]) => v !== undefined && v !== null && String(v).trim() !== "");
-
-    if (!kvPairs.length){
-      mKV.innerHTML = `<div><span>—</span><b>—</b></div>`;
-    } else {
-      kvPairs.forEach(([k,v]) => {
-        const row = document.createElement("div");
-        row.innerHTML = `<span>${safeStr(k)}</span><b>${safeStr(v)}</b>`;
-        mKV.appendChild(row);
-      });
-    }
-
-    mNotes.innerHTML = "";
-    const notes = x.notes || x.note || "";
-    if (notes){
-      const p = document.createElement("p");
-      p.textContent = safeStr(notes);
-      mNotes.appendChild(p);
-    } else {
-      mNotes.innerHTML = `<div class="meta">—</div>`;
-    }
-
-    // attachments
-    mAtt.innerHTML = "";
-    const atts = Array.isArray(x.attachments) ? x.attachments : [];
-    atts.slice(0, 8).forEach(att => {
-      const label = safeStr(att.label || att.name || "Link");
-      const href = safeStr(att.url || att.href || "");
-      if (!href) return;
-      const aEl = document.createElement("a");
-      aEl.className = "linkpill";
-      aEl.href = href;
-      aEl.target = "_blank";
-      aEl.rel = "noopener noreferrer";
-      aEl.textContent = label;
-      mAtt.appendChild(aEl);
-    });
-
-    tradeModal.classList.add("open");
-    tradeModal.setAttribute("aria-hidden", "false");
-  }
-
-  function closeTradeModal(){
-    tradeModal.classList.remove("open");
-    tradeModal.setAttribute("aria-hidden", "true");
-  }
-
-  // ====== COMMENTARY ======
-  function renderCommentary(sections){
-    const items = Array.isArray(sections) ? sections : [];
-    commentFeed.innerHTML = "";
-
-    if (!items.length){
-      commentFeed.innerHTML = `<div class="p" style="color: var(--muted);">No commentary published yet.</div>`;
-      return;
-    }
-
-    items.slice(0, 80).forEach(s => {
-      const post = document.createElement("div");
-      post.className = "post";
-
-      const title = safeStr(s.title || "Commentary");
-      const date = safeStr(s.date || "");
-      const bullets = Array.isArray(s.bullets) ? s.bullets : [];
-      const body = safeStr(s.body || "");
-
-      post.innerHTML = `
-        <h3>${title}</h3>
-        ${date ? `<div class="date">${date}</div>` : ``}
-        ${bullets.length ? `<ul>${bullets.map(b => `<li>${safeStr(b)}</li>`).join("")}</ul>` : ``}
-        ${body ? `<p>${body}</p>` : ``}
-      `;
-      commentFeed.appendChild(post);
-    });
-  }
-
-  // ====== LOAD ALL ======
-  async function loadAll(){
-    hideError(); hideNotice();
-    navMeta.textContent = "Loading…";
-    plbMeta.textContent = "Loading…";
-    dataMeta.textContent = "Loading…";
-    tradeMeta.textContent = "Loading…";
-    commentMeta.textContent = "Loading…";
-
-    const t0 = Date.now();
-
-    const [perf, screener, comm] = await Promise.all([
-      loadJson(PERF_URL),
-      loadJson(SCREENER_URL),
-      loadJson(COMMENTARY_URL)
-    ]);
-
-    // ---- performance json ----
-    const k = perf.kpis || {};
-    const openPositions =
-      perf.openPositions ||
-      screener.openPositions ||
-      k.openPositions ||
-      [];
-
-    // If navLevel is not included, derive from last NAV point
-    let navLevel = k.navLevel;
-    if (navLevel === undefined || navLevel === null){
-      const navValues = perf?.nav?.values || [];
-      if (Array.isArray(navValues) && navValues.length) navLevel = navValues[navValues.length - 1];
-    }
-
-    const kpis = {
-      aum: k.aum ?? null,
-      perfYTD: k.perfYTD ?? null,
-      perfITD: k.perfITD ?? null,
-      plbLevel: k.plbLevel ?? null,
-      navLevel: navLevel ?? null
-    };
-
-    setTopBoxes(kpis, openPositions);
-
-    const nav = perf.nav || { labels:[], values:[] };
-    renderNAVChart(nav.labels || [], nav.values || []);
-    navMeta.textContent = `Updated: ${perf.updatedAt || "—"} • Points: ${(nav.values || []).length}`;
-
-    const plb = perf.plb || { labels:[], init:[], plb:[], perf:[] };
-    renderPLBChart(plb.labels || [], plb.init || [], plb.plb || [], plb.perf || []);
-    plbMeta.textContent = `Updated: ${perf.updatedAt || "—"} • Points: ${(plb.labels || []).length}`;
-
-    // ---- model trades from screener ----
-    const modelTrades = Array.isArray(screener.modelTrades) ? screener.modelTrades : [];
-    renderModelTrades(modelTrades);
-    dataMeta.textContent = `Engine: ${screener.updatedAt || "—"} • Model trades: ${modelTrades.length}`;
-
-    // ---- trade ideas from screener ----
-    tradeIdeasAll = Array.isArray(screener.tradeIdeas) ? screener.tradeIdeas : [];
-    rebuildAssetFilter();
-    renderTradeIdeas();
-    tradeMeta.textContent = `Engine: ${screener.updatedAt || "—"} • Trade ideas: ${tradeIdeasAll.length}`;
-
-    // ---- commentary ----
-    const sections = Array.isArray(comm.sections) ? comm.sections : [];
-    renderCommentary(sections);
-    commentMeta.textContent = `Engine: ${comm.updatedAt || "—"} • Sections: ${sections.length}`;
-
-    const dt = ((Date.now()-t0)/1000).toFixed(2);
-    showNotice(`Data loaded in ${dt}s.`);
-  }
-
-  // ====== EVENTS ======
   document.getElementById("logoutBtn").addEventListener("click", () => {
     localStorage.removeItem(TOKEN_KEY);
     window.location.href = "login.html";
   });
 
-  document.getElementById("reloadAllBtn").addEventListener("click", () => loadAll().catch(e => showError(e.message)));
+  // DOM refs
+  const noticeBox = document.getElementById("noticeBox");
+  const errorBox = document.getElementById("errorBox");
 
-  document.getElementById("reloadContentBtn").addEventListener("click", () => {
-    // reload only screener + commentary, keep perf as is
-    (async () => {
-      hideError(); hideNotice();
-      const [screener, comm] = await Promise.all([ loadJson(SCREENER_URL), loadJson(COMMENTARY_URL) ]);
+  const openPosValue = document.getElementById("openPosValue");
+  const openPosDesc  = document.getElementById("openPosDesc");
+  const openPosPills = document.getElementById("openPosPills");
 
-      const modelTrades = Array.isArray(screener.modelTrades) ? screener.modelTrades : [];
-      renderModelTrades(modelTrades);
-      dataMeta.textContent = `Engine: ${screener.updatedAt || "—"} • Model trades: ${modelTrades.length}`;
+  const ytdValue    = document.getElementById("ytdValue");
+  const ytdDesc     = document.getElementById("ytdDesc");
 
-      tradeIdeasAll = Array.isArray(screener.tradeIdeas) ? screener.tradeIdeas : [];
-      rebuildAssetFilter();
-      renderTradeIdeas();
-      tradeMeta.textContent = `Engine: ${screener.updatedAt || "—"} • Trade ideas: ${tradeIdeasAll.length}`;
+  const navPlbValue = document.getElementById("navPlbValue");
+  const navPlbDesc  = document.getElementById("navPlbDesc");
 
-      const sections = Array.isArray(comm.sections) ? comm.sections : [];
-      renderCommentary(sections);
-      commentMeta.textContent = `Engine: ${comm.updatedAt || "—"} • Sections: ${sections.length}`;
+  const tradesBody  = document.getElementById("tradesBody");
+  const dataMeta    = document.getElementById("dataMeta");
 
-      showNotice("Ideas + commentary reloaded.");
-    })().catch(e => showError(e.message));
+  const navMeta     = document.getElementById("navMeta");
+  const plbMeta     = document.getElementById("plbMeta");
+
+  const navCanvas   = document.getElementById("navChart");
+  const plbCanvas   = document.getElementById("plbChart");
+
+  const tradeCards = document.getElementById("tradeCards");
+  const tradeMeta  = document.getElementById("tradeMeta");
+  const tradeSearch = document.getElementById("tradeSearch");
+  const tradeStatus = document.getElementById("tradeStatus");
+  const tradeAsset = document.getElementById("tradeAsset");
+  const reloadContentBtn = document.getElementById("reloadContentBtn");
+
+  const commentFeed = document.getElementById("commentFeed");
+  const commentMeta = document.getElementById("commentMeta");
+
+  const refreshBtn = document.getElementById("refreshBtn");
+
+  const tradeModal = document.getElementById("tradeModal");
+  const mClose = document.getElementById("mClose");
+  const mTitle = document.getElementById("mTitle");
+  const mMeta = document.getElementById("mMeta");
+  const mThesis = document.getElementById("mThesis");
+  const mStructure = document.getElementById("mStructure");
+  const mKV = document.getElementById("mKV");
+  const mNotes = document.getElementById("mNotes");
+
+  let navChart = null;
+  let plbChart = null;
+
+  let tradeIdeas = [];
+  let modelTrades = [];
+  let openPositions = [];
+  let commentarySections = [];
+
+  function showError(msg){
+    errorBox.textContent = msg;
+    errorBox.style.display = "block";
+    noticeBox.style.display = "none";
+  }
+  function clearMessages(){
+    noticeBox.style.display = "none";
+    errorBox.style.display = "none";
+  }
+
+  function escapeHtml(s){
+    return (s ?? "").toString()
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#39;");
+  }
+
+  function uniq(arr){ return Array.from(new Set(arr)); }
+
+  function fmtPct100(x){
+    const n = Number(x);
+    if (!Number.isFinite(n)) return null;
+    // assumes x already in decimal (0.10 = 10%)
+    return (n * 100).toFixed(2) + "%";
+  }
+  function fmtMoney0(x){
+    const n = Number(x);
+    if (!Number.isFinite(n)) return null;
+    return n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+  }
+
+  async function fetchJson(url){
+    const r = await fetch(url, { cache: "no-store" });
+    if (!r.ok) throw new Error(`${url} → HTTP ${r.status}`);
+    return await r.json();
+  }
+
+  // ---------- Charts ----------
+  function renderNAVChart(series){
+    if (navChart){ navChart.destroy(); navChart = null; }
+    if (!series || !Array.isArray(series.labels) || series.labels.length === 0){
+      navMeta.textContent = "No NAV series available.";
+      return;
+    }
+    navMeta.textContent = `NAV series: ${series.labels.length} points.`;
+    navChart = new Chart(navCanvas, {
+      type: "line",
+      data: {
+        labels: series.labels,
+        datasets: [{
+          label: "NAV",
+          data: series.values,
+          tension: 0.25,
+          pointRadius: 0,
+          borderWidth: 2,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect:false },
+        plugins: { legend: { display:false } }
+      }
+    });
+  }
+
+  function renderPLBChart(series){
+    if (plbChart){ plbChart.destroy(); plbChart = null; }
+    if (!series || !Array.isArray(series.labels) || series.labels.length === 0){
+      plbMeta.textContent = "No PLB series available.";
+      return;
+    }
+    plbMeta.textContent = `PLB series: ${series.labels.length} points.`;
+    plbChart = new Chart(plbCanvas, {
+      type: "line",
+      data: {
+        labels: series.labels,
+        datasets: [
+          { label: "Initial PLB %", data: series.init, borderDash:[6,6], pointRadius:0, borderWidth:2, tension:0.15, spanGaps:true },
+          { label: "PLB %", data: series.plb, pointRadius:0, borderWidth:2, tension:0.15, spanGaps:true },
+          { label: "PERF %", data: series.perf, pointRadius:0, borderWidth:2, tension:0.20, spanGaps:true }
+        ]
+      },
+      options: {
+        responsive:true,
+        maintainAspectRatio:false,
+        interaction:{ mode:"index", intersect:false },
+        plugins:{ legend:{ display:true } },
+        scales:{
+          y:{ ticks:{ callback:(v)=> (Number.isFinite(v) ? `${(v*100).toFixed(0)}%` : "") } }
+        }
+      }
+    });
+  }
+
+  // ---------- Data adapters (flexible) ----------
+  function pickFirst(obj, keys){
+    for (const k of keys){
+      if (obj && obj[k] !== undefined && obj[k] !== null) return obj[k];
+    }
+    return null;
+  }
+
+  function adaptNAV(perf){
+    // Try multiple shapes
+    const nav = pickFirst(perf, ["nav", "navSeries", "nav_curve", "navCurve", "NAV"]);
+    if (nav && Array.isArray(nav.labels) && Array.isArray(nav.values)) return nav;
+
+    // common alternative: {dates:[], values:[]}
+    if (nav && Array.isArray(nav.dates) && Array.isArray(nav.values)){
+      return { labels: nav.dates, values: nav.values };
+    }
+
+    // fallback: top-level arrays
+    const labels = pickFirst(perf, ["nav_labels","labels_nav","dates_nav","dates"]);
+    const values = pickFirst(perf, ["nav_values","values_nav","nav_values_series","nav_values_array","nav"]);
+    if (Array.isArray(labels) && Array.isArray(values)) return { labels, values };
+
+    return { labels: [], values: [] };
+  }
+
+  function adaptPLB(perf){
+    const plb = pickFirst(perf, ["plb", "plbSeries", "plb_chart", "plbChart", "PLB"]);
+    if (plb && Array.isArray(plb.labels) && Array.isArray(plb.perf) && Array.isArray(plb.plb) && Array.isArray(plb.init)) return plb;
+
+    // common alternative: {dates:[], perf:[], plb:[], init:[]}
+    if (plb && Array.isArray(plb.dates)){
+      return { labels: plb.dates, perf: plb.perf || [], plb: plb.plb || [], init: plb.init || [] };
+    }
+
+    // fallback: top-level arrays
+    const labels = pickFirst(perf, ["plb_labels","labels_plb","dates_plb"]);
+    const perfA  = pickFirst(perf, ["plb_perf","perf_series","perf"]);
+    const plbA   = pickFirst(perf, ["plb_plb","plb_series","plb"]);
+    const initA  = pickFirst(perf, ["plb_init","init_series","init"]);
+    if (Array.isArray(labels) && Array.isArray(perfA) && Array.isArray(plbA) && Array.isArray(initA)){
+      return { labels, perf: perfA, plb: plbA, init: initA };
+    }
+
+    return { labels: [], perf: [], plb: [], init: [] };
+  }
+
+  function adaptSummary(perf){
+    // summary may be nested or top-level; keep flexible
+    const s = pickFirst(perf, ["summary", "stats", "header", "top"]) || perf || {};
+    return {
+      ytd: pickFirst(s, ["ytd", "YTD", "perf_ytd", "performance_ytd"]),
+      itd: pickFirst(s, ["itd", "ITD", "perf_itd", "performance_itd"]),
+      nav: pickFirst(s, ["nav", "NAV", "nav_level", "navValue"]),
+      plb: pickFirst(s, ["plb", "PLB", "plb_level", "plbValue"]),
+      navMinusPlb: pickFirst(s, ["nav_minus_plb","navMinusPlb","delta_nav_plb","delta"])
+    };
+  }
+
+  // ---------- Renderers ----------
+  function renderOpenPositions(items){
+    const arr = Array.isArray(items) ? items : [];
+    openPosPills.innerHTML = "";
+    if (arr.length === 0){
+      openPosValue.textContent = "0";
+      openPosDesc.textContent = "No open positions.";
+      return;
+    }
+    openPosValue.textContent = String(arr.length);
+    openPosDesc.textContent = "Current exposure (from blotter).";
+
+    for (const it of arr.slice(0, 30)){
+      const label = escapeHtml(it.label || it.ticker || it.instrument || "");
+      const side = (it.side || it.direction || "").toString().trim();
+      const sideKey = (it.sideKey || "").toString().trim() || (side.toLowerCase()==="long" ? "long" : (side.toLowerCase()==="short" ? "short" : ""));
+      const pill = document.createElement("div");
+      pill.className = `pill ${sideKey}`;
+      pill.innerHTML = `<span>${label}</span><span class="side">${escapeHtml(side || "")}</span>`;
+      openPosPills.appendChild(pill);
+    }
+  }
+
+  function renderModelTrades(trades){
+    const arr = Array.isArray(trades) ? trades : [];
+    if (arr.length === 0){
+      tradesBody.innerHTML = `<tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>`;
+      dataMeta.textContent = "No model trades found.";
+      return;
+    }
+    const rows = arr.slice(0, 60).map(t => {
+      const d = escapeHtml(t.date || "");
+      const i = escapeHtml(t.instrument || t.asset || "");
+      const s = escapeHtml(t.structure || "");
+      const st = escapeHtml(t.status || "");
+      return `<tr><td>${d}</td><td>${i}</td><td>${s}</td><td>${st}</td></tr>`;
+    });
+    tradesBody.innerHTML = rows.join("");
+    dataMeta.textContent = `Loaded ${arr.length} model trades.`;
+  }
+
+  function renderTopSummary(perfSummary){
+    const ytd = perfSummary.ytd;
+    const itd = perfSummary.itd;
+    const nav = perfSummary.nav;
+    const plb = perfSummary.plb;
+    const delta = perfSummary.navMinusPlb;
+
+    const ytdTxt = (ytd !== null && ytd !== undefined) ? fmtPct100(ytd) : null;
+    const itdTxt = (itd !== null && itd !== undefined) ? fmtPct100(itd) : null;
+    ytdValue.textContent = ytdTxt || "—";
+    ytdDesc.textContent = (itdTxt ? `ITD ${itdTxt}` : "—");
+
+    const navTxt = (nav !== null && nav !== undefined) ? fmtMoney0(nav) : null;
+    const plbTxt = (plb !== null && plb !== undefined) ? fmtMoney0(plb) : null;
+
+    if (navTxt && plbTxt){
+      navPlbValue.textContent = `${navTxt} / ${plbTxt}`;
+    } else {
+      navPlbValue.textContent = "—";
+    }
+
+    const deltaTxt = (delta !== null && delta !== undefined) ? fmtMoney0(delta) : null;
+    navPlbDesc.textContent = deltaTxt ? `NAV − PLB: ${deltaTxt}` : "—";
+  }
+
+  function buildTagOptions(tradeIdeas){
+    const tags = [];
+    for (const t of (tradeIdeas || [])){
+      const arr = Array.isArray(t.tags) ? t.tags : [];
+      for (const x of arr) tags.push(String(x));
+    }
+    const opts = uniq(tags).sort((a,b)=>a.localeCompare(b));
+    tradeAsset.innerHTML = `<option value="all">All tags</option>` + opts.map(x => `<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("");
+  }
+
+  function renderTradeCards(list){
+    const arr = Array.isArray(list) ? list : [];
+    if (arr.length === 0){
+      tradeCards.innerHTML = "";
+      tradeMeta.textContent = "No trade ideas available.";
+      return;
+    }
+
+    const cards = arr.map(t => {
+      const title = `${t.asset || "—"} · ${t.direction || "—"}`;
+      const status = (t.status || "Open").toString();
+      const statusClass = status.toLowerCase() === "closed" ? "closed" : "open";
+      const date = t.date || "";
+      const setup = t.setup || "";
+      const thesis = t.thesis || "";
+
+      const tags = (Array.isArray(t.tags) ? t.tags : []).slice(0,4).map(x => `<span class="tag">${escapeHtml(x)}</span>`).join("");
+
+      return `
+        <div class="card" data-id="${escapeHtml(t.id || "")}">
+          <div class="card-top">
+            <div class="tagrow">${tags}</div>
+            <span class="status ${statusClass}">${escapeHtml(status)}</span>
+          </div>
+          <div class="title">${escapeHtml(title)}</div>
+          <div class="meta">${escapeHtml(date)} · ${escapeHtml(setup)}</div>
+          <div class="meta">${escapeHtml(thesis)}</div>
+        </div>
+      `;
+    }).join("");
+
+    tradeCards.innerHTML = cards;
+    tradeMeta.textContent = `Showing ${arr.length} ideas.`;
+  }
+
+  function applyTradeFilters(){
+    const q = (tradeSearch.value || "").trim().toLowerCase();
+    const st = tradeStatus.value;
+    const tg = tradeAsset.value;
+
+    let filtered = (tradeIdeas || []).slice();
+
+    if (st !== "all"){
+      filtered = filtered.filter(t => (t.status || "Open") === st);
+    }
+    if (tg !== "all"){
+      filtered = filtered.filter(t => (Array.isArray(t.tags) ? t.tags : []).map(String).includes(tg));
+    }
+    if (q){
+      filtered = filtered.filter(t => {
+        const blob = JSON.stringify(t).toLowerCase();
+        return blob.includes(q);
+      });
+    }
+    renderTradeCards(filtered);
+  }
+
+  function renderCommentary(sections){
+    const arr = Array.isArray(sections) ? sections : [];
+    if (arr.length === 0){
+      commentFeed.innerHTML = "";
+      commentMeta.textContent = "No commentary available.";
+      return;
+    }
+
+    // show latest week items first if week exists, else latest by date
+    const sorted = arr.slice().sort((a,b)=>{
+      const wa = (a.week || "").toString();
+      const wb = (b.week || "").toString();
+      if (wa && wb && wa !== wb) return wb.localeCompare(wa);
+      const da = (a.date || "").toString();
+      const db = (b.date || "").toString();
+      return db.localeCompare(da);
+    });
+
+    const html = sorted.map(s => {
+      const title = escapeHtml(s.title || "Market");
+      const date = escapeHtml(s.date || "");
+      const bullets = (Array.isArray(s.bullets) ? s.bullets : []).slice(0, 12)
+        .map(x => `<li>${escapeHtml(x)}</li>`).join("");
+      const body = s.body ? `<div class="meta" style="margin-top:10px;">${escapeHtml(s.body)}</div>` : "";
+      return `
+        <div class="post">
+          <h3>${title}</h3>
+          <div class="date">${date}${s.week ? ` · ${escapeHtml(s.week)}` : ""}</div>
+          ${bullets ? `<ul>${bullets}</ul>` : ""}
+          ${body}
+        </div>
+      `;
+    }).join("");
+
+    commentFeed.innerHTML = html;
+    commentMeta.textContent = `Loaded ${arr.length} commentary sections.`;
+  }
+
+  // ---------- Modal ----------
+  function openModal(trade){
+    if (!trade) return;
+    mTitle.textContent = `${trade.asset || "—"} · ${trade.direction || "—"}`;
+    mMeta.textContent = `${trade.date || ""} · ${trade.status || ""} · ${trade.setup || ""}`;
+    mThesis.textContent = trade.thesis || "—";
+    mStructure.textContent = trade.structure || "—";
+
+    const kv = [];
+    kv.push(["Horizon", trade.horizon || "—"]);
+    kv.push(["Confidence", (trade.confidence ?? "—").toString()]);
+    const tags = (Array.isArray(trade.tags) ? trade.tags : []).join(", ");
+    kv.push(["Tags", tags || "—"]);
+    mKV.innerHTML = kv.map(([k,v]) => `<div><span>${escapeHtml(k)}</span><b>${escapeHtml(v)}</b></div>`).join("");
+
+    mNotes.textContent = trade.notes || "—";
+
+    tradeModal.classList.add("open");
+    tradeModal.setAttribute("aria-hidden","false");
+  }
+
+  function closeModal(){
+    tradeModal.classList.remove("open");
+    tradeModal.setAttribute("aria-hidden","true");
+  }
+
+  mClose.addEventListener("click", closeModal);
+  tradeModal.addEventListener("click", (e)=>{ if (e.target === tradeModal) closeModal(); });
+  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeModal(); });
+
+  // click handler for cards
+  tradeCards.addEventListener("click", (e) => {
+    const card = e.target.closest(".card");
+    if (!card) return;
+    const id = card.getAttribute("data-id");
+    const t = (tradeIdeas || []).find(x => (x.id || "") === id);
+    openModal(t);
   });
 
-  tradeSearch.addEventListener("input", renderTradeIdeas);
-  tradeStatus.addEventListener("change", renderTradeIdeas);
-  tradeAsset.addEventListener("change", renderTradeIdeas);
+  // ---------- Load all ----------
+  async function loadAll(){
+    clearMessages();
 
-  mClose.addEventListener("click", closeTradeModal);
-  tradeModal.addEventListener("click", (ev) => { if (ev.target === tradeModal) closeTradeModal(); });
-  document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") closeTradeModal(); });
+    // placeholders
+    navMeta.textContent = "Loading NAV…";
+    plbMeta.textContent = "Loading PLB…";
+    dataMeta.textContent = "Loading model trades…";
+    tradeMeta.textContent = "Loading trade ideas…";
+    commentMeta.textContent = "Loading commentary…";
 
-  // Mobile nav toggle
-  const navEl = document.getElementById("nav");
-  document.getElementById("navToggle").addEventListener("click", () => navEl.classList.toggle("open"));
+    try {
+      const [perf, scr, comm] = await Promise.all([
+        fetchJson(PERFORMANCE_URL),
+        fetchJson(SCREENER_URL),
+        fetchJson(COMMENTARY_URL),
+      ]);
 
-  // ====== INIT ======
-  loadAll().catch(e => showError(e.message));
+      // Performance + charts + top summary
+      const nav = adaptNAV(perf);
+      const plb = adaptPLB(perf);
+      renderNAVChart(nav);
+      renderPLBChart(plb);
+
+      const summary = adaptSummary(perf);
+      renderTopSummary(summary);
+
+      // Screener: trade ideas, model trades, open positions
+      tradeIdeas = Array.isArray(scr.tradeIdeas) ? scr.tradeIdeas : [];
+      modelTrades = Array.isArray(scr.modelTrades) ? scr.modelTrades : [];
+      openPositions = Array.isArray(scr.openPositions) ? scr.openPositions : [];
+
+      renderOpenPositions(openPositions);
+      renderModelTrades(modelTrades);
+
+      buildTagOptions(tradeIdeas);
+      applyTradeFilters();
+
+      // Commentary
+      commentarySections = Array.isArray(comm.sections) ? comm.sections : [];
+      renderCommentary(commentarySections);
+
+    } catch (err){
+      showError(String(err && err.message ? err.message : err));
+      // keep UI but don't crash
+    }
+  }
+
+  // Filters
+  tradeSearch.addEventListener("input", applyTradeFilters);
+  tradeStatus.addEventListener("change", applyTradeFilters);
+  tradeAsset.addEventListener("change", applyTradeFilters);
+  reloadContentBtn.addEventListener("click", loadAll);
+  refreshBtn.addEventListener("click", loadAll);
+
+  // initial load
+  loadAll();
 })();
 </script>
+
 </body>
 </html>
