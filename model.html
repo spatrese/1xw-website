@@ -73,7 +73,7 @@ a{color:inherit;text-decoration:none;}
 }
 .nav-cta:hover{background:rgba(124,156,255,.14);}
 
-header.hero{padding:34px 0 12px;}
+header.hero{padding:30px 0 10px;}
 .tag{
   display:inline-flex;font-size:.72rem;text-transform:uppercase;letter-spacing:1.6px;
   color:var(--accent);
@@ -115,6 +115,42 @@ main{padding:12px 0 60px;}
 .p{color:var(--muted);}
 .hr{border:none;border-top:1px solid var(--hairline);margin:16px 0;}
 
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.card{
+  background:rgba(17,24,39,.70);
+  border:1px solid var(--hairline);
+  border-radius:18px;
+  padding:18px;
+}
+.big{
+  font-size:1.6rem;
+  font-weight:900;
+  letter-spacing:-.6px;
+  margin:2px 0 6px;
+}
+.badge{
+  display:inline-flex;align-items:center;
+  padding:6px 10px;border-radius:999px;
+  border:1px solid rgba(124,156,255,.22);
+  background:rgba(124,156,255,.08);
+  font-weight:900;font-size:.78rem;
+  color:rgba(229,231,235,.92);
+}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.pill{
+  display:inline-flex;
+  padding:7px 10px;border-radius:999px;
+  border:1px solid rgba(124,156,255,.22);
+  background:rgba(124,156,255,.08);
+  color:rgba(229,231,235,.92);
+  font-weight:800;font-size:.82rem;
+}
+.mini{margin-top:10px;color:var(--muted2);font-size:.85rem;}
+
 .chartWrap{
   margin-top:12px;
   border-radius:18px;
@@ -124,7 +160,6 @@ main{padding:12px 0 60px;}
   height:340px;
 }
 .chartWrap canvas{width:100% !important;height:100% !important;display:block;}
-.mini{margin-top:10px;color:var(--muted2);font-size:.85rem;}
 
 .table{
   width:100%;
@@ -147,25 +182,9 @@ main{padding:12px 0 60px;}
   background:rgba(124,156,255,.06);
 }
 .table tr:last-child td{border-bottom:none;}
-.badge{
-  display:inline-flex;align-items:center;
-  padding:6px 10px;border-radius:999px;
-  border:1px solid rgba(124,156,255,.22);
-  background:rgba(124,156,255,.08);
-  font-weight:900;font-size:.78rem;
-  color:rgba(229,231,235,.92);
-}
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
-.pill{
-  display:inline-flex;
-  padding:7px 10px;border-radius:999px;
-  border:1px solid rgba(124,156,255,.22);
-  background:rgba(124,156,255,.08);
-  color:rgba(229,231,235,.92);
-  font-weight:800;font-size:.82rem;
-}
 
 @media (max-width:980px){
+  .grid-3{grid-template-columns:1fr;}
   .chartWrap{height:280px;}
 }
 @media (max-width:520px){
@@ -195,7 +214,6 @@ footer{
       <a href="#performance">Performance</a>
       <a href="#plb">PLB</a>
       <a href="#trades">Model Trades</a>
-      <a href="#positions">Open Positions</a>
       <a href="app.html" class="nav-cta">Weekly Research</a>
       <a href="login.html" class="nav-cta" id="logoutBtn">Logout</a>
     </div>
@@ -214,6 +232,45 @@ footer{
 <main class="container">
   <div class="notice" id="noticeBox"></div>
   <div class="error" id="errorBox"></div>
+
+  <!-- TOP 3 BOXES (REINTRODUCED) -->
+  <section class="section" id="snapshot">
+    <div class="panel">
+      <div class="kicker">Snapshot</div>
+      <div class="p">Core portfolio state and risk boundary metrics.</div>
+
+      <div class="grid-3" style="margin-top:14px;">
+        <!-- Box 1: Open Positions -->
+        <div class="card">
+          <div class="kicker">Open Positions</div>
+          <div class="big" id="posCount">—</div>
+          <div class="p">Current open positions.</div>
+          <div class="pills" id="posPills"></div>
+          <div class="mini" id="posMeta"></div>
+        </div>
+
+        <!-- Box 2: NAV + Perf YTD -->
+        <div class="card">
+          <div class="kicker">NAV</div>
+          <div class="big" id="navValue">—</div>
+          <div class="pills">
+            <span class="pill" id="perfYtd">Performance YTD: —</span>
+          </div>
+          <div class="mini" id="navMetaTop">—</div>
+        </div>
+
+        <!-- Box 3: NAV vs PLB + Gap -->
+        <div class="card">
+          <div class="kicker">NAV vs PLB</div>
+          <div class="big" id="navVsPlb">—</div>
+          <div class="pills">
+            <span class="pill" id="gapToPlb">Gap to PLB: —</span>
+          </div>
+          <div class="mini" id="plbMetaTop">—</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="performance">
     <div class="panel">
@@ -255,15 +312,6 @@ footer{
       <div class="mini" id="tradesMeta"></div>
     </div>
   </section>
-
-  <section class="section" id="positions">
-    <div class="panel">
-      <div class="kicker">Open Positions</div>
-      <div class="p">Current open positions.</div>
-      <div class="pills" id="posPills"></div>
-      <div class="mini" id="posMeta"></div>
-    </div>
-  </section>
 </main>
 
 <footer>1XW TRADING © 2026. All rights reserved.</footer>
@@ -293,14 +341,23 @@ footer{
   const errorBox  = document.getElementById("errorBox");
   const asofLine  = document.getElementById("asofLine");
 
+  const posCount = document.getElementById("posCount");
+  const posPills = document.getElementById("posPills");
+  const posMeta  = document.getElementById("posMeta");
+
+  const navValue  = document.getElementById("navValue");
+  const perfYtd   = document.getElementById("perfYtd");
+  const navMetaTop = document.getElementById("navMetaTop");
+
+  const navVsPlb  = document.getElementById("navVsPlb");
+  const gapToPlb  = document.getElementById("gapToPlb");
+  const plbMetaTop = document.getElementById("plbMetaTop");
+
   const navMeta = document.getElementById("navMeta");
   const plbMeta = document.getElementById("plbMeta");
   const tradesMeta = document.getElementById("tradesMeta");
-  const posMeta = document.getElementById("posMeta");
 
   const tradesBody = document.getElementById("tradesBody");
-  const posPills = document.getElementById("posPills");
-
   const navCanvas  = document.getElementById("navChart");
   const plbCanvas  = document.getElementById("plbChart");
 
@@ -329,13 +386,80 @@ footer{
     return await res.json();
   }
   function safeText(x){ return (x === null || x === undefined) ? "" : String(x); }
+  function isNum(x){ return typeof x === "number" && !Number.isNaN(x); }
+  function parseNum(x){
+    const n = Number(x);
+    return Number.isNaN(n) ? null : n;
+  }
+  function fmtMoney(x){
+    if (!isNum(x)) return "—";
+    try{
+      return x.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    }catch{
+      return String(Math.round(x));
+    }
+  }
+  function fmtPctFromDecimal(x){
+    // x is decimal (0.12 => 12%)
+    if (!isNum(x)) return "—";
+    return `${(x*100).toFixed(2)}%`;
+  }
+  function fmtPctFromAny(x){
+    // accept either decimal or already percent-ish; best effort
+    const n = parseNum(x);
+    if (n === null) return "—";
+    // heuristic: if abs(n) <= 2, assume decimal; else assume percent
+    if (Math.abs(n) <= 2) return `${(n*100).toFixed(2)}%`;
+    return `${n.toFixed(2)}%`;
+  }
 
-  function renderNav(perf){
-    if (navChart){ navChart.destroy(); navChart = null; }
-
+  function getNavSeries(perf){
+    // Accept multiple shapes
     const nav = perf && (perf.nav || perf.NAV || perf.performance || {});
     const labels = nav.labels || nav.dates || [];
     const values = nav.values || nav.nav || nav.series || [];
+    return { labels, values };
+  }
+
+  function computeYtd(labels, values){
+    // labels expected ISO-like dates; best effort
+    if (!Array.isArray(labels) || !Array.isArray(values) || labels.length !== values.length || labels.length < 2) return null;
+
+    const lastIdx = labels.length - 1;
+    const last = parseNum(values[lastIdx]);
+    if (last === null) return null;
+
+    const year = (safeText(labels[lastIdx]).slice(0,4));
+    if (!/^\d{4}$/.test(year)) return null;
+
+    // find first index in same year
+    let firstIdx = -1;
+    for (let i=0;i<labels.length;i++){
+      const y = safeText(labels[i]).slice(0,4);
+      if (y === year){
+        firstIdx = i;
+        break;
+      }
+    }
+    if (firstIdx === -1) return null;
+
+    const first = parseNum(values[firstIdx]);
+    if (first === null || first === 0) return null;
+
+    return (last / first) - 1.0; // decimal
+  }
+
+  function getPlbSeries(perf){
+    const plb = perf && (perf.plb || perf.PLB || {});
+    const labels = plb.labels || plb.dates || [];
+    const init = plb.init || plb.initial || [];
+    const plbLine = plb.plb || [];
+    const perfLine = plb.perf || plb.performance || [];
+    return { labels, init, plbLine, perfLine };
+  }
+
+  function renderNavChart(labels, values){
+    if (navChart){ navChart.destroy(); navChart = null; }
 
     if (!Array.isArray(labels) || !Array.isArray(values) || !labels.length || !values.length){
       navMeta.textContent = "NAV series not available.";
@@ -371,14 +495,8 @@ footer{
     });
   }
 
-  function renderPlb(perf){
+  function renderPlbChart(labels, init, plbLine, perfLine){
     if (plbChart){ plbChart.destroy(); plbChart = null; }
-
-    const plb = perf && (perf.plb || perf.PLB || {});
-    const labels = plb.labels || plb.dates || [];
-    const init = plb.init || plb.initial || [];
-    const plbLine = plb.plb || [];
-    const perfLine = plb.perf || plb.performance || [];
 
     if (!Array.isArray(labels) || !labels.length){
       plbMeta.textContent = "PLB series not available.";
@@ -451,6 +569,91 @@ footer{
     });
   }
 
+  function renderOpenPositions(screener){
+    const list =
+      (screener && Array.isArray(screener.openPositions) && screener.openPositions) ||
+      (screener && Array.isArray(screener.open_positions) && screener.open_positions) ||
+      [];
+
+    posPills.innerHTML = "";
+
+    const n = list.length;
+    posCount.textContent = String(n);
+    posMeta.textContent = n ? "Symbols shown below." : "No open positions.";
+
+    if (!n) return;
+
+    list.slice(0, 18).forEach(p => {
+      const sym = safeText(p.symbol || p.instrument || p.ticker || p.name || "—");
+      const pill = document.createElement("div");
+      pill.className = "pill";
+      pill.textContent = sym;
+      posPills.appendChild(pill);
+    });
+
+    if (n > 18){
+      const more = document.createElement("div");
+      more.className = "mini";
+      more.textContent = `+${n - 18} more`;
+      posPills.appendChild(more);
+    }
+  }
+
+  function renderTopBoxes(perf){
+    // NAV + YTD
+    const { labels, values } = getNavSeries(perf);
+
+    if (Array.isArray(values) && values.length){
+      const last = parseNum(values[values.length - 1]);
+      navValue.textContent = last === null ? "—" : fmtMoney(last);
+      navMetaTop.textContent = (labels && labels.length) ? `As of ${safeText(labels[labels.length - 1])}` : "—";
+    } else {
+      navValue.textContent = "—";
+      navMetaTop.textContent = "NAV series not available.";
+    }
+
+    const ytd = computeYtd(labels, values);
+    perfYtd.textContent = `Performance YTD: ${ytd === null ? "—" : fmtPctFromDecimal(ytd)}`;
+
+    // NAV vs PLB + Gap
+    const ps = getPlbSeries(perf);
+    const plbLine = ps.plbLine || [];
+    const perfLine = ps.perfLine || [];
+
+    if (Array.isArray(plbLine) && Array.isArray(perfLine) && plbLine.length && perfLine.length){
+      const plbLast = parseNum(plbLine[plbLine.length - 1]);   // decimals
+      const perfLast = parseNum(perfLine[perfLine.length - 1]); // decimals
+      if (plbLast !== null && perfLast !== null){
+        navVsPlb.textContent = `${fmtPctFromDecimal(perfLast)} vs ${fmtPctFromDecimal(plbLast)}`;
+        const gap = perfLast - plbLast; // decimal points
+        gapToPlb.textContent = `Gap to PLB: ${fmtPctFromDecimal(gap)}`;
+        plbMetaTop.textContent = "PERF% vs PLB% (gap in percentage points).";
+      } else {
+        navVsPlb.textContent = "—";
+        gapToPlb.textContent = "Gap to PLB: —";
+        plbMetaTop.textContent = "PLB series not available.";
+      }
+    } else {
+      navVsPlb.textContent = "—";
+      gapToPlb.textContent = "Gap to PLB: —";
+      plbMetaTop.textContent = "PLB series not available.";
+    }
+  }
+
+  function pickTradeDate(t){
+    // robust date mapping
+    return (
+      t.date ||
+      t.trade_date ||
+      t.open_date ||
+      t.entry_date ||
+      t.start ||
+      t.openDate ||
+      t.entryDate ||
+      ""
+    );
+  }
+
   function renderTrades(screener){
     const list =
       (screener && Array.isArray(screener.modelTrades) && screener.modelTrades) ||
@@ -464,15 +667,15 @@ footer{
     }
 
     tradesBody.innerHTML = "";
-    list.slice(0, 40).forEach(t => {
-      const date = safeText(t.date || t.open_date || t.start || "—");
-      const inst = safeText(t.instrument || t.symbol || t.underlying || "—");
+    list.slice(0, 60).forEach(t => {
+      const dt = safeText(pickTradeDate(t) || "—");
+      const inst = safeText(t.instrument || t.symbol || t.underlying || t.name || "—");
       const structure = safeText(t.structure || t.strategy || t.type || "—");
       const status = safeText(t.status || t.state || "—");
 
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td>${date}</td>
+        <td>${dt}</td>
         <td>${inst}</td>
         <td>${structure}</td>
         <td><span class="badge">${status}</span></td>
@@ -480,31 +683,7 @@ footer{
       tradesBody.appendChild(tr);
     });
 
-    tradesMeta.textContent = `Loaded model trades: ${list.length}. Showing up to 40.`;
-  }
-
-  function renderOpenPositions(screener){
-    const list =
-      (screener && Array.isArray(screener.openPositions) && screener.openPositions) ||
-      (screener && Array.isArray(screener.open_positions) && screener.open_positions) ||
-      [];
-
-    posPills.innerHTML = "";
-
-    if (!list.length){
-      posMeta.textContent = "No open positions.";
-      return;
-    }
-
-    list.forEach(p => {
-      const sym = safeText(p.symbol || p.instrument || p.ticker || p.name || "—");
-      const pill = document.createElement("div");
-      pill.className = "pill";
-      pill.textContent = sym;
-      posPills.appendChild(pill);
-    });
-
-    posMeta.textContent = `Open positions: ${list.length}.`;
+    tradesMeta.textContent = `Loaded model trades: ${list.length}. Showing up to 60.`;
   }
 
   (async () => {
@@ -517,23 +696,44 @@ footer{
       if (!perf) showNotice("Performance data not available yet.");
       if (!screener) showNotice((noticeBox.style.display === "block" ? noticeBox.textContent + " " : "") + "Screener data not available yet.");
 
+      // header meta
+      const asof = perf ? safeText(perf.asof || perf.date || "") : "";
+      asofLine.textContent = asof ? `Updated ${asof}` : "";
+
+      // top boxes
+      if (screener) renderOpenPositions(screener);
+      else {
+        posCount.textContent = "—";
+        posMeta.textContent = "—";
+      }
+
+      if (perf) renderTopBoxes(perf);
+      else {
+        navValue.textContent = "—";
+        perfYtd.textContent = "Performance YTD: —";
+        navVsPlb.textContent = "—";
+        gapToPlb.textContent = "Gap to PLB: —";
+        navMetaTop.textContent = "—";
+        plbMetaTop.textContent = "—";
+      }
+
+      // charts
       if (perf){
-        const asof = safeText(perf.asof || perf.date || "");
-        asofLine.textContent = asof ? `Updated ${asof}` : "";
-        renderNav(perf);
-        renderPlb(perf);
+        const ns = getNavSeries(perf);
+        renderNavChart(ns.labels, ns.values);
+
+        const ps = getPlbSeries(perf);
+        renderPlbChart(ps.labels, ps.init, ps.plbLine, ps.perfLine);
       } else {
         navMeta.textContent = "—";
         plbMeta.textContent = "—";
       }
 
-      if (screener){
-        renderTrades(screener);
-        renderOpenPositions(screener);
-      } else {
+      // trades table
+      if (screener) renderTrades(screener);
+      else {
         tradesBody.innerHTML = `<tr><td colspan="4">—</td></tr>`;
         tradesMeta.textContent = "—";
-        posMeta.textContent = "—";
       }
 
     } catch (e){
