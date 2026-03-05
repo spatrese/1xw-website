@@ -1,127 +1,26 @@
 {
-  "asof": "20260304",
-  "top_long": [
-    {
-      "symbol": "CL",
-      "asset_class": "Commodities",
-      "score": 4,
-      "setup": "Trend continuation"
-    },
-    {
-      "symbol": "RB",
-      "asset_class": "Commodities",
-      "score": 4,
-      "setup": "Trend continuation"
-    },
-    {
-      "symbol": "GC",
-      "asset_class": "Commodities",
-      "score": 4,
-      "setup": "Trend continuation"
-    },
-    {
-      "symbol": "ZW",
-      "asset_class": "Commodities",
-      "score": 4,
-      "setup": "Trend continuation"
-    },
-    {
-      "symbol": "ZS",
-      "asset_class": "Commodities",
-      "score": 4,
-      "setup": "Trend continuation"
-    },
-    {
-      "symbol": "GBL",
-      "asset_class": "Rates",
-      "score": 4,
-      "setup": "Trend continuation"
-    },
-    {
-      "symbol": "DX",
-      "asset_class": "FX",
-      "score": 4,
-      "setup": "Trend continuation"
-    },
-    {
-      "symbol": "VIX",
-      "asset_class": "Equity",
-      "score": 4,
-      "setup": "Trend continuation"
-    },
-    {
-      "symbol": "NIY",
-      "asset_class": "Equity",
-      "score": 4,
-      "setup": "Trend continuation"
-    },
-    {
-      "symbol": "AUD",
-      "asset_class": "FX",
-      "score": 4,
-      "setup": "Trend continuation"
-    }
+  "updatedAt": "2026-03-05T18:30:00Z",
+  "modelTrades": [
+    { "date":"2026-03-01", "instrument":"ES", "structure":"Futures", "status":"Open" }
   ],
-  "top_short": [
+  "tradeIdeas": [
     {
-      "symbol": "SB",
-      "asset_class": "Commodities",
-      "score": -4,
-      "setup": "Trend continuation (down)"
-    },
-    {
-      "symbol": "KC",
-      "asset_class": "Commodities",
-      "score": -4,
-      "setup": "Trend continuation (down)"
-    },
-    {
-      "symbol": "CC",
-      "asset_class": "Commodities",
-      "score": -4,
-      "setup": "Trend continuation (down)"
-    },
-    {
-      "symbol": "CT",
-      "asset_class": "Commodities",
-      "score": -4,
-      "setup": "Trend continuation (down)"
-    },
-    {
-      "symbol": "MET",
-      "asset_class": "Crypto",
-      "score": -4,
-      "setup": "Trend continuation (down)"
-    },
-    {
-      "symbol": "EUR",
-      "asset_class": "FX",
-      "score": -4,
-      "setup": "Trend continuation (down)"
-    },
-    {
-      "symbol": "MBT",
-      "asset_class": "Crypto",
-      "score": -4,
-      "setup": "Trend continuation (down)"
-    },
-    {
-      "symbol": "ZC",
-      "asset_class": "Commodities",
-      "score": -2,
-      "setup": "Neutral"
-    },
-    {
-      "symbol": "ES",
-      "asset_class": "Equity",
-      "score": -2,
-      "setup": "Neutral"
-    },
-    {
-      "symbol": "GBP",
-      "asset_class": "FX",
-      "score": -2,
-      "setup": "Trend continuation (down)"
+      "id": "TI-2026-03-05-01",
+      "date": "2026-03-05",
+      "asset": "SPX",
+      "direction": "Long Vol",
+      "status": "Open",
+      "setup": "Compression → Breakout risk",
+      "thesis": "Volatility bid remains sticky; breakout risk priced too low.",
+      "structure": "Call spread / risk-defined",
+      "levels": { "trigger": 5250, "invalidate": 5180, "target": 5400 },
+      "horizon": "1-3w",
+      "confidence": 3,
+      "tags": ["volatility", "breakout"],
+      "notes": "Prefer entries on pullback; size small pre-event.",
+      "attachments": [
+        { "label": "Chart", "url": "https://example.com/chart" }
+      ]
     }
   ]
 }
