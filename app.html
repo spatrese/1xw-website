@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>1XW Trading | Member Area</title>
+<title>1XW Trading | Weekly Research</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +13,7 @@
 :root{
   --bg:#0b0f17;
   --bg2:#111827;
+  --panel:#0f172a;
   --text:#e5e7eb;
   --muted:#9ca3af;
   --muted2:#6b7280;
@@ -20,9 +21,10 @@
   --accent:#7c9cff;
 
   --radius-lg:22px;
+  --radius-md:14px;
+
   --max:1120px;
-  --px:clamp(18px,5vw,64px);
-  --py:clamp(40px,6vw,80px);
+  --px:clamp(16px,4vw,60px);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -30,7 +32,7 @@ html{scroll-behavior:smooth;}
 body{
   font-family:'Inter',sans-serif;
   color:var(--text);
-  line-height:1.65;
+  line-height:1.55;
   background:
     radial-gradient(900px 600px at 70% -10%, rgba(124,156,255,.12), transparent 60%),
     radial-gradient(700px 500px at 20% 10%, rgba(124,156,255,.08), transparent 70%),
@@ -39,951 +41,769 @@ body{
 a{color:inherit;text-decoration:none;}
 .container{max-width:var(--max);margin:0 auto;padding:0 var(--px);}
 
-/* NAVBAR */
 .nav{
   position:sticky;top:0;z-index:50;
-  background:rgba(11,15,23,.75);
+  background:rgba(11,15,23,.78);
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--hairline);
 }
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px;}
-.logo{font-weight:900;letter-spacing:-.8px;text-transform:uppercase;color:var(--accent);}
-.nav-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;
+  gap:14px;
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:210px;}
+.brand img{height:32px;width:auto;display:block;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));}
+.logo{
+  font-weight:900;
+  letter-spacing:-.8px;
+  text-transform:uppercase;
+  color:var(--accent);
+  line-height:1;
+}
+.nav-links{
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+  justify-content:flex-end;
+}
 .nav-links a{
-  font-size:.9rem;font-weight:600;color:var(--accent);
+  font-size:.9rem;font-weight:800;
+  color:var(--accent);
   padding:10px 12px;border-radius:999px;
 }
-.nav-links a:hover{color:var(--text);background:rgba(124,156,255,.10);}
-
-.btn{
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid var(--accent);
-  background:var(--accent);
-  color:#0b0f17;
-  font-weight:800;
-  font-size:.9rem;
-  cursor:pointer;
-}
-.btn:hover{background:#9fb6ff;border-color:#9fb6ff;}
-.btn.ghost{
-  background:rgba(124,156,255,.06);
-  border-color:rgba(124,156,255,.35);
+.nav-links a:hover{background:rgba(124,156,255,.10);color:var(--text);}
+.nav-cta{
+  margin-left:6px;
+  font-weight:900;font-size:.9rem;
+  padding:10px 14px;border-radius:999px;
+  border:1px solid rgba(124,156,255,.35);
   color:var(--accent);
+  background:rgba(124,156,255,.06);
 }
-.btn.ghost:hover{
-  background:rgba(124,156,255,.14);
-  border-color:#9fb6ff;
-  color:#9fb6ff;
-}
+.nav-cta:hover{background:rgba(124,156,255,.14);}
 
-/* LAYOUT */
-main{padding: var(--py) 0;}
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:16px;
-  flex-wrap:wrap;
-  margin-bottom:18px;
-}
-h1{font-size:1.65rem;letter-spacing:-.6px;}
-.sub{color:var(--muted);max-width:860px;}
-.badge{
+header.hero{padding:34px 0 12px;}
+.tag{
   display:inline-flex;
-  font-size:.75rem;
+  font-size:.72rem;
   text-transform:uppercase;
   letter-spacing:1.6px;
   color:var(--accent);
   border:1px solid rgba(124,156,255,.35);
-  padding:8px 12px;
+  padding:9px 12px;
   border-radius:999px;
   background:rgba(124,156,255,.12);
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
-.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.hero h1{
+  font-size:clamp(1.9rem,4.4vw,2.7rem);
+  font-weight:900;
+  letter-spacing:-1.4px;
+  margin-bottom:8px;
+}
+.hero .sub{color:var(--muted);max-width:920px;}
+.hero .meta{
+  margin-top:10px;
+  color:rgba(229,231,235,.68);
+  font-size:.92rem;
+}
 
-.grid{display:grid;grid-template-columns: 1fr 1fr 1fr;gap:16px;}
+main{padding:12px 0 60px;}
+
+.notice,.error{
+  margin:14px 0;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--hairline);
+  display:none;
+}
+.notice{background:rgba(124,156,255,.08);color:rgba(229,231,235,.92);}
+.error{background:rgba(255,80,80,.10);border-color:rgba(255,80,80,.20);color:#fecaca;}
+
+.section{margin:16px 0;}
 .panel{
-  background:var(--bg2);
+  background:linear-gradient(180deg,#111827,#0f172a);
   border:1px solid var(--hairline);
   border-radius:var(--radius-lg);
   padding:22px;
 }
 .kicker{
-  font-weight:800;
+  font-weight:900;
   text-transform:uppercase;
   letter-spacing:1.4px;
   font-size:.72rem;
   color:var(--accent);
   margin-bottom:10px;
 }
-.big{font-size:1.35rem;font-weight:900;letter-spacing:-.6px;margin-bottom:6px;}
-.p{color:var(--muted);font-size:.95rem;line-height:1.75;}
+.p{color:var(--muted);}
 
-.section{margin-top:16px;}
-.section .panel{padding:26px;}
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.grid-2{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
 
-.table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.92rem;}
-.table th, .table td{
-  padding:12px 10px;
-  border-bottom:1px solid rgba(124,156,255,.10);
-  text-align:left;
-  color:var(--text);
+.big{
+  font-size:1.65rem;
+  font-weight:900;
+  letter-spacing:-.6px;
+  margin:2px 0 6px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(124,156,255,.22);
+  background:rgba(124,156,255,.08);
+  font-weight:900;
+  font-size:.78rem;
+  color:rgba(229,231,235,.92);
+}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+
+.hr{border:none;border-top:1px solid var(--hairline);margin:16px 0;}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:12px;
+}
+.card{
+  background:rgba(17,24,39,.70);
+  border:1px solid var(--hairline);
+  border-radius:18px;
+  padding:16px;
+}
+.card h3{
+  font-size:1.05rem;
+  letter-spacing:-.2px;
+  margin-bottom:6px;
+}
+.card .meta{color:rgba(229,231,235,.70);font-size:.88rem;margin-bottom:10px;}
+.card .line{color:var(--muted);font-size:.92rem;}
+
+.list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:12px;
+}
+.item{
+  border:1px solid var(--hairline);
+  background:rgba(17,24,39,.65);
+  border-radius:18px;
+  padding:14px;
+}
+.item .title{font-weight:900;letter-spacing:-.2px;margin-bottom:4px;}
+.item .sub{color:rgba(229,231,235,.70);font-size:.86rem;margin-bottom:8px;}
+.item ul{margin-left:18px;color:var(--muted);}
+.item li{margin:4px 0;}
+.item a{color:var(--accent);font-weight:900;}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+  overflow:hidden;
+  border-radius:16px;
+  border:1px solid var(--hairline);
+}
+.table th,.table td{
+  padding:12px 12px;
+  border-bottom:1px solid var(--hairline);
+  font-size:.92rem;
   vertical-align:top;
 }
-.table th{color:var(--muted2);font-weight:700;}
-
-.mini{font-size:.85rem;color:var(--muted2);margin-top:8px;}
-
-.notice{
-  display:none;
-  margin-top:10px;
-  padding:12px 14px;
-  border-radius:12px;
-  border:1px solid rgba(124,156,255,.25);
-  background:rgba(124,156,255,.08);
-  color:var(--text);
-  font-size:.9rem;
-}
-.error{
-  display:none;
-  margin-top:10px;
-  padding:12px 14px;
-  border-radius:12px;
-  border:1px solid rgba(248,113,113,.35);
-  background: rgba(248,113,113,.10);
-  color: #fecaca;
-  font-size:.9rem;
-}
-
-.chartWrap{
-  margin-top:14px;
-  border:1px solid rgba(124,156,255,.18);
-  background:rgba(15,23,42,.35);
-  border-radius:18px;
-  padding:14px;
-  height: 360px;
-}
-canvas{max-width:100%;}
-
-/* TRADE IDEAS + COMMENTARY */
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center;}
-.input{
-  background:rgba(15,23,42,.35);
-  border:1px solid rgba(124,156,255,.18);
-  color:var(--text);
-  border-radius:999px;
-  padding:10px 12px;
-  outline:none;
-  font-weight:600;
-  font-size:.9rem;
-}
-.select{
-  background:rgba(15,23,42,.35);
-  border:1px solid rgba(124,156,255,.18);
-  color:var(--text);
-  border-radius:999px;
-  padding:10px 12px;
-  outline:none;
-  font-weight:700;
-  font-size:.9rem;
-}
-.cards{margin-top:14px;display:grid;grid-template-columns: repeat(3, 1fr);gap:12px;}
-.card{
-  background:rgba(15,23,42,.35);
-  border:1px solid rgba(124,156,255,.18);
-  border-radius:18px;
-  padding:16px;
-  cursor:pointer;
-}
-.card:hover{border-color:rgba(124,156,255,.35); background:rgba(15,23,42,.45);}
-.card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px;}
-.tagrow{display:flex;gap:8px;flex-wrap:wrap;}
-.tag{
-  font-size:.72rem;
-  font-weight:900;
-  letter-spacing:.8px;
-  text-transform:uppercase;
+.table th{
+  text-align:left;
   color:rgba(229,231,235,.85);
-  border:1px solid rgba(124,156,255,.25);
-  background:rgba(124,156,255,.08);
-  padding:6px 10px;
-  border-radius:999px;
-}
-.status{
-  font-size:.72rem;
   font-weight:900;
-  letter-spacing:.8px;
-  text-transform:uppercase;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid rgba(124,156,255,.25);
-  color:rgba(229,231,235,.85);
+  background:rgba(124,156,255,.06);
 }
-.status.open{background:rgba(34,197,94,.10); border-color:rgba(34,197,94,.25);}
-.status.closed{background:rgba(148,163,184,.10); border-color:rgba(148,163,184,.25);}
-.title{font-weight:900;letter-spacing:-.3px;margin-bottom:6px;}
-.meta{color:var(--muted);font-size:.86rem;line-height:1.5;}
+.table tr:last-child td{border-bottom:none;}
 
-.feed{margin-top:14px; display:grid; gap:12px;}
-.post{
-  background:rgba(15,23,42,.35);
-  border:1px solid rgba(124,156,255,.18);
-  border-radius:18px;
-  padding:16px;
-}
-.post h3{font-size:1.05rem;letter-spacing:-.2px;margin-bottom:6px;}
-.post .date{color:var(--muted2);font-size:.86rem;margin-bottom:10px;}
-.post ul{margin-left:18px;color:var(--text);opacity:.92;}
-.post li{margin:6px 0;}
+.mini{margin-top:10px;color:var(--muted2);font-size:.85rem;}
+.hide-mobile{display:table-cell;}
 
-/* MODAL */
-.modal{
-  position:fixed; inset:0;
-  background:rgba(0,0,0,.55);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  z-index:1000;
+@media (max-width:980px){
+  .grid-3{grid-template-columns:1fr;}
+  .grid-2{grid-template-columns:1fr;}
+  .cards{grid-template-columns:1fr;}
+  .hide-mobile{display:none;}
 }
-.modal.open{display:flex;}
-.modal-card{
-  width:min(860px, 100%);
-  background:var(--bg2);
-  border:1px solid rgba(124,156,255,.22);
-  border-radius:22px;
-  padding:18px;
-}
-.modal-head{
-  display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
-  border-bottom:1px solid rgba(124,156,255,.10);
-  padding-bottom:12px;
-  margin-bottom:12px;
-}
-.modal-head h2{font-size:1.2rem; letter-spacing:-.3px;}
-.close{
-  background:rgba(124,156,255,.10);
-  border:1px solid rgba(124,156,255,.20);
-  color:rgba(229,231,235,.92);
-  border-radius:999px;
-  padding:10px 12px;
-  font-weight:900;
-  cursor:pointer;
-}
-.close:hover{border-color:rgba(124,156,255,.35); background:rgba(124,156,255,.14);}
-.modal-body{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
-.box{
-  border:1px solid rgba(124,156,255,.14);
-  background:rgba(15,23,42,.25);
-  border-radius:18px;
-  padding:14px;
-}
-.box h4{
-  font-size:.78rem;
-  letter-spacing:1.3px;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:8px;
-}
-.box p{color:rgba(229,231,235,.92); font-size:.92rem; line-height:1.65;}
-.kv{display:grid; gap:6px; font-size:.92rem;}
-.kv div{display:flex; justify-content:space-between; gap:10px; color:rgba(229,231,235,.92);}
-.kv span{color:var(--muted); font-weight:700;}
-
-.pills{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
-.pill{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px;
-       border:1px solid rgba(160,200,255,.25); background: rgba(10, 30, 60, .35);
-       font-size:12px; color: rgba(230,245,255,.92); }
-.pill .side{ font-size:11px; padding:2px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.18); opacity:.9; }
-.pill.long .side{ background: rgba(60, 180, 120, .18); border-color: rgba(60, 180, 120, .35); }
-.pill.short .side{ background: rgba(220, 80, 80, .18); border-color: rgba(220, 80, 80, .35); }
-
-@media (max-width: 980px){
-  .grid{grid-template-columns: 1fr;}
-  .cards{grid-template-columns: 1fr;}
-  .modal-body{grid-template-columns: 1fr;}
-  .chartWrap{height: 320px;}
+@media (max-width:520px){
+  .brand img{height:30px;}
+  .brand .logo{display:none;}
 }
 
 footer{
-  padding:22px 0 30px;
-  text-align:center;
+  padding:24px 0 44px;
+  border-top:1px solid var(--hairline);
   color:rgba(100,116,139,.9);
   font-size:.85rem;
+  text-align:center;
 }
 </style>
 </head>
 
 <body>
-  <div class="nav">
-    <div class="container nav-inner">
-      <a class="logo" href="index.html">1XW TRADING</a>
-      <div class="nav-links">
-        <a href="app.html">Dashboard</a>
-        <a href="#performance">Performance</a>
-        <a href="#plb_chart">PLB Chart</a>
-        <a href="#trades">Model Trades</a>
-        <a href="#trade_ideas">Trade Ideas</a>
-        <a href="#comments">Market Commentary</a>
-        <button class="btn" id="logoutBtn" type="button">Logout</button>
-      </div>
+
+<div class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="1XW Trading">
+      <img src="logo.png" alt="1XW Trading logo" />
+      <div class="logo">1XW TRADING</div>
+    </a>
+
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#technical">Technical</a>
+      <a href="#fundamental">Fundamental</a>
+      <a href="#ideas">Top Ideas</a>
+      <a href="model.html" class="nav-cta">1XW Model</a>
+      <a href="login.html" class="nav-cta" id="logoutBtn">Logout</a>
     </div>
   </div>
+</div>
 
-  <main class="container">
-    <div class="header">
-      <div>
-        <div class="badge">Member Area</div>
-        <h1>Dashboard</h1>
-        <div class="sub">
-          Trade Ideas, Market Commentary, and portfolio monitoring in one place.
-        </div>
-      </div>
-
-      <div class="actions">
-        <button class="btn ghost" id="refreshBtn" type="button">Refresh</button>
-      </div>
-    </div>
-
-    <div class="notice" id="noticeBox"></div>
-    <div class="error" id="errorBox"></div>
-
-    <!-- TOP METRICS -->
-    <div class="grid">
-      <div class="panel">
-        <div class="kicker">Open Positions</div>
-        <div class="big" id="openPosValue">—</div>
-        <div class="p" id="openPosDesc">—</div>
-        <div class="pills" id="openPosPills" aria-label="Open positions list"></div>
-      </div>
-
-      <div class="panel">
-        <div class="kicker">Performance</div>
-        <div class="big" id="ytdValue">—</div>
-        <div class="p" id="ytdDesc">—</div>
-      </div>
-
-      <div class="panel">
-        <div class="kicker">NAV vs PLB</div>
-        <div class="big" id="navPlbValue">—</div>
-        <div class="p" id="navPlbDesc">—</div>
-      </div>
-    </div>
-
-    <!-- 1) PERFORMANCE -->
-    <div class="section" id="performance">
-      <div class="panel">
-        <div class="kicker">Performance</div>
-        <div class="p">NAV curve (from <b>content/site_performance.json</b>).</div>
-        <div class="chartWrap"><canvas id="navChart"></canvas></div>
-        <div class="mini" id="navMeta">Loading NAV…</div>
-      </div>
-    </div>
-
-    <!-- 2) PLB CHART -->
-    <div class="section" id="plb_chart">
-      <div class="panel">
-        <div class="kicker">PLB Chart</div>
-        <div class="p">Initial PLB %, PLB %, PERF % (from <b>content/site_performance.json</b>).</div>
-        <div class="chartWrap"><canvas id="plbChart"></canvas></div>
-        <div class="mini" id="plbMeta">Loading PLB…</div>
-      </div>
-    </div>
-
-    <!-- 3) MODEL TRADES -->
-    <div class="section" id="trades">
-      <div class="panel">
-        <div class="kicker">Model Trades</div>
-        <div class="p">Extracted from blotter (in <b>content/site_screener.json</b>).</div>
-
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Instrument</th>
-              <th>Structure</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="tradesBody">
-            <tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-          </tbody>
-        </table>
-
-        <div class="mini" id="dataMeta">Loading model trades…</div>
-      </div>
-    </div>
-
-    <!-- 4) TRADE IDEAS -->
-    <div class="section" id="trade_ideas">
-      <div class="panel">
-        <div class="kicker">Trade Ideas</div>
-        <div class="p">Loaded from <b>content/site_screener.json</b>.</div>
-
-        <div class="toolbar">
-          <input class="input" id="tradeSearch" placeholder="Search ideas…" />
-          <select class="select" id="tradeStatus">
-            <option value="all">All</option>
-            <option value="Open">Open</option>
-            <option value="Closed">Closed</option>
-          </select>
-          <select class="select" id="tradeAsset">
-            <option value="all">All tags</option>
-          </select>
-          <button class="btn ghost" id="reloadContentBtn" type="button">Reload</button>
-        </div>
-
-        <div class="cards" id="tradeCards"></div>
-        <div class="mini" id="tradeMeta">Loading trade ideas…</div>
-      </div>
-    </div>
-
-    <!-- 5) MARKET COMMENTARY -->
-    <div class="section" id="comments">
-      <div class="panel">
-        <div class="kicker">Market Commentary</div>
-        <div class="p">Loaded from <b>content/site_commentary.json</b>.</div>
-
-        <div class="feed" id="commentFeed"></div>
-        <div class="mini" id="commentMeta">Loading commentary…</div>
-      </div>
-    </div>
-
-  </main>
-
-  <footer>1XW TRADING © 2026. All rights reserved.</footer>
-
-  <!-- Trade modal -->
-  <div class="modal" id="tradeModal" aria-hidden="true">
-    <div class="modal-card">
-      <div class="modal-head">
-        <div>
-          <h2 id="mTitle">Trade</h2>
-          <div class="meta" id="mMeta"></div>
-        </div>
-        <button class="close" id="mClose" type="button">Close</button>
-      </div>
-
-      <div class="modal-body">
-        <div class="box">
-          <h4>Thesis</h4>
-          <p id="mThesis"></p>
-        </div>
-        <div class="box">
-          <h4>Structure</h4>
-          <p id="mStructure"></p>
-        </div>
-        <div class="box">
-          <h4>Risk & Levels</h4>
-          <div class="kv" id="mKV"></div>
-        </div>
-        <div class="box">
-          <h4>Notes</h4>
-          <div id="mNotes"></div>
-        </div>
-      </div>
-    </div>
+<header class="hero">
+  <div class="container">
+    <div class="tag">Member Area</div>
+    <h1>Weekly Research</h1>
+    <div class="sub">Technical overview, fundamental overview and weekly top trade candidates.</div>
+    <div class="meta" id="asofLine" aria-label="As-of date"></div>
   </div>
+</header>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<main class="container">
+  <div class="notice" id="noticeBox"></div>
+  <div class="error" id="errorBox"></div>
+
+  <!-- OVERVIEW -->
+  <section class="section" id="overview">
+    <div class="panel">
+      <div class="kicker">Overview</div>
+      <div class="p">Weekly snapshot across technical signals, macro narrative and best candidates.</div>
+
+      <div class="grid-3" style="margin-top:14px;">
+        <div class="panel" style="padding:18px;">
+          <div class="kicker">Top 3 Long / Short</div>
+          <div class="p" style="margin-bottom:10px;">Highest-ranked candidates of the week.</div>
+          <div class="list" id="overviewIdeas"></div>
+          <div class="mini" id="overviewIdeasMeta"></div>
+        </div>
+
+        <div class="panel" style="padding:18px;">
+          <div class="kicker">Technical Breadth</div>
+          <div class="p" style="margin-bottom:10px;">Breadth summary by asset class.</div>
+          <div id="overviewTech"></div>
+          <div class="mini" id="overviewTechMeta"></div>
+        </div>
+
+        <div class="panel" style="padding:18px;">
+          <div class="kicker">Fundamental Tone</div>
+          <div class="p" style="margin-bottom:10px;">Weekly narrative by asset class.</div>
+          <div id="overviewFund"></div>
+          <div class="mini" id="overviewFundMeta"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL -->
+  <section class="section" id="technical">
+    <div class="panel">
+      <div class="kicker">Technical Overview</div>
+      <div class="p">Signals are derived from systematic trend and momentum diagnostics.</div>
+
+      <div class="hr"></div>
+
+      <div class="kicker" style="margin-bottom:6px;">By Asset Class</div>
+      <div class="list" id="techByAssetClass"></div>
+      <div class="mini" id="techByAssetClassMeta"></div>
+
+      <div class="hr"></div>
+
+      <div class="kicker" style="margin-bottom:6px;">By Instrument</div>
+      <div class="p">Compact universe table (score, setup, momentum).</div>
+
+      <table class="table" aria-label="Technical table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th class="hide-mobile">Name</th>
+            <th>Asset Class</th>
+            <th>Setup</th>
+            <th>Score</th>
+            <th class="hide-mobile">20d %</th>
+            <th class="hide-mobile">60d %</th>
+          </tr>
+        </thead>
+        <tbody id="techTableBody">
+          <tr><td colspan="7">Loading…</td></tr>
+        </tbody>
+      </table>
+      <div class="mini" id="techTableMeta"></div>
+    </div>
+  </section>
+
+  <!-- FUNDAMENTAL -->
+  <section class="section" id="fundamental">
+    <div class="panel">
+      <div class="kicker">Fundamental Overview</div>
+      <div class="p">Weekly commentary by asset class with news highlights and key events.</div>
+
+      <div class="list" id="fundByAssetClass"></div>
+      <div class="mini" id="fundByAssetClassMeta"></div>
+    </div>
+  </section>
+
+  <!-- TOP IDEAS -->
+  <section class="section" id="ideas">
+    <div class="panel">
+      <div class="kicker">Top Ideas</div>
+      <div class="p">Best candidates integrating technical strength and weekly fundamental support.</div>
+
+      <div class="grid-2" style="margin-top:12px;">
+        <div class="panel" style="padding:18px;">
+          <div class="kicker">Top 3 Long</div>
+          <div class="cards" id="ideasLong"></div>
+        </div>
+        <div class="panel" style="padding:18px;">
+          <div class="kicker">Top 3 Short</div>
+          <div class="cards" id="ideasShort"></div>
+        </div>
+      </div>
+
+      <div class="mini" id="ideasMeta"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>1XW TRADING © 2026. All rights reserved.</footer>
 
 <script>
 (() => {
   const TOKEN_KEY = "1xw_auth";
-
-  // Data sources (NEW)
-  const SCREENER_URL = "content/site_screener.json";
-  const COMMENTARY_URL = "content/site_commentary.json";
-  const PERFORMANCE_URL = "content/site_performance.json";
+  const WEEKLY_URL = "content/site_weekly.json";
 
   // Auth gate
   if (localStorage.getItem(TOKEN_KEY) !== "ok") {
     window.location.href = "login.html";
     return;
   }
-  document.getElementById("logoutBtn").addEventListener("click", () => {
+
+  // Logout
+  const logoutBtn = document.getElementById("logoutBtn");
+  logoutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     localStorage.removeItem(TOKEN_KEY);
     window.location.href = "login.html";
   });
 
-  // DOM refs
   const noticeBox = document.getElementById("noticeBox");
-  const errorBox = document.getElementById("errorBox");
+  const errorBox  = document.getElementById("errorBox");
+  const asofLine  = document.getElementById("asofLine");
 
-  const openPosValue = document.getElementById("openPosValue");
-  const openPosDesc  = document.getElementById("openPosDesc");
-  const openPosPills = document.getElementById("openPosPills");
+  const overviewIdeas = document.getElementById("overviewIdeas");
+  const overviewIdeasMeta = document.getElementById("overviewIdeasMeta");
+  const overviewTech = document.getElementById("overviewTech");
+  const overviewTechMeta = document.getElementById("overviewTechMeta");
+  const overviewFund = document.getElementById("overviewFund");
+  const overviewFundMeta = document.getElementById("overviewFundMeta");
 
-  const ytdValue    = document.getElementById("ytdValue");
-  const ytdDesc     = document.getElementById("ytdDesc");
+  const techByAssetClass = document.getElementById("techByAssetClass");
+  const techByAssetClassMeta = document.getElementById("techByAssetClassMeta");
+  const techTableBody = document.getElementById("techTableBody");
+  const techTableMeta = document.getElementById("techTableMeta");
 
-  const navPlbValue = document.getElementById("navPlbValue");
-  const navPlbDesc  = document.getElementById("navPlbDesc");
+  const fundByAssetClass = document.getElementById("fundByAssetClass");
+  const fundByAssetClassMeta = document.getElementById("fundByAssetClassMeta");
 
-  const tradesBody  = document.getElementById("tradesBody");
-  const dataMeta    = document.getElementById("dataMeta");
+  const ideasLong = document.getElementById("ideasLong");
+  const ideasShort = document.getElementById("ideasShort");
+  const ideasMeta = document.getElementById("ideasMeta");
 
-  const navMeta     = document.getElementById("navMeta");
-  const plbMeta     = document.getElementById("plbMeta");
-
-  const navCanvas   = document.getElementById("navChart");
-  const plbCanvas   = document.getElementById("plbChart");
-
-  const tradeCards = document.getElementById("tradeCards");
-  const tradeMeta  = document.getElementById("tradeMeta");
-  const tradeSearch = document.getElementById("tradeSearch");
-  const tradeStatus = document.getElementById("tradeStatus");
-  const tradeAsset = document.getElementById("tradeAsset");
-  const reloadContentBtn = document.getElementById("reloadContentBtn");
-
-  const commentFeed = document.getElementById("commentFeed");
-  const commentMeta = document.getElementById("commentMeta");
-
-  const refreshBtn = document.getElementById("refreshBtn");
-
-  const tradeModal = document.getElementById("tradeModal");
-  const mClose = document.getElementById("mClose");
-  const mTitle = document.getElementById("mTitle");
-  const mMeta = document.getElementById("mMeta");
-  const mThesis = document.getElementById("mThesis");
-  const mStructure = document.getElementById("mStructure");
-  const mKV = document.getElementById("mKV");
-  const mNotes = document.getElementById("mNotes");
-
-  let navChart = null;
-  let plbChart = null;
-
-  let tradeIdeas = [];
-  let modelTrades = [];
-  let openPositions = [];
-  let commentarySections = [];
-
+  function showNotice(msg){
+    noticeBox.textContent = msg;
+    noticeBox.style.display = "block";
+  }
   function showError(msg){
     errorBox.textContent = msg;
     errorBox.style.display = "block";
-    noticeBox.style.display = "none";
   }
-  function clearMessages(){
+  function clearMsgs(){
     noticeBox.style.display = "none";
     errorBox.style.display = "none";
   }
 
-  function escapeHtml(s){
-    return (s ?? "").toString()
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#39;");
+  function cacheBust(url){
+    const sep = url.includes("?") ? "&" : "?";
+    return url + sep + "v=" + Date.now();
   }
-
-  function uniq(arr){ return Array.from(new Set(arr)); }
-
-  function fmtPct100(x){
+  async function loadJson(url){
+    const res = await fetch(cacheBust(url), { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
+    return await res.json();
+  }
+  function safeText(x){ return (x === null || x === undefined) ? "" : String(x); }
+  function clip01(x){
     const n = Number(x);
-    if (!Number.isFinite(n)) return null;
-    // assumes x already in decimal (0.10 = 10%)
-    return (n * 100).toFixed(2) + "%";
+    if (Number.isNaN(n)) return 0;
+    return Math.min(1, Math.max(0, n));
   }
-  function fmtMoney0(x){
+  function fmtPct(x){
     const n = Number(x);
-    if (!Number.isFinite(n)) return null;
-    return n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    if (Number.isNaN(n)) return "—";
+    const s = (n >= 0 ? "+" : "") + n.toFixed(2) + "%";
+    return s;
   }
 
-  async function fetchJson(url){
-    const r = await fetch(url, { cache: "no-store" });
-    if (!r.ok) throw new Error(`${url} → HTTP ${r.status}`);
-    return await r.json();
-  }
+  function renderOverviewIdeas(top){
+    overviewIdeas.innerHTML = "";
+    const longs = (top && Array.isArray(top.top_long)) ? top.top_long : [];
+    const shorts = (top && Array.isArray(top.top_short)) ? top.top_short : [];
 
-  // ---------- Charts ----------
-  function renderNAVChart(series){
-    if (navChart){ navChart.destroy(); navChart = null; }
-    if (!series || !Array.isArray(series.labels) || series.labels.length === 0){
-      navMeta.textContent = "No NAV series available.";
+    if (!longs.length && !shorts.length){
+      overviewIdeasMeta.textContent = "Top ideas not available.";
       return;
     }
-    navMeta.textContent = `NAV series: ${series.labels.length} points.`;
-    navChart = new Chart(navCanvas, {
-      type: "line",
-      data: {
-        labels: series.labels,
-        datasets: [{
-          label: "NAV",
-          data: series.values,
-          tension: 0.25,
-          pointRadius: 0,
-          borderWidth: 2,
-          fill: true
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: "index", intersect:false },
-        plugins: { legend: { display:false } }
-      }
-    });
-  }
 
-  function renderPLBChart(series){
-    if (plbChart){ plbChart.destroy(); plbChart = null; }
-    if (!series || !Array.isArray(series.labels) || series.labels.length === 0){
-      plbMeta.textContent = "No PLB series available.";
-      return;
-    }
-    plbMeta.textContent = `PLB series: ${series.labels.length} points.`;
-    plbChart = new Chart(plbCanvas, {
-      type: "line",
-      data: {
-        labels: series.labels,
-        datasets: [
-          { label: "Initial PLB %", data: series.init, borderDash:[6,6], pointRadius:0, borderWidth:2, tension:0.15, spanGaps:true },
-          { label: "PLB %", data: series.plb, pointRadius:0, borderWidth:2, tension:0.15, spanGaps:true },
-          { label: "PERF %", data: series.perf, pointRadius:0, borderWidth:2, tension:0.20, spanGaps:true }
-        ]
-      },
-      options: {
-        responsive:true,
-        maintainAspectRatio:false,
-        interaction:{ mode:"index", intersect:false },
-        plugins:{ legend:{ display:true } },
-        scales:{
-          y:{ ticks:{ callback:(v)=> (Number.isFinite(v) ? `${(v*100).toFixed(0)}%` : "") } }
-        }
-      }
-    });
-  }
+    const mkRow = (side, it) => {
+      const sym = safeText(it.symbol || it.instrument || "—");
+      const ac  = safeText(it.asset_class || it.assetClass || "—");
+      const setup = safeText(it.setup || "");
+      const score = (it.score === null || it.score === undefined) ? "—" : String(it.score);
+      const final = (it.final_score === null || it.final_score === undefined) ? null : Number(it.final_score);
+      const finalTxt = (final === null || Number.isNaN(final)) ? "" : ` • ${Math.round(final*100)}/100`;
 
-  // ---------- Data adapters (flexible) ----------
-  function pickFirst(obj, keys){
-    for (const k of keys){
-      if (obj && obj[k] !== undefined && obj[k] !== null) return obj[k];
-    }
-    return null;
-  }
-
-  function adaptNAV(perf){
-    // Try multiple shapes
-    const nav = pickFirst(perf, ["nav", "navSeries", "nav_curve", "navCurve", "NAV"]);
-    if (nav && Array.isArray(nav.labels) && Array.isArray(nav.values)) return nav;
-
-    // common alternative: {dates:[], values:[]}
-    if (nav && Array.isArray(nav.dates) && Array.isArray(nav.values)){
-      return { labels: nav.dates, values: nav.values };
-    }
-
-    // fallback: top-level arrays
-    const labels = pickFirst(perf, ["nav_labels","labels_nav","dates_nav","dates"]);
-    const values = pickFirst(perf, ["nav_values","values_nav","nav_values_series","nav_values_array","nav"]);
-    if (Array.isArray(labels) && Array.isArray(values)) return { labels, values };
-
-    return { labels: [], values: [] };
-  }
-
-  function adaptPLB(perf){
-    const plb = pickFirst(perf, ["plb", "plbSeries", "plb_chart", "plbChart", "PLB"]);
-    if (plb && Array.isArray(plb.labels) && Array.isArray(plb.perf) && Array.isArray(plb.plb) && Array.isArray(plb.init)) return plb;
-
-    // common alternative: {dates:[], perf:[], plb:[], init:[]}
-    if (plb && Array.isArray(plb.dates)){
-      return { labels: plb.dates, perf: plb.perf || [], plb: plb.plb || [], init: plb.init || [] };
-    }
-
-    // fallback: top-level arrays
-    const labels = pickFirst(perf, ["plb_labels","labels_plb","dates_plb"]);
-    const perfA  = pickFirst(perf, ["plb_perf","perf_series","perf"]);
-    const plbA   = pickFirst(perf, ["plb_plb","plb_series","plb"]);
-    const initA  = pickFirst(perf, ["plb_init","init_series","init"]);
-    if (Array.isArray(labels) && Array.isArray(perfA) && Array.isArray(plbA) && Array.isArray(initA)){
-      return { labels, perf: perfA, plb: plbA, init: initA };
-    }
-
-    return { labels: [], perf: [], plb: [], init: [] };
-  }
-
-  function adaptSummary(perf){
-    // summary may be nested or top-level; keep flexible
-    const s = pickFirst(perf, ["summary", "stats", "header", "top"]) || perf || {};
-    return {
-      ytd: pickFirst(s, ["ytd", "YTD", "perf_ytd", "performance_ytd"]),
-      itd: pickFirst(s, ["itd", "ITD", "perf_itd", "performance_itd"]),
-      nav: pickFirst(s, ["nav", "NAV", "nav_level", "navValue"]),
-      plb: pickFirst(s, ["plb", "PLB", "plb_level", "plbValue"]),
-      navMinusPlb: pickFirst(s, ["nav_minus_plb","navMinusPlb","delta_nav_plb","delta"])
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = `
+        <div class="title">${side}: ${sym}${finalTxt}</div>
+        <div class="sub">${ac}${setup ? " • " + setup : ""} • Score ${score}</div>
+      `;
+      return div;
     };
+
+    longs.slice(0,3).forEach(it => overviewIdeas.appendChild(mkRow("LONG", it)));
+    shorts.slice(0,3).forEach(it => overviewIdeas.appendChild(mkRow("SHORT", it)));
+
+    overviewIdeasMeta.textContent = "Top candidates (3 long + 3 short).";
   }
 
-  // ---------- Renderers ----------
-  function renderOpenPositions(items){
-    const arr = Array.isArray(items) ? items : [];
-    openPosPills.innerHTML = "";
-    if (arr.length === 0){
-      openPosValue.textContent = "0";
-      openPosDesc.textContent = "No open positions.";
-      return;
-    }
-    openPosValue.textContent = String(arr.length);
-    openPosDesc.textContent = "Current exposure (from blotter).";
-
-    for (const it of arr.slice(0, 30)){
-      const label = escapeHtml(it.label || it.ticker || it.instrument || "");
-      const side = (it.side || it.direction || "").toString().trim();
-      const sideKey = (it.sideKey || "").toString().trim() || (side.toLowerCase()==="long" ? "long" : (side.toLowerCase()==="short" ? "short" : ""));
-      const pill = document.createElement("div");
-      pill.className = `pill ${sideKey}`;
-      pill.innerHTML = `<span>${label}</span><span class="side">${escapeHtml(side || "")}</span>`;
-      openPosPills.appendChild(pill);
-    }
-  }
-
-  function renderModelTrades(trades){
-    const arr = Array.isArray(trades) ? trades : [];
-    if (arr.length === 0){
-      tradesBody.innerHTML = `<tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>`;
-      dataMeta.textContent = "No model trades found.";
-      return;
-    }
-    const rows = arr.slice(0, 60).map(t => {
-      const d = escapeHtml(t.date || "");
-      const i = escapeHtml(t.instrument || t.asset || "");
-      const s = escapeHtml(t.structure || "");
-      const st = escapeHtml(t.status || "");
-      return `<tr><td>${d}</td><td>${i}</td><td>${s}</td><td>${st}</td></tr>`;
-    });
-    tradesBody.innerHTML = rows.join("");
-    dataMeta.textContent = `Loaded ${arr.length} model trades.`;
-  }
-
-  function renderTopSummary(perfSummary){
-    const ytd = perfSummary.ytd;
-    const itd = perfSummary.itd;
-    const nav = perfSummary.nav;
-    const plb = perfSummary.plb;
-    const delta = perfSummary.navMinusPlb;
-
-    const ytdTxt = (ytd !== null && ytd !== undefined) ? fmtPct100(ytd) : null;
-    const itdTxt = (itd !== null && itd !== undefined) ? fmtPct100(itd) : null;
-    ytdValue.textContent = ytdTxt || "—";
-    ytdDesc.textContent = (itdTxt ? `ITD ${itdTxt}` : "—");
-
-    const navTxt = (nav !== null && nav !== undefined) ? fmtMoney0(nav) : null;
-    const plbTxt = (plb !== null && plb !== undefined) ? fmtMoney0(plb) : null;
-
-    if (navTxt && plbTxt){
-      navPlbValue.textContent = `${navTxt} / ${plbTxt}`;
-    } else {
-      navPlbValue.textContent = "—";
-    }
-
-    const deltaTxt = (delta !== null && delta !== undefined) ? fmtMoney0(delta) : null;
-    navPlbDesc.textContent = deltaTxt ? `NAV − PLB: ${deltaTxt}` : "—";
-  }
-
-  function buildTagOptions(tradeIdeas){
-    const tags = [];
-    for (const t of (tradeIdeas || [])){
-      const arr = Array.isArray(t.tags) ? t.tags : [];
-      for (const x of arr) tags.push(String(x));
-    }
-    const opts = uniq(tags).sort((a,b)=>a.localeCompare(b));
-    tradeAsset.innerHTML = `<option value="all">All tags</option>` + opts.map(x => `<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("");
-  }
-
-  function renderTradeCards(list){
-    const arr = Array.isArray(list) ? list : [];
-    if (arr.length === 0){
-      tradeCards.innerHTML = "";
-      tradeMeta.textContent = "No trade ideas available.";
+  function renderOverviewTech(tech){
+    overviewTech.innerHTML = "";
+    const by = tech && (tech.by_asset_class || tech.byAssetClass);
+    if (!by || typeof by !== "object"){
+      overviewTechMeta.textContent = "Technical breadth not available.";
       return;
     }
 
-    const cards = arr.map(t => {
-      const title = `${t.asset || "—"} · ${t.direction || "—"}`;
-      const status = (t.status || "Open").toString();
-      const statusClass = status.toLowerCase() === "closed" ? "closed" : "open";
-      const date = t.date || "";
-      const setup = t.setup || "";
-      const thesis = t.thesis || "";
+    const keys = Object.keys(by);
+    if (!keys.length){
+      overviewTechMeta.textContent = "Technical breadth not available.";
+      return;
+    }
 
-      const tags = (Array.isArray(t.tags) ? t.tags : []).slice(0,4).map(x => `<span class="tag">${escapeHtml(x)}</span>`).join("");
+    const table = document.createElement("table");
+    table.className = "table";
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Asset Class</th>
+          <th>Avg Score</th>
+          <th class="hide-mobile">Bull / Bear</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    `;
+    const tb = table.querySelector("tbody");
 
-      return `
-        <div class="card" data-id="${escapeHtml(t.id || "")}">
-          <div class="card-top">
-            <div class="tagrow">${tags}</div>
-            <span class="status ${statusClass}">${escapeHtml(status)}</span>
-          </div>
-          <div class="title">${escapeHtml(title)}</div>
-          <div class="meta">${escapeHtml(date)} · ${escapeHtml(setup)}</div>
-          <div class="meta">${escapeHtml(thesis)}</div>
-        </div>
+    keys.forEach(k => {
+      const o = by[k] || {};
+      const avg = (o.avg_score === null || o.avg_score === undefined) ? "—" : Number(o.avg_score).toFixed(2);
+      const bull = (o.bullish === null || o.bullish === undefined) ? "—" : String(o.bullish);
+      const bear = (o.bearish === null || o.bearish === undefined) ? "—" : String(o.bearish);
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${safeText(k)}</td>
+        <td>${avg}</td>
+        <td class="hide-mobile">${bull} / ${bear}</td>
       `;
-    }).join("");
-
-    tradeCards.innerHTML = cards;
-    tradeMeta.textContent = `Showing ${arr.length} ideas.`;
-  }
-
-  function applyTradeFilters(){
-    const q = (tradeSearch.value || "").trim().toLowerCase();
-    const st = tradeStatus.value;
-    const tg = tradeAsset.value;
-
-    let filtered = (tradeIdeas || []).slice();
-
-    if (st !== "all"){
-      filtered = filtered.filter(t => (t.status || "Open") === st);
-    }
-    if (tg !== "all"){
-      filtered = filtered.filter(t => (Array.isArray(t.tags) ? t.tags : []).map(String).includes(tg));
-    }
-    if (q){
-      filtered = filtered.filter(t => {
-        const blob = JSON.stringify(t).toLowerCase();
-        return blob.includes(q);
-      });
-    }
-    renderTradeCards(filtered);
-  }
-
-  function renderCommentary(sections){
-    const arr = Array.isArray(sections) ? sections : [];
-    if (arr.length === 0){
-      commentFeed.innerHTML = "";
-      commentMeta.textContent = "No commentary available.";
-      return;
-    }
-
-    // show latest week items first if week exists, else latest by date
-    const sorted = arr.slice().sort((a,b)=>{
-      const wa = (a.week || "").toString();
-      const wb = (b.week || "").toString();
-      if (wa && wb && wa !== wb) return wb.localeCompare(wa);
-      const da = (a.date || "").toString();
-      const db = (b.date || "").toString();
-      return db.localeCompare(da);
+      tb.appendChild(tr);
     });
 
-    const html = sorted.map(s => {
-      const title = escapeHtml(s.title || "Market");
-      const date = escapeHtml(s.date || "");
-      const bullets = (Array.isArray(s.bullets) ? s.bullets : []).slice(0, 12)
-        .map(x => `<li>${escapeHtml(x)}</li>`).join("");
-      const body = s.body ? `<div class="meta" style="margin-top:10px;">${escapeHtml(s.body)}</div>` : "";
-      return `
-        <div class="post">
-          <h3>${title}</h3>
-          <div class="date">${date}${s.week ? ` · ${escapeHtml(s.week)}` : ""}</div>
-          ${bullets ? `<ul>${bullets}</ul>` : ""}
-          ${body}
-        </div>
-      `;
-    }).join("");
-
-    commentFeed.innerHTML = html;
-    commentMeta.textContent = `Loaded ${arr.length} commentary sections.`;
+    overviewTech.appendChild(table);
+    overviewTechMeta.textContent = `Asset classes: ${keys.length}.`;
   }
 
-  // ---------- Modal ----------
-  function openModal(trade){
-    if (!trade) return;
-    mTitle.textContent = `${trade.asset || "—"} · ${trade.direction || "—"}`;
-    mMeta.textContent = `${trade.date || ""} · ${trade.status || ""} · ${trade.setup || ""}`;
-    mThesis.textContent = trade.thesis || "—";
-    mStructure.textContent = trade.structure || "—";
-
-    const kv = [];
-    kv.push(["Horizon", trade.horizon || "—"]);
-    kv.push(["Confidence", (trade.confidence ?? "—").toString()]);
-    const tags = (Array.isArray(trade.tags) ? trade.tags : []).join(", ");
-    kv.push(["Tags", tags || "—"]);
-    mKV.innerHTML = kv.map(([k,v]) => `<div><span>${escapeHtml(k)}</span><b>${escapeHtml(v)}</b></div>`).join("");
-
-    mNotes.textContent = trade.notes || "—";
-
-    tradeModal.classList.add("open");
-    tradeModal.setAttribute("aria-hidden","false");
-  }
-
-  function closeModal(){
-    tradeModal.classList.remove("open");
-    tradeModal.setAttribute("aria-hidden","true");
-  }
-
-  mClose.addEventListener("click", closeModal);
-  tradeModal.addEventListener("click", (e)=>{ if (e.target === tradeModal) closeModal(); });
-  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeModal(); });
-
-  // click handler for cards
-  tradeCards.addEventListener("click", (e) => {
-    const card = e.target.closest(".card");
-    if (!card) return;
-    const id = card.getAttribute("data-id");
-    const t = (tradeIdeas || []).find(x => (x.id || "") === id);
-    openModal(t);
-  });
-
-  // ---------- Load all ----------
-  async function loadAll(){
-    clearMessages();
-
-    // placeholders
-    navMeta.textContent = "Loading NAV…";
-    plbMeta.textContent = "Loading PLB…";
-    dataMeta.textContent = "Loading model trades…";
-    tradeMeta.textContent = "Loading trade ideas…";
-    commentMeta.textContent = "Loading commentary…";
-
-    try {
-      const [perf, scr, comm] = await Promise.all([
-        fetchJson(PERFORMANCE_URL),
-        fetchJson(SCREENER_URL),
-        fetchJson(COMMENTARY_URL),
-      ]);
-
-      // Performance + charts + top summary
-      const nav = adaptNAV(perf);
-      const plb = adaptPLB(perf);
-      renderNAVChart(nav);
-      renderPLBChart(plb);
-
-      const summary = adaptSummary(perf);
-      renderTopSummary(summary);
-
-      // Screener: trade ideas, model trades, open positions
-      tradeIdeas = Array.isArray(scr.tradeIdeas) ? scr.tradeIdeas : [];
-      modelTrades = Array.isArray(scr.modelTrades) ? scr.modelTrades : [];
-      openPositions = Array.isArray(scr.openPositions) ? scr.openPositions : [];
-
-      renderOpenPositions(openPositions);
-      renderModelTrades(modelTrades);
-
-      buildTagOptions(tradeIdeas);
-      applyTradeFilters();
-
-      // Commentary
-      commentarySections = Array.isArray(comm.sections) ? comm.sections : [];
-      renderCommentary(commentarySections);
-
-    } catch (err){
-      showError(String(err && err.message ? err.message : err));
-      // keep UI but don't crash
+  function renderOverviewFund(fund){
+    overviewFund.innerHTML = "";
+    const by = fund && (fund.by_asset_class || fund.byAssetClass);
+    if (!by || typeof by !== "object"){
+      overviewFundMeta.textContent = "Fundamental overview not available.";
+      return;
     }
+    const keys = Object.keys(by);
+    if (!keys.length){
+      overviewFundMeta.textContent = "Fundamental overview not available.";
+      return;
+    }
+
+    const wrap = document.createElement("div");
+    wrap.className = "list";
+
+    keys.forEach(k => {
+      const o = by[k] || {};
+      const tone = safeText(o.tone || o.bias_label || "");
+      const comment = safeText(o.commentary || o.summary || "");
+
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = `
+        <div class="title">${safeText(k)}${tone ? " • " + tone : ""}</div>
+        <div class="sub">${comment ? comment : "—"}</div>
+      `;
+      wrap.appendChild(div);
+    });
+
+    overviewFund.appendChild(wrap);
+    overviewFundMeta.textContent = `Asset classes: ${keys.length}.`;
   }
 
-  // Filters
-  tradeSearch.addEventListener("input", applyTradeFilters);
-  tradeStatus.addEventListener("change", applyTradeFilters);
-  tradeAsset.addEventListener("change", applyTradeFilters);
-  reloadContentBtn.addEventListener("click", loadAll);
-  refreshBtn.addEventListener("click", loadAll);
+  function renderTechByAssetClass(tech){
+    techByAssetClass.innerHTML = "";
+    const by = tech && (tech.by_asset_class || tech.byAssetClass);
+    if (!by || typeof by !== "object"){
+      techByAssetClassMeta.textContent = "Not available.";
+      return;
+    }
 
-  // initial load
-  loadAll();
+    const keys = Object.keys(by);
+    if (!keys.length){
+      techByAssetClassMeta.textContent = "Not available.";
+      return;
+    }
+
+    keys.forEach(k => {
+      const o = by[k] || {};
+      const avg = (o.avg_score === null || o.avg_score === undefined) ? null : Number(o.avg_score);
+      const bull = (o.bullish === null || o.bullish === undefined) ? null : Number(o.bullish);
+      const bear = (o.bearish === null || o.bearish === undefined) ? null : Number(o.bearish);
+      const n = (o.n === null || o.n === undefined) ? null : Number(o.n);
+      const text = safeText(o.text || o.summary || "");
+
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = `
+        <div class="title">${safeText(k)}</div>
+        <div class="sub">
+          ${avg !== null && !Number.isNaN(avg) ? `Avg score ${avg.toFixed(2)}.` : ""}
+          ${n !== null && !Number.isNaN(n) ? ` Universe ${n}.` : ""}
+          ${bull !== null && bear !== null && !Number.isNaN(bull) && !Number.isNaN(bear) ? ` Bull/Bear ${bull}/${bear}.` : ""}
+        </div>
+        ${text ? `<div class="p" style="color:var(--muted);">${text}</div>` : ``}
+      `;
+      techByAssetClass.appendChild(div);
+    });
+
+    techByAssetClassMeta.textContent = `Loaded: ${keys.length} asset classes.`;
+  }
+
+  function renderTechTable(tech){
+    techTableBody.innerHTML = "";
+    const rows = tech && (tech.by_symbol || tech.bySymbol || tech.universe);
+    if (!rows || (typeof rows !== "object" && !Array.isArray(rows))){
+      techTableBody.innerHTML = `<tr><td colspan="7">Technical universe not available.</td></tr>`;
+      techTableMeta.textContent = "—";
+      return;
+    }
+
+    const list = Array.isArray(rows)
+      ? rows
+      : Object.keys(rows).map(sym => ({ symbol: sym, ...rows[sym] }));
+
+    if (!list.length){
+      techTableBody.innerHTML = `<tr><td colspan="7">No instruments.</td></tr>`;
+      techTableMeta.textContent = "—";
+      return;
+    }
+
+    list.forEach(it => {
+      const sym = safeText(it.symbol || it.ticker || "—");
+      const name = safeText(it.name || "");
+      const ac = safeText(it.asset_class || it.assetClass || "—");
+      const setup = safeText(it.setup || "—");
+      const score = (it.score === null || it.score === undefined) ? "—" : String(it.score);
+      const r20 = (it.ret_20d_pct === null || it.ret_20d_pct === undefined) ? null : Number(it.ret_20d_pct);
+      const r60 = (it.ret_60d_pct === null || it.ret_60d_pct === undefined) ? null : Number(it.ret_60d_pct);
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td><span class="badge">${sym}</span></td>
+        <td class="hide-mobile">${name ? name : "—"}</td>
+        <td>${ac}</td>
+        <td>${setup}</td>
+        <td>${score}</td>
+        <td class="hide-mobile">${(r20 === null || Number.isNaN(r20)) ? "—" : fmtPct(r20)}</td>
+        <td class="hide-mobile">${(r60 === null || Number.isNaN(r60)) ? "—" : fmtPct(r60)}</td>
+      `;
+      techTableBody.appendChild(tr);
+    });
+
+    techTableMeta.textContent = `Instruments: ${list.length}.`;
+  }
+
+  function renderFundByAssetClass(fund){
+    fundByAssetClass.innerHTML = "";
+    const by = fund && (fund.by_asset_class || fund.byAssetClass);
+    if (!by || typeof by !== "object"){
+      fundByAssetClassMeta.textContent = "Not available.";
+      return;
+    }
+    const keys = Object.keys(by);
+    if (!keys.length){
+      fundByAssetClassMeta.textContent = "Not available.";
+      return;
+    }
+
+    keys.forEach(k => {
+      const o = by[k] || {};
+      const commentary = safeText(o.commentary || o.summary || "");
+      const news = Array.isArray(o.top_news) ? o.top_news : (Array.isArray(o.news) ? o.news : []);
+      const events = Array.isArray(o.key_events) ? o.key_events : (Array.isArray(o.events) ? o.events : []);
+
+      const div = document.createElement("div");
+      div.className = "item";
+
+      const newsHtml = news.slice(0,3).map(n => {
+        const title = safeText(n.title || "—");
+        const src = safeText(n.source || "");
+        const date = safeText(n.date || n.published || "");
+        const url = safeText(n.url || n.link || "");
+        const meta = [date, src].filter(Boolean).join(" • ");
+        const t = url ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>` : `<span style="font-weight:900;">${title}</span>`;
+        return `<li>${t}${meta ? `<div class="sub" style="margin:4px 0 6px;">${meta}</div>` : ""}</li>`;
+      }).join("");
+
+      const eventsHtml = events.slice(0,3).map(ev => {
+        const t = safeText(ev.title || "—");
+        const d = safeText(ev.date || "");
+        const ty = safeText(ev.type || "");
+        const meta = [d, ty].filter(Boolean).join(" • ");
+        return `<li><span style="font-weight:900;">${t}</span>${meta ? `<div class="sub" style="margin:4px 0 6px;">${meta}</div>` : ""}</li>`;
+      }).join("");
+
+      div.innerHTML = `
+        <div class="title">${safeText(k)}</div>
+        <div class="sub">${commentary ? commentary : "—"}</div>
+
+        <div class="hr" style="margin:12px 0;"></div>
+
+        <div class="kicker" style="margin:0 0 6px;">News Highlights</div>
+        ${news.length ? `<ul>${newsHtml}</ul>` : `<div class="p" style="color:var(--muted);">No news available.</div>`}
+
+        <div class="hr" style="margin:12px 0;"></div>
+
+        <div class="kicker" style="margin:0 0 6px;">Key Events</div>
+        ${events.length ? `<ul>${eventsHtml}</ul>` : `<div class="p" style="color:var(--muted);">No key events available.</div>`}
+      `;
+
+      fundByAssetClass.appendChild(div);
+    });
+
+    fundByAssetClassMeta.textContent = `Loaded: ${keys.length} asset classes.`;
+  }
+
+  function ideaCard(side, it){
+    const sym = safeText(it.symbol || it.instrument || "—");
+    const ac = safeText(it.asset_class || it.assetClass || "—");
+    const setup = safeText(it.setup || "");
+    const score = (it.score === null || it.score === undefined) ? "—" : String(it.score);
+
+    const final = (it.final_score === null || it.final_score === undefined) ? null : Number(it.final_score);
+    const tech = (it.tech_score === null || it.tech_score === undefined) ? null : Number(it.tech_score);
+    const fund = (it.fund_support === null || it.fund_support === undefined) ? null : Number(it.fund_support);
+
+    const finalTxt = (final === null || Number.isNaN(final)) ? "—" : `${Math.round(clip01(final) * 100)}/100`;
+    const techTxt = (tech === null || Number.isNaN(tech)) ? "—" : `${Math.round(clip01(tech) * 100)}/100`;
+    const fundTxt = (fund === null || Number.isNaN(fund)) ? "—" : `${Math.round(clip01(fund) * 100)}/100`;
+
+    const rationale = safeText(it.rationale || it.note || "");
+
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <h3>${side}: ${sym}</h3>
+      <div class="meta">${ac}${setup ? " • " + setup : ""} • Score ${score}</div>
+      <div class="badges">
+        <span class="badge">Final ${finalTxt}</span>
+        <span class="badge">Tech ${techTxt}</span>
+        <span class="badge">Fund ${fundTxt}</span>
+      </div>
+      <div style="height:10px"></div>
+      <div class="line">${rationale ? rationale : "—"}</div>
+    `;
+    return div;
+  }
+
+  function renderIdeas(top){
+    ideasLong.innerHTML = "";
+    ideasShort.innerHTML = "";
+
+    const longs = (top && Array.isArray(top.top_long)) ? top.top_long : [];
+    const shorts = (top && Array.isArray(top.top_short)) ? top.top_short : [];
+
+    if (!longs.length && !shorts.length){
+      ideasMeta.textContent = "Top ideas not available.";
+      return;
+    }
+
+    longs.slice(0,3).forEach(it => ideasLong.appendChild(ideaCard("LONG", it)));
+    shorts.slice(0,3).forEach(it => ideasShort.appendChild(ideaCard("SHORT", it)));
+
+    ideasMeta.textContent = "Top candidates (3 long + 3 short).";
+  }
+
+  (async () => {
+    try{
+      clearMsgs();
+      const weekly = await loadJson(WEEKLY_URL);
+
+      const asof = safeText(weekly.asof || weekly.date || "");
+      const weekId = safeText(weekly.week_id || weekly.week || "");
+      asofLine.textContent = [weekId, asof ? `Updated ${asof}` : ""].filter(Boolean).join(" • ");
+
+      const tech = weekly.technical_overview || weekly.technical || {};
+      const fund = weekly.fundamental_overview || weekly.fundamental || {};
+      const top  = weekly.top_ideas || weekly.topIdeas || weekly.ideas || {};
+
+      renderOverviewIdeas(top);
+      renderOverviewTech(tech);
+      renderOverviewFund(fund);
+
+      renderTechByAssetClass(tech);
+      renderTechTable(tech);
+
+      renderFundByAssetClass(fund);
+
+      renderIdeas(top);
+
+    } catch (e){
+      console.error(e);
+      showNotice("Weekly research is not available yet. Please check that content/site_weekly.json has been generated and pushed.");
+      showError(e && e.message ? e.message : String(e));
+    }
+  })();
 })();
 </script>
 
