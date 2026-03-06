@@ -11,26 +11,14 @@
 
 <style>
 :root{
-  --bg:#0b0f17;
-  --bg2:#111827;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --muted2:#6b7280;
-  --hairline:#1a2232;
-  --accent:#7c9cff;
-  --good:#34d399;
-  --bad:#fb7185;
-
-  --radius-lg:22px;
-  --max:1120px;
-  --px:clamp(16px,4vw,60px);
+  --bg:#0b0f17; --bg2:#111827; --text:#e5e7eb; --muted:#9ca3af; --muted2:#6b7280;
+  --hairline:#1a2232; --accent:#7c9cff; --good:#34d399; --bad:#fb7185;
+  --radius-lg:22px; --max:1120px; --px:clamp(16px,4vw,60px);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
-  font-family:'Inter',sans-serif;
-  color:var(--text);
-  line-height:1.55;
+  font-family:'Inter',sans-serif;color:var(--text);line-height:1.55;
   background:
     radial-gradient(900px 600px at 70% -10%, rgba(124,156,255,.12), transparent 60%),
     radial-gradient(700px 500px at 20% 10%, rgba(124,156,255,.08), transparent 70%),
@@ -38,150 +26,57 @@ body{
 }
 a{color:inherit;text-decoration:none;}
 .container{max-width:var(--max);margin:0 auto;padding:0 var(--px);}
-
-.nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(11,15,23,.78);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--hairline);
-}
-.nav-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 0;
-  gap:14px;
-}
+.nav{position:sticky;top:0;z-index:50;background:rgba(11,15,23,.78);backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px;}
 .brand{display:flex;align-items:center;gap:10px;min-width:210px;}
 .brand img{height:32px;width:auto;display:block;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));}
 .logo{font-weight:900;letter-spacing:-.8px;text-transform:uppercase;color:var(--accent);line-height:1;}
 .nav-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
 .nav-links a{font-size:.9rem;font-weight:800;color:var(--accent);padding:10px 12px;border-radius:999px;}
 .nav-links a:hover{background:rgba(124,156,255,.10);color:var(--text);}
-.nav-cta{
-  margin-left:6px;font-weight:900;font-size:.9rem;
-  padding:10px 14px;border-radius:999px;
-  border:1px solid rgba(124,156,255,.35);
-  color:var(--accent);background:rgba(124,156,255,.06);
-}
+.nav-cta{margin-left:6px;font-weight:900;font-size:.9rem;padding:10px 14px;border-radius:999px;border:1px solid rgba(124,156,255,.35);color:var(--accent);background:rgba(124,156,255,.06);}
 .nav-cta:hover{background:rgba(124,156,255,.14);}
-
 header.hero{padding:30px 0 10px;}
-.tag{
-  display:inline-flex;font-size:.72rem;text-transform:uppercase;letter-spacing:1.6px;
-  color:var(--accent);
-  border:1px solid rgba(124,156,255,.35);
-  padding:9px 12px;border-radius:999px;
-  background:rgba(124,156,255,.12);
-  margin-bottom:12px;
-}
+.tag{display:inline-flex;font-size:.72rem;text-transform:uppercase;letter-spacing:1.6px;color:var(--accent);border:1px solid rgba(124,156,255,.35);padding:9px 12px;border-radius:999px;background:rgba(124,156,255,.12);margin-bottom:12px;}
 .hero h1{font-size:clamp(1.9rem,4.4vw,2.7rem);font-weight:900;letter-spacing:-1.4px;margin-bottom:8px;}
 .hero .sub{color:var(--muted);max-width:920px;}
 .hero .meta{margin-top:10px;color:rgba(229,231,235,.68);font-size:.92rem;}
-
 main{padding:12px 0 60px;}
-.notice,.error{
-  margin:14px 0;
-  padding:12px 14px;
-  border-radius:14px;
-  border:1px solid var(--hairline);
-  display:none;
-}
+.notice,.error{margin:14px 0;padding:12px 14px;border-radius:14px;border:1px solid var(--hairline);display:none;}
 .notice{background:rgba(124,156,255,.08);color:rgba(229,231,235,.92);}
 .error{background:rgba(255,80,80,.10);border-color:rgba(255,80,80,.20);color:#fecaca;}
-
 .section{margin:16px 0;}
-.panel{
-  background:linear-gradient(180deg,#111827,#0f172a);
-  border:1px solid var(--hairline);
-  border-radius:var(--radius-lg);
-  padding:22px;
-}
-.kicker{
-  font-weight:900;text-transform:uppercase;letter-spacing:1.4px;
-  font-size:.72rem;color:var(--accent);margin-bottom:10px;
-}
+.panel{background:linear-gradient(180deg,#111827,#0f172a);border:1px solid var(--hairline);border-radius:var(--radius-lg);padding:22px;}
+.kicker{font-weight:900;text-transform:uppercase;letter-spacing:1.4px;font-size:.72rem;color:var(--accent);margin-bottom:10px;}
 .p{color:var(--muted);}
-
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.card{
-  background:rgba(17,24,39,.70);
-  border:1px solid var(--hairline);
-  border-radius:18px;
-  padding:18px;
-}
+.card{background:rgba(17,24,39,.70);border:1px solid var(--hairline);border-radius:18px;padding:18px;}
 .big{font-size:1.55rem;font-weight:900;letter-spacing:-.6px;margin:2px 0 6px;}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
-.pill{
-  display:inline-flex;
-  padding:7px 10px;border-radius:999px;
-  border:1px solid rgba(124,156,255,.22);
-  background:rgba(124,156,255,.08);
-  color:rgba(229,231,235,.92);
-  font-weight:800;font-size:.82rem;
-}
-.side{
-  display:inline-flex;align-items:center;
-  padding:6px 10px;border-radius:999px;
-  font-weight:900;font-size:.78rem;
-  border:1px solid rgba(255,255,255,.12);
-}
+.pill{display:inline-flex;padding:7px 10px;border-radius:999px;border:1px solid rgba(124,156,255,.22);background:rgba(124,156,255,.08);color:rgba(229,231,235,.92);font-weight:800;font-size:.82rem;}
+.side{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;font-weight:900;font-size:.78rem;border:1px solid rgba(255,255,255,.12);}
 .side.long{background:rgba(52,211,153,.10);border-color:rgba(52,211,153,.25);color:#bbf7d0;}
-.side.short{background:rgba(251,113,133,.10);border-color:rgba(251,113,133,.25);color:#fecdd3;}
 .mini{margin-top:10px;color:var(--muted2);font-size:.85rem;}
-
-.chartWrap{
-  margin-top:12px;border-radius:18px;
-  border:1px dashed rgba(124,156,255,.28);
-  background:linear-gradient(180deg,#0f172a,#0b1220);
-  padding:14px;height:340px;
-}
+.chartWrap{margin-top:12px;border-radius:18px;border:1px dashed rgba(124,156,255,.28);background:linear-gradient(180deg,#0f172a,#0b1220);padding:14px;height:340px;}
 .chartWrap canvas{width:100% !important;height:100% !important;display:block;}
-
-.table{
-  width:100%;border-collapse:collapse;margin-top:12px;
-  overflow:hidden;border-radius:16px;border:1px solid var(--hairline);
-}
-.table th,.table td{
-  padding:12px 12px;border-bottom:1px solid var(--hairline);
-  font-size:.92rem;vertical-align:top;
-}
-.table th{
-  text-align:left;color:rgba(229,231,235,.85);
-  font-weight:900;background:rgba(124,156,255,.06);
-}
+.table{width:100%;border-collapse:collapse;margin-top:12px;overflow:hidden;border-radius:16px;border:1px solid var(--hairline);}
+.table th,.table td{padding:12px 12px;border-bottom:1px solid var(--hairline);font-size:.92rem;vertical-align:top;}
+.table th{text-align:left;color:rgba(229,231,235,.85);font-weight:900;background:rgba(124,156,255,.06);}
 .table tr:last-child td{border-bottom:none;}
-.badge{
-  display:inline-flex;align-items:center;
-  padding:6px 10px;border-radius:999px;
-  border:1px solid rgba(124,156,255,.22);
-  background:rgba(124,156,255,.08);
-  font-weight:900;font-size:.78rem;
-  color:rgba(229,231,235,.92);
-}
-
-@media (max-width:980px){
-  .grid-3{grid-template-columns:1fr;}
-  .chartWrap{height:280px;}
-}
-@media (max-width:520px){
-  .brand img{height:30px;}
-  .brand .logo{display:none;}
-}
-footer{
-  padding:24px 0 44px;border-top:1px solid var(--hairline);
-  color:rgba(100,116,139,.9);font-size:.85rem;text-align:center;
-}
+.badge{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid rgba(124,156,255,.22);background:rgba(124,156,255,.08);font-weight:900;font-size:.78rem;color:rgba(229,231,235,.92);}
+@media (max-width:980px){.grid-3{grid-template-columns:1fr;}.chartWrap{height:280px;}}
+@media (max-width:520px){.brand img{height:30px;}.brand .logo{display:none;}}
+footer{padding:24px 0 44px;border-top:1px solid var(--hairline);color:rgba(100,116,139,.9);font-size:.85rem;text-align:center;}
 </style>
 </head>
 
 <body>
-
 <div class="nav">
   <div class="container nav-inner">
     <a class="brand" href="index.html" aria-label="1XW Trading">
       <img src="logo.png" alt="1XW Trading logo" />
       <div class="logo">1XW TRADING</div>
     </a>
-
     <div class="nav-links">
       <a href="#snapshot">Snapshot</a>
       <a href="#performance">Performance</a>
@@ -244,7 +139,7 @@ footer{
   <section class="section" id="performance">
     <div class="panel">
       <div class="kicker">Performance</div>
-      <div class="p">NAV series (from site_performance.json).</div>
+      <div class="p">NAV series.</div>
       <div class="chartWrap"><canvas id="navChart"></canvas></div>
       <div class="mini" id="navMeta">Loading…</div>
     </div>
@@ -253,7 +148,7 @@ footer{
   <section class="section" id="plb">
     <div class="panel">
       <div class="kicker">PLB</div>
-      <div class="p">PLB chart series are optional. Snapshot numbers above are always shown.</div>
+      <div class="p">PLB and performance lower boundary in percentage terms.</div>
       <div class="chartWrap"><canvas id="plbChart"></canvas></div>
       <div class="mini" id="plbMeta">Loading…</div>
     </div>
@@ -262,12 +157,12 @@ footer{
   <section class="section" id="trades">
     <div class="panel">
       <div class="kicker">Model Trades</div>
-      <div class="p">Trades extracted from the blotter (trade_date enforced by builder).</div>
+      <div class="p">All trades from the Blotter tab.</div>
 
       <table class="table" aria-label="Model trades">
         <thead>
           <tr>
-            <th>Date</th>
+            <th>Week</th>
             <th>Instrument</th>
             <th>Structure</th>
             <th>Status</th>
@@ -334,11 +229,7 @@ footer{
   function showNotice(msg){ noticeBox.textContent = msg; noticeBox.style.display = "block"; }
   function showError(msg){ errorBox.textContent = msg; errorBox.style.display = "block"; }
   function clearMsgs(){ noticeBox.style.display = "none"; errorBox.style.display = "none"; }
-
-  function cacheBust(url){
-    const sep = url.includes("?") ? "&" : "?";
-    return url + sep + "v=" + Date.now();
-  }
+  function cacheBust(url){ const sep = url.includes("?") ? "&" : "?"; return url + sep + "v=" + Date.now(); }
   async function loadJson(url){
     const res = await fetch(cacheBust(url), { cache: "no-store" });
     if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
@@ -346,7 +237,6 @@ footer{
   }
 
   function isNum(x){ return typeof x === "number" && !Number.isNaN(x); }
-
   function fmtMoney(x){
     if (!isNum(x)) return "—";
     try{ return "$" + x.toLocaleString(undefined, { maximumFractionDigits: 0 }); }
@@ -363,10 +253,9 @@ footer{
     posPills.innerHTML = "";
     posCount.textContent = String(list.length);
     posMeta.textContent = list.length ? "Symbols shown below." : "No open positions.";
-    if (!list.length) return;
 
     list.slice(0, 18).forEach(p => {
-      const sym = (p && (p.symbol || p.underlying || p.instrument || p.ticker)) ? String(p.symbol || p.underlying || p.instrument || p.ticker).trim() : "—";
+      const sym = (p && p.symbol) ? String(p.symbol).trim() : "—";
       const side = (p && p.side) ? String(p.side).toUpperCase().trim() : "";
 
       const pill = document.createElement("div");
@@ -380,26 +269,19 @@ footer{
       left.textContent = sym;
       pill.appendChild(left);
 
-      if (side === "LONG" || side === "SHORT"){
+      if (side === "LONG"){
         const b = document.createElement("span");
-        b.className = "side " + (side === "LONG" ? "long" : "short");
+        b.className = "side long";
         b.textContent = side;
         pill.appendChild(b);
       }
 
       posPills.appendChild(pill);
     });
-
-    if (list.length > 18){
-      const more = document.createElement("div");
-      more.className = "mini";
-      more.textContent = `+${list.length - 18} more`;
-      posPills.appendChild(more);
-    }
   }
 
   function renderSnapshot(perf){
-    const asof = perf.asof || perf.date || "";
+    const asof = perf.asof || "";
     asofLine.textContent = asof ? `Updated ${asof}` : "";
 
     const snap = perf.snapshot || {};
@@ -419,13 +301,12 @@ footer{
     } else {
       navVsPlb.textContent = "—";
       gapToPlb.textContent = "Gap to PLB: —";
-      plbMetaTop.textContent = "PLB not available in snapshot.";
+      plbMetaTop.textContent = "PLB not available.";
     }
   }
 
   function renderNavChart(perf){
     if (navChart){ navChart.destroy(); navChart = null; }
-
     const nav = perf.nav || {};
     const labels = Array.isArray(nav.labels) ? nav.labels : [];
     const values = Array.isArray(nav.values) ? nav.values : [];
@@ -436,7 +317,6 @@ footer{
     }
 
     navMeta.textContent = `Loaded NAV series: ${labels.length} points.`;
-
     navChart = new Chart(navCanvas, {
       type: "line",
       data: {
@@ -465,28 +345,29 @@ footer{
     });
   }
 
-  function renderPlbChartIfPresent(perf){
+  function renderPlbChart(perf){
     if (plbChart){ plbChart.destroy(); plbChart = null; }
+    const plb = perf.plb || {};
+    const labels = Array.isArray(plb.labels) ? plb.labels : [];
+    const init = Array.isArray(plb.init) ? plb.init : [];
+    const plbLine = Array.isArray(plb.plb) ? plb.plb : [];
+    const perfLine = Array.isArray(plb.perf) ? plb.perf : [];
 
-    // Optional legacy structure:
-    // perf.plb = { labels:[], init:[], plb:[], perf:[] }  (decimals)
-    const plb = perf.plb || null;
-    if (!plb || !Array.isArray(plb.labels) || plb.labels.length === 0){
-      plbMeta.textContent = "PLB chart not available (snapshot shown above).";
-      // show empty chart area gracefully (no error)
+    if (!labels.length){
+      plbMeta.textContent = "PLB series not available.";
       return;
     }
 
-    plbMeta.textContent = `Loaded PLB series: ${plb.labels.length} points.`;
+    plbMeta.textContent = `Loaded PLB series: ${labels.length} points.`;
 
     plbChart = new Chart(plbCanvas, {
       type:"line",
       data:{
-        labels: plb.labels,
+        labels,
         datasets:[
-          { label:"Initial PLB %", data: plb.init || [], borderColor:"rgba(80, 200, 170, 0.95)", backgroundColor:"rgba(0,0,0,0)", borderDash:[6,6], tension:0.15, pointRadius:0, borderWidth:2, spanGaps:true },
-          { label:"PLB %", data: plb.plb || [], borderColor:"rgba(124, 156, 255, 0.95)", backgroundColor:"rgba(0,0,0,0)", tension:0.15, pointRadius:0, borderWidth:2, spanGaps:true },
-          { label:"PERF %", data: plb.perf || [], borderColor:"rgba(246, 173, 85, 0.95)", backgroundColor:"rgba(0,0,0,0)", tension:0.20, pointRadius:0, borderWidth:2, fill:false, spanGaps:true }
+          { label:"Initial PLB %", data:init, borderColor:"rgba(80, 200, 170, 0.95)", backgroundColor:"rgba(0,0,0,0)", borderDash:[6,6], tension:0.15, pointRadius:0, borderWidth:2, spanGaps:true },
+          { label:"PLB %", data:plbLine, borderColor:"rgba(124, 156, 255, 0.95)", backgroundColor:"rgba(0,0,0,0)", tension:0.15, pointRadius:0, borderWidth:2, spanGaps:true },
+          { label:"PERF %", data:perfLine, borderColor:"rgba(246, 173, 85, 0.95)", backgroundColor:"rgba(0,0,0,0)", tension:0.20, pointRadius:0, borderWidth:2, fill:false, spanGaps:true }
         ]
       },
       options:{
@@ -514,20 +395,20 @@ footer{
     const list = Array.isArray(screener.modelTrades) ? screener.modelTrades : [];
     if (!list.length){
       tradesBody.innerHTML = `<tr><td colspan="4">No model trades available.</td></tr>`;
-      tradesMeta.textContent = "No modelTrades found.";
+      tradesMeta.textContent = "No model trades found.";
       return;
     }
 
     tradesBody.innerHTML = "";
-    list.slice(0, 60).forEach(t => {
-      const dt = (t && t.trade_date) ? String(t.trade_date).trim() : "—";
+    list.slice(0, 100).forEach(t => {
+      const wk = (t && t.week) ? String(t.week).trim() : "—";
       const inst = (t && t.instrument) ? String(t.instrument).trim() : "—";
       const structure = (t && t.structure) ? String(t.structure).trim() : "—";
       const status = (t && t.status) ? String(t.status).trim() : "—";
 
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td>${dt || "—"}</td>
+        <td>${wk}</td>
         <td>${inst}</td>
         <td>${structure}</td>
         <td><span class="badge">${status}</span></td>
@@ -535,7 +416,8 @@ footer{
       tradesBody.appendChild(tr);
     });
 
-    tradesMeta.textContent = `Loaded model trades: ${list.length}. Showing up to 60.`;
+    const src = screener.modelTrades_source ? ` Source: ${screener.modelTrades_source}.` : "";
+    tradesMeta.textContent = `Loaded model trades: ${list.length}.${src}`;
   }
 
   (async () => {
@@ -551,7 +433,7 @@ footer{
       if (perf){
         renderSnapshot(perf);
         renderNavChart(perf);
-        renderPlbChartIfPresent(perf);
+        renderPlbChart(perf);
       } else {
         asofLine.textContent = "";
         navMeta.textContent = "—";
@@ -574,6 +456,5 @@ footer{
   })();
 })();
 </script>
-
 </body>
 </html>
