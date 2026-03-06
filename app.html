@@ -1,647 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>1XW Trading | Weekly Research</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0b0f17;
-  --bg2:#101827;
-  --panel:#111827;
-  --panel2:#0f172a;
-  --line:#1f2937;
-  --line2:rgba(255,255,255,.08);
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --muted2:#6b7280;
-  --accent:#7c9cff;
-  --good:#34d399;
-  --bad:#f87171;
-  --warn:#fbbf24;
-  --max:1380px;
-  --radius:22px;
-  --px:clamp(18px,4vw,42px);
-  --py:clamp(24px,4vw,50px);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Inter',sans-serif;
-  background:
-    radial-gradient(900px 520px at 70% -10%, rgba(124,156,255,.10), transparent 60%),
-    radial-gradient(700px 420px at 8% 10%, rgba(124,156,255,.07), transparent 70%),
-    var(--bg);
-  color:var(--text);
-  line-height:1.55;
-}
-a{color:inherit;text-decoration:none}
-.container{max-width:var(--max);margin:0 auto;padding:0 var(--px)}
-.nav{position:sticky;top:0;z-index:40;background:rgba(11,15,23,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
-.logo{font-weight:900;letter-spacing:-.8px;text-transform:uppercase;color:var(--accent)}
-.nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.nav-links a,.nav-links button{padding:10px 12px;border-radius:999px;font-size:.9rem;font-weight:700;color:var(--accent);background:none;border:none;cursor:pointer}
-.nav-links a:hover,.nav-links button:hover{background:rgba(124,156,255,.10);color:var(--text)}
-main{padding:var(--py) 0 72px}
-.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
-.badge{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(124,156,255,.35);background:rgba(124,156,255,.10);font-size:.74rem;letter-spacing:1.3px;text-transform:uppercase;font-weight:800;color:var(--accent);margin-bottom:12px}
-h1{font-size:clamp(1.8rem,3vw,2.55rem);letter-spacing:-.9px;margin-bottom:6px}
-.sub{max-width:900px;color:var(--muted)}
-.meta-line{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.meta-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.06);font-size:.9rem;color:var(--muted)}
-.section{margin-top:20px}
-.panel{background:linear-gradient(180deg, rgba(17,24,39,.96), rgba(15,23,42,.94));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 36px rgba(0,0,0,.18)}
-.panel-head{padding:22px 24px;border-bottom:1px solid var(--line)}
-.kicker{font-size:.74rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--accent);font-weight:800;margin-bottom:8px}
-.panel-head h2{font-size:1.34rem;letter-spacing:-.5px;margin-bottom:4px}
-.panel-head p{color:var(--muted);max-width:980px}
-.band{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px;padding:18px 24px;border-top:1px solid var(--line2)}
-.band:first-of-type{border-top:none}
-.band-title h3{font-size:1rem;letter-spacing:-.2px;margin-bottom:4px}
-.band-title p{color:var(--muted2);font-size:.9rem}
-.band-body{min-width:0}
-.idea-grid,.mini-grid{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
-.event-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
-.card{background:rgba(15,23,42,.46);border:1px solid rgba(124,156,255,.15);border-radius:16px;padding:12px;min-width:0}
-.card strong{display:block;font-size:.96rem;letter-spacing:-.2px}
-.overview-card{display:grid;align-items:start;gap:12px;min-width:320px}
-.idea-card{grid-template-columns:130px minmax(150px,1fr) auto}
-.breadth-card{grid-template-columns:120px 220px minmax(240px,1fr);min-width:480px}
-.tone-card{grid-template-columns:130px minmax(220px,1fr) minmax(220px,1fr);min-width:560px}
-.overview-left{display:grid;gap:6px}
-.overview-mid{display:grid;gap:8px;min-width:0}
-.overview-right{display:grid;gap:8px;justify-items:end;align-content:start}
-.headline-stack{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start}
-.subline{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-top:4px}
-.copy{font-size:.88rem;color:var(--muted);margin-top:8px}
-.copy.tight{line-height:1.45}
-.score-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.pill,.side,.tone,.tag{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;font-size:.74rem;font-weight:800;border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.08)}
-.side.long{color:#bbf7d0;border-color:rgba(52,211,153,.25);background:rgba(52,211,153,.10)}
-.side.short{color:#fecaca;border-color:rgba(248,113,113,.28);background:rgba(248,113,113,.10)}
-.tone.supportive{color:#bbf7d0;border-color:rgba(52,211,153,.25);background:rgba(52,211,153,.10)}
-.tone.cautious{color:#fecaca;border-color:rgba(248,113,113,.28);background:rgba(248,113,113,.10)}
-.tone.mixed{color:#dbeafe}
-.tag.macro{color:#dbeafe}
-.tag.earnings{color:#fde68a;border-color:rgba(251,191,36,.28);background:rgba(251,191,36,.10)}
-.state.pos{color:#bbf7d0}.state.neg{color:#fecaca}.state.mix{color:#dbeafe}
-.row-line{display:grid;grid-template-columns:190px minmax(0,1fr);gap:18px;padding:16px 24px;border-top:1px solid var(--line2);align-items:start}
-.row-label{font-size:1rem;font-weight:800;letter-spacing:-.2px}
-.row-body{min-width:0}
-.summary-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
-.summary-copy{color:var(--muted);margin-top:6px}
-.metricline{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:.88rem}
-.inline-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.table-wrap{overflow:auto;border-top:1px solid var(--line2)}
-.table{width:100%;border-collapse:collapse;font-size:.92rem}
-.table th,.table td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left;vertical-align:top}
-.table th{font-size:.79rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted2);font-weight:700}
-.table tr:hover td{background:rgba(124,156,255,.035)}
-.num-pos{color:#bbf7d0;font-weight:800}.num-neg{color:#fecaca;font-weight:800}
-.day-card{background:rgba(15,23,42,.46);border:1px solid rgba(124,156,255,.15);border-radius:16px;padding:12px;min-height:180px}
-.day-name{font-size:.76rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:800;margin-bottom:10px}
-.day-list{display:grid;gap:8px}
-.event-item{padding-top:8px;border-top:1px solid rgba(255,255,255,.06)}
-.event-item:first-child{padding-top:0;border-top:none}
-.event-title{font-size:.9rem;font-weight:700;line-height:1.35}
-.meta{font-size:.78rem;color:var(--muted2);margin-top:4px}
-.empty{color:var(--muted2);font-size:.88rem}
-.notice,.error{display:none;margin:14px 0;padding:12px 14px;border-radius:14px;font-size:.92rem}
-.notice{border:1px solid rgba(124,156,255,.22);background:rgba(124,156,255,.08)}
-.error{border:1px solid rgba(248,113,113,.35);background:rgba(248,113,113,.10);color:#fecaca}
-footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:center;color:var(--muted2);font-size:.9rem}
-@media (max-width: 1260px){
-  .event-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .breadth-card{min-width:440px}
-  .tone-card{min-width:500px}
-}
-@media (max-width: 860px){
-  .band,.row-line{grid-template-columns:1fr}
-  .overview-card{grid-template-columns:1fr;min-width:290px}
-  .nav-inner,.hero{align-items:flex-start}
-  .day-card{min-height:auto}
-  .event-grid{grid-template-columns:1fr}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1XW Trading | Weekly Research</title>
+  <style>
+    :root{
+      --bg:#0b0d12;
+      --panel:#121722;
+      --panel-2:#161c29;
+      --line:#263043;
+      --text:#e8edf7;
+      --muted:#96a2ba;
+      --soft:#b8c2d6;
+      --accent:#9fd3ff;
+      --good:#89e2a1;
+      --bad:#ff9e9e;
+      --warn:#ffd48a;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:linear-gradient(180deg,#0a0c11 0%, #0d1118 100%);
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1380px;margin:0 auto;padding:20px 22px 48px}
+    .nav{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter: blur(10px);
+      background:rgba(10,12,17,.78);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner{
+      max-width:1380px;margin:0 auto;padding:14px 22px;
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+    }
+    .brand{font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);font-size:13px}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav-links a{font-size:13px;color:var(--muted)}
+    .nav-links a:hover{color:var(--text)}
+    .hero{padding:28px 0 14px}
+    .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    h1{margin:0 0 10px;font-size:34px;line-height:1.06}
+    .hero-meta{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    .section{margin-top:26px}
+    .section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:12px}
+    .section-head h2{margin:0;font-size:20px}
+    .section-head .sub{color:var(--muted);font-size:13px}
+    .panel{
+      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 18px 40px rgba(0,0,0,.18);
+    }
+    .three-up{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .box{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden}
+    .box-hd{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02)}
+    .box-hd h3{margin:0;font-size:15px}
+    .box-bd{padding:6px 16px 10px}
+
+    .row{
+      display:grid;align-items:center;gap:12px;
+      padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);
+      min-width:0;
+    }
+    .row:last-child{border-bottom:none}
+    .row.topideas{grid-template-columns:122px 140px 82px 72px 78px minmax(200px,1fr)}
+    .row.breadth{grid-template-columns:120px 76px 72px 72px 50px minmax(180px,1fr)}
+    .row.fundtone{grid-template-columns:120px 94px 78px 88px minmax(220px,1fr)}
+    .row.techfull{grid-template-columns:78px 1.4fr 112px 170px 70px 74px 74px}
+    .row.fundfull{grid-template-columns:120px 96px minmax(260px,1.3fr) minmax(240px,1fr)}
+    .row.event{grid-template-columns:88px 84px 84px 130px minmax(220px,1fr)}
+    .row.model{grid-template-columns:82px 118px 106px 130px minmax(220px,1fr)}
+
+    .hdr{color:var(--muted);font-size:11px;letter-spacing:.09em;text-transform:uppercase;background:rgba(255,255,255,.02)}
+    .cell{min-width:0}
+    .cell strong{font-weight:650}
+    .muted{color:var(--muted)}
+    .tiny{font-size:12px}
+    .tag{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:11px;border:1px solid rgba(255,255,255,.09);color:var(--soft);margin-right:6px;margin-top:4px;white-space:nowrap}
+    .state{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.10)}
+    .good{color:var(--good);border-color:rgba(137,226,161,.25);background:rgba(137,226,161,.08)}
+    .bad{color:var(--bad);border-color:rgba(255,158,158,.25);background:rgba(255,158,158,.08)}
+    .warn{color:var(--warn);border-color:rgba(255,212,138,.25);background:rgba(255,212,138,.08)}
+    .score{font-variant-numeric:tabular-nums}
+    .headline-list{display:flex;flex-wrap:wrap;gap:6px}
+    .metric-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:16px}
+    .metric{background:var(--panel-2);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:12px 14px}
+    .metric .label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .metric .value{margin-top:8px;font-size:22px}
+    .empty{padding:16px;color:var(--muted)}
+    .stack{display:flex;flex-direction:column;gap:3px;min-width:0}
+    .section-panel{padding:0 16px 4px}
+    .footer-note{color:var(--muted);font-size:12px;margin-top:10px}
+
+    @media (max-width: 1180px){
+      .three-up{grid-template-columns:1fr}
+      .metric-strip{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 900px){
+      .row.topideas,
+      .row.breadth,
+      .row.fundtone,
+      .row.techfull,
+      .row.fundfull,
+      .row.event,
+      .row.model{grid-template-columns:1fr;gap:6px;padding:12px 0}
+      .hdr{display:none}
+      .nav-inner{align-items:flex-start;flex-direction:column}
+      .metric-strip{grid-template-columns:1fr}
+      h1{font-size:28px}
+    }
+  </style>
 </head>
 <body>
   <div class="nav">
-    <div class="container nav-inner">
-      <a class="logo" href="index.html">1XW Trading</a>
+    <div class="nav-inner">
+      <div class="brand">1XW Trading</div>
       <div class="nav-links">
         <a href="#overview">Overview</a>
         <a href="#technical">Technical</a>
         <a href="#fundamental">Fundamental</a>
         <a href="#events">Events</a>
-        <a href="model.html">Trade Model</a>
-        <button id="logoutBtn" type="button">Logout</button>
+        <a href="#model">Trade Model</a>
+        <a href="index.html">Logout</a>
       </div>
     </div>
   </div>
 
-  <main class="container">
+  <div class="wrap">
     <div class="hero">
-      <div>
-        <div class="badge">Member Research</div>
-        <h1>Weekly Research</h1>
-        <div class="sub">Cross-asset weekly snapshot built around technical breadth, macro tone and highest-conviction long / short candidates.</div>
-        <div class="meta-line">
-          <span class="meta-chip" id="asofChip">As of —</span>
-          <span class="meta-chip" id="weekChip">Week —</span>
-          <span class="meta-chip" id="methodChip">Ranking: 75% tech / 25% macro</span>
-        </div>
+      <div class="eyebrow">Weekly Research</div>
+      <h1>Cross-asset dashboard</h1>
+      <div class="hero-meta" id="heroMeta">
+        <span>Loading weekly package…</span>
       </div>
     </div>
 
-    <div class="notice" id="noticeBox"></div>
-    <div class="error" id="errorBox"></div>
-
     <section class="section" id="overview">
-      <div class="panel">
-        <div class="panel-head">
-          <div class="kicker">Overview</div>
-          <h2>Weekly snapshot</h2>
-          <p>Conviction list, cross-asset breadth and macro tone on one page.</p>
+      <div class="section-head">
+        <h2>Overview</h2>
+        <div class="sub">Three broad reads: best candidates, technical breadth, macro tone.</div>
+      </div>
+      <div class="three-up">
+        <div class="box">
+          <div class="box-hd"><h3>Top 3 Long / Short</h3></div>
+          <div class="box-bd" id="topIdeasBox"></div>
         </div>
-        <div class="band">
-          <div class="band-title">
-            <h3>Top 3 Long / Short</h3>
-            <p>Six candidates ranked by technical strength and macro alignment.</p>
-          </div>
-          <div class="band-body idea-grid" id="overviewIdeas"></div>
+        <div class="box">
+          <div class="box-hd"><h3>Technical Breadth</h3></div>
+          <div class="box-bd" id="breadthBox"></div>
         </div>
-        <div class="band">
-          <div class="band-title">
-            <h3>Technical Breadth</h3>
-            <p>Average score, bull/bear balance and short summary by asset class.</p>
-          </div>
-          <div class="band-body mini-grid" id="breadthOverview"></div>
-        </div>
-        <div class="band">
-          <div class="band-title">
-            <h3>Fundamental Tone</h3>
-            <p>Tone, bias and key headlines by asset class.</p>
-          </div>
-          <div class="band-body mini-grid" id="toneOverview"></div>
+        <div class="box">
+          <div class="box-hd"><h3>Fundamental Tone</h3></div>
+          <div class="box-bd" id="toneBox"></div>
         </div>
       </div>
     </section>
 
     <section class="section" id="technical">
-      <div class="panel">
-        <div class="panel-head">
-          <div class="kicker">Technical</div>
-          <h2>Cross-asset technical structure</h2>
-          <p>Asset-class summary first, then full instrument table.</p>
-        </div>
-        <div id="techRows"></div>
-        <div class="table-wrap">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Symbol</th>
-                <th>Name</th>
-                <th>Asset Class</th>
-                <th>Setup</th>
-                <th>Score</th>
-                <th>20d %</th>
-                <th>60d %</th>
-              </tr>
-            </thead>
-            <tbody id="techTableBody"></tbody>
-          </table>
-        </div>
+      <div class="section-head">
+        <h2>Technical Overview</h2>
+        <div class="sub">Breadth by asset class, then instrument-level detail.</div>
       </div>
+      <div class="panel section-panel" id="technicalPanel"></div>
     </section>
 
     <section class="section" id="fundamental">
-      <div class="panel">
-        <div class="panel-head">
-          <div class="kicker">Fundamental</div>
-          <h2>Weekly macro narrative</h2>
-          <p>Per asset class: tone, weekly commentary and the most relevant headlines.</p>
-        </div>
-        <div id="fundRows"></div>
+      <div class="section-head">
+        <h2>Fundamental Overview</h2>
+        <div class="sub">One row per asset class with tone, commentary and relevant headlines.</div>
       </div>
+      <div class="panel section-panel" id="fundamentalPanel"></div>
     </section>
 
     <section class="section" id="events">
+      <div class="section-head">
+        <h2>Event Calendar</h2>
+        <div class="sub">Macro and earnings in one clean weekly list.</div>
+      </div>
+      <div class="panel section-panel" id="eventsPanel"></div>
+    </section>
+
+    <section class="section" id="model">
+      <div class="section-head">
+        <h2>Trade Model</h2>
+        <div class="sub">Open positions, model trades and high-level portfolio stats.</div>
+      </div>
       <div class="panel">
-        <div class="panel-head">
-          <div class="kicker">Events</div>
-          <h2>Weekly event calendar</h2>
-          <p>Single cross-asset calendar for macro releases and relevant earnings watchpoints.</p>
-        </div>
-        <div class="band">
-          <div class="band-title">
-            <h3>Calendar</h3>
-            <p>Macro events can affect multiple asset classes. Earnings are shown only when relevant.</p>
-          </div>
-          <div class="band-body event-grid" id="eventCalendar"></div>
-        </div>
+        <div class="metric-strip" id="modelMetrics"></div>
+        <div class="section-panel" id="modelPanel"></div>
       </div>
     </section>
-  </main>
+  </div>
 
-  <footer>1XW Trading © 2026</footer>
+  <script>
+    const fmtPct = (v) => (v === null || v === undefined || v === '' || Number.isNaN(Number(v))) ? '—' : `${Number(v).toFixed(1)}%`;
+    const fmt1 = (v) => (v === null || v === undefined || v === '' || Number.isNaN(Number(v))) ? '—' : Number(v).toFixed(1);
+    const fmt2 = (v) => (v === null || v === undefined || v === '' || Number.isNaN(Number(v))) ? '—' : Number(v).toFixed(2);
+    const fmtScore100 = (v) => (v === null || v === undefined || v === '' || Number.isNaN(Number(v))) ? '—' : Math.round(Number(v) * 100);
+    const safe = (x, fb='—') => (x === null || x === undefined || x === '') ? fb : x;
+    const escapeHtml = (s='') => String(s)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
 
-<script>
-(() => {
-  const TOKEN_KEY = '1xw_auth';
-  const WEEKLY_URL = 'content/site_weekly.json';
-
-  if (localStorage.getItem(TOKEN_KEY) !== 'ok') {
-    window.location.href = 'login.html';
-    return;
-  }
-
-  const $ = id => document.getElementById(id);
-  const noticeBox = $('noticeBox');
-  const errorBox = $('errorBox');
-
-  function showError(msg){
-    errorBox.textContent = msg || 'Something went wrong.';
-    errorBox.style.display = 'block';
-  }
-  function showNotice(msg){
-    noticeBox.textContent = msg || '';
-    noticeBox.style.display = msg ? 'block' : 'none';
-  }
-  function escapeHtml(v){
-    return String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
-  function cacheBust(url){
-    return url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now();
-  }
-  async function loadJson(url){
-    const res = await fetch(cacheBust(url), { cache:'no-store' });
-    if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
-    return res.json();
-  }
-  function pct(v, digits=1){
-    const n = Number(v);
-    return Number.isFinite(n) ? `${n.toFixed(digits)}%` : '—';
-  }
-  function signed(v, digits=1){
-    const n = Number(v);
-    if (!Number.isFinite(n)) return '—';
-    return `${n > 0 ? '+' : ''}${n.toFixed(digits)}`;
-  }
-  function classForNum(v){
-    const n = Number(v);
-    if (!Number.isFinite(n)) return '';
-    if (n > 0) return 'num-pos';
-    if (n < 0) return 'num-neg';
-    return '';
-  }
-  function scorePct(v){
-    const n = Number(v);
-    return Number.isFinite(n) ? `${Math.round(n * 100)}` : '—';
-  }
-  function toneClass(t){
-    const x = String(t || '').toLowerCase();
-    if (x === 'supportive') return 'supportive';
-    if (x === 'cautious') return 'cautious';
-    return 'mixed';
-  }
-  function assetState(row){
-    const avg = Number(row?.avg_score);
-    if (!Number.isFinite(avg)) return { label:'Mixed', cls:'mix' };
-    if (avg >= 1) return { label:'Positive', cls:'pos' };
-    if (avg <= -1) return { label:'Weak', cls:'neg' };
-    return { label:'Mixed', cls:'mix' };
-  }
-  function firstSentence(text){
-    const s = String(text || '').trim();
-    if (!s) return '';
-    const idx = s.indexOf('. ');
-    return idx > -1 ? s.slice(0, idx + 1) : s;
-  }
-  function parseDate(v){
-    if (!v) return null;
-    const d = new Date(v);
-    return Number.isNaN(d.getTime()) ? null : d;
-  }
-  function dayKey(v){
-    const d = parseDate(v);
-    if (!d) return 'Watchlist';
-    return d.toLocaleDateString('en-GB', { weekday:'short' });
-  }
-  function prettyDate(v){
-    const d = parseDate(v);
-    if (!d) return 'TBC';
-    return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short' });
-  }
-  function compactHeadline(title, max=72){
-    const s = String(title || '').trim();
-    if (s.length <= max) return s;
-    return s.slice(0, max - 1) + '…';
-  }
-  function buildIdeaRationale(item){
-    const parts = [];
-    if (item.setup) parts.push(item.setup);
-    const r20 = Number(item.ret_20d_pct);
-    if (Number.isFinite(r20)) parts.push(`${r20 > 0 ? '+' : ''}${r20.toFixed(1)}% 20d`);
-    if (item.rationale) parts.push(firstSentence(item.rationale));
-    return parts.filter(Boolean).join(' • ');
-  }
-
-  function renderMeta(data){
-    $('asofChip').textContent = `As of ${data.asof || '—'}`;
-    $('weekChip').textContent = `Week ${data.week_id || '—'}`;
-    const techW = data.top_ideas?.methodology?.final?.tech_weight;
-    const fundW = data.top_ideas?.methodology?.final?.fund_weight;
-    if (Number.isFinite(techW) && Number.isFinite(fundW)) {
-      $('methodChip').textContent = `Ranking: ${Math.round(techW*100)}% tech / ${Math.round(fundW*100)}% macro`;
+    function toneClass(tone){
+      const t = String(tone || '').toLowerCase();
+      if (['supportive','positive','constructive','strong'].some(k => t.includes(k))) return 'good';
+      if (['cautious','fragile','negative','weak'].some(k => t.includes(k))) return 'bad';
+      return 'warn';
     }
-  }
-
-  function renderOverviewIdeas(topIdeas){
-    const holder = $('overviewIdeas');
-    holder.innerHTML = '';
-    const longs = Array.isArray(topIdeas?.top_long) ? topIdeas.top_long.slice(0,3) : [];
-    const shorts = Array.isArray(topIdeas?.top_short) ? topIdeas.top_short.slice(0,3) : [];
-    const merged = [...longs.map(x => ({...x, side:'LONG'})), ...shorts.map(x => ({...x, side:'SHORT'}))];
-    if (!merged.length){
-      holder.innerHTML = '<div class="empty">No candidates available.</div>';
-      return;
+    function breadthState(avg){
+      const n = Number(avg || 0);
+      if (n >= 1) return ['Positive','good'];
+      if (n <= -1) return ['Weak','bad'];
+      return ['Mixed','warn'];
     }
-    merged.forEach(item => {
-      const sideClass = item.side === 'LONG' ? 'long' : 'short';
-      const el = document.createElement('div');
-      el.className = 'card overview-card idea-card';
-      el.innerHTML = `
-        <div class="overview-left">
-          <span class="side ${sideClass}">${escapeHtml(item.side)}</span>
-          <div>
-            <strong>${escapeHtml(item.symbol || '—')}</strong>
-            <div class="subline">${escapeHtml(item.asset_class || '—')}</div>
-          </div>
-        </div>
-        <div class="overview-mid">
-          <div class="copy tight">${escapeHtml(buildIdeaRationale(item) || 'No specific rationale available.')}</div>
-        </div>
-        <div class="overview-right">
-          <span class="pill">Final ${escapeHtml(scorePct(item.final_score))}</span>
-          <span class="pill">Tech ${escapeHtml(scorePct(item.tech_score))}</span>
-          <span class="pill">Macro ${escapeHtml(scorePct(item.macro_alignment ?? item.fund_support))}</span>
-        </div>
-      `;
-      holder.appendChild(el);
-    });
-  }
 
-  function renderBreadthOverview(tech){
-    const holder = $('breadthOverview');
-    holder.innerHTML = '';
-    const entries = Object.entries(tech?.by_asset_class || {});
-    if (!entries.length){
-      holder.innerHTML = '<div class="empty">No technical breadth available.</div>';
-      return;
+    async function fetchJson(paths){
+      for(const path of paths){
+        try{
+          const res = await fetch(path, {cache:'no-store'});
+          if(res.ok) return await res.json();
+        }catch(e){}
+      }
+      throw new Error(`Unable to load any of: ${paths.join(', ')}`);
     }
-    entries.forEach(([ac, row]) => {
-      const state = assetState(row);
-      const el = document.createElement('div');
-      el.className = 'card overview-card breadth-card';
-      el.innerHTML = `
-        <div class="overview-left">
-          <strong>${escapeHtml(ac)}</strong>
-          <span class="state ${state.cls}">${escapeHtml(state.label)}</span>
-        </div>
-        <div class="overview-mid">
-          <div class="score-row">
-            <span class="pill">Avg ${escapeHtml(signed(row.avg_score,1))}</span>
-            <span class="pill">Bull ${escapeHtml(String(row.bullish ?? '—'))}</span>
-            <span class="pill">Bear ${escapeHtml(String(row.bearish ?? '—'))}</span>
-            <span class="pill">N ${escapeHtml(String(row.n ?? '—'))}</span>
-          </div>
-        </div>
-        <div class="overview-right" style="justify-items:start">
-          <div class="copy tight">${escapeHtml(firstSentence(row.text || ''))}</div>
-        </div>
-      `;
-      holder.appendChild(el);
-    });
-  }
 
-  function renderToneOverview(fund){
-    const holder = $('toneOverview');
-    holder.innerHTML = '';
-    const entries = Object.entries(fund?.by_asset_class || {});
-    if (!entries.length){
-      holder.innerHTML = '<div class="empty">No fundamental overview available.</div>';
-      return;
+    function renderTopIdeas(topIdeas){
+      const host = document.getElementById('topIdeasBox');
+      const longs = (topIdeas?.top_long || []).slice(0,3).map(x => ({...x, side:'LONG'}));
+      const shorts = (topIdeas?.top_short || []).slice(0,3).map(x => ({...x, side:'SHORT'}));
+      const rows = [...longs, ...shorts];
+      if(!rows.length){ host.innerHTML = '<div class="empty">No ideas available.</div>'; return; }
+      host.innerHTML = `
+        <div class="row topideas hdr">
+          <div class="cell">Idea</div><div class="cell">Setup</div><div class="cell">Final</div><div class="cell">Tech</div><div class="cell">Macro</div><div class="cell">Rationale</div>
+        </div>
+        ${rows.map(r => `
+          <div class="row topideas">
+            <div class="cell stack"><strong>${escapeHtml(r.side)} ${escapeHtml(r.symbol || '')}</strong><span class="tiny muted">${escapeHtml(r.asset_class || '')}</span></div>
+            <div class="cell">${escapeHtml(r.setup || '—')}</div>
+            <div class="cell score">${fmtScore100(r.final_score)}</div>
+            <div class="cell score">${fmtScore100(r.tech_score)}</div>
+            <div class="cell score">${fmtScore100(r.macro_alignment ?? r.fund_support)}</div>
+            <div class="cell muted tiny">${escapeHtml(r.rationale || '—')}</div>
+          </div>
+        `).join('')}`;
     }
-    entries.forEach(([ac, row]) => {
-      const headlines = Array.isArray(row.top_news) ? row.top_news.slice(0,2) : [];
-      const el = document.createElement('div');
-      el.className = 'card overview-card tone-card';
-      el.innerHTML = `
-        <div class="overview-left">
-          <strong>${escapeHtml(ac)}</strong>
-          <span class="tone ${toneClass(row.tone)}">${escapeHtml(row.tone || 'Mixed')}</span>
-        </div>
-        <div class="overview-mid">
-          <div class="copy tight">${escapeHtml(firstSentence(row.commentary || ''))}</div>
-          <div class="score-row">
-            <span class="pill">Bias ${escapeHtml(signed(row.bias,2))}</span>
-            <span class="pill">Conf ${escapeHtml(scorePct(row.confidence))}</span>
-          </div>
-        </div>
-        <div class="overview-right" style="justify-items:start">
-          <div class="headline-stack">
-            ${headlines.length ? headlines.map(n => `<span class="pill">${escapeHtml(compactHeadline(n.title || '', 54))}</span>`).join('') : '<span class="empty">No major headlines.</span>'}
-          </div>
-        </div>
-      `;
-      holder.appendChild(el);
-    });
-  }
 
-  function renderTechnicalSection(tech){
-    const holder = $('techRows');
-    const tableBody = $('techTableBody');
-    holder.innerHTML = '';
-    tableBody.innerHTML = '';
+    function renderBreadth(byAC){
+      const host = document.getElementById('breadthBox');
+      const rows = Object.entries(byAC || {});
+      if(!rows.length){ host.innerHTML = '<div class="empty">No technical breadth available.</div>'; return; }
+      host.innerHTML = `
+        <div class="row breadth hdr">
+          <div class="cell">Asset</div><div class="cell">State</div><div class="cell">Avg</div><div class="cell">Bull</div><div class="cell">Bear</div><div class="cell">Summary</div>
+        </div>
+        ${rows.map(([ac, v]) => {
+          const [label, cls] = breadthState(v.avg_score);
+          return `
+          <div class="row breadth">
+            <div class="cell"><strong>${escapeHtml(ac)}</strong></div>
+            <div class="cell"><span class="state ${cls}">${label}</span></div>
+            <div class="cell score">${fmt1(v.avg_score)}</div>
+            <div class="cell score">${safe(v.bullish,'—')}</div>
+            <div class="cell score">${safe(v.bearish,'—')}</div>
+            <div class="cell tiny muted">${escapeHtml(v.text || v.summary || '')}</div>
+          </div>`;
+        }).join('')}`;
+    }
 
-    const assetEntries = Object.entries(tech?.by_asset_class || {});
-    if (!assetEntries.length) {
-      holder.innerHTML = '<div class="row-line"><div class="row-label">Technical</div><div class="empty">No technical summary available.</div></div>';
-    } else {
-      assetEntries.forEach(([ac, row]) => {
-        const line = document.createElement('div');
-        line.className = 'row-line';
-        line.innerHTML = `
-          <div class="row-label">${escapeHtml(ac)}</div>
-          <div class="row-body">
-            <div class="summary-top">
-              <div>
-                <div class="summary-copy">${escapeHtml(row.text || '')}</div>
-                <div class="metricline">
-                  <span>Avg ${escapeHtml(signed(row.avg_score,1))}</span>
-                  <span>Bullish ${escapeHtml(String(row.bullish ?? '—'))}</span>
-                  <span>Bearish ${escapeHtml(String(row.bearish ?? '—'))}</span>
-                  <span>Universe ${escapeHtml(String(row.n ?? '—'))}</span>
-                </div>
-              </div>
+    function renderTone(byAC){
+      const host = document.getElementById('toneBox');
+      const rows = Object.entries(byAC || {});
+      if(!rows.length){ host.innerHTML = '<div class="empty">No fundamental tone available.</div>'; return; }
+      host.innerHTML = `
+        <div class="row fundtone hdr">
+          <div class="cell">Asset</div><div class="cell">Tone</div><div class="cell">Bias</div><div class="cell">Conf.</div><div class="cell">Commentary</div>
+        </div>
+        ${rows.map(([ac, v]) => `
+          <div class="row fundtone">
+            <div class="cell"><strong>${escapeHtml(ac)}</strong></div>
+            <div class="cell"><span class="state ${toneClass(v.tone)}">${escapeHtml(v.tone || 'Mixed')}</span></div>
+            <div class="cell score">${fmt2(v.bias)}</div>
+            <div class="cell score">${fmt2(v.confidence)}</div>
+            <div class="cell tiny muted">${escapeHtml(v.commentary || '')}</div>
+          </div>
+        `).join('')}`;
+    }
+
+    function renderTechnicalFull(weekly){
+      const host = document.getElementById('technicalPanel');
+      const byAC = weekly?.technical_overview?.by_asset_class || {};
+      const bySym = weekly?.technical_overview?.by_symbol || {};
+      const summaryRows = Object.entries(byAC);
+      const symbolRows = Object.values(bySym).sort((a,b) => Math.abs(Number(b.score||0)) - Math.abs(Number(a.score||0)));
+      let html = '';
+      if(summaryRows.length){
+        html += `
+          <div class="row breadth hdr">
+            <div class="cell">Asset</div><div class="cell">State</div><div class="cell">Avg</div><div class="cell">Bull</div><div class="cell">Bear</div><div class="cell">Summary</div>
+          </div>
+          ${summaryRows.map(([ac, v]) => {
+            const [label, cls] = breadthState(v.avg_score);
+            return `
+            <div class="row breadth">
+              <div class="cell"><strong>${escapeHtml(ac)}</strong></div>
+              <div class="cell"><span class="state ${cls}">${label}</span></div>
+              <div class="cell score">${fmt1(v.avg_score)}</div>
+              <div class="cell score">${safe(v.bullish,'—')}</div>
+              <div class="cell score">${safe(v.bearish,'—')}</div>
+              <div class="cell tiny muted">${escapeHtml(v.text || '')}</div>
+            </div>`;
+          }).join('')}`;
+      }
+      html += `<div class="footer-note">By instrument</div>`;
+      if(symbolRows.length){
+        html += `
+          <div class="row techfull hdr">
+            <div class="cell">Symbol</div><div class="cell">Name</div><div class="cell">Asset</div><div class="cell">Setup</div><div class="cell">Score</div><div class="cell">20d</div><div class="cell">60d</div>
+          </div>
+          ${symbolRows.map(r => `
+            <div class="row techfull">
+              <div class="cell"><strong>${escapeHtml(r.symbol || '')}</strong></div>
+              <div class="cell tiny muted">${escapeHtml(r.name || '—')}</div>
+              <div class="cell tiny">${escapeHtml(r.asset_class || '—')}</div>
+              <div class="cell tiny">${escapeHtml(r.setup || '—')}</div>
+              <div class="cell score">${fmt1(r.score)}</div>
+              <div class="cell score">${fmtPct(r.ret_20d_pct)}</div>
+              <div class="cell score">${fmtPct(r.ret_60d_pct)}</div>
             </div>
-          </div>
-        `;
-        holder.appendChild(line);
-      });
+          `).join('')}`;
+      } else {
+        html += '<div class="empty">No instrument-level data available.</div>';
+      }
+      host.innerHTML = html;
     }
 
-    const rows = Object.values(tech?.by_symbol || {}).sort((a,b) => (Number(b.score) || 0) - (Number(a.score) || 0));
-    if (!rows.length){
-      tableBody.innerHTML = '<tr><td colspan="7" class="empty">No instrument rows available.</td></tr>';
-      return;
-    }
-    rows.forEach(row => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td><strong>${escapeHtml(row.symbol || '')}</strong></td>
-        <td>${escapeHtml(row.name || '')}</td>
-        <td>${escapeHtml(row.asset_class || '')}</td>
-        <td>${escapeHtml(row.setup || '')}</td>
-        <td class="${classForNum(row.score)}">${escapeHtml(signed(row.score,0))}</td>
-        <td class="${classForNum(row.ret_20d_pct)}">${escapeHtml(pct(row.ret_20d_pct,1))}</td>
-        <td class="${classForNum(row.ret_60d_pct)}">${escapeHtml(pct(row.ret_60d_pct,1))}</td>
-      `;
-      tableBody.appendChild(tr);
-    });
-  }
-
-  function renderFundamentalSection(fund){
-    const holder = $('fundRows');
-    holder.innerHTML = '';
-    const entries = Object.entries(fund?.by_asset_class || {});
-    if (!entries.length){
-      holder.innerHTML = '<div class="row-line"><div class="row-label">Fundamental</div><div class="empty">No fundamental overview available.</div></div>';
-      return;
-    }
-
-    entries.forEach(([ac, row]) => {
-      const topNews = Array.isArray(row.top_news) ? row.top_news.slice(0,3) : [];
-      const line = document.createElement('div');
-      line.className = 'row-line';
-      line.innerHTML = `
-        <div class="row-label">${escapeHtml(ac)}</div>
-        <div class="row-body">
-          <div class="summary-top">
-            <div>
-              <span class="tone ${toneClass(row.tone)}">${escapeHtml(row.tone || 'Mixed')}</span>
-              <div class="summary-copy">${escapeHtml(row.commentary || '')}</div>
-              <div class="metricline">
-                <span>Bias ${escapeHtml(signed(row.bias,2))}</span>
-                <span>Confidence ${escapeHtml(scorePct(row.confidence))}</span>
-              </div>
-            </div>
-          </div>
-          <div class="inline-tags">
-            ${topNews.length ? topNews.map(n => `<span class="pill">${escapeHtml(compactHeadline(n.title || ''))}</span>`).join('') : '<span class="empty">No major headlines this week.</span>'}
-          </div>
+    function renderFundamentalFull(weekly){
+      const host = document.getElementById('fundamentalPanel');
+      const byAC = weekly?.fundamental_overview?.by_asset_class || {};
+      const rows = Object.entries(byAC);
+      if(!rows.length){ host.innerHTML = '<div class="empty">No fundamental overview available.</div>'; return; }
+      host.innerHTML = `
+        <div class="row fundfull hdr">
+          <div class="cell">Asset</div><div class="cell">Tone</div><div class="cell">Commentary</div><div class="cell">Headlines</div>
         </div>
-      `;
-      holder.appendChild(line);
-    });
-  }
-
-  function collectEvents(fund){
-    const out = [];
-    for (const [ac, row] of Object.entries(fund?.by_asset_class || {})) {
-      const macro = Array.isArray(row.macro_calendar) ? row.macro_calendar : [];
-      const earnings = ac === 'Equities' && Array.isArray(row.earnings_calendar) ? row.earnings_calendar : [];
-      macro.forEach(e => out.push({
-        date: e.date || '',
-        title: e.label || e.title || '',
-        type: 'Macro',
-        assets: Array.isArray(e.asset_tags) && e.asset_tags.length ? e.asset_tags : [ac],
-        source: e.source || ''
-      }));
-      earnings.forEach(e => out.push({
-        date: e.date || '',
-        title: e.label || e.title || '',
-        type: 'Earnings',
-        assets: ['Equities'],
-        source: e.source || ''
-      }));
+        ${rows.map(([ac,v]) => {
+          const headlines = (v.top_news || []).slice(0,2).map(n => `<span class="tag">${escapeHtml(n.title || '')}</span>`).join('');
+          return `
+          <div class="row fundfull">
+            <div class="cell"><strong>${escapeHtml(ac)}</strong></div>
+            <div class="cell"><span class="state ${toneClass(v.tone)}">${escapeHtml(v.tone || 'Mixed')}</span></div>
+            <div class="cell tiny muted">${escapeHtml(v.commentary || '')}</div>
+            <div class="cell headline-list">${headlines || '<span class="muted tiny">—</span>'}</div>
+          </div>`;
+        }).join('')}`;
     }
-    const seen = new Set();
-    return out.filter(e => {
-      if (!e.title) return false;
-      const key = `${e.date}|${e.type}|${e.title}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    }).sort((a,b) => {
-      const da = parseDate(a.date)?.getTime() || 0;
-      const db = parseDate(b.date)?.getTime() || 0;
-      return da - db || a.title.localeCompare(b.title);
-    });
-  }
 
-  function renderEvents(fund){
-    const holder = $('eventCalendar');
-    holder.innerHTML = '';
-    const days = ['Mon','Tue','Wed','Thu','Fri','Watchlist'];
-    const events = collectEvents(fund);
-    const grouped = Object.fromEntries(days.map(d => [d, []]));
-    events.forEach(e => {
-      const key = dayKey(e.date);
-      if (!grouped[key]) grouped['Watchlist'].push(e);
-      else grouped[key].push(e);
-    });
+    function deriveEvents(weekly){
+      if(Array.isArray(weekly?.event_calendar) && weekly.event_calendar.length) return weekly.event_calendar;
+      const out = [];
+      const byAC = weekly?.fundamental_overview?.by_asset_class || {};
+      for(const [ac, v] of Object.entries(byAC)){
+        (v.key_events || []).forEach(ev => {
+          out.push({
+            date: ev.date || '',
+            weekday: ev.date ? new Date(ev.date).toLocaleDateString('en-US',{weekday:'short'}) : 'Watch',
+            type: ev.type ? String(ev.type).replace(/^./, m => m.toUpperCase()) : 'Macro',
+            asset_tags: [ac],
+            title: ev.title || '',
+            region: ev.source || ''
+          });
+        });
+      }
+      return out;
+    }
 
-    days.forEach(day => {
-      const card = document.createElement('div');
-      card.className = 'day-card';
-      const items = grouped[day] || [];
-      card.innerHTML = `
-        <div class="day-name">${escapeHtml(day)}</div>
-        <div class="day-list">
-          ${items.length ? items.map(e => `
-            <div class="event-item">
-              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
-                <span class="tag ${String(e.type).toLowerCase()}">${escapeHtml(e.type)}</span>
-                <span class="pill">${escapeHtml((e.assets || []).join(' / '))}</span>
-              </div>
-              <div class="event-title">${escapeHtml(e.title)}</div>
-              <div class="meta">${escapeHtml(prettyDate(e.date))}${e.source ? ' • ' + escapeHtml(e.source) : ''}</div>
-            </div>`).join('') : '<div class="empty">No major events.</div>'}
+    function renderEvents(weekly){
+      const host = document.getElementById('eventsPanel');
+      const events = deriveEvents(weekly).slice(0,12);
+      if(!events.length){ host.innerHTML = '<div class="empty">No event calendar available yet.</div>'; return; }
+      host.innerHTML = `
+        <div class="row event hdr">
+          <div class="cell">Day</div><div class="cell">Type</div><div class="cell">Date</div><div class="cell">Assets</div><div class="cell">Event</div>
         </div>
-      `;
-      holder.appendChild(card);
-    });
-  }
-
-  async function init(){
-    try {
-      showNotice('');
-      const weekly = await loadJson(WEEKLY_URL);
-      renderMeta(weekly);
-      renderOverviewIdeas(weekly.top_ideas || {});
-      renderBreadthOverview(weekly.technical_overview || {});
-      renderToneOverview(weekly.fundamental_overview || {});
-      renderTechnicalSection(weekly.technical_overview || {});
-      renderFundamentalSection(weekly.fundamental_overview || {});
-      renderEvents(weekly.fundamental_overview || {});
-    } catch (err) {
-      console.error(err);
-      showError(err && err.message ? err.message : 'Failed to load weekly research.');
+        ${events.map(ev => `
+          <div class="row event">
+            <div class="cell"><strong>${escapeHtml(ev.weekday || 'Watch')}</strong></div>
+            <div class="cell"><span class="state ${String(ev.type||'').toLowerCase().includes('earn') ? 'warn' : 'good'}">${escapeHtml(ev.type || 'Macro')}</span></div>
+            <div class="cell tiny muted">${escapeHtml(ev.date || '—')}</div>
+            <div class="cell tiny">${(ev.asset_tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
+            <div class="cell tiny muted">${escapeHtml(ev.title || ev.region || '—')}</div>
+          </div>
+        `).join('')}`;
     }
-  }
 
-  $('logoutBtn').addEventListener('click', () => {
-    localStorage.removeItem(TOKEN_KEY);
-    window.location.href = 'login.html';
-  });
+    function metric(label, value){
+      return `<div class="metric"><div class="label">${escapeHtml(label)}</div><div class="value">${escapeHtml(String(value))}</div></div>`;
+    }
 
-  init();
-})();
-</script>
+    function renderModel(screener, perf){
+      const metricsHost = document.getElementById('modelMetrics');
+      const panelHost = document.getElementById('modelPanel');
+      const openPositions = screener?.openPositions || [];
+      const modelTrades = screener?.modelTrades || [];
+      const nav = perf?.nav || perf?.nav_points || perf?.navPoints || [];
+      const latestNav = Array.isArray(nav) && nav.length ? nav[nav.length-1] : null;
+      const navVal = latestNav?.nav ?? latestNav?.value ?? latestNav?.capital ?? '—';
+      const plbVal = perf?.plb_usd ?? perf?.plb ?? '—';
+
+      metricsHost.innerHTML = [
+        metric('Open Positions', openPositions.length || 0),
+        metric('Model Trades', modelTrades.length || 0),
+        metric('NAV', typeof navVal === 'number' ? navVal.toLocaleString() : navVal),
+        metric('PLB', typeof plbVal === 'number' ? plbVal.toLocaleString() : plbVal),
+      ].join('');
+
+      const rows = openPositions.length ? openPositions : modelTrades;
+      if(!rows.length){ panelHost.innerHTML = '<div class="empty">No trade model data available.</div>'; return; }
+      panelHost.innerHTML = `
+        <div class="row model hdr">
+          <div class="cell">Asset</div><div class="cell">Direction</div><div class="cell">Status</div><div class="cell">Structure</div><div class="cell">Thesis</div>
+        </div>
+        ${rows.slice(0,12).map(r => `
+          <div class="row model">
+            <div class="cell"><strong>${escapeHtml(r.asset || r.symbol || '—')}</strong></div>
+            <div class="cell tiny">${escapeHtml(r.direction || '—')}</div>
+            <div class="cell tiny">${escapeHtml(r.status || 'Open')}</div>
+            <div class="cell tiny muted">${escapeHtml(r.structure || r.setup || '—')}</div>
+            <div class="cell tiny muted">${escapeHtml(r.thesis || r.notes || '—')}</div>
+          </div>
+        `).join('')}`;
+    }
+
+    async function init(){
+      try{
+        const weekly = await fetchJson(['content/site_weekly.json','site_weekly.json']);
+        const screener = await fetchJson(['content/site_screener.json','site_screener.json']).catch(()=>({}));
+        const perf = await fetchJson(['content/site_performance.json','site_performance.json']).catch(()=>({}));
+
+        document.getElementById('heroMeta').innerHTML = `
+          <span>As of ${escapeHtml(weekly.asof || '—')}</span>
+          <span>Week ${escapeHtml(weekly.week_id || '—')}</span>
+          <span>Top ideas blend technical ranking with macro confirmation.</span>`;
+
+        renderTopIdeas(weekly.top_ideas || {});
+        renderBreadth(weekly.technical_overview?.by_asset_class || {});
+        renderTone(weekly.fundamental_overview?.by_asset_class || {});
+        renderTechnicalFull(weekly);
+        renderFundamentalFull(weekly);
+        renderEvents(weekly);
+        renderModel(screener, perf);
+      } catch(err){
+        document.getElementById('heroMeta').innerHTML = `<span>Unable to load weekly package.</span>`;
+        ['topIdeasBox','breadthBox','toneBox','technicalPanel','fundamentalPanel','eventsPanel','modelPanel'].forEach(id => {
+          const el = document.getElementById(id);
+          if(el) el.innerHTML = `<div class="empty">${escapeHtml(err.message)}</div>`;
+        });
+      }
+    }
+    init();
+  </script>
 </body>
 </html>
