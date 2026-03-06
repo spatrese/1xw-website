@@ -6,468 +6,815 @@
   <title>1XW Trading | Weekly Research</title>
   <style>
     :root{
-      --bg:#0b0d12;
-      --panel:#121722;
-      --panel-2:#161c29;
-      --line:#263043;
-      --text:#e8edf7;
-      --muted:#96a2ba;
-      --soft:#b8c2d6;
-      --accent:#9fd3ff;
-      --good:#89e2a1;
-      --bad:#ff9e9e;
-      --warn:#ffd48a;
+      --bg:#0b0f14;
+      --panel:#111824;
+      --panel-2:#0f1621;
+      --text:#e8edf5;
+      --muted:#9ba8b8;
+      --line:#243042;
+      --accent:#7cc4ff;
+      --good:#5bd18b;
+      --bad:#ff7d7d;
+      --warn:#ffd166;
+      --chip:#162131;
+      --shadow:0 10px 30px rgba(0,0,0,.22);
+      --radius:14px;
+      --maxw:1240px;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:linear-gradient(180deg,#0a0c11 0%, #0d1118 100%);
+      background:linear-gradient(180deg,#0a0f14 0%, #0b1017 100%);
       color:var(--text);
+      font-family:var(--font);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1380px;margin:0 auto;padding:20px 22px 48px}
-    .nav{
-      position:sticky;top:0;z-index:30;
-      backdrop-filter: blur(10px);
-      background:rgba(10,12,17,.78);
+
+    a{ color:inherit; text-decoration:none; }
+
+    .container{
+      width:min(var(--maxw), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(11,15,20,.78);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
-    .nav-inner{
-      max-width:1380px;margin:0 auto;padding:14px 22px;
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
-    }
-    .brand{font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);font-size:13px}
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
-    .nav-links a{font-size:13px;color:var(--muted)}
-    .nav-links a:hover{color:var(--text)}
-    .hero{padding:28px 0 14px}
-    .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-    h1{margin:0 0 10px;font-size:34px;line-height:1.06}
-    .hero-meta{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:13px}
-    .section{margin-top:26px}
-    .section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:12px}
-    .section-head h2{margin:0;font-size:20px}
-    .section-head .sub{color:var(--muted);font-size:13px}
-    .panel{
-      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
-      border:1px solid rgba(255,255,255,.07);
-      border-radius:18px;
-      overflow:hidden;
-      box-shadow:0 18px 40px rgba(0,0,0,.18);
-    }
-    .three-up{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .box{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden}
-    .box-hd{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02)}
-    .box-hd h3{margin:0;font-size:15px}
-    .box-bd{padding:6px 16px 10px}
 
-    .row{
-      display:grid;align-items:center;gap:12px;
-      padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      min-height:64px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    .brand-mark{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,#18314f,#0d1f33);
+      border:1px solid rgba(124,196,255,.18);
+      color:var(--accent);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      color:var(--muted);
+      font-size:14px;
+      transition:.18s ease;
+    }
+
+    .nav a:hover{ color:var(--text); }
+
+    .nav .logout{
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:999px;
+      color:var(--text);
+    }
+
+    .hero{
+      padding:34px 0 16px;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:var(--shadow);
+      border-radius:20px;
+      padding:24px 24px 18px;
+    }
+
+    .eyebrow{
+      color:var(--accent);
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+      font-weight:700;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:34px;
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+
+    .hero-sub{
+      color:var(--muted);
+      max-width:920px;
+      font-size:15px;
+      line-height:1.6;
+      margin-bottom:14px;
+    }
+
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .meta-chip{
+      background:var(--chip);
+      border:1px solid rgba(255,255,255,.06);
+      color:var(--muted);
+      border-radius:999px;
+      padding:7px 11px;
+      font-size:12px;
+    }
+
+    main{
+      padding:10px 0 42px;
+    }
+
+    .section{
+      margin-top:26px;
+      background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .section-head{
+      padding:18px 20px 14px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.012);
+    }
+
+    .section-title{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-.01em;
+    }
+
+    .section-sub{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .section-body{
+      padding:4px 18px 14px;
+    }
+
+    .data-row{
+      display:grid;
+      gap:12px;
+      align-items:center;
+      padding:12px 6px;
+      border-bottom:1px solid rgba(255,255,255,.06);
       min-width:0;
     }
-    .row:last-child{border-bottom:none}
-    .row.topideas{grid-template-columns:122px 140px 82px 72px 78px minmax(200px,1fr)}
-    .row.breadth{grid-template-columns:120px 76px 72px 72px 50px minmax(180px,1fr)}
-    .row.fundtone{grid-template-columns:120px 94px 78px 88px minmax(220px,1fr)}
-    .row.techfull{grid-template-columns:78px 1.4fr 112px 170px 70px 74px 74px}
-    .row.fundfull{grid-template-columns:120px 96px minmax(260px,1.3fr) minmax(240px,1fr)}
-    .row.event{grid-template-columns:88px 84px 84px 130px minmax(220px,1fr)}
-    .row.model{grid-template-columns:82px 118px 106px 130px minmax(220px,1fr)}
 
-    .hdr{color:var(--muted);font-size:11px;letter-spacing:.09em;text-transform:uppercase;background:rgba(255,255,255,.02)}
-    .cell{min-width:0}
-    .cell strong{font-weight:650}
-    .muted{color:var(--muted)}
-    .tiny{font-size:12px}
-    .tag{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:11px;border:1px solid rgba(255,255,255,.09);color:var(--soft);margin-right:6px;margin-top:4px;white-space:nowrap}
-    .state{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.10)}
-    .good{color:var(--good);border-color:rgba(137,226,161,.25);background:rgba(137,226,161,.08)}
-    .bad{color:var(--bad);border-color:rgba(255,158,158,.25);background:rgba(255,158,158,.08)}
-    .warn{color:var(--warn);border-color:rgba(255,212,138,.25);background:rgba(255,212,138,.08)}
-    .score{font-variant-numeric:tabular-nums}
-    .headline-list{display:flex;flex-wrap:wrap;gap:6px}
-    .metric-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:16px}
-    .metric{background:var(--panel-2);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:12px 14px}
-    .metric .label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-    .metric .value{margin-top:8px;font-size:22px}
-    .empty{padding:16px;color:var(--muted)}
-    .stack{display:flex;flex-direction:column;gap:3px;min-width:0}
-    .section-panel{padding:0 16px 4px}
-    .footer-note{color:var(--muted);font-size:12px;margin-top:10px}
+    .data-row:last-child{ border-bottom:none; }
 
-    @media (max-width: 1180px){
-      .three-up{grid-template-columns:1fr}
-      .metric-strip{grid-template-columns:1fr 1fr}
+    .row-6{ grid-template-columns: 130px 120px 110px 100px 100px minmax(240px,1fr); }
+    .row-5{ grid-template-columns: 160px 120px 110px 110px minmax(260px,1fr); }
+    .row-4{ grid-template-columns: 170px 120px 120px minmax(360px,1fr); }
+    .row-3{ grid-template-columns: 130px 130px minmax(320px,1fr); }
+
+    .cell{
+      min-width:0;
+      font-size:14px;
+      line-height:1.35;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
-    @media (max-width: 900px){
-      .row.topideas,
-      .row.breadth,
-      .row.fundtone,
-      .row.techfull,
-      .row.fundfull,
-      .row.event,
-      .row.model{grid-template-columns:1fr;gap:6px;padding:12px 0}
-      .hdr{display:none}
-      .nav-inner{align-items:flex-start;flex-direction:column}
-      .metric-strip{grid-template-columns:1fr}
-      h1{font-size:28px}
+
+    .cell.wrap{
+      white-space:normal;
+      overflow:visible;
+      text-overflow:unset;
+    }
+
+    .label{
+      font-weight:700;
+      color:var(--text);
+      letter-spacing:.01em;
+    }
+
+    .muted{ color:var(--muted); }
+    .accent{ color:var(--accent); }
+    .good{ color:var(--good); }
+    .bad{ color:var(--bad); }
+    .warn{ color:var(--warn); }
+
+    .chipline{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 9px;
+      font-size:12px;
+      border-radius:999px;
+      background:var(--chip);
+      border:1px solid rgba(255,255,255,.06);
+      color:var(--muted);
+      max-width:100%;
+    }
+
+    .score{
+      font-variant-numeric:tabular-nums;
+      font-weight:700;
+    }
+
+    .tone-supportive{ color:var(--good); }
+    .tone-cautious{ color:var(--bad); }
+    .tone-mixed{ color:var(--warn); }
+
+    .empty{
+      padding:18px 6px 10px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .mini-title{
+      margin:18px 6px 8px;
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
+    .loading{
+      color:var(--muted);
+      padding:20px 6px;
+      font-size:14px;
+    }
+
+    .footer-space{ height:30px; }
+
+    @media (max-width: 1024px){
+      .row-6,
+      .row-5,
+      .row-4,
+      .row-3{
+        grid-template-columns: 1fr;
+      }
+      .data-row{
+        gap:6px;
+        padding:14px 6px;
+      }
+      .cell{
+        white-space:normal;
+        overflow:visible;
+        text-overflow:unset;
+      }
+      .section-body{
+        padding:6px 14px 14px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="nav">
-    <div class="nav-inner">
-      <div class="brand">1XW Trading</div>
-      <div class="nav-links">
-        <a href="#overview">Overview</a>
-        <a href="#technical">Technical</a>
-        <a href="#fundamental">Fundamental</a>
-        <a href="#events">Events</a>
-        <a href="#model">Trade Model</a>
-        <a href="index.html">Logout</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">1XW</div>
+        <div>1XW Trading</div>
+      </div>
+      <nav class="nav">
+        <a href="#topideas">Overview</a>
+        <a href="#technical-breadth">Breadth</a>
+        <a href="#technical-overview">Technical</a>
+        <a href="#fundamental-overview">Fundamental</a>
+        <a href="#event-calendar">Events</a>
+        <a href="#trade-model">Trade Model</a>
+        <a class="logout" href="index.html">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="eyebrow">Member Area</div>
+        <h1>Weekly Research</h1>
+        <div class="hero-sub">
+          Cross-asset weekly snapshot across technical signals, macro tone, event risk and model activity.
+        </div>
+        <div class="meta" id="heroMeta">
+          <div class="meta-chip">Loading weekly bundle…</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="wrap">
-    <div class="hero">
-      <div class="eyebrow">Weekly Research</div>
-      <h1>Cross-asset dashboard</h1>
-      <div class="hero-meta" id="heroMeta">
-        <span>Loading weekly package…</span>
-      </div>
-    </div>
-
-    <section class="section" id="overview">
+  <main class="container">
+    <section id="topideas" class="section">
       <div class="section-head">
-        <h2>Overview</h2>
-        <div class="sub">Three broad reads: best candidates, technical breadth, macro tone.</div>
+        <h2 class="section-title">Top 3 Long / Short</h2>
+        <div class="section-sub">Highest-ranked candidates of the week.</div>
       </div>
-      <div class="three-up">
-        <div class="box">
-          <div class="box-hd"><h3>Top 3 Long / Short</h3></div>
-          <div class="box-bd" id="topIdeasBox"></div>
-        </div>
-        <div class="box">
-          <div class="box-hd"><h3>Technical Breadth</h3></div>
-          <div class="box-bd" id="breadthBox"></div>
-        </div>
-        <div class="box">
-          <div class="box-hd"><h3>Fundamental Tone</h3></div>
-          <div class="box-bd" id="toneBox"></div>
-        </div>
+      <div class="section-body" id="topIdeasRows">
+        <div class="loading">Loading…</div>
       </div>
     </section>
 
-    <section class="section" id="technical">
+    <section id="technical-breadth" class="section">
       <div class="section-head">
-        <h2>Technical Overview</h2>
-        <div class="sub">Breadth by asset class, then instrument-level detail.</div>
+        <h2 class="section-title">Technical Breadth</h2>
+        <div class="section-sub">Trend balance by asset class.</div>
       </div>
-      <div class="panel section-panel" id="technicalPanel"></div>
+      <div class="section-body" id="breadthRows">
+        <div class="loading">Loading…</div>
+      </div>
     </section>
 
-    <section class="section" id="fundamental">
+    <section id="fundamental-tone" class="section">
       <div class="section-head">
-        <h2>Fundamental Overview</h2>
-        <div class="sub">One row per asset class with tone, commentary and relevant headlines.</div>
+        <h2 class="section-title">Fundamental Tone</h2>
+        <div class="section-sub">Quick macro read by asset class.</div>
       </div>
-      <div class="panel section-panel" id="fundamentalPanel"></div>
+      <div class="section-body" id="fundToneRows">
+        <div class="loading">Loading…</div>
+      </div>
     </section>
 
-    <section class="section" id="events">
+    <section id="technical-overview" class="section">
       <div class="section-head">
-        <h2>Event Calendar</h2>
-        <div class="sub">Macro and earnings in one clean weekly list.</div>
+        <h2 class="section-title">Technical Overview</h2>
+        <div class="section-sub">Instrument-level technical output.</div>
       </div>
-      <div class="panel section-panel" id="eventsPanel"></div>
+      <div class="section-body" id="technicalRows">
+        <div class="loading">Loading…</div>
+      </div>
     </section>
 
-    <section class="section" id="model">
+    <section id="fundamental-overview" class="section">
       <div class="section-head">
-        <h2>Trade Model</h2>
-        <div class="sub">Open positions, model trades and high-level portfolio stats.</div>
+        <h2 class="section-title">Fundamental Overview</h2>
+        <div class="section-sub">Commentary and highlights by asset class.</div>
       </div>
-      <div class="panel">
-        <div class="metric-strip" id="modelMetrics"></div>
-        <div class="section-panel" id="modelPanel"></div>
+      <div class="section-body" id="fundOverviewRows">
+        <div class="loading">Loading…</div>
       </div>
     </section>
-  </div>
+
+    <section id="event-calendar" class="section">
+      <div class="section-head">
+        <h2 class="section-title">Event Calendar</h2>
+        <div class="section-sub">Weekly macro and earnings watchlist.</div>
+      </div>
+      <div class="section-body" id="eventRows">
+        <div class="loading">Loading…</div>
+      </div>
+    </section>
+
+    <section id="trade-model" class="section">
+      <div class="section-head">
+        <h2 class="section-title">Trade Model</h2>
+        <div class="section-sub">Open positions, model trades and performance snapshot.</div>
+      </div>
+      <div class="section-body" id="tradeModelRows">
+        <div class="loading">Loading…</div>
+      </div>
+    </section>
+
+    <div class="footer-space"></div>
+  </main>
 
   <script>
-    const fmtPct = (v) => (v === null || v === undefined || v === '' || Number.isNaN(Number(v))) ? '—' : `${Number(v).toFixed(1)}%`;
-    const fmt1 = (v) => (v === null || v === undefined || v === '' || Number.isNaN(Number(v))) ? '—' : Number(v).toFixed(1);
-    const fmt2 = (v) => (v === null || v === undefined || v === '' || Number.isNaN(Number(v))) ? '—' : Number(v).toFixed(2);
-    const fmtScore100 = (v) => (v === null || v === undefined || v === '' || Number.isNaN(Number(v))) ? '—' : Math.round(Number(v) * 100);
-    const safe = (x, fb='—') => (x === null || x === undefined || x === '') ? fb : x;
-    const escapeHtml = (s='') => String(s)
-      .replaceAll('&', '&amp;')
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;')
-      .replaceAll("'", '&#39;');
+    const WEEKLY_URL = 'content/site_weekly.json';
+    const SCREENER_URL = 'content/site_screener.json';
+    const PERFORMANCE_URL = 'content/site_performance.json';
 
-    function toneClass(tone){
-      const t = String(tone || '').toLowerCase();
-      if (['supportive','positive','constructive','strong'].some(k => t.includes(k))) return 'good';
-      if (['cautious','fragile','negative','weak'].some(k => t.includes(k))) return 'bad';
-      return 'warn';
+    function esc(v){
+      return String(v ?? '')
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'",'&#039;');
     }
+
+    function fmtNum(x, d=1){
+      const n = Number(x);
+      return Number.isFinite(n) ? n.toFixed(d) : '—';
+    }
+
+    function fmtPct(x, d=1){
+      const n = Number(x);
+      return Number.isFinite(n) ? `${n > 0 ? '+' : ''}${n.toFixed(d)}%` : '—';
+    }
+
+    function fmtSigned(x, d=1){
+      const n = Number(x);
+      return Number.isFinite(n) ? `${n > 0 ? '+' : ''}${n.toFixed(d)}` : '—';
+    }
+
+    function toneClass(t){
+      const s = String(t || '').toLowerCase();
+      if (s.includes('support')) return 'tone-supportive';
+      if (s.includes('cautious') || s.includes('fragile') || s.includes('negative')) return 'tone-cautious';
+      return 'tone-mixed';
+    }
+
     function breadthState(avg){
-      const n = Number(avg || 0);
-      if (n >= 1) return ['Positive','good'];
-      if (n <= -1) return ['Weak','bad'];
-      return ['Mixed','warn'];
+      const n = Number(avg);
+      if (!Number.isFinite(n)) return 'Mixed';
+      if (n >= 1.0) return 'Strong';
+      if (n >= 0.25) return 'Positive';
+      if (n <= -1.0) return 'Weak';
+      if (n <= -0.25) return 'Negative';
+      return 'Mixed';
     }
 
-    async function fetchJson(paths){
-      for(const path of paths){
-        try{
-          const res = await fetch(path, {cache:'no-store'});
-          if(res.ok) return await res.json();
-        }catch(e){}
-      }
-      throw new Error(`Unable to load any of: ${paths.join(', ')}`);
+    function dayLabel(dateStr){
+      if (!dateStr) return 'Watch';
+      const d = new Date(dateStr);
+      if (Number.isNaN(d.getTime())) return dateStr;
+      return d.toLocaleDateString('en-GB', { weekday:'short', day:'2-digit', month:'short' });
     }
 
-    function renderTopIdeas(topIdeas){
-      const host = document.getElementById('topIdeasBox');
-      const longs = (topIdeas?.top_long || []).slice(0,3).map(x => ({...x, side:'LONG'}));
-      const shorts = (topIdeas?.top_short || []).slice(0,3).map(x => ({...x, side:'SHORT'}));
-      const rows = [...longs, ...shorts];
-      if(!rows.length){ host.innerHTML = '<div class="empty">No ideas available.</div>'; return; }
-      host.innerHTML = `
-        <div class="row topideas hdr">
-          <div class="cell">Idea</div><div class="cell">Setup</div><div class="cell">Final</div><div class="cell">Tech</div><div class="cell">Macro</div><div class="cell">Rationale</div>
+    function row6(c1,c2,c3,c4,c5,c6){
+      return `
+        <div class="data-row row-6">
+          <div class="cell label">${c1}</div>
+          <div class="cell">${c2}</div>
+          <div class="cell">${c3}</div>
+          <div class="cell">${c4}</div>
+          <div class="cell">${c5}</div>
+          <div class="cell wrap">${c6}</div>
         </div>
-        ${rows.map(r => `
-          <div class="row topideas">
-            <div class="cell stack"><strong>${escapeHtml(r.side)} ${escapeHtml(r.symbol || '')}</strong><span class="tiny muted">${escapeHtml(r.asset_class || '')}</span></div>
-            <div class="cell">${escapeHtml(r.setup || '—')}</div>
-            <div class="cell score">${fmtScore100(r.final_score)}</div>
-            <div class="cell score">${fmtScore100(r.tech_score)}</div>
-            <div class="cell score">${fmtScore100(r.macro_alignment ?? r.fund_support)}</div>
-            <div class="cell muted tiny">${escapeHtml(r.rationale || '—')}</div>
-          </div>
-        `).join('')}`;
+      `;
     }
 
-    function renderBreadth(byAC){
-      const host = document.getElementById('breadthBox');
-      const rows = Object.entries(byAC || {});
-      if(!rows.length){ host.innerHTML = '<div class="empty">No technical breadth available.</div>'; return; }
-      host.innerHTML = `
-        <div class="row breadth hdr">
-          <div class="cell">Asset</div><div class="cell">State</div><div class="cell">Avg</div><div class="cell">Bull</div><div class="cell">Bear</div><div class="cell">Summary</div>
+    function row5(c1,c2,c3,c4,c5){
+      return `
+        <div class="data-row row-5">
+          <div class="cell label">${c1}</div>
+          <div class="cell">${c2}</div>
+          <div class="cell">${c3}</div>
+          <div class="cell">${c4}</div>
+          <div class="cell wrap">${c5}</div>
         </div>
-        ${rows.map(([ac, v]) => {
-          const [label, cls] = breadthState(v.avg_score);
-          return `
-          <div class="row breadth">
-            <div class="cell"><strong>${escapeHtml(ac)}</strong></div>
-            <div class="cell"><span class="state ${cls}">${label}</span></div>
-            <div class="cell score">${fmt1(v.avg_score)}</div>
-            <div class="cell score">${safe(v.bullish,'—')}</div>
-            <div class="cell score">${safe(v.bearish,'—')}</div>
-            <div class="cell tiny muted">${escapeHtml(v.text || v.summary || '')}</div>
-          </div>`;
-        }).join('')}`;
+      `;
     }
 
-    function renderTone(byAC){
-      const host = document.getElementById('toneBox');
-      const rows = Object.entries(byAC || {});
-      if(!rows.length){ host.innerHTML = '<div class="empty">No fundamental tone available.</div>'; return; }
-      host.innerHTML = `
-        <div class="row fundtone hdr">
-          <div class="cell">Asset</div><div class="cell">Tone</div><div class="cell">Bias</div><div class="cell">Conf.</div><div class="cell">Commentary</div>
+    function row4(c1,c2,c3,c4){
+      return `
+        <div class="data-row row-4">
+          <div class="cell label">${c1}</div>
+          <div class="cell">${c2}</div>
+          <div class="cell">${c3}</div>
+          <div class="cell wrap">${c4}</div>
         </div>
-        ${rows.map(([ac, v]) => `
-          <div class="row fundtone">
-            <div class="cell"><strong>${escapeHtml(ac)}</strong></div>
-            <div class="cell"><span class="state ${toneClass(v.tone)}">${escapeHtml(v.tone || 'Mixed')}</span></div>
-            <div class="cell score">${fmt2(v.bias)}</div>
-            <div class="cell score">${fmt2(v.confidence)}</div>
-            <div class="cell tiny muted">${escapeHtml(v.commentary || '')}</div>
-          </div>
-        `).join('')}`;
+      `;
     }
 
-    function renderTechnicalFull(weekly){
-      const host = document.getElementById('technicalPanel');
-      const byAC = weekly?.technical_overview?.by_asset_class || {};
-      const bySym = weekly?.technical_overview?.by_symbol || {};
-      const summaryRows = Object.entries(byAC);
-      const symbolRows = Object.values(bySym).sort((a,b) => Math.abs(Number(b.score||0)) - Math.abs(Number(a.score||0)));
-      let html = '';
-      if(summaryRows.length){
-        html += `
-          <div class="row breadth hdr">
-            <div class="cell">Asset</div><div class="cell">State</div><div class="cell">Avg</div><div class="cell">Bull</div><div class="cell">Bear</div><div class="cell">Summary</div>
-          </div>
-          ${summaryRows.map(([ac, v]) => {
-            const [label, cls] = breadthState(v.avg_score);
-            return `
-            <div class="row breadth">
-              <div class="cell"><strong>${escapeHtml(ac)}</strong></div>
-              <div class="cell"><span class="state ${cls}">${label}</span></div>
-              <div class="cell score">${fmt1(v.avg_score)}</div>
-              <div class="cell score">${safe(v.bullish,'—')}</div>
-              <div class="cell score">${safe(v.bearish,'—')}</div>
-              <div class="cell tiny muted">${escapeHtml(v.text || '')}</div>
-            </div>`;
-          }).join('')}`;
-      }
-      html += `<div class="footer-note">By instrument</div>`;
-      if(symbolRows.length){
-        html += `
-          <div class="row techfull hdr">
-            <div class="cell">Symbol</div><div class="cell">Name</div><div class="cell">Asset</div><div class="cell">Setup</div><div class="cell">Score</div><div class="cell">20d</div><div class="cell">60d</div>
-          </div>
-          ${symbolRows.map(r => `
-            <div class="row techfull">
-              <div class="cell"><strong>${escapeHtml(r.symbol || '')}</strong></div>
-              <div class="cell tiny muted">${escapeHtml(r.name || '—')}</div>
-              <div class="cell tiny">${escapeHtml(r.asset_class || '—')}</div>
-              <div class="cell tiny">${escapeHtml(r.setup || '—')}</div>
-              <div class="cell score">${fmt1(r.score)}</div>
-              <div class="cell score">${fmtPct(r.ret_20d_pct)}</div>
-              <div class="cell score">${fmtPct(r.ret_60d_pct)}</div>
-            </div>
-          `).join('')}`;
-      } else {
-        html += '<div class="empty">No instrument-level data available.</div>';
-      }
-      host.innerHTML = html;
+    function empty(msg='No data available.'){
+      return `<div class="empty">${esc(msg)}</div>`;
     }
 
-    function renderFundamentalFull(weekly){
-      const host = document.getElementById('fundamentalPanel');
-      const byAC = weekly?.fundamental_overview?.by_asset_class || {};
-      const rows = Object.entries(byAC);
-      if(!rows.length){ host.innerHTML = '<div class="empty">No fundamental overview available.</div>'; return; }
-      host.innerHTML = `
-        <div class="row fundfull hdr">
-          <div class="cell">Asset</div><div class="cell">Tone</div><div class="cell">Commentary</div><div class="cell">Headlines</div>
-        </div>
-        ${rows.map(([ac,v]) => {
-          const headlines = (v.top_news || []).slice(0,2).map(n => `<span class="tag">${escapeHtml(n.title || '')}</span>`).join('');
-          return `
-          <div class="row fundfull">
-            <div class="cell"><strong>${escapeHtml(ac)}</strong></div>
-            <div class="cell"><span class="state ${toneClass(v.tone)}">${escapeHtml(v.tone || 'Mixed')}</span></div>
-            <div class="cell tiny muted">${escapeHtml(v.commentary || '')}</div>
-            <div class="cell headline-list">${headlines || '<span class="muted tiny">—</span>'}</div>
-          </div>`;
-        }).join('')}`;
+    function safeEntries(obj){
+      return obj && typeof obj === 'object' ? Object.entries(obj) : [];
     }
 
-    function deriveEvents(weekly){
-      if(Array.isArray(weekly?.event_calendar) && weekly.event_calendar.length) return weekly.event_calendar;
-      const out = [];
-      const byAC = weekly?.fundamental_overview?.by_asset_class || {};
-      for(const [ac, v] of Object.entries(byAC)){
-        (v.key_events || []).forEach(ev => {
-          out.push({
+    function normalizeFundRows(fund){
+      return safeEntries(fund?.by_asset_class).map(([ac, v]) => ({ ac, ...v }));
+    }
+
+    function normalizeTechRows(tech){
+      const rows = tech?.by_symbol;
+      if (!rows) return [];
+      if (Array.isArray(rows)) return rows;
+      return Object.values(rows);
+    }
+
+    function deriveEventCalendar(weekly){
+      const fundRows = normalizeFundRows(weekly?.fundamental_overview);
+      const events = [];
+
+      for (const row of fundRows){
+        const ac = row.ac || 'Other';
+
+        const macro = Array.isArray(row.macro_calendar) ? row.macro_calendar : [];
+        for (const ev of macro){
+          events.push({
             date: ev.date || '',
-            weekday: ev.date ? new Date(ev.date).toLocaleDateString('en-US',{weekday:'short'}) : 'Watch',
-            type: ev.type ? String(ev.type).replace(/^./, m => m.toUpperCase()) : 'Macro',
-            asset_tags: [ac],
-            title: ev.title || '',
-            region: ev.source || ''
+            type: 'Macro',
+            title: ev.title || ev.name || 'Macro event',
+            tags: [ac]
           });
-        });
+        }
+
+        const earnings = Array.isArray(row.earnings_watch) ? row.earnings_watch : [];
+        if (String(ac).toLowerCase() === 'equities'){
+          for (const ev of earnings){
+            events.push({
+              date: ev.date || '',
+              type: 'Earnings',
+              title: ev.title || ev.name || 'Earnings',
+              tags: ['Equities']
+            });
+          }
+        }
+
+        const legacy = Array.isArray(row.key_events) ? row.key_events : [];
+        for (const ev of legacy){
+          const type = String(ev.type || '').toLowerCase() === 'earnings' ? 'Earnings' : 'Macro';
+          if (type === 'Earnings' && String(ac).toLowerCase() !== 'equities') continue;
+          events.push({
+            date: ev.date || '',
+            type,
+            title: ev.title || ev.name || 'Event',
+            tags: [ac]
+          });
+        }
       }
-      return out;
+
+      const dedup = [];
+      const seen = new Set();
+      for (const ev of events){
+        const key = `${ev.date}|${ev.type}|${ev.title}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        dedup.push(ev);
+      }
+
+      dedup.sort((a,b) => String(a.date || '').localeCompare(String(b.date || '')));
+      return dedup.slice(0, 12);
+    }
+
+    function renderHeroMeta(weekly){
+      const meta = document.getElementById('heroMeta');
+      const chips = [];
+      if (weekly?.week_id) chips.push(`<div class="meta-chip">Week ${esc(weekly.week_id)}</div>`);
+      if (weekly?.asof) chips.push(`<div class="meta-chip">As of ${esc(weekly.asof)}</div>`);
+
+      const nTech = Object.keys(weekly?.technical_overview?.by_symbol || {}).length;
+      const nFund = Object.keys(weekly?.fundamental_overview?.by_asset_class || {}).length;
+
+      if (nTech) chips.push(`<div class="meta-chip">${nTech} instruments</div>`);
+      if (nFund) chips.push(`<div class="meta-chip">${nFund} asset-class macro buckets</div>`);
+
+      meta.innerHTML = chips.length ? chips.join('') : `<div class="meta-chip">Weekly bundle loaded</div>`;
+    }
+
+    function renderTopIdeas(weekly){
+      const target = document.getElementById('topIdeasRows');
+      const top = weekly?.top_ideas || {};
+      const longs = Array.isArray(top.top_long) ? top.top_long : [];
+      const shorts = Array.isArray(top.top_short) ? top.top_short : [];
+      const all = [...longs, ...shorts];
+
+      if (!all.length){
+        target.innerHTML = empty('No top ideas available.');
+        return;
+      }
+
+      target.innerHTML = all.map(item => {
+        const side = esc(item.side || '');
+        const sym = esc(item.symbol || item.asset || '');
+        const setup = esc(item.setup || '—');
+        const final = `final ${fmtNum((Number(item.final_score) || 0) * 100, 1)}`;
+        const tech = `tech ${fmtNum((Number(item.tech_score) || 0) * 100, 1)}`;
+        const macro = `macro ${fmtNum((Number(item.fund_support) || item.macro_alignment || 0) * 100, 1)}`;
+        const rationale = esc(item.rationale || item.note || '—');
+        return row6(
+          `${side} ${sym}`,
+          setup,
+          `<span class="score">${final}</span>`,
+          `<span class="score">${tech}</span>`,
+          `<span class="score">${macro}</span>`,
+          rationale
+        );
+      }).join('');
+    }
+
+    function renderBreadth(weekly){
+      const target = document.getElementById('breadthRows');
+      const rows = safeEntries(weekly?.technical_overview?.by_asset_class);
+
+      if (!rows.length){
+        target.innerHTML = empty('No technical breadth available.');
+        return;
+      }
+
+      target.innerHTML = rows.map(([ac, v]) => {
+        const avg = fmtNum(v?.avg_score, 2);
+        const bull = `bull ${esc(v?.bullish ?? '—')}`;
+        const bear = `bear ${esc(v?.bearish ?? '—')}`;
+        const state = breadthState(v?.avg_score);
+        const summary = esc(v?.text || '');
+        return row5(
+          esc(ac),
+          `avg ${avg}`,
+          bull,
+          bear,
+          `<span class="${state === 'Strong' || state === 'Positive' ? 'good' : state === 'Weak' || state === 'Negative' ? 'bad' : 'warn'}">${state}</span>${summary ? ` · ${summary}` : ''}`
+        );
+      }).join('');
+    }
+
+    function renderFundTone(weekly){
+      const target = document.getElementById('fundToneRows');
+      const rows = normalizeFundRows(weekly?.fundamental_overview);
+
+      if (!rows.length){
+        target.innerHTML = empty('No fundamental tone available.');
+        return;
+      }
+
+      target.innerHTML = rows.map(r => {
+        const tone = esc(r.tone || 'Mixed');
+        const commentary = esc(r.commentary || r.summary || '—');
+        return row3(
+          esc(r.ac),
+          `<span class="${toneClass(r.tone)}">${tone}</span>`,
+          commentary
+        );
+      }).join('');
+    }
+
+    function renderTechnicalOverview(weekly){
+      const target = document.getElementById('technicalRows');
+      const rows = normalizeTechRows(weekly?.technical_overview);
+
+      if (!rows.length){
+        target.innerHTML = empty('No instrument-level technical data available.');
+        return;
+      }
+
+      target.innerHTML = rows.map(r => {
+        const sym = esc(r.symbol || '—');
+        const ac = esc(r.asset_class || '—');
+        const setup = esc(r.setup || '—');
+        const score = `score ${fmtSigned(r.score, 1)}`;
+        const r20 = `20d ${fmtPct(r.ret_20d_pct, 1)}`;
+        const r60 = `60d ${fmtPct(r.ret_60d_pct, 1)}`;
+        return row6(sym, ac, setup, score, r20, r60);
+      }).join('');
+    }
+
+    function renderFundamentalOverview(weekly){
+      const target = document.getElementById('fundOverviewRows');
+      const rows = normalizeFundRows(weekly?.fundamental_overview);
+
+      if (!rows.length){
+        target.innerHTML = empty('No fundamental overview available.');
+        return;
+      }
+
+      target.innerHTML = rows.map(r => {
+        const tone = `<span class="${toneClass(r.tone)}">${esc(r.tone || 'Mixed')}</span>`;
+        const bias = `bias ${fmtSigned(r.bias, 2)}`;
+        const conf = `conf ${fmtNum(r.confidence, 2)}`;
+        const highlights = Array.isArray(r.top_news) ? r.top_news.slice(0,2).map(n => esc(n.title || '')).filter(Boolean) : [];
+        const body = `
+          <div>${esc(r.commentary || '—')}</div>
+          ${highlights.length ? `<div class="chipline" style="margin-top:8px;">${highlights.map(h => `<span class="chip">${h}</span>`).join('')}</div>` : ''}
+        `;
+        return row5(
+          esc(r.ac),
+          tone,
+          bias,
+          conf,
+          body
+        );
+      }).join('');
     }
 
     function renderEvents(weekly){
-      const host = document.getElementById('eventsPanel');
-      const events = deriveEvents(weekly).slice(0,12);
-      if(!events.length){ host.innerHTML = '<div class="empty">No event calendar available yet.</div>'; return; }
-      host.innerHTML = `
-        <div class="row event hdr">
-          <div class="cell">Day</div><div class="cell">Type</div><div class="cell">Date</div><div class="cell">Assets</div><div class="cell">Event</div>
-        </div>
-        ${events.map(ev => `
-          <div class="row event">
-            <div class="cell"><strong>${escapeHtml(ev.weekday || 'Watch')}</strong></div>
-            <div class="cell"><span class="state ${String(ev.type||'').toLowerCase().includes('earn') ? 'warn' : 'good'}">${escapeHtml(ev.type || 'Macro')}</span></div>
-            <div class="cell tiny muted">${escapeHtml(ev.date || '—')}</div>
-            <div class="cell tiny">${(ev.asset_tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
-            <div class="cell tiny muted">${escapeHtml(ev.title || ev.region || '—')}</div>
-          </div>
-        `).join('')}`;
+      const target = document.getElementById('eventRows');
+      const events = Array.isArray(weekly?.event_calendar) ? weekly.event_calendar : deriveEventCalendar(weekly);
+
+      if (!events.length){
+        target.innerHTML = empty('No event calendar available.');
+        return;
+      }
+
+      target.innerHTML = events.map(ev => {
+        const tags = Array.isArray(ev.asset_tags) ? ev.asset_tags : Array.isArray(ev.tags) ? ev.tags : [];
+        return row4(
+          esc(dayLabel(ev.date)),
+          `<span class="${String(ev.type).toLowerCase()==='earnings' ? 'warn' : 'accent'}">${esc(ev.type || 'Event')}</span>`,
+          esc(ev.title || '—'),
+          `${tags.length ? `<div class="chipline">${tags.map(t => `<span class="chip">${esc(t)}</span>`).join('')}</div>` : '<span class="muted">—</span>'}`
+        );
+      }).join('');
     }
 
-    function metric(label, value){
-      return `<div class="metric"><div class="label">${escapeHtml(label)}</div><div class="value">${escapeHtml(String(value))}</div></div>`;
+    function renderTradeModel(screener, performance){
+      const target = document.getElementById('tradeModelRows');
+      const parts = [];
+
+      const openPositions = Array.isArray(screener?.openPositions) ? screener.openPositions : [];
+      const modelTrades = Array.isArray(screener?.modelTrades) ? screener.modelTrades : [];
+      const tradeIdeas = Array.isArray(screener?.tradeIdeas) ? screener.tradeIdeas : [];
+
+      parts.push(`<div class="mini-title">Open Positions</div>`);
+      if (openPositions.length){
+        parts.push(openPositions.map(p => row4(
+          esc(p.asset || p.symbol || '—'),
+          esc(p.direction || p.side || p.status || 'Open'),
+          esc(p.structure || p.setup || '—'),
+          esc(p.thesis || p.notes || '—')
+        )).join(''));
+      } else {
+        parts.push(empty('No open positions found.'));
+      }
+
+      parts.push(`<div class="mini-title">Model Trades</div>`);
+      if (modelTrades.length){
+        parts.push(modelTrades.slice(0,10).map(t => row4(
+          esc(t.asset || t.symbol || '—'),
+          esc(t.direction || t.side || '—'),
+          esc(t.status || '—'),
+          esc(t.thesis || t.notes || '—')
+        )).join(''));
+      } else {
+        parts.push(empty('No model trades found.'));
+      }
+
+      parts.push(`<div class="mini-title">Performance</div>`);
+      const navLast = performance?.nav_last ?? performance?.navLast ?? performance?.nav?.at?.(-1)?.value;
+      const plbLast = performance?.plb_last ?? performance?.plbLast ?? performance?.plb?.at?.(-1)?.value;
+      const perfRows = [
+        row4('NAV', navLast != null ? esc(fmtNum(navLast, 0)) : '—', '', ''),
+        row4('PLB', plbLast != null ? esc(fmtNum(plbLast, 0)) : '—', '', ''),
+        row4('Trade Ideas', esc(tradeIdeas.length), '', '')
+      ];
+      parts.push(perfRows.join(''));
+
+      target.innerHTML = parts.join('');
     }
 
-    function renderModel(screener, perf){
-      const metricsHost = document.getElementById('modelMetrics');
-      const panelHost = document.getElementById('modelPanel');
-      const openPositions = screener?.openPositions || [];
-      const modelTrades = screener?.modelTrades || [];
-      const nav = perf?.nav || perf?.nav_points || perf?.navPoints || [];
-      const latestNav = Array.isArray(nav) && nav.length ? nav[nav.length-1] : null;
-      const navVal = latestNav?.nav ?? latestNav?.value ?? latestNav?.capital ?? '—';
-      const plbVal = perf?.plb_usd ?? perf?.plb ?? '—';
-
-      metricsHost.innerHTML = [
-        metric('Open Positions', openPositions.length || 0),
-        metric('Model Trades', modelTrades.length || 0),
-        metric('NAV', typeof navVal === 'number' ? navVal.toLocaleString() : navVal),
-        metric('PLB', typeof plbVal === 'number' ? plbVal.toLocaleString() : plbVal),
-      ].join('');
-
-      const rows = openPositions.length ? openPositions : modelTrades;
-      if(!rows.length){ panelHost.innerHTML = '<div class="empty">No trade model data available.</div>'; return; }
-      panelHost.innerHTML = `
-        <div class="row model hdr">
-          <div class="cell">Asset</div><div class="cell">Direction</div><div class="cell">Status</div><div class="cell">Structure</div><div class="cell">Thesis</div>
-        </div>
-        ${rows.slice(0,12).map(r => `
-          <div class="row model">
-            <div class="cell"><strong>${escapeHtml(r.asset || r.symbol || '—')}</strong></div>
-            <div class="cell tiny">${escapeHtml(r.direction || '—')}</div>
-            <div class="cell tiny">${escapeHtml(r.status || 'Open')}</div>
-            <div class="cell tiny muted">${escapeHtml(r.structure || r.setup || '—')}</div>
-            <div class="cell tiny muted">${escapeHtml(r.thesis || r.notes || '—')}</div>
-          </div>
-        `).join('')}`;
+    async function fetchJson(url){
+      const res = await fetch(url, { cache:'no-store' });
+      if (!res.ok) throw new Error(`${url} ${res.status}`);
+      return res.json();
     }
 
     async function init(){
       try{
-        const weekly = await fetchJson(['content/site_weekly.json','site_weekly.json']);
-        const screener = await fetchJson(['content/site_screener.json','site_screener.json']).catch(()=>({}));
-        const perf = await fetchJson(['content/site_performance.json','site_performance.json']).catch(()=>({}));
+        const [weekly, screener, performance] = await Promise.all([
+          fetchJson(WEEKLY_URL).catch(() => ({})),
+          fetchJson(SCREENER_URL).catch(() => ({})),
+          fetchJson(PERFORMANCE_URL).catch(() => ({}))
+        ]);
 
-        document.getElementById('heroMeta').innerHTML = `
-          <span>As of ${escapeHtml(weekly.asof || '—')}</span>
-          <span>Week ${escapeHtml(weekly.week_id || '—')}</span>
-          <span>Top ideas blend technical ranking with macro confirmation.</span>`;
-
-        renderTopIdeas(weekly.top_ideas || {});
-        renderBreadth(weekly.technical_overview?.by_asset_class || {});
-        renderTone(weekly.fundamental_overview?.by_asset_class || {});
-        renderTechnicalFull(weekly);
-        renderFundamentalFull(weekly);
+        renderHeroMeta(weekly);
+        renderTopIdeas(weekly);
+        renderBreadth(weekly);
+        renderFundTone(weekly);
+        renderTechnicalOverview(weekly);
+        renderFundamentalOverview(weekly);
         renderEvents(weekly);
-        renderModel(screener, perf);
+        renderTradeModel(screener, performance);
       } catch(err){
-        document.getElementById('heroMeta').innerHTML = `<span>Unable to load weekly package.</span>`;
-        ['topIdeasBox','breadthBox','toneBox','technicalPanel','fundamentalPanel','eventsPanel','modelPanel'].forEach(id => {
+        console.error(err);
+        document.getElementById('heroMeta').innerHTML = `<div class="meta-chip">Failed to load data</div>`;
+        const ids = [
+          'topIdeasRows','breadthRows','fundToneRows',
+          'technicalRows','fundOverviewRows','eventRows','tradeModelRows'
+        ];
+        ids.forEach(id => {
           const el = document.getElementById(id);
-          if(el) el.innerHTML = `<div class="empty">${escapeHtml(err.message)}</div>`;
+          if (el) el.innerHTML = empty('Unable to load content.');
         });
       }
     }
+
     init();
   </script>
 </body>
