@@ -21,10 +21,11 @@
   --accent:#7c9cff;
   --good:#34d399;
   --bad:#f87171;
-  --max:1360px;
-  --radius:24px;
-  --px:clamp(18px,4vw,44px);
-  --py:clamp(24px,4vw,52px);
+  --warn:#fbbf24;
+  --max:1380px;
+  --radius:22px;
+  --px:clamp(18px,4vw,42px);
+  --py:clamp(24px,4vw,50px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -49,45 +50,38 @@ main{padding:var(--py) 0 72px}
 .hero{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
 .badge{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(124,156,255,.35);background:rgba(124,156,255,.10);font-size:.74rem;letter-spacing:1.3px;text-transform:uppercase;font-weight:800;color:var(--accent);margin-bottom:12px}
 h1{font-size:clamp(1.8rem,3vw,2.55rem);letter-spacing:-.9px;margin-bottom:6px}
-.sub{max-width:860px;color:var(--muted)}
+.sub{max-width:900px;color:var(--muted)}
 .meta-line{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .meta-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.06);font-size:.9rem;color:var(--muted)}
 .section{margin-top:20px}
-.panel{
-  background:linear-gradient(180deg, rgba(17,24,39,.96), rgba(15,23,42,.94));
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:0 14px 36px rgba(0,0,0,.18);
-}
+.panel{background:linear-gradient(180deg, rgba(17,24,39,.96), rgba(15,23,42,.94));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 36px rgba(0,0,0,.18)}
 .panel-head{padding:22px 24px;border-bottom:1px solid var(--line)}
 .kicker{font-size:.74rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--accent);font-weight:800;margin-bottom:8px}
 .panel-head h2{font-size:1.34rem;letter-spacing:-.5px;margin-bottom:4px}
-.panel-head p{color:var(--muted);max-width:900px}
-.row-band{display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px;padding:18px 24px;border-top:1px solid var(--line2)}
-.row-band:first-of-type{border-top:none}
-.row-title h3{font-size:1rem;letter-spacing:-.2px;margin-bottom:4px}
-.row-title p{color:var(--muted2);font-size:.9rem}
-.row-content{min-width:0}
-.item-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
-.asset-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-.mini{
-  background:rgba(15,23,42,.46);
-  border:1px solid rgba(124,156,255,.15);
-  border-radius:16px;
-  padding:12px;
-  min-width:0;
-}
-.mini strong{display:block;font-size:.96rem;letter-spacing:-.2px}
-.mini .subline{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-top:4px}
-.mini .copy{font-size:.88rem;color:var(--muted);margin-top:8px}
-.mini .score-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.pill,.side,.tone{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;font-size:.74rem;font-weight:800;border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.08)}
+.panel-head p{color:var(--muted);max-width:980px}
+.band{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px;padding:18px 24px;border-top:1px solid var(--line2)}
+.band:first-of-type{border-top:none}
+.band-title h3{font-size:1rem;letter-spacing:-.2px;margin-bottom:4px}
+.band-title p{color:var(--muted2);font-size:.9rem}
+.band-body{min-width:0}
+.idea-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.mini-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.event-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.card{background:rgba(15,23,42,.46);border:1px solid rgba(124,156,255,.15);border-radius:16px;padding:12px;min-width:0}
+.card strong{display:block;font-size:.96rem;letter-spacing:-.2px}
+.subline{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-top:4px}
+.copy{font-size:.88rem;color:var(--muted);margin-top:8px}
+.copy.tight{line-height:1.45}
+.score-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.pill,.side,.tone,.tag{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;font-size:.74rem;font-weight:800;border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.08)}
 .side.long{color:#bbf7d0;border-color:rgba(52,211,153,.25);background:rgba(52,211,153,.10)}
 .side.short{color:#fecaca;border-color:rgba(248,113,113,.28);background:rgba(248,113,113,.10)}
 .tone.supportive{color:#bbf7d0;border-color:rgba(52,211,153,.25);background:rgba(52,211,153,.10)}
 .tone.cautious{color:#fecaca;border-color:rgba(248,113,113,.28);background:rgba(248,113,113,.10)}
 .tone.mixed{color:#dbeafe}
+.tag.macro{color:#dbeafe}
+.tag.earnings{color:#fde68a;border-color:rgba(251,191,36,.28);background:rgba(251,191,36,.10)}
+.state.pos{color:#bbf7d0}.state.neg{color:#fecaca}.state.mix{color:#dbeafe}
 .row-line{display:grid;grid-template-columns:190px minmax(0,1fr);gap:18px;padding:16px 24px;border-top:1px solid var(--line2);align-items:start}
 .row-label{font-size:1rem;font-weight:800;letter-spacing:-.2px}
 .row-body{min-width:0}
@@ -95,35 +89,34 @@ h1{font-size:clamp(1.8rem,3vw,2.55rem);letter-spacing:-.9px;margin-bottom:6px}
 .summary-copy{color:var(--muted);margin-top:6px}
 .metricline{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:.88rem}
 .inline-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.events{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.event-card{background:rgba(15,23,42,.46);border:1px solid rgba(124,156,255,.15);border-radius:16px;padding:12px}
-.event-date{font-size:.76rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:800;margin-bottom:8px}
-.event-list{display:grid;gap:8px}
-.event-item{padding-top:8px;border-top:1px solid rgba(255,255,255,.06)}
-.event-item:first-child{padding-top:0;border-top:none}
-.event-title{font-size:.9rem;font-weight:700}
-.meta{font-size:.78rem;color:var(--muted2);margin-top:3px}
 .table-wrap{overflow:auto;border-top:1px solid var(--line2)}
 .table{width:100%;border-collapse:collapse;font-size:.92rem}
 .table th,.table td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left;vertical-align:top}
 .table th{font-size:.79rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted2);font-weight:700}
 .table tr:hover td{background:rgba(124,156,255,.035)}
-.num-pos{color:#bbf7d0;font-weight:800}
-.num-neg{color:#fecaca;font-weight:800}
+.num-pos{color:#bbf7d0;font-weight:800}.num-neg{color:#fecaca;font-weight:800}
+.day-card{background:rgba(15,23,42,.46);border:1px solid rgba(124,156,255,.15);border-radius:16px;padding:12px;min-height:180px}
+.day-name{font-size:.76rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:800;margin-bottom:10px}
+.day-list{display:grid;gap:8px}
+.event-item{padding-top:8px;border-top:1px solid rgba(255,255,255,.06)}
+.event-item:first-child{padding-top:0;border-top:none}
+.event-title{font-size:.9rem;font-weight:700;line-height:1.35}
+.meta{font-size:.78rem;color:var(--muted2);margin-top:4px}
 .empty{color:var(--muted2);font-size:.88rem}
 .notice,.error{display:none;margin:14px 0;padding:12px 14px;border-radius:14px;font-size:.92rem}
 .notice{border:1px solid rgba(124,156,255,.22);background:rgba(124,156,255,.08)}
 .error{border:1px solid rgba(248,113,113,.35);background:rgba(248,113,113,.10);color:#fecaca}
 footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:center;color:var(--muted2);font-size:.9rem}
-@media (max-width: 1240px){
-  .item-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .asset-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .events{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width: 1260px){
+  .idea-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .mini-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .event-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (max-width: 860px){
-  .row-band,.row-line{grid-template-columns:1fr}
-  .item-grid,.asset-grid,.events{grid-template-columns:1fr}
+  .band,.row-line{grid-template-columns:1fr}
+  .idea-grid,.mini-grid,.event-grid{grid-template-columns:1fr}
   .nav-inner,.hero{align-items:flex-start}
+  .day-card{min-height:auto}
 }
 </style>
 </head>
@@ -164,28 +157,28 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
         <div class="panel-head">
           <div class="kicker">Overview</div>
           <h2>Weekly snapshot</h2>
-          <p>The page is organized in wide horizontal bands: overview first, then technical structure, macro narrative and event watchlist.</p>
+          <p>Conviction list, cross-asset breadth and macro tone on one page.</p>
         </div>
-        <div class="row-band">
-          <div class="row-title">
+        <div class="band">
+          <div class="band-title">
             <h3>Top 3 Long / Short</h3>
-            <p>Highest-ranked candidates this week.</p>
+            <p>Six candidates ranked by technical strength and macro alignment.</p>
           </div>
-          <div class="row-content item-grid" id="overviewIdeas"></div>
+          <div class="band-body idea-grid" id="overviewIdeas"></div>
         </div>
-        <div class="row-band">
-          <div class="row-title">
+        <div class="band">
+          <div class="band-title">
             <h3>Technical Breadth</h3>
-            <p>Trend balance by asset class.</p>
+            <p>Average score, bull/bear balance and short summary by asset class.</p>
           </div>
-          <div class="row-content asset-grid" id="breadthOverview"></div>
+          <div class="band-body mini-grid" id="breadthOverview"></div>
         </div>
-        <div class="row-band">
-          <div class="row-title">
+        <div class="band">
+          <div class="band-title">
             <h3>Fundamental Tone</h3>
-            <p>Quick macro read by asset class.</p>
+            <p>Tone, bias and key headlines by asset class.</p>
           </div>
-          <div class="row-content asset-grid" id="toneOverview"></div>
+          <div class="band-body mini-grid" id="toneOverview"></div>
         </div>
       </div>
     </section>
@@ -222,7 +215,7 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
         <div class="panel-head">
           <div class="kicker">Fundamental</div>
           <h2>Weekly macro narrative</h2>
-          <p>One horizontal row per asset class, with only the most useful commentary and headlines.</p>
+          <p>Per asset class: tone, weekly commentary and the most relevant headlines.</p>
         </div>
         <div id="fundRows"></div>
       </div>
@@ -233,14 +226,14 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
         <div class="panel-head">
           <div class="kicker">Events</div>
           <h2>Weekly event calendar</h2>
-          <p>Single calendar view combining macro and earnings watchpoints.</p>
+          <p>Single cross-asset calendar for macro releases and relevant earnings watchpoints.</p>
         </div>
-        <div class="row-band">
-          <div class="row-title">
-            <h3>Event Calendar</h3>
-            <p>Macro can affect multiple asset classes; earnings matter only where relevant.</p>
+        <div class="band">
+          <div class="band-title">
+            <h3>Calendar</h3>
+            <p>Macro events can affect multiple asset classes. Earnings are shown only when relevant.</p>
           </div>
-          <div class="row-content events" id="eventCalendar"></div>
+          <div class="band-body event-grid" id="eventCalendar"></div>
         </div>
       </div>
     </section>
@@ -307,11 +300,46 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
     if (x === 'cautious') return 'cautious';
     return 'mixed';
   }
-  function parseDateLabel(v){
-    if (!v) return 'Undated';
+  function assetState(row){
+    const avg = Number(row?.avg_score);
+    if (!Number.isFinite(avg)) return { label:'Mixed', cls:'mix' };
+    if (avg >= 1) return { label:'Positive', cls:'pos' };
+    if (avg <= -1) return { label:'Weak', cls:'neg' };
+    return { label:'Mixed', cls:'mix' };
+  }
+  function firstSentence(text){
+    const s = String(text || '').trim();
+    if (!s) return '';
+    const idx = s.indexOf('. ');
+    return idx > -1 ? s.slice(0, idx + 1) : s;
+  }
+  function parseDate(v){
+    if (!v) return null;
     const d = new Date(v);
-    if (Number.isNaN(d.getTime())) return String(v);
-    return d.toLocaleDateString('en-GB', { weekday:'short', day:'2-digit', month:'short' });
+    return Number.isNaN(d.getTime()) ? null : d;
+  }
+  function dayKey(v){
+    const d = parseDate(v);
+    if (!d) return 'Watchlist';
+    return d.toLocaleDateString('en-GB', { weekday:'short' });
+  }
+  function prettyDate(v){
+    const d = parseDate(v);
+    if (!d) return 'TBC';
+    return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short' });
+  }
+  function compactHeadline(title, max=72){
+    const s = String(title || '').trim();
+    if (s.length <= max) return s;
+    return s.slice(0, max - 1) + '…';
+  }
+  function buildIdeaRationale(item){
+    const parts = [];
+    if (item.setup) parts.push(item.setup);
+    const r20 = Number(item.ret_20d_pct);
+    if (Number.isFinite(r20)) parts.push(`${r20 > 0 ? '+' : ''}${r20.toFixed(1)}% 20d`);
+    if (item.rationale) parts.push(firstSentence(item.rationale));
+    return parts.filter(Boolean).join(' • ');
   }
 
   function renderMeta(data){
@@ -337,7 +365,7 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
     merged.forEach(item => {
       const sideClass = item.side === 'LONG' ? 'long' : 'short';
       const el = document.createElement('div');
-      el.className = 'mini';
+      el.className = 'card';
       el.innerHTML = `
         <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
           <div>
@@ -346,7 +374,7 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
           </div>
           <span class="side ${sideClass}">${escapeHtml(item.side)}</span>
         </div>
-        <div class="copy">${escapeHtml(item.setup || '—')}</div>
+        <div class="copy tight">${escapeHtml(buildIdeaRationale(item) || 'No specific rationale available.')}</div>
         <div class="score-row">
           <span class="pill">Final ${escapeHtml(scorePct(item.final_score))}</span>
           <span class="pill">Tech ${escapeHtml(scorePct(item.tech_score))}</span>
@@ -366,15 +394,21 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
       return;
     }
     entries.forEach(([ac, row]) => {
+      const state = assetState(row);
       const el = document.createElement('div');
-      el.className = 'mini';
+      el.className = 'card';
       el.innerHTML = `
-        <strong>${escapeHtml(ac)}</strong>
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+          <strong>${escapeHtml(ac)}</strong>
+          <span class="state ${state.cls}">${escapeHtml(state.label)}</span>
+        </div>
         <div class="score-row">
           <span class="pill">Avg ${escapeHtml(signed(row.avg_score,1))}</span>
           <span class="pill">Bull ${escapeHtml(String(row.bullish ?? '—'))}</span>
           <span class="pill">Bear ${escapeHtml(String(row.bearish ?? '—'))}</span>
+          <span class="pill">N ${escapeHtml(String(row.n ?? '—'))}</span>
         </div>
+        <div class="copy">${escapeHtml(firstSentence(row.text || ''))}</div>
       `;
       holder.appendChild(el);
     });
@@ -389,14 +423,22 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
       return;
     }
     entries.forEach(([ac, row]) => {
+      const headlines = Array.isArray(row.top_news) ? row.top_news.slice(0,2) : [];
       const el = document.createElement('div');
-      el.className = 'mini';
+      el.className = 'card';
       el.innerHTML = `
         <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
           <strong>${escapeHtml(ac)}</strong>
           <span class="tone ${toneClass(row.tone)}">${escapeHtml(row.tone || 'Mixed')}</span>
         </div>
-        <div class="copy">${escapeHtml(row.commentary || '')}</div>
+        <div class="copy">${escapeHtml(firstSentence(row.commentary || ''))}</div>
+        <div class="score-row">
+          <span class="pill">Bias ${escapeHtml(signed(row.bias,2))}</span>
+          <span class="pill">Conf ${escapeHtml(scorePct(row.confidence))}</span>
+        </div>
+        <div class="inline-tags">
+          ${headlines.length ? headlines.map(n => `<span class="pill">${escapeHtml(compactHeadline(n.title || ''))}</span>`).join('') : '<span class="empty">No major headlines.</span>'}
+        </div>
       `;
       holder.appendChild(el);
     });
@@ -482,7 +524,7 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
             </div>
           </div>
           <div class="inline-tags">
-            ${topNews.length ? topNews.map(n => `<span class="pill">${escapeHtml(n.title || '')}</span>`).join('') : '<span class="empty">No major headlines this week.</span>'}
+            ${topNews.length ? topNews.map(n => `<span class="pill">${escapeHtml(compactHeadline(n.title || ''))}</span>`).join('') : '<span class="empty">No major headlines this week.</span>'}
           </div>
         </div>
       `;
@@ -490,63 +532,68 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
     });
   }
 
-  function buildEventCalendar(fund){
-    const raw = [];
+  function collectEvents(fund){
+    const out = [];
     for (const [ac, row] of Object.entries(fund?.by_asset_class || {})) {
       const macro = Array.isArray(row.macro_calendar) ? row.macro_calendar : [];
       const earnings = ac === 'Equities' && Array.isArray(row.earnings_calendar) ? row.earnings_calendar : [];
-      macro.forEach(e => raw.push({
+      macro.forEach(e => out.push({
         date: e.date || '',
         title: e.label || e.title || '',
         type: 'Macro',
-        asset: ac,
+        assets: Array.isArray(e.asset_tags) && e.asset_tags.length ? e.asset_tags : [ac],
         source: e.source || ''
       }));
-      earnings.forEach(e => raw.push({
+      earnings.forEach(e => out.push({
         date: e.date || '',
         title: e.label || e.title || '',
         type: 'Earnings',
-        asset: 'Equities',
+        assets: ['Equities'],
         source: e.source || ''
       }));
     }
     const seen = new Set();
-    const dedup = raw.filter(e => {
-      const k = `${e.date}|${e.type}|${e.title}`;
-      if (seen.has(k)) return false;
-      seen.add(k);
-      return e.title;
-    }).sort((a,b) => String(a.date).localeCompare(String(b.date)) || a.title.localeCompare(b.title));
-
-    const grouped = {};
-    dedup.forEach(e => {
-      const key = parseDateLabel(e.date);
-      if (!grouped[key]) grouped[key] = [];
-      grouped[key].push(e);
+    return out.filter(e => {
+      if (!e.title) return false;
+      const key = `${e.date}|${e.type}|${e.title}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    }).sort((a,b) => {
+      const da = parseDate(a.date)?.getTime() || 0;
+      const db = parseDate(b.date)?.getTime() || 0;
+      return da - db || a.title.localeCompare(b.title);
     });
-    return grouped;
   }
 
   function renderEvents(fund){
     const holder = $('eventCalendar');
     holder.innerHTML = '';
-    const grouped = buildEventCalendar(fund);
-    const entries = Object.entries(grouped);
-    if (!entries.length){
-      holder.innerHTML = '<div class="empty">No event calendar available.</div>';
-      return;
-    }
-    entries.slice(0,8).forEach(([dateLabel, items]) => {
+    const days = ['Mon','Tue','Wed','Thu','Fri','Watchlist'];
+    const events = collectEvents(fund);
+    const grouped = Object.fromEntries(days.map(d => [d, []]));
+    events.forEach(e => {
+      const key = dayKey(e.date);
+      if (!grouped[key]) grouped['Watchlist'].push(e);
+      else grouped[key].push(e);
+    });
+
+    days.forEach(day => {
       const card = document.createElement('div');
-      card.className = 'event-card';
+      card.className = 'day-card';
+      const items = grouped[day] || [];
       card.innerHTML = `
-        <div class="event-date">${escapeHtml(dateLabel)}</div>
-        <div class="event-list">
-          ${items.map(e => `
+        <div class="day-name">${escapeHtml(day)}</div>
+        <div class="day-list">
+          ${items.length ? items.map(e => `
             <div class="event-item">
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+                <span class="tag ${String(e.type).toLowerCase()}">${escapeHtml(e.type)}</span>
+                <span class="pill">${escapeHtml((e.assets || []).join(' / '))}</span>
+              </div>
               <div class="event-title">${escapeHtml(e.title)}</div>
-              <div class="meta">${escapeHtml(e.type)} • ${escapeHtml(e.asset)}${e.source ? ' • ' + escapeHtml(e.source) : ''}</div>
-            </div>`).join('')}
+              <div class="meta">${escapeHtml(prettyDate(e.date))}${e.source ? ' • ' + escapeHtml(e.source) : ''}</div>
+            </div>`).join('') : '<div class="empty">No major events.</div>'}
         </div>
       `;
       holder.appendChild(card);
