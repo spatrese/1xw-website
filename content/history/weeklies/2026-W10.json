@@ -295,38 +295,38 @@
     "by_asset_class": {
       "Equity": {
         "n": 6,
-        "avg_score": 0.3333333333333333,
+        "avg_score": 0.333,
         "bullish": 2,
         "bearish": 2,
-        "text": "Avg score 0.33. Bullish(>=2): 2/6, Bearish(<=-2): 2/6."
+        "text": "Breadth is balanced: avg score 0.33, bullish 2/6, bearish 2/6."
       },
       "Commodities": {
         "n": 16,
         "avg_score": 0.875,
         "bullish": 9,
         "bearish": 4,
-        "text": "Avg score 0.88. Bullish(>=2): 9/16, Bearish(<=-2): 4/16."
+        "text": "Breadth is constructive: avg score 0.88, bullish 9/16, bearish 4/16."
       },
       "FX": {
         "n": 6,
         "avg_score": 0.0,
         "bullish": 3,
         "bearish": 3,
-        "text": "Avg score 0.00. Bullish(>=2): 3/6, Bearish(<=-2): 3/6."
+        "text": "Breadth is balanced: avg score 0.00, bullish 3/6, bearish 3/6."
       },
       "Rates": {
         "n": 3,
-        "avg_score": -1.3333333333333333,
+        "avg_score": -1.333,
         "bullish": 1,
         "bearish": 2,
-        "text": "Avg score -1.33. Bullish(>=2): 1/3, Bearish(<=-2): 2/3."
+        "text": "Breadth is defensive: avg score -1.33, bullish 1/3, bearish 2/3."
       },
       "Crypto": {
         "n": 2,
         "avg_score": -4.0,
         "bullish": 0,
         "bearish": 2,
-        "text": "Avg score -4.00. Bullish(>=2): 0/2, Bearish(<=-2): 2/2."
+        "text": "Breadth is defensive: avg score -4.00, bullish 0/2, bearish 2/2."
       }
     }
   },
@@ -335,8 +335,8 @@
       "Equities": {
         "tone": "Mixed",
         "bias": 0.0,
-        "confidence": 0.48124999999999996,
-        "commentary": "Equities shows a mixed weekly tone, with cross-currents still leaving the backdrop balanced. Signal confidence is light (0.48), earnings/event watch 1, news set 3.",
+        "confidence": 0.481,
+        "commentary": "Equity signals are balanced, with supportive pockets offset by a still uneven macro backdrop and selective leadership. Headline balance is broadly neutral. Conviction remains limited and should be monitored closely. Key flow is coming from CNBC Top News.",
         "top_news": [
           {
             "title": "Trump taps Sen. Markwayne Mullin after firing Kristi Noem as DHS secretary",
@@ -363,26 +363,37 @@
         "macro_calendar": [],
         "earnings_calendar": [
           {
-            "type": "earnings",
+            "label": "Mortgages in 47 seconds",
             "title": "Mortgages in 47 seconds: Better’s new ChatGPT app targets lenders Rocket and UWM",
+            "source": "CNBC Top News",
             "date": "2026-03-05T20:42:54Z",
-            "source": "CNBC Top News"
+            "url": "https://www.cnbc.com/2026/03/05/mortgages-in-47-seconds-betters-new-chatgpt-app-targets-lenders-rocket-and-uwm.html"
+          }
+        ],
+        "key_watchpoints": [
+          {
+            "label": "Mortgages in 47 seconds",
+            "title": "Mortgages in 47 seconds: Better’s new ChatGPT app targets lenders Rocket and UWM",
+            "source": "CNBC Top News",
+            "date": "2026-03-05T20:42:54Z",
+            "url": "https://www.cnbc.com/2026/03/05/mortgages-in-47-seconds-betters-new-chatgpt-app-targets-lenders-rocket-and-uwm.html"
           }
         ],
         "key_events": [
           {
-            "type": "earnings",
+            "label": "Mortgages in 47 seconds",
             "title": "Mortgages in 47 seconds: Better’s new ChatGPT app targets lenders Rocket and UWM",
+            "source": "CNBC Top News",
             "date": "2026-03-05T20:42:54Z",
-            "source": "CNBC Top News"
+            "url": "https://www.cnbc.com/2026/03/05/mortgages-in-47-seconds-betters-new-chatgpt-app-targets-lenders-rocket-and-uwm.html"
           }
         ]
       },
       "Rates": {
         "tone": "Mixed",
         "bias": 0.0,
-        "confidence": 0.48124999999999996,
-        "commentary": "Rates shows a mixed weekly tone, with cross-currents still leaving the backdrop balanced. Signal confidence is light (0.48), macro watchlist 2, news set 3.",
+        "confidence": 0.481,
+        "commentary": "Rates remain data-dependent, with no clean trend yet as inflation and policy communication pull expectations in both directions. Headline balance is broadly neutral. Conviction remains limited and should be monitored closely. Key flow is coming from ECB (Press/Speeches/Interviews).",
         "top_news": [
           {
             "title": "Christine Lagarde: Technology, fragmentation and the new uncertainty",
@@ -408,31 +419,30 @@
         ],
         "macro_calendar": [
           {
-            "type": "macro",
-            "title": "Meeting of 4-5 February 2026",
-            "date": "2026-03-05T12:30:00Z",
-            "source": "ECB (Press/Speeches/Interviews)"
-          },
-          {
-            "type": "macro",
-            "title": "Decisions taken by the Governing Council of the ECB (in addition to decisions setting interest rates)",
-            "date": "2026-02-27T14:00:00Z",
-            "source": "ECB (Press/Speeches/Interviews)"
+            "label": "ECB communication",
+            "title": "Christine Lagarde: Technology, fragmentation and the new uncertainty",
+            "source": "ECB (Press/Speeches/Interviews)",
+            "date": "2026-03-05T17:00:00Z",
+            "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260305~b091c4a651.en.html"
           }
         ],
         "earnings_calendar": [],
+        "key_watchpoints": [
+          {
+            "label": "ECB communication",
+            "title": "Christine Lagarde: Technology, fragmentation and the new uncertainty",
+            "source": "ECB (Press/Speeches/Interviews)",
+            "date": "2026-03-05T17:00:00Z",
+            "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260305~b091c4a651.en.html"
+          }
+        ],
         "key_events": [
           {
-            "type": "macro",
-            "title": "Meeting of 4-5 February 2026",
-            "date": "2026-03-05T12:30:00Z",
-            "source": "ECB (Press/Speeches/Interviews)"
-          },
-          {
-            "type": "macro",
-            "title": "Decisions taken by the Governing Council of the ECB (in addition to decisions setting interest rates)",
-            "date": "2026-02-27T14:00:00Z",
-            "source": "ECB (Press/Speeches/Interviews)"
+            "label": "ECB communication",
+            "title": "Christine Lagarde: Technology, fragmentation and the new uncertainty",
+            "source": "ECB (Press/Speeches/Interviews)",
+            "date": "2026-03-05T17:00:00Z",
+            "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260305~b091c4a651.en.html"
           }
         ]
       },
@@ -440,17 +450,18 @@
         "tone": "Mixed",
         "bias": 0.0,
         "confidence": 0.0,
-        "commentary": "FX shows a mixed weekly tone, with cross-currents still leaving the backdrop balanced. Signal confidence is light (0.00).",
+        "commentary": "FX remains range-prone, with cross-currents from policy, growth and risk sentiment keeping conviction moderate. Headline balance is broadly neutral. Conviction remains limited and should be monitored closely. Recent headlines remain the main driver.",
         "top_news": [],
         "macro_calendar": [],
         "earnings_calendar": [],
+        "key_watchpoints": [],
         "key_events": []
       },
       "Commodities": {
         "tone": "Mixed",
         "bias": 0.125,
-        "confidence": 0.5145833333333333,
-        "commentary": "Commodities shows a mixed weekly tone, with cross-currents still leaving the backdrop balanced. Signal confidence is moderate (0.51), news set 3.",
+        "confidence": 0.515,
+        "commentary": "Commodity signals are mixed, with demand uncertainty offsetting pockets of supply support across markets. Headline balance is broadly neutral. Conviction remains limited and should be monitored closely. Key flow is coming from EIA Today in Energy.",
         "top_news": [
           {
             "title": "U.S. electricity generation in 2025 hit a record, again",
@@ -476,13 +487,14 @@
         ],
         "macro_calendar": [],
         "earnings_calendar": [],
+        "key_watchpoints": [],
         "key_events": []
       },
       "Crypto": {
         "tone": "Mixed",
         "bias": 0.0,
-        "confidence": 0.48124999999999996,
-        "commentary": "Crypto shows a mixed weekly tone, with cross-currents still leaving the backdrop balanced. Signal confidence is light (0.48), macro watchlist 1, news set 3.",
+        "confidence": 0.481,
+        "commentary": "Crypto tone is balanced, with supportive narratives still competing against policy and positioning uncertainty. Headline balance is broadly neutral. Conviction remains limited and should be monitored closely. Key flow is coming from CoinDesk.",
         "top_news": [
           {
             "title": "SEC, Justin Sun reach settlement over Tron lawsuit",
@@ -508,19 +520,30 @@
         ],
         "macro_calendar": [
           {
-            "type": "macro",
+            "label": "Fed communication",
             "title": "Kraken's surprise Fed win may harken onslaught of crypto firms with narrow Fed access",
+            "source": "CoinDesk",
             "date": "2026-03-05T19:36:15Z",
-            "source": "CoinDesk"
+            "url": "https://www.coindesk.com/news-analysis/2026/03/05/kraken-s-surprise-fed-win-may-harken-onslaught-of-crypto-firms-with-limited-fed-access"
           }
         ],
         "earnings_calendar": [],
+        "key_watchpoints": [
+          {
+            "label": "Fed communication",
+            "title": "Kraken's surprise Fed win may harken onslaught of crypto firms with narrow Fed access",
+            "source": "CoinDesk",
+            "date": "2026-03-05T19:36:15Z",
+            "url": "https://www.coindesk.com/news-analysis/2026/03/05/kraken-s-surprise-fed-win-may-harken-onslaught-of-crypto-firms-with-limited-fed-access"
+          }
+        ],
         "key_events": [
           {
-            "type": "macro",
+            "label": "Fed communication",
             "title": "Kraken's surprise Fed win may harken onslaught of crypto firms with narrow Fed access",
+            "source": "CoinDesk",
             "date": "2026-03-05T19:36:15Z",
-            "source": "CoinDesk"
+            "url": "https://www.coindesk.com/news-analysis/2026/03/05/kraken-s-surprise-fed-win-may-harken-onslaught-of-crypto-firms-with-limited-fed-access"
           }
         ]
       }
@@ -545,10 +568,10 @@
         "ret_20d_pct": 21.28,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.5321614583333333,
-        "macro_alignment": 0.5321614583333333,
-        "final_score": 0.8830403645833333,
-        "rationale": "Technical strength with supportive weekly macro alignment for Commodities."
+        "fund_support": 0.5322,
+        "macro_alignment": 0.5322,
+        "final_score": 0.883,
+        "rationale": "Technical strength in CL is supported by the current weekly macro tone for Commodities."
       },
       {
         "symbol": "RB",
@@ -559,10 +582,10 @@
         "ret_20d_pct": 19.29,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.5321614583333333,
-        "macro_alignment": 0.5321614583333333,
-        "final_score": 0.8830403645833333,
-        "rationale": "Technical strength with supportive weekly macro alignment for Commodities."
+        "fund_support": 0.5322,
+        "macro_alignment": 0.5322,
+        "final_score": 0.883,
+        "rationale": "Technical strength in RB is supported by the current weekly macro tone for Commodities."
       },
       {
         "symbol": "GC",
@@ -573,10 +596,10 @@
         "ret_20d_pct": 2.14,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.5321614583333333,
-        "macro_alignment": 0.5321614583333333,
-        "final_score": 0.8830403645833333,
-        "rationale": "Technical strength with supportive weekly macro alignment for Commodities."
+        "fund_support": 0.5322,
+        "macro_alignment": 0.5322,
+        "final_score": 0.883,
+        "rationale": "Technical strength in GC is supported by the current weekly macro tone for Commodities."
       }
     ],
     "top_short": [
@@ -592,7 +615,7 @@
         "fund_support": 0.5,
         "macro_alignment": 0.5,
         "final_score": 0.875,
-        "rationale": "Technical downside with supportive weekly macro alignment for shorts in Equity."
+        "rationale": "Technical downside in DAX is supported by the current weekly macro tone for Equity."
       },
       {
         "symbol": "EUR",
@@ -606,7 +629,7 @@
         "fund_support": 0.5,
         "macro_alignment": 0.5,
         "final_score": 0.875,
-        "rationale": "Technical downside with supportive weekly macro alignment for shorts in FX."
+        "rationale": "Technical downside in EUR is supported by the current weekly macro tone for FX."
       },
       {
         "symbol": "GBP",
@@ -620,7 +643,7 @@
         "fund_support": 0.5,
         "macro_alignment": 0.5,
         "final_score": 0.875,
-        "rationale": "Technical downside with supportive weekly macro alignment for shorts in FX."
+        "rationale": "Technical downside in GBP is supported by the current weekly macro tone for FX."
       }
     ]
   }
