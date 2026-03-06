@@ -64,11 +64,18 @@ h1{font-size:clamp(1.8rem,3vw,2.55rem);letter-spacing:-.9px;margin-bottom:6px}
 .band-title h3{font-size:1rem;letter-spacing:-.2px;margin-bottom:4px}
 .band-title p{color:var(--muted2);font-size:.9rem}
 .band-body{min-width:0}
-.idea-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
-.mini-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.idea-grid,.mini-grid{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
 .event-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
 .card{background:rgba(15,23,42,.46);border:1px solid rgba(124,156,255,.15);border-radius:16px;padding:12px;min-width:0}
 .card strong{display:block;font-size:.96rem;letter-spacing:-.2px}
+.overview-card{display:grid;align-items:start;gap:12px;min-width:320px}
+.idea-card{grid-template-columns:130px minmax(150px,1fr) auto}
+.breadth-card{grid-template-columns:120px 220px minmax(240px,1fr);min-width:480px}
+.tone-card{grid-template-columns:130px minmax(220px,1fr) minmax(220px,1fr);min-width:560px}
+.overview-left{display:grid;gap:6px}
+.overview-mid{display:grid;gap:8px;min-width:0}
+.overview-right{display:grid;gap:8px;justify-items:end;align-content:start}
+.headline-stack{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start}
 .subline{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-top:4px}
 .copy{font-size:.88rem;color:var(--muted);margin-top:8px}
 .copy.tight{line-height:1.45}
@@ -108,15 +115,16 @@ h1{font-size:clamp(1.8rem,3vw,2.55rem);letter-spacing:-.9px;margin-bottom:6px}
 .error{border:1px solid rgba(248,113,113,.35);background:rgba(248,113,113,.10);color:#fecaca}
 footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:center;color:var(--muted2);font-size:.9rem}
 @media (max-width: 1260px){
-  .idea-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .mini-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .event-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .breadth-card{min-width:440px}
+  .tone-card{min-width:500px}
 }
 @media (max-width: 860px){
   .band,.row-line{grid-template-columns:1fr}
-  .idea-grid,.mini-grid,.event-grid{grid-template-columns:1fr}
+  .overview-card{grid-template-columns:1fr;min-width:290px}
   .nav-inner,.hero{align-items:flex-start}
   .day-card{min-height:auto}
+  .event-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -365,17 +373,19 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
     merged.forEach(item => {
       const sideClass = item.side === 'LONG' ? 'long' : 'short';
       const el = document.createElement('div');
-      el.className = 'card';
+      el.className = 'card overview-card idea-card';
       el.innerHTML = `
-        <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+        <div class="overview-left">
+          <span class="side ${sideClass}">${escapeHtml(item.side)}</span>
           <div>
             <strong>${escapeHtml(item.symbol || '—')}</strong>
             <div class="subline">${escapeHtml(item.asset_class || '—')}</div>
           </div>
-          <span class="side ${sideClass}">${escapeHtml(item.side)}</span>
         </div>
-        <div class="copy tight">${escapeHtml(buildIdeaRationale(item) || 'No specific rationale available.')}</div>
-        <div class="score-row">
+        <div class="overview-mid">
+          <div class="copy tight">${escapeHtml(buildIdeaRationale(item) || 'No specific rationale available.')}</div>
+        </div>
+        <div class="overview-right">
           <span class="pill">Final ${escapeHtml(scorePct(item.final_score))}</span>
           <span class="pill">Tech ${escapeHtml(scorePct(item.tech_score))}</span>
           <span class="pill">Macro ${escapeHtml(scorePct(item.macro_alignment ?? item.fund_support))}</span>
@@ -396,19 +406,23 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
     entries.forEach(([ac, row]) => {
       const state = assetState(row);
       const el = document.createElement('div');
-      el.className = 'card';
+      el.className = 'card overview-card breadth-card';
       el.innerHTML = `
-        <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+        <div class="overview-left">
           <strong>${escapeHtml(ac)}</strong>
           <span class="state ${state.cls}">${escapeHtml(state.label)}</span>
         </div>
-        <div class="score-row">
-          <span class="pill">Avg ${escapeHtml(signed(row.avg_score,1))}</span>
-          <span class="pill">Bull ${escapeHtml(String(row.bullish ?? '—'))}</span>
-          <span class="pill">Bear ${escapeHtml(String(row.bearish ?? '—'))}</span>
-          <span class="pill">N ${escapeHtml(String(row.n ?? '—'))}</span>
+        <div class="overview-mid">
+          <div class="score-row">
+            <span class="pill">Avg ${escapeHtml(signed(row.avg_score,1))}</span>
+            <span class="pill">Bull ${escapeHtml(String(row.bullish ?? '—'))}</span>
+            <span class="pill">Bear ${escapeHtml(String(row.bearish ?? '—'))}</span>
+            <span class="pill">N ${escapeHtml(String(row.n ?? '—'))}</span>
+          </div>
         </div>
-        <div class="copy">${escapeHtml(firstSentence(row.text || ''))}</div>
+        <div class="overview-right" style="justify-items:start">
+          <div class="copy tight">${escapeHtml(firstSentence(row.text || ''))}</div>
+        </div>
       `;
       holder.appendChild(el);
     });
@@ -425,19 +439,23 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:c
     entries.forEach(([ac, row]) => {
       const headlines = Array.isArray(row.top_news) ? row.top_news.slice(0,2) : [];
       const el = document.createElement('div');
-      el.className = 'card';
+      el.className = 'card overview-card tone-card';
       el.innerHTML = `
-        <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+        <div class="overview-left">
           <strong>${escapeHtml(ac)}</strong>
           <span class="tone ${toneClass(row.tone)}">${escapeHtml(row.tone || 'Mixed')}</span>
         </div>
-        <div class="copy">${escapeHtml(firstSentence(row.commentary || ''))}</div>
-        <div class="score-row">
-          <span class="pill">Bias ${escapeHtml(signed(row.bias,2))}</span>
-          <span class="pill">Conf ${escapeHtml(scorePct(row.confidence))}</span>
+        <div class="overview-mid">
+          <div class="copy tight">${escapeHtml(firstSentence(row.commentary || ''))}</div>
+          <div class="score-row">
+            <span class="pill">Bias ${escapeHtml(signed(row.bias,2))}</span>
+            <span class="pill">Conf ${escapeHtml(scorePct(row.confidence))}</span>
+          </div>
         </div>
-        <div class="inline-tags">
-          ${headlines.length ? headlines.map(n => `<span class="pill">${escapeHtml(compactHeadline(n.title || ''))}</span>`).join('') : '<span class="empty">No major headlines.</span>'}
+        <div class="overview-right" style="justify-items:start">
+          <div class="headline-stack">
+            ${headlines.length ? headlines.map(n => `<span class="pill">${escapeHtml(compactHeadline(n.title || '', 54))}</span>`).join('') : '<span class="empty">No major headlines.</span>'}
+          </div>
         </div>
       `;
       holder.appendChild(el);
