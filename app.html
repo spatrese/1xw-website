@@ -6,112 +6,124 @@
 <title>1XW Trading | Weekly Research</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0b0f17;
   --bg2:#101827;
-  --bg3:#0f172a;
   --panel:#111827;
+  --panel2:#0f172a;
+  --line:#1f2937;
+  --line2:rgba(255,255,255,.08);
   --text:#e5e7eb;
   --muted:#9ca3af;
   --muted2:#6b7280;
-  --line:#1f2937;
   --accent:#7c9cff;
   --good:#34d399;
   --bad:#f87171;
-  --radius:22px;
-  --max:1180px;
-  --px:clamp(18px,4vw,56px);
-  --py:clamp(28px,5vw,64px);
+  --max:1360px;
+  --radius:24px;
+  --px:clamp(18px,4vw,44px);
+  --py:clamp(24px,4vw,52px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
   font-family:'Inter',sans-serif;
   background:
-    radial-gradient(900px 600px at 70% -10%, rgba(124,156,255,.12), transparent 60%),
-    radial-gradient(720px 520px at 10% 10%, rgba(124,156,255,.08), transparent 70%),
+    radial-gradient(900px 520px at 70% -10%, rgba(124,156,255,.10), transparent 60%),
+    radial-gradient(700px 420px at 8% 10%, rgba(124,156,255,.07), transparent 70%),
     var(--bg);
   color:var(--text);
-  line-height:1.6;
+  line-height:1.55;
 }
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--max);margin:0 auto;padding:0 var(--px)}
-.nav{position:sticky;top:0;z-index:50;background:rgba(11,15,23,.78);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{position:sticky;top:0;z-index:40;background:rgba(11,15,23,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
 .logo{font-weight:900;letter-spacing:-.8px;text-transform:uppercase;color:var(--accent)}
-.nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
-.nav-links a,.nav-links button.linklike{padding:10px 12px;border-radius:999px;font-size:.9rem;font-weight:700;color:var(--accent);background:none;border:none;cursor:pointer}
-.nav-links a:hover,.nav-links button.linklike:hover{background:rgba(124,156,255,.10);color:var(--text)}
-main{padding:var(--py) 0 80px}
-.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:18px}
-.badge{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(124,156,255,.35);background:rgba(124,156,255,.10);font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;color:var(--accent);margin-bottom:10px}
-h1{font-size:clamp(1.7rem,3vw,2.35rem);letter-spacing:-.8px;margin-bottom:6px}
-.sub{max-width:840px;color:var(--muted)}
-.meta-line{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;color:var(--muted);font-size:.92rem}
-.meta-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(124,156,255,.22);background:rgba(124,156,255,.06)}
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.panel{background:linear-gradient(180deg,rgba(17,24,39,.96),rgba(15,23,42,.94));border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 10px 28px rgba(0,0,0,.18)}
-.kicker{font-size:.74rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);font-weight:800;margin-bottom:10px}
-.big{font-size:1.1rem;font-weight:800;letter-spacing:-.3px;margin-bottom:6px}
-.p{color:var(--muted);font-size:.95rem}
-.section{margin-top:18px}
-.section .panel{padding:26px}
-.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px}
-.section-head h2{font-size:1.35rem;letter-spacing:-.5px}
-.section-head .p{max-width:760px}
-.list{display:grid;gap:10px;margin-top:12px}
-.idea-item,.mini-card,.fund-card,.news-item,.event-item{background:rgba(15,23,42,.45);border:1px solid rgba(124,156,255,.16);border-radius:18px}
-.idea-item{padding:14px}
-.idea-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
-.symbol{font-size:1.08rem;font-weight:900;letter-spacing:-.4px}
-.asset{font-size:.82rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.8px}
-.side{display:inline-flex;padding:5px 10px;border-radius:999px;font-size:.75rem;font-weight:800;letter-spacing:.8px;border:1px solid rgba(255,255,255,.14)}
-.side.long{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.25);color:#bbf7d0}
-.side.short{background:rgba(248,113,113,.10);border-color:rgba(248,113,113,.25);color:#fecaca}
-.score-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-.score-pill,.tag{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;font-size:.76rem;border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.08);color:rgba(229,231,235,.95);font-weight:800}
-.tag{font-weight:700;text-transform:uppercase;letter-spacing:.6px}
-.overview-list{display:grid;gap:12px}
-.mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.mini-card{padding:14px}
-.mini-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:6px}
-.tone{display:inline-flex;padding:6px 10px;border-radius:999px;border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.08);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px}
-.tone.supportive{color:#bbf7d0;border-color:rgba(52,211,153,.28);background:rgba(52,211,153,.10)}
-.tone.mixed{color:#dbeafe}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.nav-links a,.nav-links button{padding:10px 12px;border-radius:999px;font-size:.9rem;font-weight:700;color:var(--accent);background:none;border:none;cursor:pointer}
+.nav-links a:hover,.nav-links button:hover{background:rgba(124,156,255,.10);color:var(--text)}
+main{padding:var(--py) 0 72px}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.badge{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(124,156,255,.35);background:rgba(124,156,255,.10);font-size:.74rem;letter-spacing:1.3px;text-transform:uppercase;font-weight:800;color:var(--accent);margin-bottom:12px}
+h1{font-size:clamp(1.8rem,3vw,2.55rem);letter-spacing:-.9px;margin-bottom:6px}
+.sub{max-width:860px;color:var(--muted)}
+.meta-line{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.meta-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.06);font-size:.9rem;color:var(--muted)}
+.section{margin-top:20px}
+.panel{
+  background:linear-gradient(180deg, rgba(17,24,39,.96), rgba(15,23,42,.94));
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 14px 36px rgba(0,0,0,.18);
+}
+.panel-head{padding:22px 24px;border-bottom:1px solid var(--line)}
+.kicker{font-size:.74rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--accent);font-weight:800;margin-bottom:8px}
+.panel-head h2{font-size:1.34rem;letter-spacing:-.5px;margin-bottom:4px}
+.panel-head p{color:var(--muted);max-width:900px}
+.row-band{display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px;padding:18px 24px;border-top:1px solid var(--line2)}
+.row-band:first-of-type{border-top:none}
+.row-title h3{font-size:1rem;letter-spacing:-.2px;margin-bottom:4px}
+.row-title p{color:var(--muted2);font-size:.9rem}
+.row-content{min-width:0}
+.item-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.asset-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.mini{
+  background:rgba(15,23,42,.46);
+  border:1px solid rgba(124,156,255,.15);
+  border-radius:16px;
+  padding:12px;
+  min-width:0;
+}
+.mini strong{display:block;font-size:.96rem;letter-spacing:-.2px}
+.mini .subline{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-top:4px}
+.mini .copy{font-size:.88rem;color:var(--muted);margin-top:8px}
+.mini .score-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.pill,.side,.tone{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;font-size:.74rem;font-weight:800;border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.08)}
+.side.long{color:#bbf7d0;border-color:rgba(52,211,153,.25);background:rgba(52,211,153,.10)}
+.side.short{color:#fecaca;border-color:rgba(248,113,113,.28);background:rgba(248,113,113,.10)}
+.tone.supportive{color:#bbf7d0;border-color:rgba(52,211,153,.25);background:rgba(52,211,153,.10)}
 .tone.cautious{color:#fecaca;border-color:rgba(248,113,113,.28);background:rgba(248,113,113,.10)}
-.metricline{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.85rem;margin-top:8px}
-.table-wrap{overflow:auto;border:1px solid rgba(124,156,255,.12);border-radius:18px;margin-top:14px}
+.tone.mixed{color:#dbeafe}
+.row-line{display:grid;grid-template-columns:190px minmax(0,1fr);gap:18px;padding:16px 24px;border-top:1px solid var(--line2);align-items:start}
+.row-label{font-size:1rem;font-weight:800;letter-spacing:-.2px}
+.row-body{min-width:0}
+.summary-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.summary-copy{color:var(--muted);margin-top:6px}
+.metricline{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:.88rem}
+.inline-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.events{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.event-card{background:rgba(15,23,42,.46);border:1px solid rgba(124,156,255,.15);border-radius:16px;padding:12px}
+.event-date{font-size:.76rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:800;margin-bottom:8px}
+.event-list{display:grid;gap:8px}
+.event-item{padding-top:8px;border-top:1px solid rgba(255,255,255,.06)}
+.event-item:first-child{padding-top:0;border-top:none}
+.event-title{font-size:.9rem;font-weight:700}
+.meta{font-size:.78rem;color:var(--muted2);margin-top:3px}
+.table-wrap{overflow:auto;border-top:1px solid var(--line2)}
 .table{width:100%;border-collapse:collapse;font-size:.92rem}
-.table th,.table td{padding:12px 12px;border-bottom:1px solid rgba(124,156,255,.10);text-align:left;vertical-align:top}
-.table th{font-size:.8rem;text-transform:uppercase;letter-spacing:.9px;color:var(--muted2)}
-.table tr:hover td{background:rgba(124,156,255,.04)}
+.table th,.table td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left;vertical-align:top}
+.table th{font-size:.79rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted2);font-weight:700}
+.table tr:hover td{background:rgba(124,156,255,.035)}
 .num-pos{color:#bbf7d0;font-weight:800}
 .num-neg{color:#fecaca;font-weight:800}
-.fund-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.fund-card{padding:18px}
-.fund-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px}
-.fund-card h3{font-size:1.05rem;letter-spacing:-.2px}
-.copy{color:var(--muted);font-size:.94rem}
-.subgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
-.subbox{background:rgba(11,15,23,.35);border:1px solid rgba(124,156,255,.12);border-radius:16px;padding:12px}
-.subbox h4{font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:8px}
-.subbox ul{list-style:none;display:grid;gap:8px}
-.news-item,.event-item{padding:10px 12px}
-.news-title,.event-title{font-size:.88rem;font-weight:700;line-height:1.45}
-.meta{font-size:.78rem;color:var(--muted2);margin-top:4px}
 .empty{color:var(--muted2);font-size:.88rem}
 .notice,.error{display:none;margin:14px 0;padding:12px 14px;border-radius:14px;font-size:.92rem}
 .notice{border:1px solid rgba(124,156,255,.22);background:rgba(124,156,255,.08)}
 .error{border:1px solid rgba(248,113,113,.35);background:rgba(248,113,113,.10);color:#fecaca}
-footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--muted2);font-size:.9rem;text-align:center}
-@media (max-width: 980px){
-  .grid3,.fund-grid,.subgrid,.mini-grid{grid-template-columns:1fr}
+footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);text-align:center;color:var(--muted2);font-size:.9rem}
+@media (max-width: 1240px){
+  .item-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .asset-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .events{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-@media (max-width: 760px){
-  .nav-inner,.hero,.section-head{align-items:flex-start}
-  .nav-links{justify-content:flex-start}
+@media (max-width: 860px){
+  .row-band,.row-line{grid-template-columns:1fr}
+  .item-grid,.asset-grid,.events{grid-template-columns:1fr}
+  .nav-inner,.hero{align-items:flex-start}
 }
 </style>
 </head>
@@ -123,7 +135,9 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
         <a href="#overview">Overview</a>
         <a href="#technical">Technical</a>
         <a href="#fundamental">Fundamental</a>
-        <button class="linklike" id="logoutBtn" type="button">Logout</button>
+        <a href="#events">Events</a>
+        <a href="model.html">Trade Model</a>
+        <button id="logoutBtn" type="button">Logout</button>
       </div>
     </div>
   </div>
@@ -133,7 +147,7 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
       <div>
         <div class="badge">Member Research</div>
         <h1>Weekly Research</h1>
-        <div class="sub">Cross-asset weekly snapshot built around technical breadth, macro tone and the highest-conviction long/short candidates.</div>
+        <div class="sub">Cross-asset weekly snapshot built around technical breadth, macro tone and highest-conviction long / short candidates.</div>
         <div class="meta-line">
           <span class="meta-chip" id="asofChip">As of —</span>
           <span class="meta-chip" id="weekChip">Week —</span>
@@ -146,42 +160,44 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
     <div class="error" id="errorBox"></div>
 
     <section class="section" id="overview">
-      <div class="grid3">
-        <div class="panel">
-          <div class="kicker">Top 3 Long / Short</div>
-          <div class="big">Highest-ranked candidates this week</div>
-          <div class="p">Technical score remains the main driver; macro alignment acts as confirmation.</div>
-          <div class="list" id="overviewIdeas"></div>
+      <div class="panel">
+        <div class="panel-head">
+          <div class="kicker">Overview</div>
+          <h2>Weekly snapshot</h2>
+          <p>The page is organized in wide horizontal bands: overview first, then technical structure, macro narrative and event watchlist.</p>
         </div>
-
-        <div class="panel">
-          <div class="kicker">Technical Breadth</div>
-          <div class="big">Cross-asset trend balance</div>
-          <div class="p">Average score and bullish/bearish breadth by asset class.</div>
-          <div class="mini-grid" id="breadthOverview"></div>
+        <div class="row-band">
+          <div class="row-title">
+            <h3>Top 3 Long / Short</h3>
+            <p>Highest-ranked candidates this week.</p>
+          </div>
+          <div class="row-content item-grid" id="overviewIdeas"></div>
         </div>
-
-        <div class="panel">
-          <div class="kicker">Fundamental Tone</div>
-          <div class="big">Weekly macro read</div>
-          <div class="p">Short weekly tone by asset class, focused on usability rather than headline aggregation.</div>
-          <div class="mini-grid" id="toneOverview"></div>
+        <div class="row-band">
+          <div class="row-title">
+            <h3>Technical Breadth</h3>
+            <p>Trend balance by asset class.</p>
+          </div>
+          <div class="row-content asset-grid" id="breadthOverview"></div>
+        </div>
+        <div class="row-band">
+          <div class="row-title">
+            <h3>Fundamental Tone</h3>
+            <p>Quick macro read by asset class.</p>
+          </div>
+          <div class="row-content asset-grid" id="toneOverview"></div>
         </div>
       </div>
     </section>
 
     <section class="section" id="technical">
       <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="kicker">Technical Overview</div>
-            <h2>Cross-asset technical structure</h2>
-          </div>
-          <div class="p">Breadth by asset class above, full instrument table below.</div>
+        <div class="panel-head">
+          <div class="kicker">Technical</div>
+          <h2>Cross-asset technical structure</h2>
+          <p>Asset-class summary first, then full instrument table.</p>
         </div>
-
-        <div class="mini-grid" id="techAssetCards"></div>
-
+        <div id="techRows"></div>
         <div class="table-wrap">
           <table class="table">
             <thead>
@@ -203,14 +219,29 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
 
     <section class="section" id="fundamental">
       <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="kicker">Fundamental Overview</div>
-            <h2>Weekly macro narrative</h2>
-          </div>
-          <div class="p">Commentary by asset class, with cleaner separation between headlines, macro calendar and earnings-related watchpoints.</div>
+        <div class="panel-head">
+          <div class="kicker">Fundamental</div>
+          <h2>Weekly macro narrative</h2>
+          <p>One horizontal row per asset class, with only the most useful commentary and headlines.</p>
         </div>
-        <div class="fund-grid" id="fundamentalCards"></div>
+        <div id="fundRows"></div>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="kicker">Events</div>
+          <h2>Weekly event calendar</h2>
+          <p>Single calendar view combining macro and earnings watchpoints.</p>
+        </div>
+        <div class="row-band">
+          <div class="row-title">
+            <h3>Event Calendar</h3>
+            <p>Macro can affect multiple asset classes; earnings matter only where relevant.</p>
+          </div>
+          <div class="row-content events" id="eventCalendar"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -276,8 +307,11 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
     if (x === 'cautious') return 'cautious';
     return 'mixed';
   }
-  function titleCase(s){
-    return String(s || '').replace(/_/g, ' ');
+  function parseDateLabel(v){
+    if (!v) return 'Undated';
+    const d = new Date(v);
+    if (Number.isNaN(d.getTime())) return String(v);
+    return d.toLocaleDateString('en-GB', { weekday:'short', day:'2-digit', month:'short' });
   }
 
   function renderMeta(data){
@@ -303,21 +337,21 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
     merged.forEach(item => {
       const sideClass = item.side === 'LONG' ? 'long' : 'short';
       const el = document.createElement('div');
-      el.className = 'idea-item';
+      el.className = 'mini';
       el.innerHTML = `
-        <div class="idea-top">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
           <div>
-            <div class="symbol">${escapeHtml(item.symbol || '—')}</div>
-            <div class="asset">${escapeHtml(item.asset_class || '—')} • ${escapeHtml(item.setup || '—')}</div>
+            <strong>${escapeHtml(item.symbol || '—')}</strong>
+            <div class="subline">${escapeHtml(item.asset_class || '—')}</div>
           </div>
           <span class="side ${sideClass}">${escapeHtml(item.side)}</span>
         </div>
+        <div class="copy">${escapeHtml(item.setup || '—')}</div>
         <div class="score-row">
-          <span class="score-pill">Final ${escapeHtml(scorePct(item.final_score))}</span>
-          <span class="score-pill">Tech ${escapeHtml(scorePct(item.tech_score))}</span>
-          <span class="score-pill">Macro ${escapeHtml(scorePct(item.macro_alignment ?? item.fund_support))}</span>
+          <span class="pill">Final ${escapeHtml(scorePct(item.final_score))}</span>
+          <span class="pill">Tech ${escapeHtml(scorePct(item.tech_score))}</span>
+          <span class="pill">Macro ${escapeHtml(scorePct(item.macro_alignment ?? item.fund_support))}</span>
         </div>
-        <div class="copy">${escapeHtml(item.rationale || '')}</div>
       `;
       holder.appendChild(el);
     });
@@ -333,17 +367,13 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
     }
     entries.forEach(([ac, row]) => {
       const el = document.createElement('div');
-      el.className = 'mini-card';
+      el.className = 'mini';
       el.innerHTML = `
-        <div class="mini-head">
-          <div class="big" style="font-size:1rem;margin-bottom:0">${escapeHtml(ac)}</div>
-          <span class="tag">Avg ${escapeHtml(signed(row.avg_score,1))}</span>
-        </div>
-        <div class="copy">${escapeHtml(row.text || '')}</div>
-        <div class="metricline">
-          <span>Bullish ${escapeHtml(String(row.bullish ?? '—'))}</span>
-          <span>Bearish ${escapeHtml(String(row.bearish ?? '—'))}</span>
-          <span>Universe ${escapeHtml(String(row.n ?? '—'))}</span>
+        <strong>${escapeHtml(ac)}</strong>
+        <div class="score-row">
+          <span class="pill">Avg ${escapeHtml(signed(row.avg_score,1))}</span>
+          <span class="pill">Bull ${escapeHtml(String(row.bullish ?? '—'))}</span>
+          <span class="pill">Bear ${escapeHtml(String(row.bearish ?? '—'))}</span>
         </div>
       `;
       holder.appendChild(el);
@@ -360,10 +390,10 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
     }
     entries.forEach(([ac, row]) => {
       const el = document.createElement('div');
-      el.className = 'mini-card';
+      el.className = 'mini';
       el.innerHTML = `
-        <div class="mini-head">
-          <div class="big" style="font-size:1rem;margin-bottom:0">${escapeHtml(ac)}</div>
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+          <strong>${escapeHtml(ac)}</strong>
           <span class="tone ${toneClass(row.tone)}">${escapeHtml(row.tone || 'Mixed')}</span>
         </div>
         <div class="copy">${escapeHtml(row.commentary || '')}</div>
@@ -373,31 +403,36 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
   }
 
   function renderTechnicalSection(tech){
-    const assetHolder = $('techAssetCards');
+    const holder = $('techRows');
     const tableBody = $('techTableBody');
-    assetHolder.innerHTML = '';
+    holder.innerHTML = '';
     tableBody.innerHTML = '';
 
     const assetEntries = Object.entries(tech?.by_asset_class || {});
-    assetEntries.forEach(([ac, row]) => {
-      const el = document.createElement('div');
-      el.className = 'mini-card';
-      el.innerHTML = `
-        <div class="mini-head">
-          <div class="big" style="font-size:1rem;margin-bottom:0">${escapeHtml(ac)}</div>
-          <span class="tag">${escapeHtml(String(row.n ?? 0))} instruments</span>
-        </div>
-        <div class="copy">${escapeHtml(row.text || '')}</div>
-        <div class="metricline">
-          <span>Avg ${escapeHtml(signed(row.avg_score,1))}</span>
-          <span>Bullish ${escapeHtml(String(row.bullish ?? '—'))}</span>
-          <span>Bearish ${escapeHtml(String(row.bearish ?? '—'))}</span>
-        </div>
-      `;
-      assetHolder.appendChild(el);
-    });
-    if (!assetEntries.length){
-      assetHolder.innerHTML = '<div class="empty">No technical summary available.</div>';
+    if (!assetEntries.length) {
+      holder.innerHTML = '<div class="row-line"><div class="row-label">Technical</div><div class="empty">No technical summary available.</div></div>';
+    } else {
+      assetEntries.forEach(([ac, row]) => {
+        const line = document.createElement('div');
+        line.className = 'row-line';
+        line.innerHTML = `
+          <div class="row-label">${escapeHtml(ac)}</div>
+          <div class="row-body">
+            <div class="summary-top">
+              <div>
+                <div class="summary-copy">${escapeHtml(row.text || '')}</div>
+                <div class="metricline">
+                  <span>Avg ${escapeHtml(signed(row.avg_score,1))}</span>
+                  <span>Bullish ${escapeHtml(String(row.bullish ?? '—'))}</span>
+                  <span>Bearish ${escapeHtml(String(row.bearish ?? '—'))}</span>
+                  <span>Universe ${escapeHtml(String(row.n ?? '—'))}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        holder.appendChild(line);
+      });
     }
 
     const rows = Object.values(tech?.by_symbol || {}).sort((a,b) => (Number(b.score) || 0) - (Number(a.score) || 0));
@@ -421,80 +456,105 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
   }
 
   function renderFundamentalSection(fund){
-    const holder = $('fundamentalCards');
+    const holder = $('fundRows');
     holder.innerHTML = '';
     const entries = Object.entries(fund?.by_asset_class || {});
     if (!entries.length){
-      holder.innerHTML = '<div class="empty">No fundamental overview available.</div>';
+      holder.innerHTML = '<div class="row-line"><div class="row-label">Fundamental</div><div class="empty">No fundamental overview available.</div></div>';
       return;
     }
 
     entries.forEach(([ac, row]) => {
-      const topNews = Array.isArray(row.top_news) ? row.top_news : [];
-      const macroCalendar = Array.isArray(row.macro_calendar) ? row.macro_calendar : [];
-      const earningsCalendar = Array.isArray(row.earnings_calendar) ? row.earnings_calendar : [];
-      const watchpoints = Array.isArray(row.key_watchpoints) ? row.key_watchpoints : [];
-
-      const newsHtml = topNews.length
-        ? topNews.map(n => `
-            <li class="news-item">
-              <div class="news-title">${escapeHtml(n.title || '')}</div>
-              <div class="meta">${escapeHtml(n.source || '')}${n.date ? ' • ' + escapeHtml(n.date) : ''}</div>
-            </li>`).join('')
-        : '<li class="empty">No major headlines this week.</li>';
-
-      const macroHtml = macroCalendar.length
-        ? macroCalendar.map(e => `
-            <li class="event-item">
-              <div class="event-title">${escapeHtml(e.label || e.title || '')}</div>
-              <div class="meta">${escapeHtml(e.source || '')}${e.date ? ' • ' + escapeHtml(e.date) : ''}</div>
-            </li>`).join('')
-        : '<li class="empty">No macro watchpoint flagged.</li>';
-
-      const earningsHtml = earningsCalendar.length
-        ? earningsCalendar.map(e => `
-            <li class="event-item">
-              <div class="event-title">${escapeHtml(e.label || e.title || '')}</div>
-              <div class="meta">${escapeHtml(e.source || '')}${e.date ? ' • ' + escapeHtml(e.date) : ''}</div>
-            </li>`).join('')
-        : '<li class="empty">No earnings watchpoint flagged.</li>';
-
-      const el = document.createElement('div');
-      el.className = 'fund-card';
-      el.innerHTML = `
-        <div class="fund-top">
-          <div>
-            <h3>${escapeHtml(ac)}</h3>
-            <div class="metricline">
-              <span>Bias ${escapeHtml(signed(row.bias,2))}</span>
-              <span>Confidence ${escapeHtml(scorePct(row.confidence))}</span>
+      const topNews = Array.isArray(row.top_news) ? row.top_news.slice(0,3) : [];
+      const line = document.createElement('div');
+      line.className = 'row-line';
+      line.innerHTML = `
+        <div class="row-label">${escapeHtml(ac)}</div>
+        <div class="row-body">
+          <div class="summary-top">
+            <div>
+              <span class="tone ${toneClass(row.tone)}">${escapeHtml(row.tone || 'Mixed')}</span>
+              <div class="summary-copy">${escapeHtml(row.commentary || '')}</div>
+              <div class="metricline">
+                <span>Bias ${escapeHtml(signed(row.bias,2))}</span>
+                <span>Confidence ${escapeHtml(scorePct(row.confidence))}</span>
+              </div>
             </div>
           </div>
-          <span class="tone ${toneClass(row.tone)}">${escapeHtml(row.tone || 'Mixed')}</span>
-        </div>
-        <div class="copy">${escapeHtml(row.commentary || '')}</div>
-        ${watchpoints.length ? `<div class="score-row" style="margin-top:12px">${watchpoints.map(w => `<span class="score-pill">${escapeHtml(w.label || w.title || '')}</span>`).join('')}</div>` : ''}
-        <div class="subgrid">
-          <div class="subbox">
-            <h4>News Highlights</h4>
-            <ul>${newsHtml}</ul>
-          </div>
-          <div class="subbox">
-            <h4>Macro Calendar</h4>
-            <ul>${macroHtml}</ul>
-          </div>
-          <div class="subbox">
-            <h4>Earnings Calendar</h4>
-            <ul>${earningsHtml}</ul>
+          <div class="inline-tags">
+            ${topNews.length ? topNews.map(n => `<span class="pill">${escapeHtml(n.title || '')}</span>`).join('') : '<span class="empty">No major headlines this week.</span>'}
           </div>
         </div>
       `;
-      holder.appendChild(el);
+      holder.appendChild(line);
+    });
+  }
+
+  function buildEventCalendar(fund){
+    const raw = [];
+    for (const [ac, row] of Object.entries(fund?.by_asset_class || {})) {
+      const macro = Array.isArray(row.macro_calendar) ? row.macro_calendar : [];
+      const earnings = ac === 'Equities' && Array.isArray(row.earnings_calendar) ? row.earnings_calendar : [];
+      macro.forEach(e => raw.push({
+        date: e.date || '',
+        title: e.label || e.title || '',
+        type: 'Macro',
+        asset: ac,
+        source: e.source || ''
+      }));
+      earnings.forEach(e => raw.push({
+        date: e.date || '',
+        title: e.label || e.title || '',
+        type: 'Earnings',
+        asset: 'Equities',
+        source: e.source || ''
+      }));
+    }
+    const seen = new Set();
+    const dedup = raw.filter(e => {
+      const k = `${e.date}|${e.type}|${e.title}`;
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return e.title;
+    }).sort((a,b) => String(a.date).localeCompare(String(b.date)) || a.title.localeCompare(b.title));
+
+    const grouped = {};
+    dedup.forEach(e => {
+      const key = parseDateLabel(e.date);
+      if (!grouped[key]) grouped[key] = [];
+      grouped[key].push(e);
+    });
+    return grouped;
+  }
+
+  function renderEvents(fund){
+    const holder = $('eventCalendar');
+    holder.innerHTML = '';
+    const grouped = buildEventCalendar(fund);
+    const entries = Object.entries(grouped);
+    if (!entries.length){
+      holder.innerHTML = '<div class="empty">No event calendar available.</div>';
+      return;
+    }
+    entries.slice(0,8).forEach(([dateLabel, items]) => {
+      const card = document.createElement('div');
+      card.className = 'event-card';
+      card.innerHTML = `
+        <div class="event-date">${escapeHtml(dateLabel)}</div>
+        <div class="event-list">
+          ${items.map(e => `
+            <div class="event-item">
+              <div class="event-title">${escapeHtml(e.title)}</div>
+              <div class="meta">${escapeHtml(e.type)} • ${escapeHtml(e.asset)}${e.source ? ' • ' + escapeHtml(e.source) : ''}</div>
+            </div>`).join('')}
+        </div>
+      `;
+      holder.appendChild(card);
     });
   }
 
   async function init(){
-    try{
+    try {
       showNotice('');
       const weekly = await loadJson(WEEKLY_URL);
       renderMeta(weekly);
@@ -503,7 +563,8 @@ footer{padding:28px var(--px) 42px;border-top:1px solid var(--line);color:var(--
       renderToneOverview(weekly.fundamental_overview || {});
       renderTechnicalSection(weekly.technical_overview || {});
       renderFundamentalSection(weekly.fundamental_overview || {});
-    } catch(err){
+      renderEvents(weekly.fundamental_overview || {});
+    } catch (err) {
       console.error(err);
       showError(err && err.message ? err.message : 'Failed to load weekly research.');
     }
