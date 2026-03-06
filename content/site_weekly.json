@@ -6,7 +6,7 @@
       "ES": {
         "symbol": "ES",
         "name": "S&P 500",
-        "asset_class": "Equity",
+        "asset_class": "Equities",
         "setup": "Neutral",
         "score": -2,
         "ret_20d_pct": -1.03,
@@ -15,7 +15,7 @@
       "NQ": {
         "symbol": "NQ",
         "name": "Nasdaq 100",
-        "asset_class": "Equity",
+        "asset_class": "Equities",
         "setup": "Neutral",
         "score": 0,
         "ret_20d_pct": 0.2,
@@ -24,7 +24,7 @@
       "RTY": {
         "symbol": "RTY",
         "name": "Russell 2000",
-        "asset_class": "Equity",
+        "asset_class": "Equities",
         "setup": "Neutral",
         "score": 0,
         "ret_20d_pct": -1.76,
@@ -33,7 +33,7 @@
       "DAX": {
         "symbol": "DAX",
         "name": "DAX",
-        "asset_class": "Equity",
+        "asset_class": "Equities",
         "setup": "Trend continuation (down)",
         "score": -4,
         "ret_20d_pct": -3.4,
@@ -42,7 +42,7 @@
       "NIY": {
         "symbol": "NIY",
         "name": "Nikkei 225",
-        "asset_class": "Equity",
+        "asset_class": "Equities",
         "setup": "Trend continuation",
         "score": 4,
         "ret_20d_pct": 0.24,
@@ -51,7 +51,7 @@
       "VIX": {
         "symbol": "VIX",
         "name": "VIX Index",
-        "asset_class": "Equity",
+        "asset_class": "Equities",
         "setup": "Trend continuation",
         "score": 4,
         "ret_20d_pct": 5.51,
@@ -293,7 +293,7 @@
       }
     },
     "by_asset_class": {
-      "Equity": {
+      "Equities": {
         "n": 6,
         "avg_score": 0.333,
         "bullish": 2,
@@ -335,8 +335,8 @@
       "Equities": {
         "tone": "Mixed",
         "bias": 0.0,
-        "confidence": 0.481,
-        "commentary": "Equity signals are balanced, with supportive pockets offset by a still uneven macro backdrop and selective leadership. Headline balance is broadly neutral. Conviction remains limited and should be monitored closely. Key flow is coming from CNBC Top News.",
+        "confidence": 0.48124999999999996,
+        "commentary": "Equity signals are balanced, with supportive pockets offset by an uneven backdrop. Bias +0.00, confidence 0.48. Primary flow source: CNBC Top News.",
         "top_news": [
           {
             "title": "Trump taps Sen. Markwayne Mullin after firing Kristi Noem as DHS secretary",
@@ -360,40 +360,62 @@
             "summary": "Creating a mortgage has been one of the most time-consuming corners of American finance, with lenders relying on dozens of steps that can take weeks."
           }
         ],
-        "macro_calendar": [],
+        "macro_calendar": [
+          {
+            "label": "CPI",
+            "title": "China CPI",
+            "source": "NBS China",
+            "date": "2026-03-09",
+            "url": ""
+          }
+        ],
         "earnings_calendar": [
           {
-            "label": "Mortgages in 47 seconds",
-            "title": "Mortgages in 47 seconds: Better’s new ChatGPT app targets lenders Rocket and UWM",
-            "source": "CNBC Top News",
-            "date": "2026-03-05T20:42:54Z",
-            "url": "https://www.cnbc.com/2026/03/05/mortgages-in-47-seconds-betters-new-chatgpt-app-targets-lenders-rocket-and-uwm.html"
+            "label": "BABA earnings",
+            "title": "BABA earnings",
+            "source": "FMP Earnings Calendar",
+            "date": "2026-03-12",
+            "url": ""
           }
         ],
         "key_watchpoints": [
           {
-            "label": "Mortgages in 47 seconds",
-            "title": "Mortgages in 47 seconds: Better’s new ChatGPT app targets lenders Rocket and UWM",
-            "source": "CNBC Top News",
-            "date": "2026-03-05T20:42:54Z",
-            "url": "https://www.cnbc.com/2026/03/05/mortgages-in-47-seconds-betters-new-chatgpt-app-targets-lenders-rocket-and-uwm.html"
+            "label": "CPI",
+            "title": "China CPI",
+            "source": "NBS China",
+            "date": "2026-03-09",
+            "url": ""
+          },
+          {
+            "label": "BABA earnings",
+            "title": "BABA earnings",
+            "source": "FMP Earnings Calendar",
+            "date": "2026-03-12",
+            "url": ""
           }
         ],
         "key_events": [
           {
-            "label": "Mortgages in 47 seconds",
-            "title": "Mortgages in 47 seconds: Better’s new ChatGPT app targets lenders Rocket and UWM",
-            "source": "CNBC Top News",
-            "date": "2026-03-05T20:42:54Z",
-            "url": "https://www.cnbc.com/2026/03/05/mortgages-in-47-seconds-betters-new-chatgpt-app-targets-lenders-rocket-and-uwm.html"
+            "label": "CPI",
+            "title": "China CPI",
+            "source": "NBS China",
+            "date": "2026-03-09",
+            "url": ""
+          },
+          {
+            "label": "BABA earnings",
+            "title": "BABA earnings",
+            "source": "FMP Earnings Calendar",
+            "date": "2026-03-12",
+            "url": ""
           }
         ]
       },
       "Rates": {
         "tone": "Mixed",
         "bias": 0.0,
-        "confidence": 0.481,
-        "commentary": "Rates remain data-dependent, with no clean trend yet as inflation and policy communication pull expectations in both directions. Headline balance is broadly neutral. Conviction remains limited and should be monitored closely. Key flow is coming from ECB (Press/Speeches/Interviews).",
+        "confidence": 0.48124999999999996,
+        "commentary": "Rates remain data-dependent, with no clean trend yet across inflation and policy expectations. Bias +0.00, confidence 0.48. Primary flow source: ECB (Press/Speeches/Interviews).",
         "top_news": [
           {
             "title": "Christine Lagarde: Technology, fragmentation and the new uncertainty",
@@ -417,51 +439,51 @@
             "summary": ""
           }
         ],
-        "macro_calendar": [
-          {
-            "label": "ECB communication",
-            "title": "Christine Lagarde: Technology, fragmentation and the new uncertainty",
-            "source": "ECB (Press/Speeches/Interviews)",
-            "date": "2026-03-05T17:00:00Z",
-            "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260305~b091c4a651.en.html"
-          }
-        ],
-        "earnings_calendar": [],
-        "key_watchpoints": [
-          {
-            "label": "ECB communication",
-            "title": "Christine Lagarde: Technology, fragmentation and the new uncertainty",
-            "source": "ECB (Press/Speeches/Interviews)",
-            "date": "2026-03-05T17:00:00Z",
-            "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260305~b091c4a651.en.html"
-          }
-        ],
-        "key_events": [
-          {
-            "label": "ECB communication",
-            "title": "Christine Lagarde: Technology, fragmentation and the new uncertainty",
-            "source": "ECB (Press/Speeches/Interviews)",
-            "date": "2026-03-05T17:00:00Z",
-            "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260305~b091c4a651.en.html"
-          }
-        ]
-      },
-      "FX": {
-        "tone": "Mixed",
-        "bias": 0.0,
-        "confidence": 0.0,
-        "commentary": "FX remains range-prone, with cross-currents from policy, growth and risk sentiment keeping conviction moderate. Headline balance is broadly neutral. Conviction remains limited and should be monitored closely. Recent headlines remain the main driver.",
-        "top_news": [],
         "macro_calendar": [],
         "earnings_calendar": [],
         "key_watchpoints": [],
         "key_events": []
       },
+      "FX": {
+        "tone": "Mixed",
+        "bias": 0.0,
+        "confidence": 0.0,
+        "commentary": "FX remains range-prone, with cross-currents from policy, growth and risk sentiment. Bias +0.00, confidence 0.00.",
+        "top_news": [],
+        "macro_calendar": [
+          {
+            "label": "CPI",
+            "title": "China CPI",
+            "source": "NBS China",
+            "date": "2026-03-09",
+            "url": ""
+          }
+        ],
+        "earnings_calendar": [],
+        "key_watchpoints": [
+          {
+            "label": "CPI",
+            "title": "China CPI",
+            "source": "NBS China",
+            "date": "2026-03-09",
+            "url": ""
+          }
+        ],
+        "key_events": [
+          {
+            "label": "CPI",
+            "title": "China CPI",
+            "source": "NBS China",
+            "date": "2026-03-09",
+            "url": ""
+          }
+        ]
+      },
       "Commodities": {
         "tone": "Mixed",
         "bias": 0.125,
-        "confidence": 0.515,
-        "commentary": "Commodity signals are mixed, with demand uncertainty offsetting pockets of supply support across markets. Headline balance is broadly neutral. Conviction remains limited and should be monitored closely. Key flow is coming from EIA Today in Energy.",
+        "confidence": 0.5145833333333333,
+        "commentary": "Commodity signals are mixed, with demand uncertainty offsetting selective support. Bias +0.12, confidence 0.51. Primary flow source: EIA Today in Energy.",
         "top_news": [
           {
             "title": "U.S. electricity generation in 2025 hit a record, again",
@@ -485,16 +507,40 @@
             "summary": "On February 9, 2026, Japan restarted Unit 6 of its largest nuclear power plant, the Kashiwazaki-Kariwa Nuclear Power Station in Niigata Prefecture, which was shut down following the 2011 Fukushima tsunami and nuclear accident. As the reactor returns to full op"
           }
         ],
-        "macro_calendar": [],
+        "macro_calendar": [
+          {
+            "label": "CPI",
+            "title": "China CPI",
+            "source": "NBS China",
+            "date": "2026-03-09",
+            "url": ""
+          }
+        ],
         "earnings_calendar": [],
-        "key_watchpoints": [],
-        "key_events": []
+        "key_watchpoints": [
+          {
+            "label": "CPI",
+            "title": "China CPI",
+            "source": "NBS China",
+            "date": "2026-03-09",
+            "url": ""
+          }
+        ],
+        "key_events": [
+          {
+            "label": "CPI",
+            "title": "China CPI",
+            "source": "NBS China",
+            "date": "2026-03-09",
+            "url": ""
+          }
+        ]
       },
       "Crypto": {
         "tone": "Mixed",
         "bias": 0.0,
-        "confidence": 0.481,
-        "commentary": "Crypto tone is balanced, with supportive narratives still competing against policy and positioning uncertainty. Headline balance is broadly neutral. Conviction remains limited and should be monitored closely. Key flow is coming from CoinDesk.",
+        "confidence": 0.48124999999999996,
+        "commentary": "Crypto tone is balanced, with supportive narratives competing against uncertainty. Bias +0.00, confidence 0.48. Primary flow source: CoinDesk.",
         "top_news": [
           {
             "title": "SEC, Justin Sun reach settlement over Tron lawsuit",
@@ -518,34 +564,10 @@
             "summary": ""
           }
         ],
-        "macro_calendar": [
-          {
-            "label": "Fed communication",
-            "title": "Kraken's surprise Fed win may harken onslaught of crypto firms with narrow Fed access",
-            "source": "CoinDesk",
-            "date": "2026-03-05T19:36:15Z",
-            "url": "https://www.coindesk.com/news-analysis/2026/03/05/kraken-s-surprise-fed-win-may-harken-onslaught-of-crypto-firms-with-limited-fed-access"
-          }
-        ],
+        "macro_calendar": [],
         "earnings_calendar": [],
-        "key_watchpoints": [
-          {
-            "label": "Fed communication",
-            "title": "Kraken's surprise Fed win may harken onslaught of crypto firms with narrow Fed access",
-            "source": "CoinDesk",
-            "date": "2026-03-05T19:36:15Z",
-            "url": "https://www.coindesk.com/news-analysis/2026/03/05/kraken-s-surprise-fed-win-may-harken-onslaught-of-crypto-firms-with-limited-fed-access"
-          }
-        ],
-        "key_events": [
-          {
-            "label": "Fed communication",
-            "title": "Kraken's surprise Fed win may harken onslaught of crypto firms with narrow Fed access",
-            "source": "CoinDesk",
-            "date": "2026-03-05T19:36:15Z",
-            "url": "https://www.coindesk.com/news-analysis/2026/03/05/kraken-s-surprise-fed-win-may-harken-onslaught-of-crypto-firms-with-limited-fed-access"
-          }
-        ]
+        "key_watchpoints": [],
+        "key_events": []
       }
     }
   },
@@ -568,10 +590,10 @@
         "ret_20d_pct": 21.28,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.5322,
-        "macro_alignment": 0.5322,
-        "final_score": 0.883,
-        "rationale": "Technical strength in CL is supported by the current weekly macro tone for Commodities."
+        "fund_support": 0.5321614583333333,
+        "macro_alignment": 0.5321614583333333,
+        "final_score": 0.8830403645833333,
+        "rationale": "Trend strength in Commodities with mixed macro tone."
       },
       {
         "symbol": "RB",
@@ -582,10 +604,10 @@
         "ret_20d_pct": 19.29,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.5322,
-        "macro_alignment": 0.5322,
-        "final_score": 0.883,
-        "rationale": "Technical strength in RB is supported by the current weekly macro tone for Commodities."
+        "fund_support": 0.5321614583333333,
+        "macro_alignment": 0.5321614583333333,
+        "final_score": 0.8830403645833333,
+        "rationale": "Trend strength in Commodities with mixed macro tone."
       },
       {
         "symbol": "GC",
@@ -596,17 +618,17 @@
         "ret_20d_pct": 2.14,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.5322,
-        "macro_alignment": 0.5322,
-        "final_score": 0.883,
-        "rationale": "Technical strength in GC is supported by the current weekly macro tone for Commodities."
+        "fund_support": 0.5321614583333333,
+        "macro_alignment": 0.5321614583333333,
+        "final_score": 0.8830403645833333,
+        "rationale": "Trend strength in Commodities with mixed macro tone."
       }
     ],
     "top_short": [
       {
         "symbol": "DAX",
         "name": "DAX",
-        "asset_class": "Equity",
+        "asset_class": "Equities",
         "setup": "Trend continuation (down)",
         "score": -4.0,
         "ret_20d_pct": -3.4,
@@ -615,7 +637,7 @@
         "fund_support": 0.5,
         "macro_alignment": 0.5,
         "final_score": 0.875,
-        "rationale": "Technical downside in DAX is supported by the current weekly macro tone for Equity."
+        "rationale": "Downtrend remains in place in Equities with mixed macro tone."
       },
       {
         "symbol": "EUR",
@@ -629,7 +651,7 @@
         "fund_support": 0.5,
         "macro_alignment": 0.5,
         "final_score": 0.875,
-        "rationale": "Technical downside in EUR is supported by the current weekly macro tone for FX."
+        "rationale": "Downtrend remains in place in FX with mixed macro tone."
       },
       {
         "symbol": "GBP",
@@ -643,8 +665,36 @@
         "fund_support": 0.5,
         "macro_alignment": 0.5,
         "final_score": 0.875,
-        "rationale": "Technical downside in GBP is supported by the current weekly macro tone for FX."
+        "rationale": "Downtrend remains in place in FX with mixed macro tone."
       }
     ]
-  }
+  },
+  "event_calendar": [
+    {
+      "date": "2026-03-09",
+      "type": "Macro",
+      "title": "China CPI",
+      "country": "China",
+      "importance": "high",
+      "markets": [
+        "Commodities",
+        "Equities",
+        "FX"
+      ],
+      "source": "NBS China"
+    },
+    {
+      "date": "2026-03-12",
+      "type": "Earnings",
+      "title": "BABA earnings",
+      "country": "US",
+      "importance": "high",
+      "markets": [
+        "Equities"
+      ],
+      "ticker": "BABA",
+      "company": "BABA",
+      "source": "FMP Earnings Calendar"
+    }
+  ]
 }
