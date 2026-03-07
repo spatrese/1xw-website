@@ -358,7 +358,7 @@ footer{
         </div>
         <div class="rows">
           <div class="col-head row-tech">
-            <div>Symbol</div><div>Asset Class</div><div>Setup</div><div>Score</div><div>20d</div><div>60d</div>
+            <div>Instrument</div><div>Asset Class</div><div>Setup</div><div>Score</div><div>20d</div><div>60d</div>
           </div>
           <div id="techInstrumentRows"></div>
         </div>
@@ -579,7 +579,7 @@ footer{
       return;
     }
     holder.innerHTML = rows.map(row => rowHtml('row-tech', [
-      { label:'Symbol', html:`<span class="label">${escapeHtml(row.symbol || '')}</span>` },
+     { label:'Instrument', html:`<span class="label">${escapeHtml(row.name || row.symbol || '')}</span><span class="muted2"> ${row.name ? `(${escapeHtml(row.symbol || '')})` : ''}</span>` },
       { label:'Asset Class', html: escapeHtml(row.asset_class || '') },
       { label:'Setup', html: escapeHtml(row.setup || '') },
       { label:'Score', html:`<span class="${classForNum(row.score)}">${escapeHtml(signed(row.score,0))}</span>` },
