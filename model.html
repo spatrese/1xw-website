@@ -299,6 +299,64 @@ footer{
   }
 }
 
+
+/* Final mobile-only override: preserve desktop, improve phone layout */
+@media (max-width:768px){
+  .container{padding:0 18px;}
+
+  /* keep snapshot dashboard-like instead of a long vertical stack */
+  #snapshot .panel{
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  #snapshot .panel::-webkit-scrollbar{display:none;}
+
+  #snapshot .grid-3{
+    display:grid !important;
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(220px, 1fr);
+    gap:12px;
+    min-width:max-content;
+  }
+
+  /* compact charts without touching desktop */
+  .chartWrap{
+    height:255px;
+    padding:12px;
+  }
+
+  /* keep trades as a compact table with local horizontal scroll */
+  #trades .panel{
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  #trades .panel::-webkit-scrollbar{display:none;}
+
+  .table{
+    display:table !important;
+    width:max-content;
+    min-width:640px;
+    border-collapse:collapse;
+    margin-top:14px;
+  }
+  .table thead{display:table-header-group !important;}
+  .table tbody{display:table-row-group !important;}
+  .table tr{display:table-row !important;}
+  .table th,
+  .table td{
+    display:table-cell !important;
+    width:auto !important;
+    font-size:13px;
+    padding:10px 10px;
+    vertical-align:top;
+  }
+  .table td::before{content:none !important; display:none !important;}
+}
+
 </style>
 </head>
 
