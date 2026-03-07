@@ -538,7 +538,9 @@ function renderMeta(data){
     }
     holder.innerHTML = merged.map(item => {
       const sideClass = item.side === 'LONG' ? 'long' : 'short';
-      const label = `${escapeHtml(item.side)} ${escapeHtml(item.symbol || '—')}`;
+      const instrument = item.name || item.symbol || '—';
+      const ticker = item.name ? ` (${escapeHtml(item.symbol || '')})` : '';
+      const label = `${escapeHtml(item.side)} ${escapeHtml(instrument)}${ticker}`;
       return rowHtml('row-ideas', [
         { label:'Candidate', html:`<span class="label">${label}</span>` },
         { label:'Setup', html: escapeHtml(item.setup || '—') },
