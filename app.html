@@ -154,6 +154,12 @@ h1{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:900;letter-spacing:-1px;marg
 .data-row:last-child{border-bottom:none;}
 
 .row-ideas{grid-template-columns:190px 190px 75px 75px 75px minmax(320px,1fr);}
+
+.row-ideas .cell:last-child{
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.35;
+}
 .row-breadth{grid-template-columns:170px 105px 90px 90px 110px minmax(240px,1fr);}
 .row-tone{grid-template-columns:170px 130px minmax(420px,1fr);}
 .row-tech{grid-template-columns:150px minmax(130px,1fr) minmax(180px,1.35fr) minmax(80px,.7fr) minmax(80px,.7fr) minmax(80px,.7fr);}
@@ -259,7 +265,7 @@ footer{
   .inline-tags{gap:6px;}
   .pill{font-size:11px;padding:5px 8px;}
 
-  .row-ideas{grid-template-columns:175px 150px 75px 75px 85px minmax(230px,1fr);}
+  .row-ideas{grid-template-columns:175px 150px 75px 75px 90px minmax(230px,1fr);}
   .row-breadth{grid-template-columns:150px 95px 80px 80px 100px minmax(230px,1fr);}
   .row-tone{grid-template-columns:150px 115px minmax(320px,1fr);}
   .row-tech{grid-template-columns:150px 130px 170px 80px 80px 80px;}
