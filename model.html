@@ -1,47 +1,725 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1XW Model</title>
-<style>
-body{font-family:Inter,sans-serif;background:#0b0f17;color:#e5e7eb;margin:0;}
-.container{max-width:1100px;margin:auto;padding:0 60px;}
-.nav-inner{display:flex;justify-content:space-between;padding:18px 0;}
-.nav-links a{margin-left:18px;color:#7c9cff;text-decoration:none;font-weight:700;}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.panel{border:1px solid #1a2232;border-radius:16px;padding:24px;margin-top:20px;}
-.chartWrap{height:320px;margin-top:20px;}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>1XW Trading | 1XW Model</title>
 
-/* MOBILE OPTIMIZATION */
-@media (max-width:768px){
-.container{padding:0 18px;}
-.nav-inner{padding:14px 0;}
-.nav-links{gap:12px;font-size:.85rem;flex-wrap:wrap;}
-.hero h1{font-size:1.8rem;}
-.grid-3{grid-template-columns:1fr;}
-.panel{padding:18px;}
-.chartWrap{height:260px;}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0f17;
+  --bg2:#111827;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --muted2:#6b7280;
+  --hairline:#1a2232;
+  --accent:#7c9cff;
+  --good:#34d399;
+  --bad:#fb7185;
+  --radius-lg:22px;
+  --max:1120px;
+  --px:clamp(16px,4vw,60px);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  color:var(--text);
+  line-height:1.55;
+  background:
+    radial-gradient(900px 600px at 70% -10%, rgba(124,156,255,.12), transparent 60%),
+    radial-gradient(700px 500px at 20% 10%, rgba(124,156,255,.08), transparent 70%),
+    var(--bg);
+}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--px);}
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(11,15,23,.78);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hairline);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 0;
+  gap:16px;
+}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand img{height:32px;width:auto;display:block;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));}
+.logo{font-weight:900;letter-spacing:-.8px;text-transform:uppercase;color:var(--accent);line-height:1;}
+.nav-links{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.nav-links a,
+.nav-links button{
+  font-size:.9rem;
+  font-weight:700;
+  color:var(--accent);
+  padding:6px 2px;
+  border:none;
+  background:none;
+  cursor:pointer;
+}
+.nav-links a:hover,
+.nav-links button:hover{
+  color:var(--text);
+}
+.nav-cta{
+  margin-left:8px;
+  font-weight:700;
+  font-size:.9rem;
+  padding:10px 14px !important;
+  border-radius:999px;
+  border:1px solid rgba(124,156,255,.35) !important;
+  color:var(--accent);
+  background:rgba(124,156,255,.06) !important;
+}
+.nav-cta:hover{
+  background:rgba(124,156,255,.14) !important;
+}
+
+header.hero{padding:30px 0 10px;}
+.tag{
+  display:inline-flex;
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:1.6px;
+  color:var(--accent);
+  border:1px solid rgba(124,156,255,.35);
+  padding:9px 12px;
+  border-radius:999px;
+  background:rgba(124,156,255,.12);
+  margin-bottom:12px;
+}
+.hero h1{
+  font-size:clamp(1.9rem,4.4vw,2.7rem);
+  font-weight:900;
+  letter-spacing:-1px;
+  margin-bottom:8px;
+}
+.hero .sub{color:var(--muted);max-width:920px;}
+.hero .meta{margin-top:10px;color:rgba(229,231,235,.68);font-size:.92rem;}
+
+main{padding:12px 0 60px;}
+.notice,.error{
+  margin:14px 0;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--hairline);
+  display:none;
+}
+.notice{background:rgba(124,156,255,.08);color:rgba(229,231,235,.92);}
+.error{background:rgba(255,80,80,.10);border-color:rgba(255,80,80,.20);color:#fecaca;}
+
+.section{margin:16px 0;}
+.panel{
+  background:linear-gradient(180deg,#111827,#0f172a);
+  border:1px solid var(--hairline);
+  border-radius:var(--radius-lg);
+  padding:22px;
+}
+.kicker{
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+  font-size:.72rem;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+.p{color:var(--muted);}
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.card{
+  background:linear-gradient(180deg, rgba(17,24,39,.82), rgba(15,23,42,.76));
+  border:1px solid rgba(124,156,255,.14);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 10px 24px rgba(0,0,0,.14);
+}
+.big{
+  font-size:1.2rem;
+  font-weight:700;
+  letter-spacing:-.3px;
+  margin:4px 0 6px;
+}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.pill{
+  display:inline-flex;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(124,156,255,.22);
+  background:rgba(124,156,255,.08);
+  color:rgba(229,231,235,.92);
+  font-weight:700;
+  font-size:.78rem;
+}
+.side{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.76rem;
+  border:1px solid rgba(255,255,255,.12);
+}
+.side.long{
+  background:rgba(52,211,153,.10);
+  border-color:rgba(52,211,153,.25);
+  color:#bbf7d0;
+}
+.mini{margin-top:10px;color:var(--muted2);font-size:.85rem;}
+.chartWrap{
+  margin-top:12px;
+  border-radius:18px;
+  border:1px dashed rgba(124,156,255,.28);
+  background:linear-gradient(180deg,#0f172a,#0b1220);
+  padding:14px;
+  height:340px;
+}
+.chartWrap canvas{
+  width:100% !important;
+  height:100% !important;
+  display:block;
+}
+.table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+  overflow:hidden;
+  border-radius:16px;
+  border:1px solid var(--hairline);
+}
+.table th,.table td{
+  padding:12px 12px;
+  border-bottom:1px solid var(--hairline);
+  font-size:14px;
+  vertical-align:top;
+}
+.table th{
+  text-align:left;
+  color:rgba(229,231,235,.85);
+  font-weight:700;
+  background:rgba(124,156,255,.06);
+}
+.table tr:last-child td{border-bottom:none;}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(124,156,255,.22);
+  background:rgba(124,156,255,.08);
+  font-weight:700;
+  font-size:.78rem;
+  color:rgba(229,231,235,.92);
+}
+footer{
+  padding:24px 0 44px;
+  border-top:1px solid var(--hairline);
+  color:rgba(100,116,139,.9);
+  font-size:.85rem;
+  text-align:center;
+  background:#080c14;
+}
+
+@media (max-width:980px){
+  .grid-3{grid-template-columns:1fr;}
+  .chartWrap{height:280px;}
+}
+@media (max-width:680px){
+  .brand .logo{display:none;}
+  .brand img{height:28px;}
+  .nav-links{gap:14px;}
+}
+
+/* Mobile + polish refinements */
+@media (max-width:900px){
+  .nav-links a[href="#performance"],
+  .nav-links a[href="#plb"]{display:none;}
+}
+@media (max-width:680px){
+  .container{padding:0 18px;}
+  .nav-inner{padding:14px 0;gap:12px;align-items:flex-start;}
+  .nav-links{gap:12px;justify-content:flex-start;}
+  .brand .logo{display:none;}
+  .brand img{height:28px;}
+  header.hero{padding:24px 0 8px;}
+  .hero h1{font-size:2rem;}
+  .hero .sub{font-size:.95rem;}
+  .panel{padding:18px;}
+  .card{padding:16px;}
+  .big{font-size:1.08rem;}
+  .chartWrap{height:260px;}
+  .table, .table thead, .table tbody, .table tr, .table td{display:block;width:100%;}
+  .table thead{display:none;}
+  .table{border:none;margin-top:14px;}
+  .table tr{
+    margin-bottom:12px;
+    border:1px solid var(--hairline);
+    border-radius:14px;
+    overflow:hidden;
+    background:rgba(17,24,39,.6);
+  }
+  .table td{
+    border-bottom:1px solid var(--hairline);
+    padding:10px 12px;
+    font-size:13px;
+  }
+  .table td:last-child{border-bottom:none;}
+  .table td:nth-child(1)::before{content:'Week';}
+  .table td:nth-child(2)::before{content:'Instrument';}
+  .table td:nth-child(3)::before{content:'Structure';}
+  .table td:nth-child(4)::before{content:'Status';}
+  .table td::before{
+    display:block;
+    margin-bottom:3px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--muted2);
+  }
 }
 
 </style>
 </head>
+
 <body>
-<div class="container nav-inner">
-<div>1XW TRADING</div>
-<div class="nav-links">
-<a href="app.html">Research</a>
-<a href="login.html">Logout</a>
+<div class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="1XW Trading">
+      <img src="logo.png" alt="1XW Trading logo" />
+      <div class="logo">1XW TRADING</div>
+    </a>
+    <div class="nav-links">
+      <a href="#snapshot">Snapshot</a>
+      <a href="#performance">Performance</a>
+      <a href="#plb">PLB</a>
+      <a href="#trades">Trades</a>
+      <a href="app.html">Research</a>
+      <button class="nav-cta" id="logoutBtn" type="button">Logout</button>
+    </div>
+  </div>
 </div>
-</div>
-<div class="container">
-<h1>1XW Model</h1>
-<div class="grid-3">
-<div class="panel">Open Positions</div>
-<div class="panel">NAV</div>
-<div class="panel">NAV vs PLB</div>
-</div>
-<div class="panel chartWrap">NAV Chart</div>
-</div>
+
+<header class="hero">
+  <div class="container">
+    <div class="tag">Member Area</div>
+    <h1>1XW Model</h1>
+    <div class="sub">Performance, PLB and model portfolio generated by the 1XW trading framework.</div>
+    <div class="meta" id="asofLine"></div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="notice" id="noticeBox"></div>
+  <div class="error" id="errorBox"></div>
+
+  <section class="section" id="snapshot">
+    <div class="panel">
+      <div class="kicker">Snapshot</div>
+      <div class="p">Core portfolio state and risk boundary metrics.</div>
+
+      <div class="grid-3" style="margin-top:14px;">
+        <div class="card">
+          <div class="kicker">Open Positions</div>
+          <div class="big" id="posCount">—</div>
+          <div class="p">Active positions.</div>
+          <div class="pills" id="posPills"></div>
+          <div class="mini" id="posMeta"></div>
+        </div>
+
+        <div class="card">
+          <div class="kicker">NAV</div>
+          <div class="big" id="navValue">—</div>
+          <div class="pills">
+            <span class="pill" id="perfYtd">Performance YTD: —</span>
+          </div>
+          <div class="mini" id="navMetaTop"></div>
+        </div>
+
+        <div class="card">
+          <div class="kicker">NAV vs PLB</div>
+          <div class="big" id="navVsPlb">—</div>
+          <div class="pills">
+            <span class="pill" id="gapToPlb">Gap to PLB: —</span>
+          </div>
+          <div class="mini" id="plbMetaTop"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="performance">
+    <div class="panel">
+      <div class="kicker">Performance</div>
+      <div class="p">Net asset value history.</div>
+      <div class="chartWrap"><canvas id="navChart"></canvas></div>
+      <div class="mini" id="navMeta"></div>
+    </div>
+  </section>
+
+  <section class="section" id="plb">
+    <div class="panel">
+      <div class="kicker">PLB</div>
+      <div class="p">Performance lower boundary in percentage terms.</div>
+      <div class="chartWrap"><canvas id="plbChart"></canvas></div>
+      <div class="mini" id="plbMeta"></div>
+    </div>
+  </section>
+
+  <section class="section" id="trades">
+    <div class="panel">
+      <div class="kicker">Model Trades</div>
+      <div class="p">Model trade history.</div>
+
+      <table class="table" aria-label="Model trades">
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>Instrument</th>
+            <th>Structure</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tradesBody">
+          <tr><td colspan="4">Loading…</td></tr>
+        </tbody>
+      </table>
+
+      <div class="mini" id="tradesMeta"></div>
+    </div>
+  </section>
+</main>
+
+<footer>1XW TRADING © 2026. All rights reserved.</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<script>
+(() => {
+  const TOKEN_KEY = "1xw_auth";
+  const PERF_URL = "content/site_performance.json";
+  const SCREEN_URL = "content/site_screener.json";
+
+  if (localStorage.getItem(TOKEN_KEY) !== "ok") {
+    window.location.href = "login.html";
+    return;
+  }
+
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    localStorage.removeItem(TOKEN_KEY);
+    window.location.href = "login.html";
+  });
+
+  const noticeBox = document.getElementById("noticeBox");
+  const errorBox  = document.getElementById("errorBox");
+  const asofLine  = document.getElementById("asofLine");
+
+  const posCount = document.getElementById("posCount");
+  const posPills = document.getElementById("posPills");
+  const posMeta  = document.getElementById("posMeta");
+
+  const navValue   = document.getElementById("navValue");
+  const perfYtd    = document.getElementById("perfYtd");
+  const navMetaTop = document.getElementById("navMetaTop");
+
+  const navVsPlb   = document.getElementById("navVsPlb");
+  const gapToPlb   = document.getElementById("gapToPlb");
+  const plbMetaTop = document.getElementById("plbMetaTop");
+
+  const navMeta = document.getElementById("navMeta");
+  const plbMeta = document.getElementById("plbMeta");
+  const tradesMeta = document.getElementById("tradesMeta");
+
+  const tradesBody = document.getElementById("tradesBody");
+  const navCanvas  = document.getElementById("navChart");
+  const plbCanvas  = document.getElementById("plbChart");
+
+  let navChart = null;
+  let plbChart = null;
+
+  function showNotice(msg){ noticeBox.textContent = msg; noticeBox.style.display = "block"; }
+  function showError(msg){ errorBox.textContent = msg; errorBox.style.display = "block"; }
+  function clearMsgs(){ noticeBox.style.display = "none"; errorBox.style.display = "none"; }
+  function cacheBust(url){
+    const sep = url.includes("?") ? "&" : "?";
+    return url + sep + "v=" + Date.now();
+  }
+  async function loadJson(url){
+    const res = await fetch(cacheBust(url), { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
+    return await res.json();
+  }
+
+  function isNum(x){ return typeof x === "number" && !Number.isNaN(x); }
+  function fmtMoney(x){
+    if (!isNum(x)) return "—";
+    try{ return "$" + x.toLocaleString(undefined, { maximumFractionDigits: 0 }); }
+    catch{ return "$" + String(Math.round(x)); }
+  }
+  function fmtPct(xDec){
+    if (!isNum(xDec)) return "—";
+    return (xDec >= 0 ? "+" : "") + (xDec * 100).toFixed(2) + "%";
+  }
+
+  function renderOpenPositions(screener){
+    const list = Array.isArray(screener.openPositions) ? screener.openPositions : [];
+    posPills.innerHTML = "";
+    posCount.textContent = String(list.length);
+    posMeta.textContent = list.length ? "" : "No open positions.";
+
+    list.slice(0, 18).forEach(p => {
+      const sym = (p && p.symbol) ? String(p.symbol).trim() : "—";
+      const side = (p && p.side) ? String(p.side).toUpperCase().trim() : "";
+
+      const pill = document.createElement("div");
+      pill.className = "pill";
+      pill.style.display = "inline-flex";
+      pill.style.alignItems = "center";
+      pill.style.gap = "8px";
+
+      const left = document.createElement("span");
+      left.style.fontWeight = "700";
+      left.textContent = sym;
+      pill.appendChild(left);
+
+      if (side === "LONG"){
+        const b = document.createElement("span");
+        b.className = "side long";
+        b.textContent = side;
+        pill.appendChild(b);
+      }
+
+      posPills.appendChild(pill);
+    });
+  }
+
+  function renderSnapshot(perf){
+    const asof = perf.asof || "";
+    asofLine.textContent = asof ? `Updated ${asof}` : "";
+
+    const snap = perf.snapshot || {};
+    const nav = snap.nav_usd;
+    const plb = snap.plb_usd;
+    const gap = snap.gap_to_plb;
+    const ytd = snap.performance_ytd;
+
+    navValue.textContent = fmtMoney(nav);
+    navMetaTop.textContent = "";
+    perfYtd.textContent = `Performance YTD: ${fmtPct(ytd)}`;
+
+    if (isNum(nav) && isNum(plb)){
+      navVsPlb.textContent = `${fmtMoney(nav)} vs ${fmtMoney(plb)}`;
+      gapToPlb.textContent = `Gap to PLB: ${fmtPct(gap)}`;
+      plbMetaTop.textContent = "";
+    } else {
+      navVsPlb.textContent = "—";
+      gapToPlb.textContent = "Gap to PLB: —";
+      plbMetaTop.textContent = "";
+    }
+  }
+
+  function renderNavChart(perf){
+    if (navChart){ navChart.destroy(); navChart = null; }
+    const nav = perf.nav || {};
+    const labels = Array.isArray(nav.labels) ? nav.labels : [];
+    const values = Array.isArray(nav.values) ? nav.values : [];
+
+    if (!labels.length || !values.length){
+      navMeta.textContent = "";
+      return;
+    }
+
+    navMeta.textContent = "";
+    navChart = new Chart(navCanvas, {
+      type: "line",
+      data: {
+        labels,
+        datasets: [{
+          label: "NAV",
+          data: values,
+          borderColor: "#8aa2ff",
+          backgroundColor: "rgba(138,162,255,0.08)",
+          tension: 0.25,
+          pointRadius: 0,
+          borderWidth: 2,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: "rgba(124,156,255,0.08)" }, ticks: { color: "rgba(229,231,235,0.75)", maxTicksLimit: 8 } },
+          y: { grid: { color: "rgba(124,156,255,0.08)" }, ticks: { color: "rgba(229,231,235,0.75)" } }
+        }
+      }
+    });
+  }
+
+  function renderPlbChart(perf){
+    if (plbChart){ plbChart.destroy(); plbChart = null; }
+    const plb = perf.plb || {};
+    const labels = Array.isArray(plb.labels) ? plb.labels : [];
+    const init = Array.isArray(plb.init) ? plb.init : [];
+    const plbLine = Array.isArray(plb.plb) ? plb.plb : [];
+    const perfLine = Array.isArray(plb.perf) ? plb.perf : [];
+
+    if (!labels.length){
+      plbMeta.textContent = "";
+      return;
+    }
+
+    plbMeta.textContent = "";
+    plbChart = new Chart(plbCanvas, {
+      type:"line",
+      data:{
+        labels,
+        datasets:[
+          {
+            label:"Initial PLB %",
+            data:init,
+            borderColor:"#50c8aa",
+            backgroundColor:"rgba(0,0,0,0)",
+            borderDash:[6,6],
+            tension:0.15,
+            pointRadius:0,
+            borderWidth:2,
+            spanGaps:true
+          },
+          {
+            label:"PLB %",
+            data:plbLine,
+            borderColor:"#8aa2ff",
+            backgroundColor:"rgba(0,0,0,0)",
+            tension:0.15,
+            pointRadius:0,
+            borderWidth:2,
+            spanGaps:true
+          },
+          {
+            label:"PERF %",
+            data:perfLine,
+            borderColor:"#f6ad55",
+            backgroundColor:"rgba(0,0,0,0)",
+            tension:0.20,
+            pointRadius:0,
+            borderWidth:2,
+            fill:false,
+            spanGaps:true
+          }
+        ]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        interaction:{ mode:"index", intersect:false },
+        plugins:{
+          legend:{ display:true, labels:{ color:"rgba(229,231,235,0.85)" } },
+          tooltip:{
+            mode:"index",
+            intersect:false,
+            callbacks:{
+              label:(ctx)=> {
+                const v = ctx.parsed.y;
+                if (v === null || v === undefined || Number.isNaN(v)) return `${ctx.dataset.label}: n/a`;
+                return `${ctx.dataset.label}: ${(Number(v)*100).toFixed(2)}%`;
+              }
+            }
+          }
+        },
+        scales:{
+          x:{ grid:{ color:"rgba(124,156,255,0.08)" }, ticks:{ color:"rgba(229,231,235,0.75)", maxTicksLimit:8 } },
+          y:{ grid:{ color:"rgba(124,156,255,0.08)" }, ticks:{ color:"rgba(229,231,235,0.75)", callback:(v)=>`${(Number(v)*100).toFixed(0)}%` } }
+        }
+      }
+    });
+  }
+
+  function renderTrades(screener){
+    const list = Array.isArray(screener.modelTrades) ? screener.modelTrades : [];
+    if (!list.length){
+      tradesBody.innerHTML = `<tr><td colspan="4">No model trades available.</td></tr>`;
+      tradesMeta.textContent = "";
+      return;
+    }
+
+    tradesBody.innerHTML = "";
+    list.slice(0, 100).forEach(t => {
+      const wk = (t && t.week) ? String(t.week).trim() : "—";
+      const inst = (t && t.instrument) ? String(t.instrument).trim() : "—";
+      const structure = (t && t.structure) ? String(t.structure).trim() : "—";
+      const status = (t && t.status) ? String(t.status).trim() : "—";
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${wk}</td>
+        <td>${inst}</td>
+        <td>${structure}</td>
+        <td><span class="badge">${status}</span></td>
+      `;
+      tradesBody.appendChild(tr);
+    });
+
+    tradesMeta.textContent = "";
+  }
+
+  (async () => {
+    try{
+      clearMsgs();
+
+      const perf = await loadJson(PERF_URL).catch(() => null);
+      const screener = await loadJson(SCREEN_URL).catch(() => null);
+
+      if (!perf) showNotice("Performance data not available yet.");
+      if (!screener) showNotice((noticeBox.style.display === "block" ? noticeBox.textContent + " " : "") + "Screener data not available yet.");
+
+      if (perf){
+        renderSnapshot(perf);
+        renderNavChart(perf);
+        renderPlbChart(perf);
+      } else {
+        asofLine.textContent = "";
+        navMeta.textContent = "";
+        plbMeta.textContent = "";
+      }
+
+      if (screener){
+        renderOpenPositions(screener);
+        renderTrades(screener);
+      } else {
+        posCount.textContent = "—";
+        posMeta.textContent = "—";
+        tradesBody.innerHTML = `<tr><td colspan="4">—</td></tr>`;
+        tradesMeta.textContent = "";
+      }
+    } catch (e){
+      console.error(e);
+      showError(e && e.message ? e.message : String(e));
+    }
+  })();
+})();
+</script>
 </body>
 </html>

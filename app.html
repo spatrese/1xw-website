@@ -1,45 +1,761 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1XW Research</title>
-<style>
-body{font-family:Inter,sans-serif;background:#0b0f17;color:#e5e7eb;margin:0;}
-.container{max-width:1100px;margin:auto;padding:0 60px;}
-.nav-inner{display:flex;justify-content:space-between;padding:18px 0;}
-.nav-links a{margin-left:18px;color:#7c9cff;text-decoration:none;font-weight:700;}
-.panel{border:1px solid #1a2232;border-radius:16px;padding:24px;margin-top:20px;}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>1XW Trading | Weekly Research</title>
 
-/* MOBILE OPTIMIZATION */
-@media (max-width:768px){
-.container{padding:0 18px;}
-.nav-inner{padding:14px 0;}
-.nav-links{gap:12px;font-size:.85rem;flex-wrap:wrap;}
-.hero h1{font-size:1.8rem;}
-.grid-3{grid-template-columns:1fr;}
-.panel{padding:18px;}
-.chartWrap{height:260px;}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0f17;
+  --bg2:#111827;
+  --panel:#111827;
+  --panel2:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --muted2:#6b7280;
+  --hairline:#1a2232;
+  --line:rgba(255,255,255,.08);
+  --accent:#7c9cff;
+  --good:#34d399;
+  --bad:#f87171;
+  --warn:#fbbf24;
+
+  --radius-lg:22px;
+  --radius-md:14px;
+
+  --max:1120px;
+  --px:clamp(18px,5vw,64px);
+  --py:clamp(36px,4.8vw,64px);
+  --font-base:14px;
+  --font-small:12px;
+  --font-meta:13px;
+  --font-title:1.3rem;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  font-size:var(--font-base);
+  color:var(--text);
+  line-height:1.55;
+  background:
+    radial-gradient(900px 600px at 70% -10%, rgba(124,156,255,.12), transparent 60%),
+    radial-gradient(700px 500px at 20% 10%, rgba(124,156,255,.08), transparent 70%),
+    var(--bg);
+}
+a{color:inherit;text-decoration:none;}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--px);}
+
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,15,23,.75);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hairline);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 0;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand img{height:32px;width:auto;display:block;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));}
+.logo{
+  font-weight:900;letter-spacing:-.8px;text-transform:uppercase;color:var(--accent);line-height:1;
+}
+.nav-links{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.nav-links a,
+.nav-links button{
+  font-size:.9rem;
+  font-weight:700;
+  color:var(--accent);
+  padding:6px 2px;
+  border-radius:0;
+  border:none;
+  background:none;
+  cursor:pointer;
+}
+.nav-links a:hover,
+.nav-links button:hover{
+  color:var(--text);
+}
+.nav-cta{
+  margin-left:8px;
+  font-weight:700;
+  font-size:.9rem;
+  padding:10px 14px !important;
+  border-radius:999px !important;
+  border:1px solid rgba(124,156,255,.35) !important;
+  color:var(--accent);
+  background:rgba(124,156,255,.06) !important;
+}
+.nav-cta:hover{
+  background:rgba(124,156,255,.14) !important;
+}
+
+main{padding:var(--py) 0 84px;}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px;}
+.badge{
+  display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(124,156,255,.35);
+  background:rgba(124,156,255,.10);font-size:.74rem;letter-spacing:1.3px;text-transform:uppercase;
+  font-weight:800;color:var(--accent);margin-bottom:12px;
+}
+h1{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:900;letter-spacing:-1px;margin-bottom:6px;}
+.sub{max-width:920px;color:var(--muted);}
+.meta-line{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+.meta-chip{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.06);font-size:.9rem;color:var(--muted);
+}
+
+.notice,.error{display:none;margin:14px 0;padding:12px 14px;border-radius:14px;font-size:.92rem;}
+.notice{border:1px solid rgba(124,156,255,.22);background:rgba(124,156,255,.08);}
+.error{border:1px solid rgba(248,113,113,.35);background:rgba(248,113,113,.10);color:#fecaca;}
+
+.section{margin-top:24px;}
+.panel{
+  background:linear-gradient(180deg, rgba(17,24,39,.96), rgba(15,23,42,.94));
+  border:1px solid var(--hairline);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:0 14px 36px rgba(0,0,0,.18);
+}
+.data-row:hover{background:rgba(124,156,255,.03);}
+.panel-head{
+  padding:22px 24px 16px;
+  border-bottom:1px solid var(--hairline);
+  background:linear-gradient(180deg, rgba(124,156,255,.06), rgba(124,156,255,.02));
+}
+.kicker{
+  font-size:.74rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--accent);font-weight:800;margin-bottom:8px;
+}
+.panel-head h2{font-size:var(--font-title);font-weight:700;letter-spacing:-.4px;margin-bottom:4px;}
+.panel-head p{color:var(--muted);max-width:980px;}
+
+.rows{padding:0 24px 10px;}
+.col-head{
+  display:grid;gap:12px;align-items:center;padding:12px 0 10px;border-bottom:1px solid var(--line);
+  color:var(--muted2);font-size:var(--font-small);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+}
+.data-row{
+  display:grid;align-items:start;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);
+}
+.data-row:last-child{border-bottom:none;}
+
+.row-ideas{grid-template-columns:150px 135px 100px 95px 105px minmax(280px,1fr);}
+.row-breadth{grid-template-columns:170px 105px 90px 90px 110px minmax(240px,1fr);}
+.row-tone{grid-template-columns:170px 130px minmax(420px,1fr);}
+.row-tech{grid-template-columns:105px 145px 170px 90px 90px 90px;}
+.row-fund{grid-template-columns:170px 130px 125px minmax(360px,1fr);}
+.row-events{grid-template-columns:100px 110px minmax(340px,1fr) 240px;}
+
+.cell{min-width:0;font-size:var(--font-base);font-weight:500;color:var(--text);}
+.cell.wrap{white-space:normal;overflow:visible;text-overflow:unset;}
+.label{font-weight:700;letter-spacing:-.2px;}
+.muted{color:var(--muted);font-size:var(--font-meta);}
+.muted2{color:var(--muted2);}
+.num-pos{color:#bbf7d0;font-weight:800;}
+.num-neg{color:#fecaca;font-weight:800;}
+
+.pill{
+  display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;font-size:var(--font-small);font-weight:700;
+  border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.08);width:max-content;max-width:100%;
+}
+.side.long{color:#bbf7d0;border-color:rgba(52,211,153,.25);background:rgba(52,211,153,.10);}
+.side.short{color:#fecaca;border-color:rgba(248,113,113,.28);background:rgba(248,113,113,.10);}
+.tone.supportive{color:#bbf7d0;border-color:rgba(52,211,153,.25);background:rgba(52,211,153,.10);}
+.tone.cautious{color:#fecaca;border-color:rgba(248,113,113,.28);background:rgba(248,113,113,.10);}
+.tone.mixed{color:#fde68a;border-color:rgba(251,191,36,.28);background:rgba(251,191,36,.10);}
+.state.pos{color:#bbf7d0;}
+.state.neg{color:#fecaca;}
+.state.mix{color:#dbeafe;}
+.inline-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.empty{color:var(--muted2);font-size:.92rem;padding:14px 0;}
+.event-title{font-weight:700;display:block;margin-bottom:4px;}
+.event-src{font-size:.82rem;color:var(--muted2);}
+
+footer{
+  padding:34px 0 42px;
+  border-top:1px solid var(--hairline);
+  text-align:center;
+  color:rgba(100,116,139,.9);
+  font-size:.85rem;
+  background:#080c14;
+}
+
+@media (max-width:1100px){
+  .row-ideas,.row-breadth,.row-tone,.row-tech,.row-fund,.row-events,.col-head{
+    grid-template-columns:1fr;
+  }
+}
+@media (max-width:680px){
+  .brand .logo{display:none;}
+  .brand img{height:28px;}
+  .rows{padding:0 18px 10px;}
+  .panel-head{padding:20px 18px 14px;}
+  .nav-links{gap:14px;}
+}
+
+/* Mobile + polish refinements */
+@media (max-width:900px){
+  .nav-links a[href="#technical-breadth"],
+  .nav-links a[href="#technical-overview"],
+  .nav-links a[href="#fundamental-overview"]{display:none;}
+}
+@media (max-width:680px){
+  .container{padding:0 18px;}
+  .nav-inner{padding:14px 0;gap:12px;align-items:flex-start;}
+  .nav-links{gap:12px;justify-content:flex-start;}
+  .nav-links a[href="#events"]{display:none;}
+  .brand .logo{display:none;}
+  .brand img{height:28px;}
+  main{padding:26px 0 64px;}
+  .hero{margin-bottom:20px;}
+  h1{font-size:1.9rem;}
+  .sub{font-size:.95rem;}
+  .meta-line{gap:8px;}
+  .meta-chip{font-size:.8rem;padding:7px 10px;}
+  .section{margin-top:18px;}
+  .panel{border-radius:18px;}
+  .panel-head{padding:18px 18px 14px;}
+  .panel-head h2{font-size:1.12rem;}
+  .rows{padding:0 18px 6px;}
+  .col-head{display:none;}
+  .data-row{
+    grid-template-columns:1fr !important;
+    gap:8px;
+    padding:16px 0;
+  }
+  .cell{
+    font-size:14px;
+    line-height:1.45;
+  }
+  .cell::before{
+    content:attr(data-label);
+    display:block;
+    margin-bottom:2px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--muted2);
+  }
+  .inline-tags{gap:6px;}
+  .pill{font-size:11px;padding:5px 8px;}
 }
 
 </style>
 </head>
+
 <body>
-<div class="container nav-inner">
-<div>1XW TRADING</div>
-<div class="nav-links">
-<a href="model.html">Model</a>
-<a href="login.html">Logout</a>
-</div>
-</div>
-<div class="container">
-<h1>Weekly Research</h1>
-<div class="panel grid-3">
-<div>Technical Breadth</div>
-<div>Macro Tone</div>
-<div>Top Ideas</div>
-</div>
-</div>
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="1XW Trading">
+        <img src="logo.png" alt="1XW Trading logo" />
+        <span class="logo">1XW TRADING</span>
+      </a>
+      <div class="nav-links">
+        <a href="#topideas">Overview</a>
+        <a href="#technical-breadth">Breadth</a>
+        <a href="#technical-overview">Technical</a>
+        <a href="#fundamental-overview">Fundamental</a>
+        <a href="#events">Events</a>
+        <a href="model.html">Model</a>
+        <button class="nav-cta" id="logoutBtn" type="button">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="hero">
+      <div>
+        <div class="badge">Member Research</div>
+        <h1>Weekly Research</h1>
+        <div class="sub">Cross-asset weekly snapshot built around technical breadth, macro tone and highest-conviction long / short candidates.</div>
+        <div class="meta-line">
+          <span class="meta-chip" id="asofChip">As of —</span>
+          <span class="meta-chip" id="weekChip">Week —</span>
+          <span class="meta-chip" id="methodChip">Ranking: 75% tech / 25% macro</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice" id="noticeBox"></div>
+    <div class="error" id="errorBox"></div>
+
+    <section class="section" id="topideas">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="kicker">Overview</div>
+          <h2>Top 3 Long / Short</h2>
+          <p>Highest-ranked candidates of the week.</p>
+        </div>
+        <div class="rows">
+          <div class="col-head row-ideas">
+            <div>Candidate</div><div>Setup</div><div>Final</div><div>Tech</div><div>Macro</div><div>Rationale</div>
+          </div>
+          <div id="topIdeasRows"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="technical-breadth">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="kicker">Overview</div>
+          <h2>Technical Breadth</h2>
+          <p>Trend balance by asset class.</p>
+        </div>
+        <div class="rows">
+          <div class="col-head row-breadth">
+            <div>Asset Class</div><div>Avg Score</div><div>Bull</div><div>Bear</div><div>State</div><div>Summary</div>
+          </div>
+          <div id="breadthRows"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fundamental-tone">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="kicker">Overview</div>
+          <h2>Fundamental Tone</h2>
+          <p>Quick macro read by asset class.</p>
+        </div>
+        <div class="rows">
+          <div class="col-head row-tone">
+            <div>Asset Class</div><div>Tone</div><div>Commentary</div>
+          </div>
+          <div id="toneRows"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="technical-overview">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="kicker">Technical</div>
+          <h2>Technical Overview</h2>
+          <p>Instrument-level technical output.</p>
+        </div>
+        <div class="rows">
+          <div class="col-head row-tech">
+            <div>Symbol</div><div>Asset Class</div><div>Setup</div><div>Score</div><div>20d</div><div>60d</div>
+          </div>
+          <div id="techInstrumentRows"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fundamental-overview">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="kicker">Fundamental</div>
+          <h2>Fundamental Overview</h2>
+          <p>Commentary and highlights by asset class.</p>
+        </div>
+        <div class="rows">
+          <div class="col-head row-fund">
+            <div>Asset Class</div><div>Tone</div><div>Bias / Conf</div><div>Commentary / Headlines</div>
+          </div>
+          <div id="fundRows"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="kicker">Events</div>
+          <h2>Event Calendar</h2>
+          <p>Weekly macro and earnings watchlist.</p>
+        </div>
+        <div class="rows">
+          <div class="col-head row-events">
+            <div>Date</div><div>Type</div><div>Event</div><div>Markets</div>
+          </div>
+          <div id="eventRows"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>1XW TRADING © 2026. All rights reserved.</footer>
+
+<script>
+(() => {
+  const TOKEN_KEY = '1xw_auth';
+  const WEEKLY_URL = 'content/site_weekly.json';
+
+  if (localStorage.getItem(TOKEN_KEY) !== 'ok') {
+    window.location.href = 'login.html';
+    return;
+  }
+
+  const $ = id => document.getElementById(id);
+  const noticeBox = $('noticeBox');
+  const errorBox = $('errorBox');
+
+  function showError(msg){
+    errorBox.textContent = msg || 'Something went wrong.';
+    errorBox.style.display = 'block';
+    noticeBox.style.display = 'none';
+  }
+  function showNotice(msg){
+    if (!msg){ noticeBox.style.display = 'none'; return; }
+    noticeBox.textContent = msg;
+    noticeBox.style.display = 'block';
+    errorBox.style.display = 'none';
+  }
+  function escapeHtml(v){
+    return String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function cacheBust(url){
+    return url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now();
+  }
+  async function loadJson(url){
+    const res = await fetch(cacheBust(url), { cache:'no-store' });
+    if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
+    return res.json();
+  }
+  function pct(v, digits=1){
+    const n = Number(v);
+    return Number.isFinite(n) ? `${n > 0 ? '+' : ''}${n.toFixed(digits)}%` : '—';
+  }
+  function signed(v, digits=1){
+    const n = Number(v);
+    if (!Number.isFinite(n)) return '—';
+    return `${n > 0 ? '+' : ''}${n.toFixed(digits)}`;
+  }
+  function classForNum(v){
+    const n = Number(v);
+    if (!Number.isFinite(n)) return '';
+    if (n > 0) return 'num-pos';
+    if (n < 0) return 'num-neg';
+    return '';
+  }
+  function scorePct(v){
+    const n = Number(v);
+    return Number.isFinite(n) ? `${Math.round(n * 100)}` : '—';
+  }
+  function toneClass(t){
+    const x = String(t || '').toLowerCase();
+    if (x.includes('support')) return 'supportive';
+    if (x.includes('cautious') || x.includes('fragile') || x.includes('negative')) return 'cautious';
+    return 'mixed';
+  }
+  function assetState(row){
+    const avg = Number(row?.avg_score);
+    if (!Number.isFinite(avg)) return { label:'Mixed', cls:'mix' };
+    if (avg >= 1) return { label:'Positive', cls:'pos' };
+    if (avg <= -1) return { label:'Weak', cls:'neg' };
+    return { label:'Mixed', cls:'mix' };
+  }
+  function firstSentence(text){
+    const s = String(text || '').trim();
+    if (!s) return '';
+    const idx = s.indexOf('. ');
+    return idx > -1 ? s.slice(0, idx + 1) : s;
+  }
+  function parseDate(v){
+    if (!v) return null;
+    const d = new Date(v);
+    return Number.isNaN(d.getTime()) ? null : d;
+  }
+  function prettyDate(v){
+    const d = parseDate(v);
+    if (!d) return 'Watch';
+    return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short' });
+  }
+  function compactHeadline(title, max=68){
+    const s = String(title || '').trim();
+    if (s.length <= max) return s;
+    return s.slice(0, max - 1) + '…';
+  }
+  function normalizeSpaces(s){
+    return String(s || '').replace(/\s+/g, ' ').trim();
+  }
+  function buildIdeaRationale(item){
+    const parts = [];
+    if (item.setup) parts.push(item.setup);
+    const r20 = Number(item.ret_20d_pct);
+    if (Number.isFinite(r20)) parts.push(`${r20 > 0 ? '+' : ''}${r20.toFixed(1)}% 20d`);
+    if (item.rationale) parts.push(firstSentence(item.rationale));
+    return parts.filter(Boolean).join(' • ');
+  }
+  function rowHtml(cls, cells){
+    return `<div class="data-row ${cls}">${cells.map(c => `<div class="cell ${c.wrap ? 'wrap' : ''} ${c.extra || ''}" data-label="${c.label || ''}">${c.html}</div>`).join('')}</div>`;
+  }
+  function renderMeta(data){
+    $('asofChip').textContent = `As of ${data.asof || '—'}`;
+    $('weekChip').textContent = `Week ${data.week_id || '—'}`;
+    const techW = data.top_ideas?.methodology?.final?.tech_weight;
+    const fundW = data.top_ideas?.methodology?.final?.fund_weight;
+    if (Number.isFinite(techW) && Number.isFinite(fundW)) {
+      $('methodChip').textContent = `Ranking: ${Math.round(techW*100)}% tech / ${Math.round(fundW*100)}% macro`;
+    }
+  }
+
+  function renderTopIdeas(topIdeas){
+    const holder = $('topIdeasRows');
+    const longs = Array.isArray(topIdeas?.top_long) ? topIdeas.top_long.slice(0,3) : [];
+    const shorts = Array.isArray(topIdeas?.top_short) ? topIdeas.top_short.slice(0,3) : [];
+    const merged = [...longs.map(x => ({...x, side:'LONG'})), ...shorts.map(x => ({...x, side:'SHORT'}))];
+    if (!merged.length){
+      holder.innerHTML = '<div class="empty">No candidates available.</div>';
+      return;
+    }
+    holder.innerHTML = merged.map(item => {
+      const sideClass = item.side === 'LONG' ? 'long' : 'short';
+      const label = `${escapeHtml(item.side)} ${escapeHtml(item.symbol || '—')}`;
+      return rowHtml('row-ideas', [
+        { label:'Candidate', html:`<span class="label">${label}</span>` },
+        { label:'Setup', html: escapeHtml(item.setup || '—') },
+        { label:'Final', html:`<span class="pill">score ${escapeHtml(scorePct(item.final_score))}</span>` },
+        { label:'Tech', html:`<span class="pill ${sideClass === 'long' ? 'tone supportive' : 'tone cautious'}">tech ${escapeHtml(scorePct(item.tech_score))}</span>` },
+        { label:'Macro', html:`<span class="pill side ${sideClass}">macro ${escapeHtml(scorePct(item.macro_alignment ?? item.fund_support))}</span>` },
+        { label:'Rationale', html: escapeHtml(buildIdeaRationale(item) || 'No specific rationale available.'), wrap:true, extra:'muted' }
+      ]);
+    }).join('');
+  }
+
+  function renderBreadth(tech){
+    const holder = $('breadthRows');
+    const entries = Object.entries(tech?.by_asset_class || {});
+    if (!entries.length){
+      holder.innerHTML = '<div class="empty">No technical breadth available.</div>';
+      return;
+    }
+    holder.innerHTML = entries.map(([ac, row]) => {
+      const state = assetState(row);
+      return rowHtml('row-breadth', [
+        { label:'Asset Class', html:`<span class="label">${escapeHtml(ac)}</span>` },
+        { label:'Avg Score', html:`avg ${escapeHtml(signed(row.avg_score,1))}` },
+        { label:'Bull', html:`bull ${escapeHtml(String(row.bullish ?? '—'))}` },
+        { label:'Bear', html:`bear ${escapeHtml(String(row.bearish ?? '—'))}` },
+        { label:'State', html:`<span class="pill state ${state.cls}">${escapeHtml(state.label)}</span>` },
+        { label:'Summary', html: escapeHtml(firstSentence(row.text || '')), wrap:true, extra:'muted' }
+      ]);
+    }).join('');
+  }
+
+  function renderTone(fund){
+    const holder = $('toneRows');
+    const entries = Object.entries(fund?.by_asset_class || {});
+    if (!entries.length){
+      holder.innerHTML = '<div class="empty">No fundamental overview available.</div>';
+      return;
+    }
+    holder.innerHTML = entries.map(([ac, row]) => rowHtml('row-tone', [
+      { label:'Asset Class', html:`<span class="label">${escapeHtml(ac)}</span>` },
+      { label:'Tone', html:`<span class="pill tone ${toneClass(row.tone)}">${escapeHtml(row.tone || 'Mixed')}</span>` },
+      { label:'Commentary', html: escapeHtml(firstSentence(row.commentary || '')), wrap:true, extra:'muted' }
+    ])).join('');
+  }
+
+  function renderTechnicalOverview(tech){
+    const holder = $('techInstrumentRows');
+    const rows = Object.values(tech?.by_symbol || {}).sort((a,b) => (Number(b.score) || 0) - (Number(a.score) || 0));
+    if (!rows.length){
+      holder.innerHTML = '<div class="empty">No instrument rows available.</div>';
+      return;
+    }
+    holder.innerHTML = rows.map(row => rowHtml('row-tech', [
+      { label:'Symbol', html:`<span class="label">${escapeHtml(row.symbol || '')}</span>` },
+      { label:'Asset Class', html: escapeHtml(row.asset_class || '') },
+      { label:'Setup', html: escapeHtml(row.setup || '') },
+      { label:'Score', html:`<span class="${classForNum(row.score)}">${escapeHtml(signed(row.score,0))}</span>` },
+      { label:'20d', html:`<span class="${classForNum(row.ret_20d_pct)}">${escapeHtml(pct(row.ret_20d_pct,1))}</span>` },
+      { label:'60d', html:`<span class="${classForNum(row.ret_60d_pct)}">${escapeHtml(pct(row.ret_60d_pct,1))}</span>` }
+    ])).join('');
+  }
+
+  function renderFundamentalOverview(fund){
+    const holder = $('fundRows');
+    const entries = Object.entries(fund?.by_asset_class || {});
+    if (!entries.length){
+      holder.innerHTML = '<div class="empty">No fundamental overview available.</div>';
+      return;
+    }
+    holder.innerHTML = entries.map(([ac, row]) => {
+      const headlines = Array.isArray(row.top_news) ? row.top_news.slice(0,2).map(n => compactHeadline(n.title || '')).filter(Boolean) : [];
+      const tail = [firstSentence(row.commentary || '')].filter(Boolean);
+      if (headlines.length) tail.push(headlines.join(' • '));
+      return rowHtml('row-fund', [
+        { label:'Asset Class', html:`<span class="label">${escapeHtml(ac)}</span>` },
+        { label:'Tone', html:`<span class="pill tone ${toneClass(row.tone)}">${escapeHtml(row.tone || 'Mixed')}</span>` },
+        { label:'Bias / Conf', html:`bias ${escapeHtml(signed(row.bias,2))} · conf ${escapeHtml(scorePct(row.confidence))}` },
+        { label:'Commentary / Headlines', html: escapeHtml(tail.join(' — ')), wrap:true, extra:'muted' }
+      ]);
+    }).join('');
+  }
+
+  function normalizeMacroTitle(title){
+    const t = normalizeSpaces(title).toLowerCase();
+    const rules = [
+      [/non[- ]farm|payroll/, 'US Non-Farm Payrolls'],
+      [/\bcpi\b|consumer price/, 'US CPI'],
+      [/\bppi\b|producer price/, 'US PPI'],
+      [/jobless claims|claims/, 'US Jobless Claims'],
+      [/\bpmi\b|ism/, 'PMI / ISM'],
+      [/\bgdp\b/, 'GDP Release'],
+      [/retail sales/, 'Retail Sales'],
+      [/fomc|fed meeting|federal reserve decision|rate decision/, 'Fed Meeting / Rate Decision'],
+      [/fed speakers|powell/, 'Fed Speakers'],
+      [/ecb decision|ecb meeting|ecb policy/, 'ECB Meeting / Rate Decision'],
+      [/ecb speakers|lagarde/, 'ECB Speakers'],
+      [/boe|bank of england/, 'BoE Event'],
+      [/boj|bank of japan/, 'BoJ Event'],
+      [/opec/, 'OPEC / Energy Watch'],
+      [/inventory/, 'Inventory Data'],
+      [/\bunemployment\b/, 'Labour Market Data'],
+      [/earnings|results|guidance|quarter|q1|q2|q3|q4|eps/, null]
+    ];
+    for (const [re, label] of rules){
+      if (re.test(t)) return label;
+    }
+    return null;
+  }
+
+  function extractCompanyFromHeadline(title){
+    const raw = normalizeSpaces(title);
+    let m = raw.match(/^([A-Z][A-Za-z0-9&.\- ]{1,40}?)\s+(?:earnings|results|guidance|reports|report|posts)\b/i);
+    if (m) return `${m[1].trim()} earnings`;
+    m = raw.match(/\b([A-Z][A-Za-z0-9&.\- ]{1,40}?)\s+(?:Q[1-4]|quarterly)\b/i);
+    if (m) return `${m[1].trim()} earnings`;
+    return raw.includes('earnings') || raw.includes('results') ? raw : null;
+  }
+
+  function collectEvents(fund){
+    const out = [];
+    for (const [ac, row] of Object.entries(fund?.by_asset_class || {})) {
+      const pushEvent = (evt) => {
+        if (!evt || !evt.title) return;
+        out.push(evt);
+      };
+
+      const structuredMacro = Array.isArray(row.macro_calendar) ? row.macro_calendar : [];
+      structuredMacro.forEach(e => pushEvent({
+        date: e.date || '',
+        type: 'Macro',
+        title: normalizeSpaces(e.label || e.title || ''),
+        assets: Array.isArray(e.asset_tags) && e.asset_tags.length ? e.asset_tags : [ac],
+        source: e.source || ''
+      }));
+
+      const structuredEarn = [
+        ...(ac === 'Equities' && Array.isArray(row.earnings_calendar) ? row.earnings_calendar : []),
+        ...(ac === 'Equities' && Array.isArray(row.earnings_watch) ? row.earnings_watch : [])
+      ];
+      structuredEarn.forEach(e => pushEvent({
+        date: e.date || '',
+        type: 'Earnings',
+        title: normalizeSpaces(e.label || e.title || ''),
+        assets: ['Equities'],
+        source: e.source || ''
+      }));
+
+      const legacyEvents = Array.isArray(row.key_events) ? row.key_events : [];
+      legacyEvents.forEach(e => {
+        const type = String(e.type || '').toLowerCase() === 'earnings' ? 'Earnings' : 'Macro';
+        if (type === 'Earnings' && ac !== 'Equities') return;
+        const title = type === 'Macro'
+          ? (normalizeMacroTitle(e.title || e.label || '') || normalizeSpaces(e.title || e.label || ''))
+          : (extractCompanyFromHeadline(e.title || e.label || '') || normalizeSpaces(e.title || e.label || ''));
+        pushEvent({ date:e.date || '', type, title, assets:type === 'Earnings' ? ['Equities'] : [ac], source:e.source || '' });
+      });
+
+      const news = Array.isArray(row.top_news) ? row.top_news : [];
+      news.forEach(n => {
+        const title = normalizeSpaces(n.title || '');
+        if (!title) return;
+        if (ac === 'Equities') {
+          const earn = extractCompanyFromHeadline(title);
+          if (earn) {
+            pushEvent({ date:n.date || '', type:'Earnings', title:earn, assets:['Equities'], source:n.source || '' });
+          }
+        }
+        const macro = normalizeMacroTitle(title);
+        if (macro) {
+          pushEvent({ date:n.date || '', type:'Macro', title:macro, assets:[ac], source:n.source || '' });
+        }
+      });
+    }
+
+    const merge = new Map();
+    out.forEach(e => {
+      const title = normalizeSpaces(e.title);
+      if (!title) return;
+      const key = `${e.date || ''}|${e.type}|${title}`;
+      if (!merge.has(key)) {
+        merge.set(key, { ...e, title, assets:[...(e.assets || [])] });
+      } else {
+        const cur = merge.get(key);
+        cur.assets = Array.from(new Set([...(cur.assets || []), ...(e.assets || [])]));
+        if (!cur.source && e.source) cur.source = e.source;
+      }
+    });
+
+    const events = Array.from(merge.values())
+      .filter(e => e.title && (!/CNBC Top News/i.test(e.source || '') || e.type === 'Earnings'))
+      .sort((a,b) => {
+        const da = parseDate(a.date)?.getTime() || 0;
+        const db = parseDate(b.date)?.getTime() || 0;
+        return da - db || a.type.localeCompare(b.type) || a.title.localeCompare(b.title);
+      });
+
+    return events.slice(0, 14);
+  }
+
+  function renderEvents(fund){
+    const holder = $('eventRows');
+    const events = collectEvents(fund);
+    if (!events.length){
+      holder.innerHTML = '<div class="empty">No major events.</div>';
+      return;
+    }
+    holder.innerHTML = events.map(e => rowHtml('row-events', [
+      { label:'Date', html: escapeHtml(prettyDate(e.date)) },
+      { label:'Type', html:`<span class="pill ${String(e.type).toLowerCase() === 'earnings' ? 'tone mixed' : ''}">${escapeHtml(e.type)}</span>` },
+      { label:'Event', html:`<span class="event-title">${escapeHtml(e.title)}</span>${e.source ? `<span class="event-src">${escapeHtml(e.source)}</span>` : ''}`, wrap:true },
+      { label:'Markets', html:`<div class="inline-tags">${(e.assets || []).map(a => `<span class="pill">${escapeHtml(a)}</span>`).join('')}</div>`, wrap:true }
+    ])).join('');
+  }
+
+  async function init(){
+    try {
+      showNotice('');
+      const weekly = await loadJson(WEEKLY_URL);
+      renderMeta(weekly);
+      renderTopIdeas(weekly.top_ideas || {});
+      renderBreadth(weekly.technical_overview || {});
+      renderTone(weekly.fundamental_overview || {});
+      renderTechnicalOverview(weekly.technical_overview || {});
+      renderFundamentalOverview(weekly.fundamental_overview || {});
+      renderEvents(weekly.fundamental_overview || {});
+    } catch (err) {
+      console.error(err);
+      showError(err && err.message ? err.message : 'Failed to load weekly research.');
+    }
+  }
+
+  $('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem(TOKEN_KEY);
+    window.location.href = 'login.html';
+  });
+
+  init();
+})();
+</script>
 </body>
 </html>
