@@ -258,10 +258,28 @@ footer{
 }
 @media (max-width:768px){
   .container{padding:0 18px;}
-  .nav-inner{padding:14px 0;gap:14px;}
-  .nav-links{gap:10px;flex-wrap:wrap;justify-content:flex-end;}
-  .nav-links a{font-size:.84rem;padding:6px 2px;}
-  .nav-cta{padding:9px 12px;font-size:.84rem;}
+  .nav-inner{padding:14px 0;gap:12px;}
+  .nav-links{
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+  .nav-links a{
+    font-size:.84rem;
+    padding:6px 2px;
+  }
+  .nav-links a[href="#principles"],
+  .nav-links a[href="#edge"],
+  .nav-links a[href="#coinflip"],
+  .nav-links a[href="#plb"],
+  .nav-links a[href="#transparency"]{
+    display:none;
+  }
+  .nav-cta{
+    padding:8px 12px;
+    font-size:.84rem;
+    margin-left:6px;
+  }
   header.hero{padding:58px 0 34px;}
   .hero h1{font-size:clamp(2rem,9vw,2.9rem);line-height:1.06;letter-spacing:-1.4px;}
   .hero .headline{font-size:1rem;margin-bottom:14px;}
@@ -276,15 +294,10 @@ footer{
   .footer-title{font-size:1.15rem;}
   .legal{padding:16px;font-size:.76rem;}
 }
-@media (max-width:640px){
-  .nav-links a[href="#coinflip"],
-  .nav-links a[href="#plb"],
-  .nav-links a[href="#transparency"]{display:none;}
-}
 @media (max-width:520px){
   .brand img{height:28px;}
   .brand .logo{display:none;}
-  .nav-links{gap:10px;}
+  .nav-links{gap:8px;}
   .nav-links a{font-size:.82rem;}
   .nav-cta{margin-left:4px;}
   .hero h1 br{display:none;}
@@ -442,7 +455,7 @@ footer{
   <div class="container">
     <div class="section-head">
       <h2>Performance Logic</h2>
-      <p>Performance is the sum of independent setups rather than directional exposure. (NAV curve can be displayed below.)</p>
+      <p>Performance is the sum of independent setups rather than directional exposure.</p>
     </div>
 
     <div class="grid-2">
@@ -456,9 +469,7 @@ footer{
         <div class="chart-inner">
           <canvas id="navChart"></canvas>
         </div>
-        <div style="margin-top:10px;color:var(--muted2);font-size:.85rem;" id="navMeta">
-          Loading NAV chart…
-        </div>
+        <div style="margin-top:10px;color:var(--muted2);font-size:.85rem;" id="navMeta"></div>
       </div>
     </div>
   </div>
@@ -488,9 +499,7 @@ footer{
         <div class="chart-inner">
           <canvas id="plbChart"></canvas>
         </div>
-        <div style="margin-top:10px;color:var(--muted2);font-size:.85rem;" id="plbMeta">
-          Loading PLB chart…
-        </div>
+        <div style="margin-top:10px;color:var(--muted2);font-size:.85rem;" id="plbMeta"></div>
       </div>
     </div>
   </div>
@@ -513,7 +522,7 @@ footer{
       <div class="panel">
         <div class="kicker">Instruments</div>
         <div class="h3">Liquid, risk-defined structures</div>
-        <div class="p">The framework emphasizes risk-defined execution and explicit downside profiles. (Instrument universe can be detailed here if you want: Equity, FX, Commodities, Options.)</div>
+        <div class="p">The framework emphasizes risk-defined execution and explicit downside profiles. Investment universe includes Equities, Commodities, FX and Rates.</div>
       </div>
     </div>
   </div>
@@ -598,10 +607,10 @@ footer{
   function renderNav(series){
     if (navChart){ navChart.destroy(); navChart = null; }
     if (!series || !Array.isArray(series.labels) || series.labels.length === 0){
-      navMeta.textContent = "NAV chart not available (missing labels/values).";
+      navMeta.textContent = "";
       return;
     }
-    navMeta.textContent = `Loaded NAV series: ${series.labels.length} points.`;
+    navMeta.textContent = "";
     navChart = new Chart(navCanvas, {
       type: "line",
       data: {
@@ -633,10 +642,10 @@ footer{
   function renderPlb(series){
     if (plbChart){ plbChart.destroy(); plbChart = null; }
     if (!series || !Array.isArray(series.labels) || series.labels.length === 0){
-      plbMeta.textContent = "PLB chart not available (missing labels/series).";
+      plbMeta.textContent = "";
       return;
     }
-    plbMeta.textContent = `Loaded PLB series: ${series.labels.length} points.`;
+    plbMeta.textContent = "";
 
     plbChart = new Chart(plbCanvas, {
       type:"line",
@@ -710,8 +719,8 @@ footer{
       renderNav(data.nav);
       renderPlb(data.plb);
     } catch (e){
-      navMeta.textContent = "Charts unavailable (could not load public_charts.json).";
-      plbMeta.textContent = "Charts unavailable (could not load public_charts.json).";
+      navMeta.textContent = "";
+      plbMeta.textContent = "";
       console.error(e);
     }
   })();
