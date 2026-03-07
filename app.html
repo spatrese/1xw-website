@@ -504,9 +504,20 @@ footer{
   function rowHtml(cls, cells){
     return `<div class="data-row ${cls}">${cells.map(c => `<div class="cell ${c.wrap ? 'wrap' : ''} ${c.extra || ''}" data-label="${c.label || ''}">${c.html}</div>`).join('')}</div>`;
   }
-  function renderMeta(data){
-    $('asofChip').textContent = `As of ${data.asof || '—'}`;
-    $('weekChip').textContent = `Week ${data.week_id || '—'}`;
+  function formatDate(d){
+  if(!d) return '—';
+  const date = new Date(d);
+  return date.toLocaleDateString('en-GB',{
+    day:'numeric',
+    month:'short',
+    year:'numeric'
+  });
+}
+
+function renderMeta(data){
+  $('asofChip').textContent = `As of ${formatDate(data.asof)}`;
+  $('weekChip').textContent = `Week ${data.week_id || '—'}`;
+}
     const techW = data.top_ideas?.methodology?.final?.tech_weight;
     const fundW = data.top_ideas?.methodology?.final?.fund_weight;
     if (Number.isFinite(techW) && Number.isFinite(fundW)) {
