@@ -256,37 +256,48 @@ def extract_plb_usd(df_plb: pd.DataFrame) -> Optional[float]:
     return None
 
 
-def build_plb_percent_series(labels: List[str], nav: List[float], plb_usd: Optional[float]) -> Dict[str, Any]:
+def extract_plb_percent_series(df_plb: pd.DataFrame) -> Dict[str, Any]:
     """
-    Always produce PLB chart with same points as NAV:
-      perf% = NAV/NAV0 - 1
-      plb%  = PLB_USD/NAV0 - 1
-      init% = same as plb%
-    Values are decimals.
+    Read the actual percentage series from sheet PLB instead of reverse-engineering
+    them from the latest PLB USD level.
+
+    Expected columns:
+      - DATE
+      - PERF %
+      - PLB %
+      - Initial PLB %
+
+    All exported values stay in decimal form, e.g. -0.01 = -1%.
     """
-    if not labels or not nav:
+    date_col = find_col(df_plb, ["DATE", "Date"]) or find_col_contains(df_plb, ["date"])
+    perf_col = find_col(df_plb, ["PERF %"]) or find_col_contains(df_plb, ["perf %"])
+    plb_col = find_col(df_plb, ["PLB %"]) or find_col_contains(df_plb, ["plb %"])
+    init_col = find_col(df_plb, ["Initial PLB %"]) or find_col_contains(df_plb, ["initial plb"])
+
+    if not date_col:
         return {"labels": [], "init": [], "plb": [], "perf": []}
 
-    nav0 = nav[0]
-    if nav0 is None or nav0 == 0:
+    rows = []
+    for _, r in df_plb.iterrows():
+        d = normalize_date(r.get(date_col))
+        if not d:
+            continue
+        rows.append({
+            "label": d,
+            "init": to_float(r.get(init_col)) if init_col else None,
+            "plb": to_float(r.get(plb_col)) if plb_col else None,
+            "perf": to_float(r.get(perf_col)) if perf_col else None,
+        })
+
+    if not rows:
         return {"labels": [], "init": [], "plb": [], "perf": []}
 
-    perf = [(v / nav0 - 1.0) if v is not None else None for v in nav]
-
-    if plb_usd is None:
-        return {
-            "labels": labels,
-            "init": [None] * len(labels),
-            "plb": [None] * len(labels),
-            "perf": perf
-        }
-
-    plb_pct = (plb_usd / nav0) - 1.0
+    rows.sort(key=lambda x: x["label"])
     return {
-        "labels": labels,
-        "init": [plb_pct] * len(labels),
-        "plb": [plb_pct] * len(labels),
-        "perf": perf
+        "labels": [x["label"] for x in rows],
+        "init": [x["init"] for x in rows],
+        "plb": [x["plb"] for x in rows],
+        "perf": [x["perf"] for x in rows],
     }
 
 
@@ -384,7 +395,7 @@ def main():
         gap_to_plb = (plb_usd / nav_last) - 1.0
 
     ytd = compute_ytd(labels, nav_values)
-    plb_block = build_plb_percent_series(labels, nav_values, plb_usd)
+    plb_block = extract_plb_percent_series(df_plb)
 
     perf_json: Dict[str, Any] = {
         "asof": asof,
