@@ -1,7 +1,7 @@
 import argparse
 import json
 import os
-from datetime import datetime, date
+from datetime import date, datetime
 from typing import Any, Dict, List, Optional, Tuple
 
 import pandas as pd
@@ -51,18 +51,21 @@ def to_float(x: Any) -> Optional[float]:
                 return None
         except Exception:
             pass
-        if isinstance(x, str) and x.strip() == "":
-            return None
+        if isinstance(x, str):
+            s = x.strip()
+            if not s:
+                return None
+            s = s.replace(",", "")
+            if s.endswith("%"):
+                return float(s[:-1]) / 100.0
+            return float(s)
         return float(x)
     except Exception:
         return None
 
 
 def normalize_date(x: Any) -> str:
-    """
-    Returns YYYY-MM-DD or "".
-    Handles pd.NaT safely.
-    """
+    """Return YYYY-MM-DD or ''."""
     if x is None:
         return ""
     try:
@@ -90,6 +93,8 @@ def normalize_date(x: Any) -> str:
                 "%d-%m-%Y",
                 "%Y-%m-%d %H:%M:%S",
                 "%Y/%m/%d %H:%M:%S",
+                "%d/%m/%Y %H:%M:%S",
+                "%d-%m-%Y %H:%M:%S",
             ):
                 try:
                     return datetime.strptime(s[:19], fmt).date().isoformat()
@@ -115,6 +120,20 @@ def _key(x: Any) -> str:
         return ""
 
 
+def dedupe_headers(headers: List[str]) -> List[str]:
+    out: List[str] = []
+    seen: Dict[str, int] = {}
+    for h in headers:
+        base = h if h else "col"
+        if base not in seen:
+            seen[base] = 0
+            out.append(base)
+        else:
+            seen[base] += 1
+            out.append(f"{base}__{seen[base]}")
+    return out
+
+
 def find_col(df: pd.DataFrame, candidates: List[str]) -> Optional[str]:
     cols = {_key(c): c for c in df.columns}
     for cand in candidates:
@@ -124,15 +143,17 @@ def find_col(df: pd.DataFrame, candidates: List[str]) -> Optional[str]:
     return None
 
 
-def find_col_contains(df: pd.DataFrame, needles: List[str]) -> Optional[str]:
-    ns = [str(n).strip().lower() for n in needles]
+def find_col_contains(df: pd.DataFrame, needles: List[str], exclude: Optional[List[str]] = None) -> Optional[str]:
+    ns = [str(n).strip().lower() for n in needles if str(n).strip()]
+    ex = [str(x).strip().lower() for x in (exclude or []) if str(x).strip()]
     for c in df.columns:
         cl = _key(c)
         if not cl:
             continue
-        for n in ns:
-            if n and n in cl:
-                return c
+        if any(bad in cl for bad in ex):
+            continue
+        if all(n in cl for n in ns):
+            return c
     return None
 
 
@@ -143,28 +164,32 @@ def parse_table_by_tokens_all(
     xl: pd.ExcelFile,
     sheet_name: str,
     header_must_contain: List[str],
-    max_scan_rows: int = 350
+    max_scan_rows: int = 350,
 ) -> pd.DataFrame:
     raw = xl.parse(sheet_name, header=None)
     scan_rows = min(max_scan_rows, raw.shape[0])
 
-    tokens = [t.strip().lower() for t in header_must_contain if t.strip()]
+    tokens = [t.strip().lower() for t in header_must_contain if t and t.strip()]
     header_row_idx = None
 
     for i in range(scan_rows):
         row_vals = raw.iloc[i].tolist()
-        row_str = " | ".join([safe_str(v).lower() for v in row_vals if safe_str(v)])
-        if not row_str:
+        row_text = " | ".join([safe_str(v).lower() for v in row_vals if safe_str(v)])
+        if not row_text:
             continue
-        if all(tok in row_str for tok in tokens):
+        if all(tok in row_text for tok in tokens):
             header_row_idx = i
             break
 
     if header_row_idx is None:
-        raise ValueError(f"Could not find header row in sheet '{sheet_name}' with tokens: {header_must_contain}")
+        raise ValueError(
+            f"Could not find header row in sheet '{sheet_name}' with tokens: {header_must_contain}"
+        )
 
-    header = [safe_str(v) if safe_str(v) else f"col_{j}" for j, v in enumerate(raw.iloc[header_row_idx].tolist())]
-    df = raw.iloc[header_row_idx + 1:].copy()
+    raw_header = [safe_str(v) if safe_str(v) else f"col_{j}" for j, v in enumerate(raw.iloc[header_row_idx].tolist())]
+    header = dedupe_headers(raw_header)
+
+    df = raw.iloc[header_row_idx + 1 :].copy()
     df.columns = header
     df = df.dropna(how="all")
     return df
@@ -174,15 +199,11 @@ def parse_table_by_tokens_all(
 # Extractors
 # ----------------------------
 def compute_ytd(labels: List[str], nav: List[float]) -> Optional[float]:
-    if not labels or not nav or len(labels) != len(nav) or len(nav) < 2:
+    if not labels or not nav or len(labels) != len(nav):
         return None
     try:
         year = int(labels[-1][:4])
-        first_idx = None
-        for i, d in enumerate(labels):
-            if d and int(d[:4]) == year:
-                first_idx = i
-                break
+        first_idx = next((i for i, d in enumerate(labels) if d and int(d[:4]) == year), None)
         if first_idx is None:
             return None
         a = nav[first_idx]
@@ -195,61 +216,66 @@ def compute_ytd(labels: List[str], nav: List[float]) -> Optional[float]:
 
 
 def extract_open_positions(df_pos: pd.DataFrame) -> List[Dict[str, Any]]:
-    qty_col = find_col(df_pos, ["QUANTITY"]) or find_col_contains(df_pos, ["quantity", "qty"])
+    qty_col = find_col(df_pos, ["QUANTITY"]) or find_col_contains(df_pos, ["quantity"])
     sym_col = (
-        find_col(df_pos, ["TICKER", "Ticker", "SYMBOL", "Symbol"])
-        or find_col_contains(df_pos, ["ticker", "symbol", "under"])
+        find_col(df_pos, ["TICKER", "SYMBOL", "UNDERLYING"])
+        or find_col_contains(df_pos, ["ticker"])
+        or find_col_contains(df_pos, ["symbol"])
+        or find_col_contains(df_pos, ["under"])
     )
 
     if not qty_col or not sym_col:
         return []
 
-    out = []
+    out: List[Dict[str, Any]] = []
     for _, r in df_pos.iterrows():
         q = to_float(r.get(qty_col))
         if q is None or q <= 0:
             continue
         sym = safe_str(r.get(sym_col))
-        out.append({
-            "symbol": sym,
-            "side": "LONG",
-            "quantity": q
-        })
+        if not sym:
+            continue
+        out.append({"symbol": sym, "side": "LONG", "quantity": q})
 
     out.sort(key=lambda x: x.get("symbol", ""))
     return out
 
 
 def extract_nav(df_nav: pd.DataFrame) -> Tuple[List[str], List[float]]:
-    date_col = find_col(df_nav, ["Date", "DATE"]) or find_col_contains(df_nav, ["date"])
-    nav_col = find_col(df_nav, ["EoP Capital $", "EOP CAPITAL $"]) or find_col_contains(df_nav, ["eop capital", "capital $", "nav"])
+    date_col = find_col(df_nav, ["Date", "DATE"]) or find_col_contains(df_nav, ["date"], exclude=["week"])
+    nav_col = (
+        find_col(df_nav, ["EoP Capital $", "EOP CAPITAL $"])
+        or find_col_contains(df_nav, ["eop", "capital"])
+        or find_col_contains(df_nav, ["nav"], exclude=["min"])
+    )
 
     if not date_col or not nav_col:
         return [], []
 
-    labels, values = [], []
+    rows: List[Tuple[str, float]] = []
     for _, r in df_nav.iterrows():
         d = normalize_date(r.get(date_col))
         v = to_float(r.get(nav_col))
         if not d or v is None:
             continue
-        labels.append(d)
-        values.append(float(v))
+        rows.append((d, float(v)))
 
-    pairs = sorted(zip(labels, values), key=lambda x: x[0])
-    return [p[0] for p in pairs], [p[1] for p in pairs]
+    rows.sort(key=lambda x: x[0])
+    labels = [x[0] for x in rows]
+    values = [x[1] for x in rows]
+    return labels, values
 
 
 def extract_plb_usd(df_plb: pd.DataFrame) -> Optional[float]:
-    usd_col = find_col(df_plb, ["EoP MIN NAV $", "EOP MIN NAV $"]) or find_col_contains(df_plb, ["eop min nav", "min nav"])
+    usd_col = (
+        find_col(df_plb, ["EoP MIN NAV $", "EOP MIN NAV $"])
+        or find_col_contains(df_plb, ["eop", "min", "nav"])
+        or find_col_contains(df_plb, ["min nav"], exclude=["bop"])
+    )
     if not usd_col:
         return None
 
-    s = df_plb[usd_col].dropna()
-    if s.empty:
-        return None
-
-    for v in reversed(s.tolist()):
+    for v in reversed(df_plb[usd_col].tolist()):
         f = to_float(v)
         if f is not None:
             return float(f)
@@ -257,82 +283,67 @@ def extract_plb_usd(df_plb: pd.DataFrame) -> Optional[float]:
 
 
 def extract_plb_percent_series(df_plb: pd.DataFrame) -> Dict[str, Any]:
-    """
-    Read the actual percentage series from sheet PLB instead of reverse-engineering
-    them from the latest PLB USD level.
-
-    Expected columns:
-      - DATE
-      - PERF %
-      - PLB %
-      - Initial PLB %
-
-    All exported values stay in decimal form, e.g. -0.01 = -1%.
-    """
-    date_col = find_col(df_plb, ["DATE", "Date"]) or find_col_contains(df_plb, ["date"])
-    perf_col = find_col(df_plb, ["PERF %"]) or find_col_contains(df_plb, ["perf %"])
-    plb_col = find_col(df_plb, ["PLB %"]) or find_col_contains(df_plb, ["plb %"])
-    init_col = find_col(df_plb, ["Initial PLB %"]) or find_col_contains(df_plb, ["initial plb"])
+    # With duplicated headers in the sheet, the key is to pick the FIRST block,
+    # not any later duplicate like DATE__1.
+    date_col = find_col(df_plb, ["DATE", "Date"]) or find_col_contains(df_plb, ["date"], exclude=["__", "week"])
+    perf_col = (
+        find_col(df_plb, ["PERF %"])
+        or find_col_contains(df_plb, ["perf", "%"], exclude=["wk", "week", "initial"])
+    )
+    plb_col = (
+        find_col(df_plb, ["PLB %"])
+        or find_col_contains(df_plb, ["plb", "%"], exclude=["wk", "week", "initial"])
+    )
+    init_col = (
+        find_col(df_plb, ["Initial PLB %"])
+        or find_col_contains(df_plb, ["initial", "plb"], exclude=["__"])
+    )
 
     if not date_col:
         return {"labels": [], "init": [], "plb": [], "perf": []}
 
-    rows = []
+    rows: List[Tuple[str, Optional[float], Optional[float], Optional[float]]] = []
     for _, r in df_plb.iterrows():
         d = normalize_date(r.get(date_col))
         if not d:
             continue
-        rows.append({
-            "label": d,
-            "init": to_float(r.get(init_col)) if init_col else None,
-            "plb": to_float(r.get(plb_col)) if plb_col else None,
-            "perf": to_float(r.get(perf_col)) if perf_col else None,
-        })
+        init_v = to_float(r.get(init_col)) if init_col else None
+        plb_v = to_float(r.get(plb_col)) if plb_col else None
+        perf_v = to_float(r.get(perf_col)) if perf_col else None
+
+        # Keep the row if there is at least one useful series value.
+        if init_v is None and plb_v is None and perf_v is None:
+            continue
+
+        rows.append((d, init_v, plb_v, perf_v))
 
     if not rows:
         return {"labels": [], "init": [], "plb": [], "perf": []}
 
-    rows.sort(key=lambda x: x["label"])
+    rows.sort(key=lambda x: x[0])
     return {
-        "labels": [x["label"] for x in rows],
-        "init": [x["init"] for x in rows],
-        "plb": [x["plb"] for x in rows],
-        "perf": [x["perf"] for x in rows],
+        "labels": [x[0] for x in rows],
+        "init": [x[1] for x in rows],
+        "plb": [x[2] for x in rows],
+        "perf": [x[3] for x in rows],
     }
 
 
 def extract_model_trades_from_blotter(df_tr: pd.DataFrame) -> List[Dict[str, Any]]:
-    """
-    Blotter has no TradeDate; use WEEK as first field.
-    Structure = Instrument
-    Status = derived from Quantity
-    """
-
-    week_col = (
-        find_col(df_tr, ["WEEK", "Week"])
-        or find_col_contains(df_tr, ["week"])
-    )
-
+    week_col = find_col(df_tr, ["WEEK", "Week"]) or find_col_contains(df_tr, ["week"])
     ticker_col = (
-        find_col(df_tr, ["TICKER", "Ticker", "SYMBOL", "Symbol", "UNDERLYING", "Underlying"])
-        or find_col_contains(df_tr, ["ticker", "symbol", "under"])
+        find_col(df_tr, ["TICKER", "SYMBOL", "UNDERLYING"])
+        or find_col_contains(df_tr, ["ticker"])
+        or find_col_contains(df_tr, ["symbol"])
+        or find_col_contains(df_tr, ["under"])
     )
-
-    instrument_col = (
-        find_col(df_tr, ["Instrument", "INSTRUMENT"])
-        or find_col_contains(df_tr, ["instrument"])
-    )
-
-    qty_col = (
-        find_col(df_tr, ["QUANTITY", "Quantity"])
-        or find_col_contains(df_tr, ["quantity", "qty"])
-    )
+    instrument_col = find_col(df_tr, ["Instrument", "INSTRUMENT"]) or find_col_contains(df_tr, ["instrument"])
+    qty_col = find_col(df_tr, ["QUANTITY", "Quantity"]) or find_col_contains(df_tr, ["quantity"])
 
     if not week_col:
         return []
 
-    out = []
-
+    out: List[Dict[str, Any]] = []
     for _, r in df_tr.iterrows():
         wk = safe_str(r.get(week_col))
         if not wk:
@@ -340,20 +351,21 @@ def extract_model_trades_from_blotter(df_tr: pd.DataFrame) -> List[Dict[str, Any
 
         inst = safe_str(r.get(ticker_col)) if ticker_col else ""
         structure = safe_str(r.get(instrument_col)) if instrument_col else ""
-
         q = to_float(r.get(qty_col)) if qty_col else None
         status = "OPEN" if (q is not None and q > 0) else "CLOSED"
 
-        out.append({
-            "week": wk,
-            "instrument": inst,
-            "structure": structure,
-            "status": status,
-        })
+        out.append(
+            {
+                "week": wk,
+                "instrument": inst,
+                "structure": structure,
+                "status": status,
+            }
+        )
 
-    def sort_key(x: Dict[str, Any]):
+    def sort_key(x: Dict[str, Any]) -> int:
         try:
-            return int(float(x.get("week", "")))
+            return int(float(x.get("week", "0")))
         except Exception:
             return 0
 
@@ -364,7 +376,7 @@ def extract_model_trades_from_blotter(df_tr: pd.DataFrame) -> List[Dict[str, Any
 # ----------------------------
 # Main
 # ----------------------------
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", required=True)
     args = parser.parse_args()
@@ -372,41 +384,43 @@ def main():
     xl = pd.ExcelFile(args.file)
     ensure_dir("content")
 
-    # Open positions from Blotter
-    df_pos = parse_table_by_tokens_all(xl, "Blotter", ["TICKER", "QUANTITY"], max_scan_rows=400)
-    open_positions = extract_open_positions(df_pos)
-
-    # Model trades from Blotter
-    df_blotter_trades = parse_table_by_tokens_all(xl, "Blotter", ["WEEK", "TICKER"], max_scan_rows=600)
-    model_trades = extract_model_trades_from_blotter(df_blotter_trades)
+    # Blotter
+    df_blotter = parse_table_by_tokens_all(xl, "Blotter", ["TICKER", "QUANTITY"], max_scan_rows=600)
+    open_positions = extract_open_positions(df_blotter)
+    model_trades = extract_model_trades_from_blotter(df_blotter)
 
     # NAV
     df_nav = parse_table_by_tokens_all(xl, "NAV", ["Date", "EoP"], max_scan_rows=250)
-    labels, nav_values = extract_nav(df_nav)
+    nav_labels, nav_values = extract_nav(df_nav)
     nav_last = nav_values[-1] if nav_values else None
-    asof = labels[-1] if labels else datetime.today().date().isoformat()
+    asof = nav_labels[-1] if nav_labels else datetime.today().date().isoformat()
 
     # PLB
-    df_plb = parse_table_by_tokens_all(xl, "PLB", ["DATE", "EoP"], max_scan_rows=300)
+    df_plb = parse_table_by_tokens_all(
+        xl,
+        "PLB",
+        ["DATE", "PERF %", "PLB %", "Initial PLB %"],
+        max_scan_rows=300,
+    )
     plb_usd = extract_plb_usd(df_plb)
+    plb_block = extract_plb_percent_series(df_plb)
 
     gap_to_plb = None
     if nav_last is not None and plb_usd is not None and nav_last != 0:
         gap_to_plb = (plb_usd / nav_last) - 1.0
 
-    ytd = compute_ytd(labels, nav_values)
-    plb_block = extract_plb_percent_series(df_plb)
+    ytd = compute_ytd(nav_labels, nav_values)
 
     perf_json: Dict[str, Any] = {
         "asof": asof,
-        "nav": {"labels": labels, "values": nav_values},
+        "nav": {"labels": nav_labels, "values": nav_values},
         "snapshot": {
             "nav_usd": nav_last,
             "plb_usd": plb_usd,
             "gap_to_plb": gap_to_plb,
-            "performance_ytd": ytd
+            "performance_ytd": ytd,
         },
-        "plb": plb_block
+        "plb": plb_block,
     }
     write_json("content/site_performance.json", perf_json)
     print("✅ Wrote: content/site_performance.json")
@@ -420,12 +434,12 @@ def main():
     write_json(screener_path, screener)
     print("✅ Updated: content/site_screener.json (injected modelTrades + openPositions)")
 
-    print(f"   Open positions: {len(open_positions)} (QUANTITY>0)")
-    print(f"   NAV points: {len(labels)} (EoP Capital $)")
+    print(f"   Open positions: {len(open_positions)}")
+    print(f"   NAV points: {len(nav_labels)}")
     print(f"   NAV last: {nav_last}")
     print(f"   PLB USD: {plb_usd}")
     print(f"   PLB chart points: {len(plb_block.get('labels', []))}")
-    print(f"   Model trades: {len(model_trades)} (source: Blotter, field: week)")
+    print(f"   Model trades: {len(model_trades)}")
 
 
 if __name__ == "__main__":
