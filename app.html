@@ -273,6 +273,12 @@ footer{
   .row-events{grid-template-columns:85px 95px minmax(260px,1fr) 200px;}
 }
 
+.info-tip{
+  font-size:11px;
+  color:#9aa0a6;
+  margin-left:4px;
+  cursor:help;
+}
 </style>
 </head>
 
@@ -332,7 +338,7 @@ footer{
         </div>
         <div class="rows">
           <div class="col-head row-breadth">
-            <div>Asset Class</div><div>Avg Score</div><div>Bull</div><div>Bear</div><div>State</div><div>Summary</div>
+            <div>Asset Class</div><div>Avg Score <span class="info-tip" title="Average technical score across instruments in the asset class. Instrument scores range from -4 (weak) to +4 (strong).">(i)</span></div><div>Bull</div><div>Bear</div><div>State</div><div>Summary</div>
           </div>
           <div id="breadthRows"></div>
         </div>
@@ -380,7 +386,7 @@ footer{
         </div>
         <div class="rows">
           <div class="col-head row-fund">
-            <div>Asset Class</div><div>Tone</div><div>Bias / Conf</div><div>Commentary / Headlines</div>
+            <div>Asset Class</div><div>Tone</div><div>Bias / Conf <span class="info-tip" title="Bias: macro sentiment direction (-1 to +1). Conf: confidence score based on news coverage (0–100).">(i)</span></div><div>Commentary / Headlines</div>
           </div>
           <div id="fundRows"></div>
         </div>
