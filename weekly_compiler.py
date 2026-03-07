@@ -154,7 +154,7 @@ def attach_events_to_fundamentals(fundamental_overview: Dict[str, Any], event_ca
     for node in by_ac.values():
         node.setdefault('macro_calendar', []); node.setdefault('earnings_calendar', []); node.setdefault('key_watchpoints', []); node.setdefault('key_events', [])
     for ev in event_calendar:
-        item = {'label': short_event_label(safe_str(ev.get('title'))), 'title': safe_str(ev.get('title')), 'source': safe_str(ev.get('source')), 'date': safe_str(ev.get('date')), 'url': safe_str(ev.get('url'))}
+        item = {'label': short_event_label(safe_str(ev.get('title'))), 'title': safe_str(ev.get('title')),'type': safe_str(ev.get('type')), 'source': safe_str(ev.get('source')), 'date': safe_str(ev.get('date')), 'url': safe_str(ev.get('url'))}
         for ac in map_event_to_asset_classes(ev):
             if ac not in by_ac: continue
             if ev.get('type') == 'Macro':
