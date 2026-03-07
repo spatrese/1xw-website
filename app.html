@@ -274,10 +274,19 @@ footer{
 }
 
 .info-tip{
-  font-size:11px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:14px;
+  height:14px;
+  margin-left:6px;
+  border-radius:50%;
+  border:1px solid #6b7280;
+  font-size:10px;
+  font-weight:600;
   color:#9aa0a6;
-  margin-left:4px;
   cursor:help;
+  line-height:1;
 }
 </style>
 </head>
@@ -338,7 +347,7 @@ footer{
         </div>
         <div class="rows">
           <div class="col-head row-breadth">
-            <div>Asset Class</div><div>Avg Score <span class="info-tip" title="Average technical score across instruments in the asset class. Instrument scores range from -4 (weak) to +4 (strong).">(i)</span></div><div>Bull</div><div>Bear</div><div>State</div><div>Summary</div>
+            <div>Asset Class</div><div>Avg Score <span class="info-tip" title="Average technical score across instruments in the asset class. Instrument scores range from -4 (weak) to +4 (strong).">i</span></div><div>Bull</div><div>Bear</div><div>State</div><div>Summary</div>
           </div>
           <div id="breadthRows"></div>
         </div>
@@ -386,7 +395,7 @@ footer{
         </div>
         <div class="rows">
           <div class="col-head row-fund">
-            <div>Asset Class</div><div>Tone</div><div>Bias / Conf <span class="info-tip" title="Bias: macro sentiment direction (-1 to +1). Conf: confidence score based on news coverage (0–100).">(i)</span></div><div>Commentary / Headlines</div>
+            <div>Asset Class</div><div>Tone</div><div>Bias / Conf <span class="info-tip" title="Bias: macro sentiment direction (-1 to +1). Conf: confidence score based on news coverage (0–100).">i</span></div><div>Commentary / Headlines</div>
           </div>
           <div id="fundRows"></div>
         </div>
