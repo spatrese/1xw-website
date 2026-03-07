@@ -412,7 +412,7 @@ def main() -> None:
     ytd = compute_ytd(nav_labels, nav_values)
 
     perf_json: Dict[str, Any] = {
-        "asof": asof,
+     
         "nav": {"labels": nav_labels, "values": nav_values},
         "snapshot": {
             "nav_usd": nav_last,
