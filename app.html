@@ -648,8 +648,11 @@ function renderMeta(data){
     const t = normalizeSpaces(title).toLowerCase();
     const rules = [
       [/non[- ]farm|payroll/, 'US Non-Farm Payrolls'],
-      [/\bcpi\b|consumer price/, 'US CPI'],
-      [/\bppi\b|producer price/, 'US PPI'],
+     [/\bus cpi\b|\bconsumer price index\b.*\bus\b/, 'US CPI'],
+     [/\bus ppi\b|\bproducer price index\b.*\bus\b/, 'US PPI'],
+     [/\bchina cpi\b/, 'China CPI'],
+     [/\bchina ppi\b/, 'China PPI'],
+     [/\beuro area cpi\b|\beurozone cpi\b/, 'Euro Area CPI'],
       [/jobless claims|claims/, 'US Jobless Claims'],
       [/\bpmi\b|ism/, 'PMI / ISM'],
       [/\bgdp\b/, 'GDP Release'],
