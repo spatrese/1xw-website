@@ -117,7 +117,7 @@ h1{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:900;letter-spacing:-1px;marg
   display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
   border:1px solid rgba(124,156,255,.18);background:rgba(124,156,255,.06);font-size:.9rem;color:var(--muted);
 }
-#weekChip{display:none;}
+#weekChip{display:inline-flex;}
 
 .notice,.error{display:none;margin:14px 0;padding:12px 14px;border-radius:14px;font-size:.92rem;}
 .notice{border:1px solid rgba(124,156,255,.22);background:rgba(124,156,255,.08);}
@@ -273,6 +273,30 @@ footer{
   .row-events{grid-template-columns:85px 95px minmax(160px,1fr) 320px;}
 }
 
+
+.history-bar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.hist-btn,
+.hist-select{
+  background:#111827;
+  color:var(--text);
+  border:1px solid var(--hairline);
+  border-radius:10px;
+  padding:10px 12px;
+  font:inherit;
+}
+.hist-btn{cursor:pointer;}
+.hist-btn:disabled{
+  opacity:.4;
+  cursor:default;
+}
+.hist-select{min-width:170px;}
+
 .info-tip{
   display:inline-flex;
   align-items:center;
@@ -315,6 +339,12 @@ footer{
           <span class="meta-chip" id="asofChip">As of —</span>
           <span class="meta-chip" id="weekChip">Week —</span>
           <span class="meta-chip" id="methodChip">Ranking: 75% tech / 25% macro</span>
+        </div>
+        <div class="history-bar" id="historyBar">
+          <button class="hist-btn" id="prevWeekBtn" type="button">← Previous</button>
+          <select class="hist-select" id="weekSelect"></select>
+          <button class="hist-btn" id="nextWeekBtn" type="button">Next →</button>
+          <button class="hist-btn" id="latestWeekBtn" type="button">Latest</button>
         </div>
       </div>
     </div>
@@ -425,6 +455,7 @@ footer{
 (() => {
   const TOKEN_KEY = '1xw_auth';
   const WEEKLY_URL = 'content/site_weekly.json';
+  const WEEKLY_INDEX_URL = 'content/history/weeklies/index.json';
 
   if (localStorage.getItem(TOKEN_KEY) !== 'ok') {
     window.location.href = 'login.html';
@@ -779,10 +810,107 @@ function renderMeta(data){
     ])).join('');
   }
 
+
+  function getWeekParam(){
+    const params = new URLSearchParams(window.location.search);
+    return (params.get('week') || '').trim();
+  }
+  function setWeekParam(week){
+    const url = new URL(window.location.href);
+    if (week) url.searchParams.set('week', week);
+    else url.searchParams.delete('week');
+    window.history.replaceState({}, '', url);
+  }
+  function sortWeeksDesc(weeks){
+    return [...weeks].sort((a, b) => String(b.id || '').localeCompare(String(a.id || '')));
+  }
+  async function loadWeeklyIndex(){
+    const idx = await loadJson(WEEKLY_INDEX_URL);
+    const weeks = Array.isArray(idx?.weeks)
+      ? idx.weeks.filter(x => x && x.id && x.path)
+      : [];
+    return {
+      current: idx?.current || '',
+      weeks: sortWeeksDesc(weeks)
+    };
+  }
+  function bindHistoryControls(index, activeWeekId){
+    const select = $('weekSelect');
+    const prevBtn = $('prevWeekBtn');
+    const nextBtn = $('nextWeekBtn');
+    const latestBtn = $('latestWeekBtn');
+
+    const weeks = index.weeks || [];
+    const ids = weeks.map(w => w.id);
+    const activeIdx = ids.indexOf(activeWeekId);
+
+    select.innerHTML = weeks.map(w => {
+      const label = w.asof ? `${w.id} · ${w.asof}` : w.id;
+      return `<option value="${escapeHtml(w.id)}"${w.id === activeWeekId ? ' selected' : ''}>${escapeHtml(label)}</option>`;
+    }).join('');
+
+    prevBtn.disabled = activeIdx < 0 || activeIdx >= weeks.length - 1;
+    nextBtn.disabled = activeIdx <= 0;
+    latestBtn.disabled = activeWeekId === index.current;
+
+    select.onchange = () => {
+      const week = select.value;
+      setWeekParam(week === index.current ? '' : week);
+      window.location.reload();
+    };
+
+    prevBtn.onclick = () => {
+      if (activeIdx < 0 || activeIdx >= weeks.length - 1) return;
+      const target = weeks[activeIdx + 1].id;
+      setWeekParam(target === index.current ? '' : target);
+      window.location.reload();
+    };
+
+    nextBtn.onclick = () => {
+      if (activeIdx <= 0) return;
+      const target = weeks[activeIdx - 1].id;
+      setWeekParam(target === index.current ? '' : target);
+      window.location.reload();
+    };
+
+    latestBtn.onclick = () => {
+      setWeekParam('');
+      window.location.reload();
+    };
+  }
+  async function resolveWeeklySource(){
+    try {
+      const index = await loadWeeklyIndex();
+      const requested = getWeekParam();
+      const activeWeekId = requested || index.current;
+      const match = (index.weeks || []).find(w => w.id === activeWeekId);
+
+      if (!match) {
+        return {
+          index,
+          activeWeekId: '',
+          weekly: await loadJson(WEEKLY_URL)
+        };
+      }
+
+      return {
+        index,
+        activeWeekId,
+        weekly: await loadJson(match.path)
+      };
+    } catch (err) {
+      return {
+        index: null,
+        activeWeekId: '',
+        weekly: await loadJson(WEEKLY_URL)
+      };
+    }
+  }
+
   async function init(){
     try {
       showNotice('');
-      const weekly = await loadJson(WEEKLY_URL);
+      const { index, activeWeekId, weekly } = await resolveWeeklySource();
       renderMeta(weekly);
       renderTopIdeas(weekly.top_ideas || {});
       renderBreadth(weekly.technical_overview || {});
@@ -790,6 +918,10 @@ function renderMeta(data){
       renderTechnicalOverview(weekly.technical_overview || {});
       renderFundamentalOverview(weekly.fundamental_overview || {});
       renderEvents(weekly.fundamental_overview || {});
+
+      if (index && index.weeks && index.weeks.length) {
+        bindHistoryControls(index, activeWeekId || index.current);
+      }
     } catch (err) {
       console.error(err);
       showError(err && err.message ? err.message : 'Failed to load weekly research.');
