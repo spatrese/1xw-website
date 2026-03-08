@@ -154,7 +154,7 @@ def attach_events_to_fundamentals(fundamental_overview: Dict[str, Any], event_ca
     for node in by_ac.values():
         node.setdefault('macro_calendar', []); node.setdefault('earnings_calendar', []); node.setdefault('key_watchpoints', []); node.setdefault('key_events', [])
     for ev in event_calendar:
-        item = {'label': short_event_label(safe_str(ev.get('title'))), 'title': safe_str(ev.get('title')),'type': safe_str(ev.get('type')), 'source': safe_str(ev.get('source')), 'date': safe_str(ev.get('date')), 'url': safe_str(ev.get('url'))}
+        item = {'label': short_event_label(safe_str(ev.get('title'))), 'title': safe_str(ev.get('title')), 'source': safe_str(ev.get('source')), 'date': safe_str(ev.get('date')), 'url': safe_str(ev.get('url'))}
         for ac in map_event_to_asset_classes(ev):
             if ac not in by_ac: continue
             if ev.get('type') == 'Macro':
@@ -218,6 +218,35 @@ def main():
     os.makedirs(args.history_dir, exist_ok=True)
     hist = os.path.join(args.history_dir, f"{iso_week_id(asof_d)}.json")
     write_json(hist, weekly)
+
+    # ---- rebuild weekly index ----
+    import glob
+    week_files = glob.glob(os.path.join(args.history_dir, "*.json"))
+
+    weeks = []
+    for wf in week_files:
+        try:
+            with open(wf, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            weeks.append({
+                "id": data.get("week_id"),
+                "asof": data.get("asof"),
+                "path": f"content/history/weeklies/{os.path.basename(wf)}"
+            })
+        except Exception:
+            continue
+
+    weeks = sorted(weeks, key=lambda x: x["id"], reverse=True)
+
+    index = {
+        "current": iso_week_id(asof_d),
+        "weeks": weeks
+    }
+
+    index_path = os.path.join(args.history_dir, "index.json")
+    write_json(index_path, index)
+    print(f"✅ Wrote index: {index_path}")
+
     print(f"✅ Wrote: {args.out}")
     print(f"✅ Wrote: {hist}")
     print(f"   Instruments: {len(technical_overview.get('by_symbol', {}))} | Tech AC: {len(technical_overview.get('by_asset_class', {}))} | Fund AC: {len(fundamental_overview.get('by_asset_class', {}))} | Events: {len(event_calendar)}")
