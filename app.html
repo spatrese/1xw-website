@@ -1056,27 +1056,8 @@ footer{
       }
       if (top < 12) top = 12;
 
-      pop.style.left = `${left}px`;
-      pop.style.top = `${top}px`;
-    }
-
-      const r = el.getBoundingClientRect();
-      const p = pop.getBoundingClientRect();
-
-      let top = r.bottom + 10;
-      let left = r.left + (r.width / 2) - (p.width / 2);
-
-      if (left < 12) left = 12;
-      if (left + p.width > window.innerWidth - 12){
-        left = window.innerWidth - p.width - 12;
-      }
-      if (top + p.height > window.innerHeight - 12){
-        top = r.top - p.height - 10;
-      }
-      if (top < 12) top = 12;
-
-      pop.style.left = `${left}px`;
-      pop.style.top = `${top}px`;
+            pop.style.left = `${left}px`;
+            pop.style.top = `${top}px`;
     }
 
     tips.forEach(el => {
