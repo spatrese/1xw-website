@@ -244,47 +244,36 @@ footer{
   .grid-3{grid-template-columns:1fr;}
   .chartWrap{height:280px;}
 }
-@media (max-width: 680px) {
-  .container { padding: 0 20px; }
-  .nav-inner { 
-    padding: 14px 4px; 
-    gap: 12px; 
-    align-items: center; 
-  }
-  .brand { padding-left: 4px; }
-  .nav-links { 
-    padding-right: 4px; 
-    gap: 10px; 
-    justify-content: flex-end; 
-  }
-  .brand .logo { display: none !important; }
-  .brand img { height: 28px; }
-  
-  .nav-links a, 
-  .nav-links button {
-    font-size: .85rem;
-    padding: 6px 2px;
-  }
-  .nav-cta {
-    margin-left: 4px;
-    padding: 8px 12px !important;
-    font-size: .85rem;
-  }
-}
+
 /* Mobile + polish refinements */
 
 @media (max-width:680px){
   .container{padding:0 20px;}
-  .nav-inner{padding:18px 4px; gap:12px; align-items:flex-start;}
-  .brand .logo{display:none;} 
-  .brand img{height:28px;}
+  .nav-inner{
+    padding:14px 4px;
+    gap:12px;
+    align-items:center;
+  }
+  .brand{
+    padding-left:4px;
+  }
+  .brand .logo{
+    display:none !important;
+  }
+  .brand img{
+    height:28px;
+  }
+  .nav-links{
+    padding-right:4px;
+    gap:10px;
+    justify-content:flex-end;
+  }
 
-  /* Forza la dimensione dei testi nella nav bar mobile */
-  .nav-links a, 
-  .nav-links button, 
-  .nav-cta {
-    font-size: 13px !important;
-    padding: 6px 10px !important;
+  .nav-links a,
+  .nav-links button,
+  .nav-cta{
+    font-size:13px !important;
+    padding:6px 10px !important;
   }
 }
 
