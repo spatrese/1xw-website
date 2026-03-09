@@ -287,6 +287,93 @@ footer{
   }
 }
 
+.info-tip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;
+  height:18px;
+  margin-left:6px;
+  border-radius:999px;
+  border:1px solid rgba(124,156,255,.32);
+  background:rgba(124,156,255,.10);
+  color:var(--accent);
+  font-size:11px;
+  font-weight:800;
+  line-height:1;
+  cursor:pointer;
+  vertical-align:middle;
+  user-select:none;
+}
+
+.info-tip:hover{
+  background:rgba(124,156,255,.16);
+}
+
+.info-tip:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 4px rgba(124,156,255,.16);
+}
+
+.tooltip-pop{
+  position:fixed;
+  z-index:9999;
+  max-width:min(320px, calc(100vw - 24px));
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(124,156,255,.22);
+  background:rgba(15,23,42,.98);
+  color:var(--text);
+  font-size:12px;
+  line-height:1.45;
+  box-shadow:0 18px 42px rgba(0,0,0,.34);
+  pointer-events:auto;
+}
+
+.tooltip-pop.is-mobile{
+  left:12px !important;
+  right:12px !important;
+  bottom:12px !important;
+  top:auto !important;
+  max-width:none;
+  padding:14px 14px 16px;
+  border-radius:16px;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.tooltip-close{
+  display:none;
+}
+
+.tooltip-pop.is-mobile .tooltip-close{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(124,156,255,.28);
+  background:rgba(124,156,255,.10);
+  color:var(--accent);
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.tooltip-pop strong{
+  color:var(--accent);
+}
+
+@media (max-width:680px){
+  .info-tip{
+    width:20px;
+    height:20px;
+    font-size:12px;
+    margin-left:5px;
+  }
+}
+
 </style>
 </head>
 
@@ -355,12 +442,12 @@ footer{
   <div>Asset Class</div>
   <div>
     Avg Score
-    <span
-      class="info-tip"
-      tabindex="0"
-      aria-label="Average score explanation"
-      data-tip="Average technical score of the instruments in that asset class. Positive values indicate stronger trend conditions overall, negative values weaker conditions, and values near zero a mixed backdrop."
-    >?</span>
+   <span
+  class="info-tip"
+  tabindex="0"
+  aria-label="Average score explanation"
+  data-tip="<strong>Avg Score</strong><br>Average technical score of instruments in the asset class.<br><br><strong>Range:</strong> -4 to +4.<br><strong>+1 to +4:</strong> positive / bullish backdrop.<br><strong>-1 to -4:</strong> weak / bearish backdrop.<br><strong>Around 0:</strong> mixed conditions."
+>?</span>
   </div>
   <div>Bull</div>
   <div>Bear</div>
@@ -417,12 +504,12 @@ footer{
   <div>Tone</div>
   <div>
     Bias / Conf
-    <span
-      class="info-tip"
-      tabindex="0"
-      aria-label="Bias and confidence explanation"
-      data-tip="Bias measures directional macro lean for the asset class, from negative to positive. Conf is confidence, shown as a percentage-like score, indicating how strong or reliable that macro view is this week."
-    >?</span>
+   <span
+  class="info-tip"
+  tabindex="0"
+  aria-label="Bias and confidence explanation"
+  data-tip="<strong>Bias / Conf</strong><br><strong>Bias:</strong> directional macro lean for the asset class.<br><strong>Range:</strong> -1.00 to +1.00.<br><strong>Positive:</strong> supportive backdrop.<br><strong>Negative:</strong> cautious / adverse backdrop.<br><br><strong>Conf:</strong> conviction of that macro view.<br><strong>Range:</strong> 0 to 100.<br><strong>Low:</strong> weak conviction.<br><strong>High:</strong> strong conviction."
+>?</span>
   </div>
   <div>Commentary / Headlines</div>
 </div>
@@ -909,12 +996,131 @@ footer{
     }
   }
 
+  function initInfoTips(){
+    const tips = Array.from(document.querySelectorAll('.info-tip'));
+    if (!tips.length) return;
+
+    let pop = null;
+
+    function closeTip(){
+      if (pop){
+        pop.remove();
+        pop = null;
+      }
+      tips.forEach(t => t.setAttribute('aria-expanded', 'false'));
+    }
+
+        function openTip(el){
+      closeTip();
+
+      pop = document.createElement('div');
+      pop.className = 'tooltip-pop';
+
+      const tipHtml = el.getAttribute('data-tip') || '';
+      const isMobile = window.matchMedia('(max-width: 680px)').matches;
+
+      if (isMobile){
+        pop.classList.add('is-mobile');
+        pop.innerHTML = `${tipHtml}<button type="button" class="tooltip-close">Close</button>`;
+      } else {
+        pop.innerHTML = tipHtml;
+      }
+
+      document.body.appendChild(pop);
+      el.setAttribute('aria-expanded', 'true');
+
+      if (isMobile){
+        const closeBtn = pop.querySelector('.tooltip-close');
+        if (closeBtn){
+          closeBtn.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            ev.stopPropagation();
+            closeTip();
+          });
+        }
+        return;
+      }
+
+      const r = el.getBoundingClientRect();
+      const p = pop.getBoundingClientRect();
+
+      let top = r.bottom + 10;
+      let left = r.left + (r.width / 2) - (p.width / 2);
+
+      if (left < 12) left = 12;
+      if (left + p.width > window.innerWidth - 12){
+        left = window.innerWidth - p.width - 12;
+      }
+      if (top + p.height > window.innerHeight - 12){
+        top = r.top - p.height - 10;
+      }
+      if (top < 12) top = 12;
+
+      pop.style.left = `${left}px`;
+      pop.style.top = `${top}px`;
+    }
+
+      const r = el.getBoundingClientRect();
+      const p = pop.getBoundingClientRect();
+
+      let top = r.bottom + 10;
+      let left = r.left + (r.width / 2) - (p.width / 2);
+
+      if (left < 12) left = 12;
+      if (left + p.width > window.innerWidth - 12){
+        left = window.innerWidth - p.width - 12;
+      }
+      if (top + p.height > window.innerHeight - 12){
+        top = r.top - p.height - 10;
+      }
+      if (top < 12) top = 12;
+
+      pop.style.left = `${left}px`;
+      pop.style.top = `${top}px`;
+    }
+
+    tips.forEach(el => {
+      el.setAttribute('aria-expanded', 'false');
+
+      el.addEventListener('mouseenter', () => {
+        if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+        openTip(el);
+      });
+
+      el.addEventListener('mouseleave', () => {
+        if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+        closeTip();
+      });
+
+      el.addEventListener('focus', () => openTip(el));
+      el.addEventListener('blur', () => closeTip());
+
+      el.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        const expanded = el.getAttribute('aria-expanded') === 'true';
+        if (expanded) closeTip();
+        else openTip(el);
+      });
+    });
+
+    document.addEventListener('click', (ev) => {
+      if (!ev.target.closest('.info-tip') && !ev.target.closest('.tooltip-pop')){
+        closeTip();
+      }
+    });
+
+    window.addEventListener('scroll', closeTip, true);
+    window.addEventListener('resize', closeTip);
+  }
+
   $('logoutBtn').addEventListener('click', () => {
     localStorage.removeItem(TOKEN_KEY);
     window.location.href = 'login.html';
   });
 
   init();
+  initInfoTips();
 })();
 </script>
 </body>
