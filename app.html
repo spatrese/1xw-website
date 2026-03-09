@@ -211,6 +211,7 @@ footer{
   .rows{padding:0 18px 10px;}
   .panel-head{padding:20px 18px 14px;}
   .nav-links{gap:14px;}
+  .info-tip{display:none;}
 }
 
 /* Mobile + polish refinements */
@@ -220,9 +221,11 @@ footer{
   .nav-links a[href="#fundamental-overview"]{display:none;}
 }
 @media (max-width:680px){
-  .container{padding:0 18px;}
-  .nav-inner{padding:14px 0;gap:12px;align-items:flex-start;}
-  .nav-links{gap:12px;justify-content:flex-start;}
+  .container{padding:0 20px;}
+  .nav-inner{padding:14px 2px;gap:12px;align-items:center;}
+  .nav-links{gap:10px;justify-content:flex-end;}
+  .brand{padding-left:2px;}
+  .nav-links{padding-right:2px;}
   .nav-links a[href="#events"]{display:none;}
   .brand .logo{display:none;}
   .brand img{height:28px;}
@@ -270,7 +273,7 @@ footer{
   .row-tone{grid-template-columns:150px 115px minmax(320px,1fr);}
   .row-tech{grid-template-columns:150px 130px 170px 80px 80px 80px;}
   .row-fund{grid-template-columns:150px 115px 140px minmax(295px,1fr);}
-  .row-events{grid-template-columns:85px 95px minmax(160px,1fr) 320px;}
+  .row-events{grid-template-columns:72px 82px minmax(240px,1fr) 180px;}
 }
 
 

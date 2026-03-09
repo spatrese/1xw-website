@@ -257,8 +257,10 @@ footer{
   .chart .chart-inner{height:280px;}
 }
 @media (max-width:768px){
-  .container{padding:0 18px;}
-  .nav-inner{padding:14px 0;gap:12px;}
+  .container{padding:0 20px;}
+  .nav-inner{padding:14px 2px;gap:12px;}
+  .brand{padding-left:2px;}
+  .nav-links{padding-right:2px;}
   .nav-links{
     gap:8px;
     flex-wrap:wrap;
@@ -276,10 +278,29 @@ footer{
     font-size:.84rem;
     margin-left:6px;
   }
-  header.hero{padding:58px 0 34px;}
-  .hero h1{font-size:clamp(2rem,9vw,2.9rem);line-height:1.06;letter-spacing:-1.4px;}
-  .hero .headline{font-size:1rem;margin-bottom:14px;}
-  .hero .sub{font-size:.96rem;line-height:1.58;margin-bottom:22px;}
+  header.hero{padding:64px 0 38px;}
+
+.hero h1{
+  font-size:clamp(2.15rem,8.6vw,3rem);
+  line-height:1.14;
+  letter-spacing:-1.1px;
+  max-width:11ch;
+  margin:0 auto 18px;
+}
+
+.hero .headline{
+  font-size:1.03rem;
+  line-height:1.5;
+  max-width:22ch;
+  margin:0 auto 14px;
+}
+
+.hero .sub{
+  font-size:.98rem;
+  line-height:1.7;
+  max-width:30ch;
+  margin:0 auto 22px;
+}
   .tag{font-size:.68rem;padding:8px 11px;margin-bottom:16px;}
   section{padding:56px 0;}
   .section-head{margin:0 auto 34px;}
