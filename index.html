@@ -114,6 +114,7 @@ header.hero{padding:90px 0 50px;text-align:center;}
   letter-spacing:-2px;
   margin-bottom:14px;
 }
+.mobile-break{display:block;}
 .hero .headline{
   font-size:clamp(1.1rem,2.4vw,1.8rem);
   font-weight:700;
@@ -258,11 +259,11 @@ footer{
 }
 @media (max-width:768px){
   .container{padding:0 20px;}
-  .nav-inner{padding:14px 2px;gap:12px;}
-  .brand{padding-left:2px;}
-  .nav-links{padding-right:2px;}
+  .nav-inner{padding:14px 4px;gap:12px;align-items:center;}
+  .brand{padding-left:4px;}
+  .nav-links{padding-right:4px;}
   .nav-links{
-    gap:8px;
+    gap:10px;
     flex-wrap:wrap;
     justify-content:flex-end;
   }
@@ -278,29 +279,10 @@ footer{
     font-size:.84rem;
     margin-left:6px;
   }
-  header.hero{padding:64px 0 38px;}
-
-.hero h1{
-  font-size:clamp(2.15rem,8.6vw,3rem);
-  line-height:1.14;
-  letter-spacing:-1.1px;
-  max-width:11ch;
-  margin:0 auto 18px;
-}
-
-.hero .headline{
-  font-size:1.03rem;
-  line-height:1.5;
-  max-width:22ch;
-  margin:0 auto 14px;
-}
-
-.hero .sub{
-  font-size:.98rem;
-  line-height:1.7;
-  max-width:30ch;
-  margin:0 auto 22px;
-}
+  header.hero{padding:68px 0 40px;}
+  .hero h1{font-size:clamp(2.2rem,8.8vw,3.05rem);line-height:1.16;letter-spacing:-1px;max-width:12ch;margin:0 auto 18px;}
+  .hero .headline{font-size:1.03rem;line-height:1.5;max-width:22ch;margin:0 auto 14px;}
+  .hero .sub{font-size:.98rem;line-height:1.7;max-width:30ch;margin:0 auto 22px;}
   .tag{font-size:.68rem;padding:8px 11px;margin-bottom:16px;}
   section{padding:56px 0;}
   .section-head{margin:0 auto 34px;}
@@ -348,7 +330,7 @@ footer{
 <header class="hero">
   <div class="container">
     <div class="tag">Allocator-Grade Alternative Strategy</div>
-    <h1>1XW Trading<br/>A Systematic Risk Architecture<br/>for Capital Growth</h1>
+    <h1>1XW Trading<span class="mobile-break">A Systematic Risk Architecture</span><span class="mobile-break">for Capital Growth</span></h1>
     <div class="headline">Structured trades. Defined downside. Independent return streams.</div>
     <div class="sub">
       1XW is a rule-driven capital allocation framework designed to compound returns through independent trade structures with predefined risk and convex payoff profiles.
@@ -361,7 +343,7 @@ footer{
   <div class="container">
     <div class="section-head">
       <h2>What 1XW Is</h2>
-      <p>1XW is not a portfolio management strategy. It is a structured execution framework where capital allocation, risk exposure and payoff distribution are defined before each trade is initiated.</p>
+      <p>1XW is not a discretionary trading strategy. It is a structured execution framework where capital allocation, risk exposure and payoff distribution are defined before each trade is initiated.</p>
     </div>
 
     <div class="grid-2">
