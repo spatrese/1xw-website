@@ -247,33 +247,35 @@ footer{
 
 /* Mobile + polish refinements */
 
+/* Sostituisci la sezione esistente in model.html con questa */
 @media (max-width:680px){
   .container{padding:0 16px;}
   .nav-inner{
-    padding:18px 4px;
+    padding:20px 0; /* Aumentato spessore nav */
     gap:12px;
-    align-items:center;
+    display: flex;
+    justify-content: space-between; /* Forza logo a sx e links a dx */
+    align-items: center;
   }
   .brand{
-    padding-left:4px;
+    padding-left: 0; /* Rimosso padding superfluo */
   }
   .brand .logo{
     display:none !important;
   }
   .brand img{
-    height:28px;
+    height:30px; /* Leggermente più grande per visibilità */
   }
   .nav-links{
-    padding-right:4px;
-    gap:10px;
-    justify-content:flex-end;
+    padding-right: 0;
+    gap:8px;
   }
 
   .nav-links a,
   .nav-links button,
   .nav-cta{
     font-size:13px !important;
-    padding:6px 10px !important;
+    padding:8px 12px !important; /* Bottone più cliccabile */
   }
 }
 
