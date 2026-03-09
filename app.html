@@ -352,8 +352,21 @@ footer{
         </div>
         <div class="rows">
           <div class="col-head row-breadth">
-            <div>Asset Class</div><div>Avg Score</div><div>Bull</div><div>Bear</div><div>State</div><div>Summary</div>
-          </div>
+  <div>Asset Class</div>
+  <div>
+    Avg Score
+    <span
+      class="info-tip"
+      tabindex="0"
+      aria-label="Average score explanation"
+      data-tip="Average technical score of the instruments in that asset class. Positive values indicate stronger trend conditions overall, negative values weaker conditions, and values near zero a mixed backdrop."
+    >?</span>
+  </div>
+  <div>Bull</div>
+  <div>Bear</div>
+  <div>State</div>
+  <div>Summary</div>
+</div>
           <div id="breadthRows"></div>
         </div>
       </div>
@@ -399,9 +412,20 @@ footer{
           <p>Commentary and highlights by asset class.</p>
         </div>
         <div class="rows">
-          <div class="col-head row-fund">
-            <div>Asset Class</div><div>Tone</div><div>Bias / Conf</div><div>Commentary / Headlines</div>
-          </div>
+         <div class="col-head row-fund">
+  <div>Asset Class</div>
+  <div>Tone</div>
+  <div>
+    Bias / Conf
+    <span
+      class="info-tip"
+      tabindex="0"
+      aria-label="Bias and confidence explanation"
+      data-tip="Bias measures directional macro lean for the asset class, from negative to positive. Conf is confidence, shown as a percentage-like score, indicating how strong or reliable that macro view is this week."
+    >?</span>
+  </div>
+  <div>Commentary / Headlines</div>
+</div>
           <div id="fundRows"></div>
         </div>
       </div>
