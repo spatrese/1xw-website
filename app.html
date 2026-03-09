@@ -798,12 +798,22 @@ function renderMeta(data){
     return events.slice(0, 14);
   }
 
-  function renderEvents(fund){
-    const holder = $('eventRows');
-    const events = collectEvents(fund);
-    if (!events.length){
-      holder.innerHTML = '<div class="empty">No major events.</div>';
-      return;
+  function renderEvents(eventCalendar){
+  const holder = $('eventRows');
+  const events = Array.isArray(eventCalendar) ? eventCalendar : [];
+
+  if (!events.length){
+    holder.innerHTML = '<div class="empty">No major events.</div>';
+    return;
+  }
+
+  holder.innerHTML = events.map(e => rowHtml('row-events', [
+    { label:'Date', html: escapeHtml(prettyDate(e.date)) },
+    { label:'Type', html:`<span class="pill ${String(e.type).toLowerCase() === 'earnings' ? 'tone mixed' : ''}">${escapeHtml(e.type || '')}</span>` },
+    { label:'Event', html:`<span class="event-title">${escapeHtml(e.title || '')}</span>${e.source ? `<span class="event-src">${escapeHtml(e.source)}</span>` : ''}`, wrap:true },
+    { label:'Markets', html:`<div class="inline-tags">${(e.markets || e.assets || []).map(a => `<span class="pill">${escapeHtml(a)}</span>`).join('')}</div>`, wrap:true }
+  ])).join('');
+}
     }
     holder.innerHTML = events.map(e => rowHtml('row-events', [
       { label:'Date', html: escapeHtml(prettyDate(e.date)) },
@@ -920,7 +930,7 @@ function renderMeta(data){
       renderTone(weekly.fundamental_overview || {});
       renderTechnicalOverview(weekly.technical_overview || {});
       renderFundamentalOverview(weekly.fundamental_overview || {});
-      renderEvents(weekly.fundamental_overview || {});
+      renderEvents(weekly.event_calendar || []);
 
       if (index && index.weeks && index.weeks.length) {
         bindHistoryControls(index, activeWeekId || index.current);
