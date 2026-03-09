@@ -323,7 +323,19 @@ footer{
 
 /* Final mobile-only override: preserve desktop, improve phone layout */
 @media (max-width:768px){
-  .container{padding:0 20px;}
+  .container{padding:0 12px;}
+
+  .nav-inner{
+    padding:18px 0;
+  }
+
+  .brand{
+    margin-left:-2px;
+  }
+
+  .brand img{
+    height:34px;
+  }
 
   /* keep snapshot dashboard-like instead of a long vertical stack */
   #snapshot .panel{
