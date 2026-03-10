@@ -657,7 +657,7 @@ footer{
     }
     holder.innerHTML = merged.map(item => {
       const sideClass = item.side === 'LONG' ? 'long' : 'short';
-      const label = `${escapeHtml(item.side)} ${escapeHtml(item.symbol || '—')}`;
+     const label = `${escapeHtml(item.side)} ${escapeHtml(item.name || '—')}`;
       return rowHtml('row-ideas', [
         { label:'Candidate', html:`<span class="label">${label}</span>` },
         { label:'Setup', html: escapeHtml(item.setup || '—') },
@@ -711,7 +711,7 @@ footer{
       return;
     }
     holder.innerHTML = rows.map(row => rowHtml('row-tech', [
-      { label:'Symbol', html:`<span class="label">${escapeHtml(row.symbol || '')}</span>` },
+      { label:'Symbol', html:`<span class="label">${escapeHtml(row.name || '')}</span>` },
       { label:'Asset Class', html: escapeHtml(row.asset_class || '') },
       { label:'Setup', html: escapeHtml(row.setup || '') },
       { label:'Score', html:`<span class="${classForNum(row.score)}">${escapeHtml(signed(row.score,0))}</span>` },
