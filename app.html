@@ -379,6 +379,7 @@ footer{
 <link rel="stylesheet" href="assets/css/theme.css">
 <link rel="stylesheet" href="assets/css/components.css">
 <script defer src="assets/js/layout.js"></script>
+<script src="assets/js/layout.js"></script>
 </head>
 
 <body data-page="app" data-shell="member">
@@ -1088,10 +1089,13 @@ footer{
     window.addEventListener('resize', closeTip);
   }
 
-  $('logoutBtn').addEventListener('click', () => {
+  const logoutBtn = $('logoutBtn');
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', () => {
     localStorage.removeItem(TOKEN_KEY);
     window.location.href = 'login.html';
   });
+}
 
   init();
   initInfoTips();
