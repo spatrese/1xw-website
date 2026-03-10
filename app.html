@@ -712,7 +712,7 @@ footer{
       return;
     }
     holder.innerHTML = rows.map(row => rowHtml('row-tech', [
-      { label:'Symbol', html:`<span class="label">${escapeHtml(row.symbol || '')}</span>` },
+      { label:'Symbol', html:`<span class="label">${escapeHtml(row.name || row.symbol || '')}</span>` },
       { label:'Asset Class', html: escapeHtml(row.asset_class || '') },
       { label:'Setup', html: escapeHtml(row.setup || '') },
       { label:'Score', html:`<span class="${classForNum(row.score)}">${escapeHtml(signed(row.score,0))}</span>` },
