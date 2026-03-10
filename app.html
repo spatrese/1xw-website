@@ -153,10 +153,10 @@ h1{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:900;letter-spacing:-1px;marg
 }
 .data-row:last-child{border-bottom:none;}
 
-.row-ideas{grid-template-columns:150px 135px 100px 95px 105px minmax(280px,1fr);}
+.row-ideas{grid-template-columns:230px 180px 95px 90px 95px minmax(220px,1fr);}
 .row-breadth{grid-template-columns:170px 130px 90px 90px 110px minmax(240px,1fr);}
 .row-tone{grid-template-columns:170px 130px minmax(420px,1fr);}
-.row-tech{grid-template-columns:110px minmax(130px,1fr) minmax(180px,1.35fr) minmax(80px,.7fr) minmax(80px,.7fr) minmax(80px,.7fr);}
+.row-tech{grid-template-columns:240px 140px minmax(170px,1.15fr) 80px 80px 80px;}
 .row-fund{grid-template-columns:170px 130px 150px minmax(340px,1fr);}
 .row-events{grid-template-columns:100px 110px minmax(340px,1fr) 240px;}
 
@@ -261,10 +261,10 @@ footer{
   .inline-tags{gap:6px;}
   .pill{font-size:11px;padding:5px 8px;}
 
-  .row-ideas{grid-template-columns:140px 120px 90px 90px 95px minmax(260px,1fr);}
+  .row-ideas{grid-template-columns:220px 180px 90px 90px 95px minmax(240px,1fr);}
   .row-breadth{grid-template-columns:150px 115px 80px 80px 100px minmax(220px,1fr);}
   .row-tone{grid-template-columns:150px 115px minmax(320px,1fr);}
-  .row-tech{grid-template-columns:100px 130px 170px 80px 80px 80px;}
+  .row-tech{grid-template-columns:220px 130px 170px 80px 80px 80px;}
   .row-fund{grid-template-columns:150px 115px 135px minmax(300px,1fr);}
   .row-events{grid-template-columns:85px 95px minmax(260px,1fr) 200px;}
 }
@@ -624,10 +624,8 @@ footer{
     if (!d) return 'Watch';
     return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short' });
   }
-  function compactHeadline(title, max=68){
-    const s = String(title || '').trim();
-    if (s.length <= max) return s;
-    return s.slice(0, max - 1) + '…';
+    function compactHeadline(title){
+    return String(title || '').trim();
   }
   function normalizeSpaces(s){
     return String(s || '').replace(/\s+/g, ' ').trim();
@@ -640,6 +638,14 @@ footer{
     if (item.rationale) parts.push(firstSentence(item.rationale));
     return parts.filter(Boolean).join(' • ');
   }
+
+  function instrumentDisplay(symbol, name){
+    const s = String(symbol || '').trim();
+    const n = String(name || '').trim();
+    if (s && n) return `${s} — ${n}`;
+    return s || n || '—';
+  }
+
   function rowHtml(cls, cells){
     return `<div class="data-row ${cls}">${cells.map(c => `<div class="cell ${c.wrap ? 'wrap' : ''} ${c.extra || ''}" data-label="${c.label || ''}">${c.html}</div>`).join('')}</div>`;
   }
@@ -663,8 +669,9 @@ footer{
       return;
     }
     holder.innerHTML = merged.map(item => {
-      const sideClass = item.side === 'LONG' ? 'long' : 'short';
-      const label = `${escapeHtml(item.side)} ${escapeHtml(item.symbol || '—')}`;
+            const sideClass = item.side === 'LONG' ? 'long' : 'short';
+      const candidateText = instrumentDisplay(item.symbol, item.name || item.instrument_name || item.description);
+      const label = `${escapeHtml(item.side)} ${escapeHtml(candidateText)}`;
       return rowHtml('row-ideas', [
         { label:'Candidate', html:`<span class="label">${label}</span>` },
         { label:'Setup', html: escapeHtml(item.setup || '—') },
@@ -718,7 +725,7 @@ footer{
       return;
     }
     holder.innerHTML = rows.map(row => rowHtml('row-tech', [
-      { label:'Symbol', html:`<span class="label">${escapeHtml(row.symbol || '')}</span>` },
+      { label:'Symbol', html:`<span class="label">${escapeHtml(instrumentDisplay(row.symbol, row.name || row.instrument_name || row.description))}</span>` },
       { label:'Asset Class', html: escapeHtml(row.asset_class || '') },
       { label:'Setup', html: escapeHtml(row.setup || '') },
       { label:'Score', html:`<span class="${classForNum(row.score)}">${escapeHtml(signed(row.score,0))}</span>` },
