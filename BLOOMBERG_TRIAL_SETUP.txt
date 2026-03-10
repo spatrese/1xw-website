@@ -1,0 +1,38 @@
+BLOOMBERG TRIAL SETUP
+
+Files included
+1. theme-bloomberg-trial.css
+
+What to do
+1) Upload/copy theme-bloomberg-trial.css into:
+   assets/css/
+
+2) In each page:
+   - index.html
+   - app.html
+   - model.html
+   - login.html
+
+   add this line AFTER:
+   <link rel="stylesheet" href="assets/css/components.css">
+
+   exact line to add:
+   <link rel="stylesheet" href="assets/css/theme-bloomberg-trial.css">
+
+So the order becomes:
+   <link rel="stylesheet" href="assets/css/theme.css">
+   <link rel="stylesheet" href="assets/css/components.css">
+   <link rel="stylesheet" href="assets/css/theme-bloomberg-trial.css">
+
+3) Do not change anything else.
+
+4) Push and review.
+
+Rollback
+If you do not like the result, remove this single line from the four pages:
+   <link rel="stylesheet" href="assets/css/theme-bloomberg-trial.css">
+
+Notes
+- This is visual-only.
+- It does not touch JS, data import, charts logic, layout structure, or JSON.
+- It imports IBM Plex fonts directly inside the CSS file.
