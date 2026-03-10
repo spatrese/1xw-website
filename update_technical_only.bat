@@ -8,8 +8,6 @@ set EXCEL=1XW_TradeBlotter_Web.xlsx
 
 python engine_1xw_v1.py --port %IBPORT%
 
-REM reinject model trades / positions from Excel
-python build_from_blotter_excel.py --file "%EXCEL%"
 
 REM rebuild weekly bundle
 python weekly_compiler.py

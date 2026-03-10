@@ -107,20 +107,15 @@ small.muted{color:var(--muted2);}
 }
 footer{ padding:22px 0; text-align:center; color:rgba(100,116,139,.9); font-size:.85rem; }
 </style>
+<link rel="stylesheet" href="assets/css/theme.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<script defer src="assets/js/layout.js"></script>
 </head>
 
-<body>
-  <div class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <img src="logo.png" alt="1XW Trading logo" />
-        <span class="logo">1XW TRADING</span>
-      </a>
-      <a href="index.html" class="nav-cta">Home</a>
-    </div>
-  </div>
+<body data-page="login" data-shell="auth">
+  <div id="siteNav"></div>
 
-  <main class="container">
+<main class="container">
     <div class="panel">
       <div class="tag">Member Access</div>
       <h1>Login</h1>
@@ -137,7 +132,7 @@ footer{ padding:22px 0; text-align:center; color:rgba(100,116,139,.9); font-size
           <input id="password" name="password" type="password" placeholder="••••••••" required />
         </div>
 
-        <button class="btn" type="submit">Sign In</button>
+        <button class="btn btn-primary" type="submit">Sign In</button>
         <div class="error" id="errorBox">Invalid password.</div>
 
         <div class="meta">
