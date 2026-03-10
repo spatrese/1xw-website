@@ -123,14 +123,38 @@ body[data-shell="auth"] .page-hero{padding-top:32px;}
 body[data-shell="public"] .page-hero{padding-top:90px;}
 
 @media (max-width:760px){
-  .site-nav-inner{align-items:flex-start;min-height:auto;padding:14px 0;}
-  .site-logo{display:none;}
-  .site-nav-links{gap:6px;}
+
+  .site-nav-inner{
+    align-items:center;
+    min-height:auto;
+    padding:12px 0;
+  }
+
+  .site-logo{
+    display:none;
+  }
+
+  .site-nav-links{
+    gap:6px;
+    flex-wrap:nowrap;
+  }
+
   .site-nav-link,
-  .site-nav-button{min-height:36px;padding:8px 10px;font-size:.84rem;}
-  body[data-shell="public"] .page-hero{padding-top:64px;}
+  .site-nav-button{
+    min-height:34px;
+    padding:6px 10px;
+    font-size:.78rem;
+  }
+
+  body[data-shell="public"] .page-hero{
+    padding-top:64px;
+  }
+
   body[data-shell="member"] .page-hero,
-  body[data-shell="auth"] .page-hero{padding-top:24px;}
+  body[data-shell="auth"] .page-hero{
+    padding-top:24px;
+  }
+
 }
 
 @media (max-width: 768px){
