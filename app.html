@@ -156,8 +156,8 @@ h1{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:900;letter-spacing:-1px;marg
 .row-ideas{grid-template-columns:150px 135px 100px 95px 105px minmax(280px,1fr);}
 .row-breadth{grid-template-columns:170px 130px 90px 90px 110px minmax(240px,1fr);}
 .row-tone{grid-template-columns:170px 130px minmax(420px,1fr);}
-.row-tech{grid-template-columns:110px minmax(130px,1fr) minmax(180px,1.35fr) minmax(80px,.7fr) minmax(80px,.7fr) minmax(80px,.7fr);}
-.row-fund{grid-template-columns:170px 130px 150px minmax(340px,1fr);}
+.row-tech{grid-template-columns:110px minmax(130px,1fr) minmax(320px,2fr) minmax(80px,.7fr) minmax(80px,.7fr) minmax(80px,.7fr);}
+.row-fund{grid-template-columns:170px 130px 150px minmax(520px,2fr);}
 .row-events{grid-template-columns:100px 110px minmax(340px,1fr) 240px;}
 
 .cell{min-width:0;font-size:var(--font-base);font-weight:500;color:var(--text);}
@@ -711,7 +711,7 @@ footer{
       return;
     }
     holder.innerHTML = rows.map(row => rowHtml('row-tech', [
-      { label:'Symbol', html:`<span class="label">${escapeHtml(row.name || '')}</span>` },
+      { label:'Symbol', html:`<span class="label">${escapeHtml(row.symbol || '')}</span>` },
       { label:'Asset Class', html: escapeHtml(row.asset_class || '') },
       { label:'Setup', html: escapeHtml(row.setup || '') },
       { label:'Score', html:`<span class="${classForNum(row.score)}">${escapeHtml(signed(row.score,0))}</span>` },
