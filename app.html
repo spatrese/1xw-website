@@ -617,11 +617,9 @@ footer{
     if (!d) return 'Watch';
     return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short' });
   }
-  function compactHeadline(title, max=68){
-    const s = String(title || '').trim();
-    if (s.length <= max) return s;
-    return s.slice(0, max - 1) + '…';
-  }
+  function compactHeadline(title){
+  return String(title || '').trim();
+}
   function normalizeSpaces(s){
     return String(s || '').replace(/\s+/g, ' ').trim();
   }
