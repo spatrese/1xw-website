@@ -134,33 +134,35 @@ body[data-shell="public"] .page-hero{padding-top:90px;}
 }
 
 @media (max-width: 768px){
-  body[data-page="index"] .nav-links a{
+  body[data-page="index"] .site-nav-links .site-nav-link{
     display:none;
   }
 
-  body[data-page="index"] .nav-links .nav-cta{
+  body[data-page="index"] .site-nav-links .site-nav-link.is-cta,
+  body[data-page="index"] .site-nav-links .site-nav-button.is-cta{
     display:inline-flex;
   }
 
-  body[data-page="index"] .nav-inner{
+  body[data-page="index"] .site-nav-inner{
     gap:12px;
     align-items:center;
   }
 
-  body[data-page="index"] .brand .logo{
+  body[data-page="index"] .site-logo{
     display:none;
   }
 
-  body[data-page="index"] .brand img{
+  body[data-page="index"] .site-brand img{
     height:28px;
   }
 
-  body[data-page="index"] .nav-links{
+  body[data-page="index"] .site-nav-links{
     gap:8px;
     margin-left:auto;
   }
 
-  body[data-page="index"] .nav-cta{
+  body[data-page="index"] .site-nav-link.is-cta,
+  body[data-page="index"] .site-nav-button.is-cta{
     padding:8px 12px;
     font-size:13px;
   }
