@@ -157,12 +157,17 @@ h1{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:900;letter-spacing:-1px;marg
 .row-breadth{grid-template-columns:170px 130px 90px 90px 110px minmax(240px,1fr);}
 .row-tone{grid-template-columns:170px 130px minmax(420px,1fr);}
 .row-tech{grid-template-columns:110px minmax(130px,1fr) minmax(320px,2fr) minmax(80px,.7fr) minmax(80px,.7fr) minmax(80px,.7fr);}
-.row-fund{grid-template-columns:170px 130px 150px minmax(520px,2fr);}
+.row-fund{grid-template-columns:170px 130px 150px minmax(0,2fr);}
 .row-events{grid-template-columns:100px 110px minmax(340px,1fr) 240px;}
 
 .cell{min-width:0;font-size:var(--font-base);font-weight:500;color:var(--text);}
-.cell.wrap{white-space:normal;overflow:
-visible;text-overflow:unset;}
+.cell.wrap{
+  white-space:normal;
+  overflow:visible;
+  text-overflow:unset;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
 .label{font-weight:700;letter-spacing:-.2px;}
 .muted{color:var(--muted);font-size:var(--font-meta);}
 .muted2{color:var(--muted2);}
