@@ -7,12 +7,8 @@ import os
 import re
 from datetime import date, datetime, timedelta
 from io import StringIO
-from typing import Any, Dict, Iterable, List, Optional, Tuple
-from urllib.parse import urljoin
-
-import pandas as pd
-import requests
-from bs4 import BeautifulSoup
+from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
+from urllib.parse import quote_plus, urljoin
 
 import pandas as pd
 import requests
@@ -39,6 +35,8 @@ load_local_env()
 
 
 FMP_EARNINGS_URL = "https://financialmodelingprep.com/stable/earnings-calendar"
+FINVIZ_SCREENER_URL = "https://finviz.com/screener.ashx"
+FINVIZ_QUOTE_URL = "https://finviz.com/quote.ashx"
 
 PRIORITY_EARNINGS = {
     "AAPL", "ABBV", "AMAT", "AMD", "AMZN", "ASML", "AVGO", "AXP", "AZN",
@@ -53,10 +51,14 @@ CHINA_TICKERS = {"BABA", "TSM"}
 EU_TICKERS = {"ASML", "AZN", "HSBC", "NVS", "SAP", "SHEL"}
 
 HEADERS = {
-    "User-Agent": "1XW MacroCalendar/1.0 (+https://1xwtrading.com)",
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+    ),
     "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://finviz.com/",
 }
-TIMEOUT = 25
+TIMEOUT = 20
 
 
 def week_bounds(today: Optional[date] = None) -> Tuple[date, date]:
@@ -68,8 +70,14 @@ def in_range(d: date, start: date, end: date) -> bool:
     return start <= d <= end
 
 
-def session_get_text(url: str) -> str:
-    r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+def session_get_text(
+    url: str,
+    *,
+    params: Optional[Dict[str, Any]] = None,
+    session: Optional[requests.Session] = None,
+) -> str:
+    sess = session or requests.Session()
+    r = sess.get(url, params=params, headers=HEADERS, timeout=TIMEOUT)
     r.raise_for_status()
     return r.text
 
@@ -119,7 +127,12 @@ def dedupe_events(events: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
     seen = set()
     out: List[Dict[str, Any]] = []
     for ev in sorted(events, key=lambda x: (x.get("date", ""), x.get("type", ""), x.get("title", ""))):
-        key = (ev.get("date"), ev.get("title"), ev.get("country"), ev.get("type"))
+        key = (
+            ev.get("date"),
+            ev.get("type"),
+            ev.get("ticker") or ev.get("title"),
+            ev.get("country"),
+        )
         if key in seen:
             continue
         seen.add(key)
@@ -127,8 +140,13 @@ def dedupe_events(events: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return out
 
 
-def html_tables(url: str) -> List[pd.DataFrame]:
-    html = session_get_text(url)
+def html_tables(
+    url: str,
+    *,
+    params: Optional[Dict[str, Any]] = None,
+    session: Optional[requests.Session] = None,
+) -> List[pd.DataFrame]:
+    html = session_get_text(url, params=params, session=session)
     try:
         return pd.read_html(StringIO(html))
     except Exception:
@@ -378,17 +396,229 @@ def macro_events(start: date, end: date) -> List[Dict[str, Any]]:
     return dedupe_events(events)
 
 
-def earnings_events(start: date, end: date) -> List[Dict[str, Any]]:
+# ----------------------------
+# Earnings: Finviz primary, FMP fallback
+# ----------------------------
+def normalize_ticker(ticker: str) -> str:
+    t = normalize_space(ticker).upper().replace("/", "-")
+    if t == "BRK.A":
+        return "BRK-A"
+    if t == "BRK.B":
+        return "BRK-B"
+    return t
+
+
+def finviz_symbol(ticker: str) -> str:
+    return normalize_ticker(ticker).replace(".", "-")
+
+
+def ticker_country(ticker: str) -> str:
+    t = normalize_ticker(ticker)
+    if t in CHINA_TICKERS:
+        return "China"
+    if t in EU_TICKERS:
+        return "EU"
+    return "US"
+
+
+_FINVIZ_SUFFIX_RE = re.compile(
+    r"\b(?:BMO|AMC|DMH|TAS|Before\s+Open|After\s+Close|Time\s+Not\s+Supplied|Unconfirmed)\b",
+    flags=re.I,
+)
+
+
+def parse_finviz_earnings_date(raw: Any, ref_start: date, ref_end: date) -> Optional[date]:
+    s = normalize_space(raw)
+    if not s or s in {"-", "—", "N/A"}:
+        return None
+
+    s = s.replace("/a", " BMO").replace("/b", " AMC")
+    s = _FINVIZ_SUFFIX_RE.sub("", s)
+    s = re.sub(r"\b\d{1,2}:\d{2}\s*[AP]M\b", "", s, flags=re.I)
+    s = normalize_space(s.replace(".", " "))
+
+    candidates: List[str] = [s]
+    if re.match(r"^[A-Za-z]{3}\s+\d{1,2}$", s):
+        candidates = [f"{s} {ref_start.year}", f"{s} {ref_end.year}"]
+
+    for cand in candidates:
+        for fmt in ("%b %d %Y", "%b %d, %Y", "%Y-%m-%d", "%b-%d-%y", "%b-%d-%Y"):
+            try:
+                d = datetime.strptime(cand, fmt).date()
+                if in_range(d, ref_start - timedelta(days=30), ref_end + timedelta(days=365)):
+                    return d
+            except Exception:
+                pass
+
+    m = re.search(r"([A-Za-z]{3})\s+(\d{1,2})", s)
+    if m:
+        mon = datetime.strptime(m.group(1), "%b").month
+        day_num = int(m.group(2))
+        for y in (ref_start.year, ref_end.year, ref_start.year + 1):
+            try:
+                d = date(y, mon, day_num)
+            except Exception:
+                continue
+            if abs((d - ref_start).days) <= 370:
+                return d
+    return None
+
+
+def event_from_earnings_row(
+    ticker: str,
+    d: date,
+    company: str,
+    source: str,
+    url: str,
+) -> Dict[str, Any]:
+    t = normalize_ticker(ticker)
+    return {
+        "date": d.isoformat(),
+        "type": "Earnings",
+        "title": t,
+        "ticker": t,
+        "company": normalize_space(company) or t,
+        "country": ticker_country(t),
+        "importance": "high",
+        "markets": ["Equities"],
+        "source": source,
+        "url": url,
+    }
+
+
+def fetch_finviz_earnings_from_screener(
+    start: date,
+    end: date,
+    session: Optional[requests.Session] = None,
+) -> List[Dict[str, Any]]:
+    sess = session or requests.Session()
+    filters = ["earningsdate_thisweek", "earningsdate_nextweek"]
+    found: List[Dict[str, Any]] = []
+
+    for filt in filters:
+        page = 1
+        while page <= 20:
+            params = {
+                "v": "111",
+                "f": filt,
+                "o": "earningsdate",
+                "r": str((page - 1) * 20 + 1),
+            }
+            try:
+                tables = html_tables(FINVIZ_SCREENER_URL, params=params, session=sess)
+            except Exception:
+                break
+            if not tables:
+                break
+
+            matched_rows = 0
+            for df in tables:
+                cols = {normalize_space(c).lower(): c for c in df.columns}
+                ticker_col = next((cols[k] for k in cols if "ticker" in k), None)
+                earnings_col = next((cols[k] for k in cols if "earn" in k), None)
+                company_col = next((cols[k] for k in cols if "company" in k or "name" in k), None)
+                if not ticker_col or not earnings_col:
+                    continue
+
+                for _, row in df.iterrows():
+                    ticker = normalize_ticker(row.get(ticker_col, ""))
+                    if ticker not in PRIORITY_EARNINGS:
+                        continue
+                    ed = parse_finviz_earnings_date(row.get(earnings_col, ""), start, end)
+                    if not ed or not in_range(ed, start, end):
+                        continue
+                    company = normalize_space(row.get(company_col, "")) if company_col else ticker
+                    found.append(
+                        event_from_earnings_row(
+                            ticker=ticker,
+                            d=ed,
+                            company=company,
+                            source="Finviz",
+                            url=f"{FINVIZ_QUOTE_URL}?t={quote_plus(finviz_symbol(ticker))}",
+                        )
+                    )
+                    matched_rows += 1
+
+            if matched_rows == 0:
+                break
+            page += 1
+
+    return dedupe_events(found)
+
+
+def extract_finviz_snapshot_field(soup: BeautifulSoup, field_name: str) -> str:
+    target = field_name.strip().lower()
+    tables = soup.find_all("table")
+    for table in tables:
+        cells = [normalize_space(td.get_text(" ")) for td in table.find_all(["td", "th"])]
+        for i, cell in enumerate(cells[:-1]):
+            if cell.lower() == target:
+                return cells[i + 1]
+    text = normalize_space(soup.get_text(" "))
+    m = re.search(rf"\b{re.escape(field_name)}\b\s+([^|]+?)\s{{2,}}", text, flags=re.I)
+    return normalize_space(m.group(1)) if m else ""
+
+
+def extract_finviz_company_name(soup: BeautifulSoup, ticker: str) -> str:
+    og_title = soup.find("meta", attrs={"property": "og:title"})
+    if og_title and og_title.get("content"):
+        content = normalize_space(og_title["content"])
+        content = re.sub(rf"^{re.escape(normalize_ticker(ticker))}\s*-\s*", "", content, flags=re.I)
+        content = re.sub(r"\s*-\s*Stock.*$", "", content, flags=re.I)
+        if content:
+            return content
+
+    title = soup.title.string if soup.title and soup.title.string else ""
+    title = normalize_space(title)
+    title = re.sub(rf"^{re.escape(normalize_ticker(ticker))}\s*-\s*", "", title, flags=re.I)
+    title = re.sub(r"\s*-\s*Stock.*$", "", title, flags=re.I)
+    return title or normalize_ticker(ticker)
+
+
+def fetch_finviz_earnings_from_quotes(
+    start: date,
+    end: date,
+    tickers: Optional[Iterable[str]] = None,
+    session: Optional[requests.Session] = None,
+) -> List[Dict[str, Any]]:
+    sess = session or requests.Session()
+    out: List[Dict[str, Any]] = []
+    names = sorted({normalize_ticker(t) for t in (tickers or PRIORITY_EARNINGS)})
+
+    for ticker in names:
+        url = f"{FINVIZ_QUOTE_URL}?t={quote_plus(finviz_symbol(ticker))}"
+        try:
+            html = session_get_text(url, session=sess)
+        except Exception as e:
+            print(f"⚠️ Finviz quote failed: {ticker} ({e})")
+            continue
+
+        soup = BeautifulSoup(html, "html.parser")
+        earnings_raw = extract_finviz_snapshot_field(soup, "Earnings")
+        if not earnings_raw:
+            continue
+
+        ed = parse_finviz_earnings_date(earnings_raw, start, end)
+        if not ed or not in_range(ed, start, end):
+            continue
+
+        company = extract_finviz_company_name(soup, ticker)
+        out.append(event_from_earnings_row(ticker, ed, company, "Finviz", url))
+
+    return dedupe_events(out)
+
+
+def fetch_fmp_earnings(start: date, end: date) -> List[Dict[str, Any]]:
     api_key = os.getenv("FMP_API_KEY")
     if not api_key:
         return []
     params = {"from": str(start), "to": str(end), "apikey": api_key}
-    r = requests.get(FMP_EARNINGS_URL, params=params, headers=HEADERS, timeout=25)
+    r = requests.get(FMP_EARNINGS_URL, params=params, headers=HEADERS, timeout=TIMEOUT)
     r.raise_for_status()
     data = r.json()
     out: List[Dict[str, Any]] = []
     for e in data:
-        ticker = normalize_space(e.get("symbol"))
+        ticker = normalize_ticker(e.get("symbol"))
         if ticker not in PRIORITY_EARNINGS:
             continue
         raw_d = str(e.get("date") or "")[:10]
@@ -396,18 +626,66 @@ def earnings_events(start: date, end: date) -> List[Dict[str, Any]]:
             d = datetime.strptime(raw_d, "%Y-%m-%d").date()
         except Exception:
             continue
-        country = "US"
-        if ticker in CHINA_TICKERS:
-            country = "China"
-        elif ticker in EU_TICKERS:
-            country = "EU"
         out.append({
-            "date": d.isoformat(), "type": "Earnings", "title": ticker,
-            "ticker": ticker, "company": e.get("companyName", ticker), "country": country,
-            "importance": "high", "markets": ["Equities"], "source": "FMP",
+            "date": d.isoformat(),
+            "type": "Earnings",
+            "title": ticker,
+            "ticker": ticker,
+            "company": normalize_space(e.get("companyName", ticker)) or ticker,
+            "country": ticker_country(ticker),
+            "importance": "high",
+            "markets": ["Equities"],
+            "source": "FMP",
+            "url": "",
         })
-    out.sort(key=lambda x: (x["date"], x["title"]))
-    return out
+    return dedupe_events(out)
+
+
+def earnings_events(start: date, end: date) -> List[Dict[str, Any]]:
+    sess = requests.Session()
+
+    finviz_events: List[Dict[str, Any]] = []
+    finviz_hit_tickers: Set[str] = set()
+
+    try:
+        finviz_events = fetch_finviz_earnings_from_screener(start, end, session=sess)
+        finviz_hit_tickers = {normalize_ticker(x.get("ticker", "")) for x in finviz_events}
+    except Exception as e:
+        print(f"⚠️ fetch_finviz_earnings_from_screener: {e}")
+
+    missing = {normalize_ticker(t) for t in PRIORITY_EARNINGS} - finviz_hit_tickers
+    if not finviz_events or missing:
+        try:
+            quote_events = fetch_finviz_earnings_from_quotes(
+                start,
+                end,
+                tickers=missing or PRIORITY_EARNINGS,
+                session=sess,
+            )
+            finviz_events = dedupe_events(finviz_events + quote_events)
+            finviz_hit_tickers = {normalize_ticker(x.get("ticker", "")) for x in finviz_events}
+        except Exception as e:
+            print(f"⚠️ fetch_finviz_earnings_from_quotes: {e}")
+
+    if finviz_events:
+        missing = {normalize_ticker(t) for t in PRIORITY_EARNINGS} - finviz_hit_tickers
+        if missing:
+            try:
+                fmp_events = [
+                    x for x in fetch_fmp_earnings(start, end)
+                    if normalize_ticker(x.get("ticker", "")) in missing
+                ]
+                return dedupe_events(finviz_events + fmp_events)
+            except Exception as e:
+                print(f"⚠️ fetch_fmp_earnings supplement: {e}")
+        return dedupe_events(finviz_events)
+
+    try:
+        print("⚠️ Finviz returned no usable earnings rows, falling back to FMP")
+        return fetch_fmp_earnings(start, end)
+    except Exception as e:
+        print(f"⚠️ fetch_fmp_earnings fallback: {e}")
+        return []
 
 
 def build_event_calendar(start: Optional[date] = None, end: Optional[date] = None) -> List[Dict[str, Any]]:
