@@ -225,6 +225,97 @@ def fetch_census_retail_events(start: date, end: date) -> List[Dict[str, Any]]:
     return dedupe_events(events)
 
 
+def fetch_fomc_events(start: date, end: date) -> List[Dict[str, Any]]:
+    url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+    soup = BeautifulSoup(session_get_text(url), "html.parser")
+    lines = [normalize_space(x) for x in soup.stripped_strings if normalize_space(x)]
+
+    events: List[Dict[str, Any]] = []
+
+    # 1) trova la sezione dell'anno giusto: es. "2026 FOMC Meetings"
+    year_idx = None
+    year_pat = re.compile(rf"^{start.year}\s+FOMC\s+Meetings$", re.I)
+    for i, line in enumerate(lines):
+        if year_pat.match(line):
+            year_idx = i
+            break
+
+    if year_idx is None:
+        return []
+
+    # 2) la sezione finisce al prossimo "YYYY FOMC Meetings" oppure a fine file
+    next_year_idx = len(lines)
+    for j in range(year_idx + 1, len(lines)):
+        if re.match(r"^\d{4}\s+FOMC\s+Meetings$", lines[j], re.I):
+            next_year_idx = j
+            break
+
+    section = lines[year_idx + 1:next_year_idx]
+
+    month_map = {
+        "january": 1, "february": 2, "march": 3, "april": 4,
+        "may": 5, "june": 6, "july": 7, "august": 8,
+        "september": 9, "october": 10, "november": 11, "december": 12,
+    }
+
+    current_month = None
+    seen = set()
+
+    for line in section:
+        low = line.lower().strip()
+
+        # mese
+        if low in month_map:
+            current_month = month_map[low]
+            continue
+
+        if current_month is None:
+            continue
+
+        # casi tipo:
+        # "27-28"
+        # "17-18*"
+        # "22 (notation vote)"  -> ignoriamo
+        m = re.match(r"^(\d{1,2})(?:\s*[-–]\s*(\d{1,2}))?\*?", low)
+        if not m:
+            continue
+
+        # notation vote non è meeting standard
+        if "notation vote" in low:
+            continue
+
+        day1 = int(m.group(1))
+        day2 = m.group(2)
+
+        # per il calendario vogliamo il giorno della decisione = secondo giorno se meeting a 2 giorni
+        event_day = int(day2) if day2 else day1
+
+        try:
+            d = date(start.year, current_month, event_day)
+        except Exception:
+            continue
+
+        if not in_range(d, start, end):
+            continue
+
+        key = d.isoformat()
+        if key in seen:
+            continue
+        seen.add(key)
+
+        add_event(
+            events,
+            d,
+            "FOMC Rate Decision",
+            "US",
+            "high",
+            ["Rates", "FX", "Equities", "Commodities"],
+            "Federal Reserve",
+            url,
+        )
+
+    return dedupe_events(events)
+
 def fetch_ecb_policy_events(start: date, end: date) -> List[Dict[str, Any]]:
     url = "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html"
     soup = BeautifulSoup(session_get_text(url), "html.parser")
@@ -383,6 +474,7 @@ def macro_events(start: date, end: date) -> List[Dict[str, Any]]:
         fetch_bls_events,
         fetch_bea_events,
         fetch_census_retail_events,
+        fetch_fomc_events,
         fetch_ecb_policy_events,
         fetch_ecb_stats_events,
         fetch_eurostat_events,
