@@ -14,6 +14,26 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
+def load_local_env(path: str = "FMP_API_KEY.env") -> None:
+    if not os.path.exists(path):
+        return
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                k = k.strip()
+                v = v.strip().strip('"').strip("'")
+                if k and v and not os.getenv(k):
+                    os.environ[k] = v
+    except Exception:
+        pass
+
+load_local_env()
+
+
 FMP_EARNINGS_URL = "https://financialmodelingprep.com/stable/earnings-calendar"
 
 PRIORITY_EARNINGS = {
@@ -37,7 +57,7 @@ TIMEOUT = 25
 
 def week_bounds(today: Optional[date] = None) -> Tuple[date, date]:
     today = today or date.today()
-    return today, today + timedelta(days=7)
+    return today - timedelta(days=1), today + timedelta(days=7)
 
 
 def in_range(d: date, start: date, end: date) -> bool:
@@ -354,36 +374,138 @@ def macro_events(start: date, end: date) -> List[Dict[str, Any]]:
     return dedupe_events(events)
 
 
-def earnings_events(start: date, end: date) -> List[Dict[str, Any]]:
+def _earnings_country(ticker: str) -> str:
+    if ticker in CHINA_TICKERS:
+        return "China"
+    if ticker in EU_TICKERS:
+        return "EU"
+    return "US"
+
+
+def fetch_finviz_earnings(start: date, end: date) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    day = start
+
+    while day <= end:
+        url = f"https://finviz.com/calendar/earnings?dateFrom={day.isoformat()}&page=1"
+        try:
+            tables = html_tables(url)
+        except Exception:
+            day += timedelta(days=1)
+            continue
+
+        for df in tables:
+            try:
+                cols_norm = [normalize_space(c).lower() for c in df.columns]
+            except Exception:
+                continue
+
+            if not any("ticker" in c for c in cols_norm):
+                continue
+
+            col_map = {normalize_space(c).lower(): c for c in df.columns}
+            ticker_col = next((col_map[k] for k in col_map if "ticker" in k), None)
+            company_col = next((col_map[k] for k in col_map if "company" in k), None)
+            date_col = next((col_map[k] for k in col_map if k == "date" or "date" in k), None)
+
+            if not ticker_col:
+                continue
+
+            for _, row in df.iterrows():
+                ticker = normalize_space(row.get(ticker_col, "")).upper()
+                if not ticker or ticker not in PRIORITY_EARNINGS:
+                    continue
+
+                event_date = day
+                if date_col:
+                    parsed = parse_date_any(str(row.get(date_col, "")), default_year=day.year)
+                    if parsed:
+                        event_date = parsed
+
+                if not in_range(event_date, start, end):
+                    continue
+
+                company = ticker
+                if company_col:
+                    company = normalize_space(row.get(company_col, "")) or ticker
+
+                out.append({
+                    "date": event_date.isoformat(),
+                    "type": "Earnings",
+                    "title": ticker,
+                    "ticker": ticker,
+                    "company": company,
+                    "country": _earnings_country(ticker),
+                    "importance": "high",
+                    "markets": ["Equities"],
+                    "source": "Finviz",
+                    "url": url,
+                })
+
+        day += timedelta(days=1)
+
+    return dedupe_events(out)
+
+
+def fetch_fmp_earnings(start: date, end: date) -> List[Dict[str, Any]]:
     api_key = os.getenv("FMP_API_KEY")
     if not api_key:
         return []
+
     params = {"from": str(start), "to": str(end), "apikey": api_key}
     r = requests.get(FMP_EARNINGS_URL, params=params, headers=HEADERS, timeout=25)
     r.raise_for_status()
     data = r.json()
+
     out: List[Dict[str, Any]] = []
     for e in data:
-        ticker = normalize_space(e.get("symbol"))
+        ticker = normalize_space(e.get("symbol")).upper()
         if ticker not in PRIORITY_EARNINGS:
             continue
+
         raw_d = str(e.get("date") or "")[:10]
         try:
             d = datetime.strptime(raw_d, "%Y-%m-%d").date()
         except Exception:
             continue
-        country = "US"
-        if ticker in CHINA_TICKERS:
-            country = "China"
-        elif ticker in EU_TICKERS:
-            country = "EU"
+
+        if not in_range(d, start, end):
+            continue
+
         out.append({
-            "date": d.isoformat(), "type": "Earnings", "title": f"{ticker} earnings",
-            "ticker": ticker, "company": e.get("companyName", ticker), "country": country,
-            "importance": "high", "markets": ["Equities"], "source": "FMP",
+            "date": d.isoformat(),
+            "type": "Earnings",
+            "title": ticker,
+            "ticker": ticker,
+            "company": e.get("companyName", ticker),
+            "country": _earnings_country(ticker),
+            "importance": "high",
+            "markets": ["Equities"],
+            "source": "FMP",
         })
-    out.sort(key=lambda x: (x["date"], x["title"]))
-    return out[:12]
+    return dedupe_events(out)
+
+
+def earnings_events(start: date, end: date) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+
+    try:
+        out.extend(fetch_finviz_earnings(start, end))
+    except Exception as e:
+        print(f"⚠️ fetch_finviz_earnings: {e}")
+
+    try:
+        out.extend(fetch_fmp_earnings(start, end))
+    except Exception as e:
+        print(f"⚠️ fetch_fmp_earnings: {e}")
+
+    deduped: Dict[Tuple[str, str], Dict[str, Any]] = {}
+    for ev in sorted(out, key=lambda x: (x.get("date", ""), x.get("title", ""), x.get("source", ""))):
+        key = (ev.get("date", ""), ev.get("ticker", ""))
+        if key not in deduped:
+            deduped[key] = ev
+
+    return list(deduped.values())
 
 
 def build_event_calendar(start: Optional[date] = None, end: Optional[date] = None) -> List[Dict[str, Any]]:
