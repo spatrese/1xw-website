@@ -857,6 +857,26 @@ footer{
         return da - db || a.type.localeCompare(b.type) || a.title.localeCompare(b.title);
       });
 
+// smarter dedupe
+const map = new Map();
+
+events.forEach(e => {
+  const key = `${e.date}|${e.source}`;
+
+  if (!map.has(key)) {
+    map.set(key, e);
+  } else {
+    const existing = map.get(key);
+
+    // keep the more descriptive title
+    if ((e.title || '').length > (existing.title || '').length) {
+      map.set(key, e);
+    }
+  }
+});
+
+events = Array.from(map.values());
+
     return events.slice(0, 14);
   }
 
