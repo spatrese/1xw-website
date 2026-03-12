@@ -849,7 +849,24 @@ footer{
       }
     });
 
-    return Array.from(merge.values())
+const cleaned = new Map();
+
+Array.from(merge.values()).forEach(e => {
+  let title = normalizeSpaces(e.title || '').toLowerCase();
+
+  // normalizza i duplicati noti
+  if (title === 'fed') title = 'fed meeting / rate decision';
+  if (title === 'gdp') title = 'gdp release';
+
+  const key = `${e.date || ''}|${e.type}|${title}`;
+
+  const existing = cleaned.get(key);
+  if (!existing || (e.title || '').length > (existing.title || '').length) {
+    cleaned.set(key, e);
+  }
+});
+
+    return Array.from(cleaned.values())
   .filter(e => e.title && (!/CNBC Top News/i.test(e.source || '') || e.type === 'Earnings'))
   .sort((a,b) => {
     const da = parseDate(a.date)?.getTime() || 0;
