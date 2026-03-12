@@ -802,11 +802,11 @@ footer{
       structuredEarn.forEach(e => pushEvent({
   date: e.date || '',
   type: 'Earnings',
-  title: normalizeSpaces(e.company || e.label || e.title || ''),
+  title: normalizeSpaces(e.label || e.company || e.title || ''),
   ticker: normalizeSpaces(e.ticker || e.title || ''),
   assets: ['Equities'],
   source: e.source || ''
-}));;
+}));
 
       const legacyEvents = Array.isArray(row.key_events) ? row.key_events : [];
       legacyEvents.forEach(e => {
