@@ -262,25 +262,33 @@ def short_event_label(title: str) -> str:
             return lbl
     return safe_str(title)
 
-
 def attach_events_to_fundamentals(fundamental_overview: Dict[str, Any], event_calendar: List[Dict[str, Any]]) -> Dict[str, Any]:
     by_ac = fundamental_overview.get('by_asset_class', {})
     if not isinstance(by_ac, dict):
         return fundamental_overview
+
     for node in by_ac.values():
         node.setdefault('macro_calendar', [])
         node.setdefault('earnings_calendar', [])
         node.setdefault('key_watchpoints', [])
         node.setdefault('key_events', [])
+
     for ev in event_calendar:
+        is_earnings = ev.get('type') == 'Earnings'
+        title = safe_str(ev.get('title'))
+        ticker = safe_str(ev.get('ticker'))
+        company = safe_str(ev.get('company'))
+
         item = {
-            'label': short_event_label(safe_str(ev.get('title'))),
-            'title': safe_str(ev.get('title')),
-            'type': safe_str(ev.get('type')),
+            'label': company if is_earnings and company else short_event_label(title),
+            'title': title,
+            'ticker': ticker,
+            'company': company,
             'source': safe_str(ev.get('source')),
             'date': safe_str(ev.get('date')),
             'url': safe_str(ev.get('url')),
         }
+
         for ac in map_event_to_asset_classes(ev):
             if ac not in by_ac:
                 continue
@@ -288,17 +296,18 @@ def attach_events_to_fundamentals(fundamental_overview: Dict[str, Any], event_ca
                 by_ac[ac]['macro_calendar'].append(item)
                 by_ac[ac]['key_watchpoints'].append(item)
                 by_ac[ac]['key_events'].append(item)
-            elif ev.get('type') == 'Earnings' and ac == 'Equities':
+            elif is_earnings and ac == 'Equities':
                 by_ac[ac]['earnings_calendar'].append(item)
                 by_ac[ac]['key_watchpoints'].append(item)
                 by_ac[ac]['key_events'].append(item)
+
     for node in by_ac.values():
         node['macro_calendar'] = node['macro_calendar'][:5]
         node['earnings_calendar'] = node['earnings_calendar'][:5]
         node['key_watchpoints'] = node['key_watchpoints'][:5]
         node['key_events'] = node['key_events'][:5]
-    return fundamental_overview
 
+    return fundamental_overview
 
 def build_rationale(side: str, setup: str, asset_class: str, tone: str) -> str:
     s = setup_key(setup)

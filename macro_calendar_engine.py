@@ -652,18 +652,27 @@ def extract_finviz_snapshot_field(soup: BeautifulSoup, field_name: str) -> str:
 
 
 def extract_finviz_company_name(soup: BeautifulSoup, ticker: str) -> str:
+    def _clean_name(text: str) -> str:
+        text = normalize_space(text)
+
+        # rimuove prefisso ticker tipo "MU - "
+        text = re.sub(rf"^{re.escape(normalize_ticker(ticker))}\s*-\s*", "", text, flags=re.I)
+
+        # rimuove la coda tipica di Finviz
+        text = re.sub(r"\s+Stock\s+Price\s+and\s+Quote.*$", "", text, flags=re.I)
+        text = re.sub(r"\s*-\s*Stock\s+Price\s+and\s+Quote.*$", "", text, flags=re.I)
+        text = re.sub(r"\s*-\s*Finviz.*$", "", text, flags=re.I)
+
+        return normalize_space(text)
+
     og_title = soup.find("meta", attrs={"property": "og:title"})
     if og_title and og_title.get("content"):
-        content = normalize_space(og_title["content"])
-        content = re.sub(rf"^{re.escape(normalize_ticker(ticker))}\s*-\s*", "", content, flags=re.I)
-        content = re.sub(r"\s*-\s*Stock.*$", "", content, flags=re.I)
+        content = _clean_name(og_title["content"])
         if content:
             return content
 
     title = soup.title.string if soup.title and soup.title.string else ""
-    title = normalize_space(title)
-    title = re.sub(rf"^{re.escape(normalize_ticker(ticker))}\s*-\s*", "", title, flags=re.I)
-    title = re.sub(r"\s*-\s*Stock.*$", "", title, flags=re.I)
+    title = _clean_name(title)
     return title or normalize_ticker(ticker)
 
 

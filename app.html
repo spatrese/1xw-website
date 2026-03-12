@@ -799,7 +799,7 @@ footer{
         ...(ac === 'Equities' && Array.isArray(row.earnings_watch) ? row.earnings_watch : [])
       ];
 
-      structuredEarn.forEach(e => pushEvent({
+    structuredEarn.forEach(e => pushEvent({
   date: e.date || '',
   type: 'Earnings',
   title: normalizeSpaces(e.label || e.company || e.title || ''),
