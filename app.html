@@ -982,7 +982,7 @@ footer{
       renderTone(weekly.fundamental_overview || {});
       renderTechnicalOverview(weekly.technical_overview || {});
       renderFundamentalOverview(weekly.fundamental_overview || {});
-      renderEvents(weekly.event_calendar || []);
+      renderEvents(collectEvents(weekly.fundamental_overview || {}));
 
       if (index && index.weeks && index.weeks.length) {
         bindHistoryControls(index, activeWeekId || index.current);
