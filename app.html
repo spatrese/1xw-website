@@ -849,26 +849,8 @@ footer{
       }
     });
 
-    const events = Array.from(merge.values()).filter(e => e.title);
-
-const byKey = new Map();
-
-events.forEach(e => {
-  const key = `${e.date}|${e.type}|${e.source}`;
-  const existing = byKey.get(key);
-
-  if (!existing) {
-    byKey.set(key, e);
-    return;
-  }
-
-  // keep the more descriptive title
-  if ((e.title || '').length > (existing.title || '').length) {
-    byKey.set(key, e);
-  }
-});
-
-return Array.from(byKey.values())
+    return Array.from(merge.values())
+  .filter(e => e.title && (!/CNBC Top News/i.test(e.source || '') || e.type === 'Earnings'))
   .sort((a,b) => {
     const da = parseDate(a.date)?.getTime() || 0;
     const db = parseDate(b.date)?.getTime() || 0;
