@@ -811,15 +811,22 @@ footer{
   source: e.source || ''
 }));
 
-      const legacyEvents = Array.isArray(row.key_events) ? row.key_events : [];
-      legacyEvents.forEach(e => {
-        const type = String(e.type || '').toLowerCase() === 'earnings' ? 'Earnings' : 'Macro';
-        if (type === 'Earnings' && ac !== 'Equities') return;
-        const title = type === 'Macro'
-          ? (normalizeMacroTitle(e.title || e.label || '') || normalizeSpaces(e.title || e.label || ''))
-          : (extractCompanyFromHeadline(e.title || e.label || '') || normalizeSpaces(e.title || e.label || ''));
-        pushEvent({ date:e.date || '', type, title, assets:type === 'Earnings' ? ['Equities'] : [ac], source:e.source || '' });
-      });
+     const legacyEvents = Array.isArray(row.key_events) ? row.key_events : [];
+legacyEvents.forEach(e => {
+  const type = String(e.type || '').toLowerCase() === 'earnings' ? 'Earnings' : 'Macro';
+  if (type === 'Earnings' && ac !== 'Equities') return;
+
+  if (type === 'Macro') {
+    const title = normalizeMacroTitle(e.title || e.label || '') || normalizeSpaces(e.title || e.label || '');
+    pushEvent({ date:e.date || '', type, title, assets:[ac], source:e.source || '' });
+    return;
+  }
+
+  const earnTitle = extractCompanyFromHeadline(e.title || e.label || '');
+  if (!earnTitle) return;
+
+  pushEvent({ date:e.date || '', type:'Earnings', title:earnTitle, assets:['Equities'], source:e.source || '' });
+});
 
       const news = Array.isArray(row.top_news) ? row.top_news : [];
       news.forEach(n => {
