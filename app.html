@@ -751,8 +751,8 @@ footer{
       [/\bpmi\b|ism/, 'PMI / ISM'],
       [/\bgdp\b/, 'GDP Release'],
       [/retail sales/, 'Retail Sales'],
-      [/fomc|fed meeting|federal reserve decision|rate decision/, 'Fed Meeting / Rate Decision'],
-      [/fed speakers|powell/, 'Fed Speakers'],
+      [/ecb decision|ecb meeting|ecb policy|ecb rate decision/, 'ECB Meeting / Rate Decision'],
+      [/fomc|fed meeting|federal reserve decision|fed rate decision/, 'Fed Meeting / Rate Decision'],
       [/ecb decision|ecb meeting|ecb policy/, 'ECB Meeting / Rate Decision'],
       [/ecb speakers|lagarde/, 'ECB Speakers'],
       [/boe|bank of england/, 'BoE Event'],
@@ -849,7 +849,7 @@ legacyEvents.forEach(e => {
     out.forEach(e => {
       const title = normalizeSpaces(e.title);
       if (!title) return;
-      const key = `${e.date || ''}|${e.type}|${title}`;
+      const key = `${e.date || ''}|${e.type}|${e.source || ''}|${title}`;
       if (!merge.has(key)) {
         merge.set(key, { ...e, title, assets:[...(e.assets || [])] });
       } else {
