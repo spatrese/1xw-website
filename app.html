@@ -768,14 +768,17 @@ footer{
     return null;
   }
 
-  function extractCompanyFromHeadline(title){
-    const raw = normalizeSpaces(title);
-    let m = raw.match(/^([A-Z][A-Za-z0-9&.\- ]{1,40}?)\s+(?:earnings|results|guidance|reports|report|posts)\b/i);
-    if (m) return `${m[1].trim()} earnings`;
-    m = raw.match(/\b([A-Z][A-Za-z0-9&.\- ]{1,40}?)\s+(?:Q[1-4]|quarterly)\b/i);
-    if (m) return `${m[1].trim()} earnings`;
-    return raw.includes('earnings') || raw.includes('results') ? raw : null;
-  }
+ function extractCompanyFromHeadline(title){
+  const raw = normalizeSpaces(title);
+
+  let m = raw.match(/^([A-Z][A-Za-z0-9&.\- ]{1,40}?)\s+(?:earnings|results|guidance|reports|report|posts)\b/i);
+  if (m) return `${m[1].trim()} earnings`;
+
+  m = raw.match(/\b([A-Z][A-Za-z0-9&.\- ]{1,40}?)\s+(?:Q[1-4]|quarterly)\b/i);
+  if (m) return `${m[1].trim()} earnings`;
+
+  return null;
+}
 
   function collectEvents(fund){
     const out = [];
