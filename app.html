@@ -828,22 +828,16 @@ legacyEvents.forEach(e => {
   pushEvent({ date:e.date || '', type:'Earnings', title:earnTitle, assets:['Equities'], source:e.source || '' });
 });
 
-      const news = Array.isArray(row.top_news) ? row.top_news : [];
-      news.forEach(n => {
-        const title = normalizeSpaces(n.title || '');
-        if (!title) return;
-        if (ac === 'Equities') {
-          const earn = extractCompanyFromHeadline(title);
-          if (earn) {
-            pushEvent({ date:n.date || '', type:'Earnings', title:earn, assets:['Equities'], source:n.source || '' });
-          }
-        }
-        const macro = normalizeMacroTitle(title);
-        if (macro) {
-          pushEvent({ date:n.date || '', type:'Macro', title:macro, assets:[ac], source:n.source || '' });
-        }
-      });
-    }
+const news = Array.isArray(row.top_news) ? row.top_news : [];
+news.forEach(n => {
+  const title = normalizeSpaces(n.title || '');
+  if (!title) return;
+
+  const macro = normalizeMacroTitle(title);
+  if (macro) {
+    pushEvent({ date:n.date || '', type:'Macro', title:macro, assets:[ac], source:n.source || '' });
+  }
+});
 
     const merge = new Map();
     out.forEach(e => {
@@ -867,6 +861,7 @@ Array.from(merge.values()).forEach(e => {
   // normalizza i duplicati noti
   if (title === 'fed') title = 'fed meeting / rate decision';
   if (title === 'gdp') title = 'gdp release';
+  if (title === 'ecb') title = 'ecb meeting / rate decision';
 
   const key = `${e.date || ''}|${e.type}|${title}`;
 
