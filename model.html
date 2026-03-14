@@ -192,6 +192,12 @@ main{padding:16px 0 60px;}
   border-color:rgba(52,211,153,.25);
   color:#bbf7d0;
 }
+.side.short{
+  background:rgba(251,113,133,.10);
+  border-color:rgba(251,113,133,.25);
+  color:#fecdd3;
+}
+
 .mini{margin-top:10px;color:var(--muted2);font-size:.85rem;}
 .chartWrap{
   margin-top:12px;
@@ -314,8 +320,10 @@ footer{
   .table td:last-child{border-bottom:none;}
   .table td:nth-child(1)::before{content:'Week';}
   .table td:nth-child(2)::before{content:'Instrument';}
-  .table td:nth-child(3)::before{content:'Structure';}
-  .table td:nth-child(4)::before{content:'Status';}
+  .table td:nth-child(3)::before{content:'Asset Class';}
+  .table td:nth-child(4)::before{content:'Long / Short';}
+  .table td:nth-child(5)::before{content:'Structure';}
+  .table td:nth-child(6)::before{content:'Status';}
   .table td::before{
     display:block;
     margin-bottom:3px;
@@ -495,6 +503,8 @@ footer{
           <tr>
             <th>Week</th>
             <th>Instrument</th>
+            <th>Asset Class</th>
+            <th>Long / Short</th>
             <th>Structure</th>
             <th>Status</th>
           </tr>
@@ -604,9 +614,9 @@ if (logoutBtn){
       left.textContent = sym;
       pill.appendChild(left);
 
-      if (side === "LONG"){
+      if (side === "LONG" || side === "SHORT"){
         const b = document.createElement("span");
-        b.className = "side long";
+        b.className = `side ${side.toLowerCase()}`;
         b.textContent = side;
         pill.appendChild(b);
       }
@@ -759,10 +769,10 @@ if (logoutBtn){
     });
   }
 
-  function renderTrades(screener){
+    function renderTrades(screener){
     const list = Array.isArray(screener.modelTrades) ? screener.modelTrades : [];
     if (!list.length){
-      tradesBody.innerHTML = `<tr><td colspan="4">No model trades available.</td></tr>`;
+      tradesBody.innerHTML = `<tr><td colspan="6">No model trades available.</td></tr>`;
       tradesMeta.textContent = "";
       return;
     }
@@ -771,13 +781,22 @@ if (logoutBtn){
     list.slice(0, 100).forEach(t => {
       const wk = (t && t.week) ? String(t.week).trim() : "—";
       const inst = (t && t.instrument) ? String(t.instrument).trim() : "—";
+      const assetClass = (t && t.asset_class) ? String(t.asset_class).trim() : "—";
+      const side = (t && t.side) ? String(t.side).trim().toUpperCase() : "—";
       const structure = (t && t.structure) ? String(t.structure).trim() : "—";
       const status = (t && t.status) ? String(t.status).trim() : "—";
+
+      let sideHtml = "—";
+      if (side === "LONG" || side === "SHORT") {
+        sideHtml = `<span class="side ${side.toLowerCase()}">${side}</span>`;
+      }
 
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${wk}</td>
         <td>${inst}</td>
+        <td>${assetClass}</td>
+        <td>${sideHtml}</td>
         <td>${structure}</td>
         <td><span class="badge">${status}</span></td>
       `;

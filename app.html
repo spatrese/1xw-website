@@ -845,13 +845,29 @@ footer{
   out.forEach(e => {
     const title = normalizeSpaces(e.title);
     if (!title) return;
-    const key = `${e.date || ''}|${e.type}|${e.source || ''}|${title}`;
+
+    const eventTicker = normalizeSpaces(e.ticker || '').toUpperCase();
+    const dedupeId = e.type === 'Earnings'
+      ? (eventTicker || title.toLowerCase())
+      : title.toLowerCase();
+
+    const key = `${e.date || ''}|${e.type}|${dedupeId}`;
+
     if (!merge.has(key)) {
-      merge.set(key, { ...e, title, assets: [...(e.assets || [])] });
+      merge.set(key, {
+        ...e,
+        title,
+        ticker: eventTicker || e.ticker || '',
+        assets: [...(e.assets || [])]
+      });
     } else {
       const cur = merge.get(key);
       cur.assets = Array.from(new Set([...(cur.assets || []), ...(e.assets || [])]));
-      if (!cur.source && e.source) cur.source = e.source;
+
+      if ((!cur.source || cur.source === '') && e.source) cur.source = e.source;
+
+      if ((cur.title || '').length < title.length) cur.title = title;
+      if (!cur.ticker && eventTicker) cur.ticker = eventTicker;
     }
   });
 
