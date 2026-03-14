@@ -863,7 +863,12 @@ footer{
     if (title === 'gdp') title = 'gdp release';
     if (title === 'ecb') title = 'ecb meeting / rate decision';
 
-    const key = `${e.date || ''}|${e.type}|${title}`;
+    const eventTicker = normalizeSpaces(e.ticker || '').toUpperCase();
+    const dedupeId = e.type === 'Earnings'
+      ? (eventTicker || title)
+      : title;
+
+    const key = `${e.date || ''}|${e.type}|${dedupeId}`;
     const existing = cleaned.get(key);
 
     if (!existing || (e.title || '').length > (existing.title || '').length) {

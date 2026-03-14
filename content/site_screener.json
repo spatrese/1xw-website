@@ -562,24 +562,32 @@
     {
       "week": "3",
       "instrument": "CLM6P75260514",
+      "asset_class": "Commodities",
+      "side": "LONG",
       "structure": "Put",
       "status": "OPEN"
     },
     {
       "week": "3",
       "instrument": "CLM6P55260514",
+      "asset_class": "Commodities",
+      "side": "SHORT",
       "structure": "Put",
-      "status": "CLOSED"
+      "status": "OPEN"
     },
     {
       "week": "2",
       "instrument": "CCK6",
+      "asset_class": "Commodities",
+      "side": "LONG",
       "structure": "Futures",
       "status": "OPEN"
     },
     {
       "week": "1",
       "instrument": "ETH.USD-PAXOS",
+      "asset_class": "Equity",
+      "side": "",
       "structure": "Spot",
       "status": "CLOSED"
     }
@@ -588,12 +596,20 @@
     {
       "symbol": "CCK6",
       "side": "LONG",
-      "quantity": 3.0
+      "quantity": 3.0,
+      "asset_class": "Commodities"
+    },
+    {
+      "symbol": "CLM6P55260514",
+      "side": "SHORT",
+      "quantity": 2.0,
+      "asset_class": "Commodities"
     },
     {
       "symbol": "CLM6P75260514",
       "side": "LONG",
-      "quantity": 2.0
+      "quantity": 2.0,
+      "asset_class": "Commodities"
     }
   ],
   "universe": [

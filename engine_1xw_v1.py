@@ -217,8 +217,12 @@ def main():
         score = compute_score(last)
         setup = classify_setup(last)
 
+        display_symbol = symbol
+        if contract_type == "CASH" and asset_class == "FX" and name:
+            display_symbol = name
+
         rows.append({
-            "symbol": symbol,
+            "symbol": display_symbol,
             "name": name,
             "asset_class": asset_class,
             "contract_type": contract_type,

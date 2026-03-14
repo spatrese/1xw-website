@@ -214,7 +214,6 @@ def compute_ytd(labels: List[str], nav: List[float]) -> Optional[float]:
     except Exception:
         return None
 
-
 def extract_open_positions(df_pos: pd.DataFrame) -> List[Dict[str, Any]]:
     qty_col = find_col(df_pos, ["QUANTITY"]) or find_col_contains(df_pos, ["quantity"])
     sym_col = (
@@ -223,6 +222,10 @@ def extract_open_positions(df_pos: pd.DataFrame) -> List[Dict[str, Any]]:
         or find_col_contains(df_pos, ["symbol"])
         or find_col_contains(df_pos, ["under"])
     )
+    asset_class_col = (
+        find_col(df_pos, ["ASSET CLASS", "ASSET_CLASS", "Asset Class"])
+        or find_col_contains(df_pos, ["asset", "class"])
+    )
 
     if not qty_col or not sym_col:
         return []
@@ -230,12 +233,20 @@ def extract_open_positions(df_pos: pd.DataFrame) -> List[Dict[str, Any]]:
     out: List[Dict[str, Any]] = []
     for _, r in df_pos.iterrows():
         q = to_float(r.get(qty_col))
-        if q is None or q <= 0:
+        if q is None or q == 0:
             continue
+
         sym = safe_str(r.get(sym_col))
         if not sym:
             continue
-        out.append({"symbol": sym, "side": "LONG", "quantity": q})
+
+        side = "LONG" if q > 0 else "SHORT"
+        out.append({
+            "symbol": sym,
+            "side": side,
+            "quantity": abs(q),
+            "asset_class": safe_str(r.get(asset_class_col)) if asset_class_col else "",
+        })
 
     out.sort(key=lambda x: x.get("symbol", ""))
     return out
@@ -339,6 +350,10 @@ def extract_model_trades_from_blotter(df_tr: pd.DataFrame) -> List[Dict[str, Any
     )
     instrument_col = find_col(df_tr, ["Instrument", "INSTRUMENT"]) or find_col_contains(df_tr, ["instrument"])
     qty_col = find_col(df_tr, ["QUANTITY", "Quantity"]) or find_col_contains(df_tr, ["quantity"])
+    asset_class_col = (
+        find_col(df_tr, ["ASSET CLASS", "ASSET_CLASS", "Asset Class"])
+        or find_col_contains(df_tr, ["asset", "class"])
+    )
 
     if not week_col:
         return []
@@ -352,12 +367,20 @@ def extract_model_trades_from_blotter(df_tr: pd.DataFrame) -> List[Dict[str, Any
         inst = safe_str(r.get(ticker_col)) if ticker_col else ""
         structure = safe_str(r.get(instrument_col)) if instrument_col else ""
         q = to_float(r.get(qty_col)) if qty_col else None
-        status = "OPEN" if (q is not None and q > 0) else "CLOSED"
+
+        if q is None:
+            status = "CLOSED"
+            side = ""
+        else:
+            status = "OPEN" if q != 0 else "CLOSED"
+            side = "LONG" if q > 0 else "SHORT" if q < 0 else ""
 
         out.append(
             {
                 "week": wk,
                 "instrument": inst,
+                "asset_class": safe_str(r.get(asset_class_col)) if asset_class_col else "",
+                "side": side,
                 "structure": structure,
                 "status": status,
             }
@@ -371,7 +394,6 @@ def extract_model_trades_from_blotter(df_tr: pd.DataFrame) -> List[Dict[str, Any
 
     out.sort(key=sort_key, reverse=True)
     return out
-
 
 # ----------------------------
 # Main
