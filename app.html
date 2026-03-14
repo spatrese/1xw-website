@@ -814,21 +814,44 @@ footer{
 
     const legacyEvents = Array.isArray(row.key_events) ? row.key_events : [];
     legacyEvents.forEach(e => {
-      const type = String(e.type || '').toLowerCase() === 'earnings' ? 'Earnings' : 'Macro';
-      if (type === 'Earnings' && ac !== 'Equities') return;
+      const rawTitle = normalizeSpaces(e.title || e.label || '');
+      if (!rawTitle) return;
 
-      if (type === 'Macro') {
-        const title = normalizeMacroTitle(e.title || e.label || '') || normalizeSpaces(e.title || e.label || '');
-        pushEvent({ date: e.date || '', type, title, assets: [ac], source: e.source || '' });
+      const rawType = String(e.type || '').toLowerCase();
+      const source = normalizeSpaces(e.source || '');
+
+      const looksLikeTickerOnly = /^[A-Z]{1,6}$/.test(rawTitle);
+      const inferredEarningsTitle = extractCompanyFromHeadline(rawTitle);
+      const looksLikeEarnings =
+        rawType === 'earnings' ||
+        !!inferredEarningsTitle ||
+        (ac === 'Equities' && source.toLowerCase().includes('finviz') && looksLikeTickerOnly);
+
+      if (looksLikeEarnings) {
+        if (ac !== 'Equities') return;
+
+        pushEvent({
+          date: e.date || '',
+          type: 'Earnings',
+          title: inferredEarningsTitle || rawTitle,
+          ticker: looksLikeTickerOnly ? rawTitle : '',
+          assets: ['Equities'],
+          source: e.source || ''
+        });
         return;
       }
 
-      const earnTitle = extractCompanyFromHeadline(e.title || e.label || '');
-      if (!earnTitle) return;
+      const macroTitle = normalizeMacroTitle(rawTitle);
+      if (!macroTitle) return;
 
-      pushEvent({ date: e.date || '', type: 'Earnings', title: earnTitle, assets: ['Equities'], source: e.source || '' });
+      pushEvent({
+        date: e.date || '',
+        type: 'Macro',
+        title: macroTitle,
+        assets: [ac],
+        source: e.source || ''
+      });
     });
-
     const news = Array.isArray(row.top_news) ? row.top_news : [];
     news.forEach(n => {
       const title = normalizeSpaces(n.title || '');
