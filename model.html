@@ -9,6 +9,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
+<script type="module">
+  window.__SUPABASE_CONFIG__ = {
+    url: "https://iiawkbucjgellrtrizhk.supabase.co",
+    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlpYXdrYnVjamdlbGxydHJpemhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0ODAzNjUsImV4cCI6MjA4OTA1NjM2NX0.DK5_m4XQUNGqlCu6UoIMJRSpfKPbMHW8B56ikK1wqPM"
+  };
+</script>
+
 <style>
 :root{
   --bg:#0b0f17;
@@ -523,21 +530,45 @@ footer{
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
-<script>
-(() => {
-  const TOKEN_KEY = "1xw_auth";
-  const PERF_URL = "content/site_performance.json";
-  const SCREEN_URL = "content/site_screener.json";
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-  if (localStorage.getItem(TOKEN_KEY) !== "ok") {
+const SUPABASE_URL = 'https://iiawkbucjgellrtrizhk.supabase.co';
+const SUPABASE_ANON_KEY = 'INCOLLA_QUI_LA_TUA_ANON_KEY';
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const PERF_URL = "content/site_performance.json";
+const SCREEN_URL = "content/site_screener.json";
+
+async function requireActiveMembership() {
+  const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+
+  if (sessionError || !session || !session.user?.email) {
     window.location.href = "login.html";
-    return;
+    return null;
   }
 
- const logoutBtn = document.getElementById("logoutBtn");
-if (logoutBtn){
-  logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem(TOKEN_KEY);
+  const email = session.user.email.toLowerCase();
+
+  const { data, error } = await supabase
+    .from("memberships")
+    .select("subscription_status")
+    .eq("email", email)
+    .maybeSingle();
+
+  if (error || !data || data.subscription_status !== "active") {
+    await supabase.auth.signOut();
+    window.location.href = "login.html";
+    return null;
+  }
+
+  return session.user;
+}
+
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async () => {
+    await supabase.auth.signOut();
     window.location.href = "login.html";
   });
 }
@@ -807,40 +838,43 @@ if (logoutBtn){
   }
 
   (async () => {
-    try{
-      clearMsgs();
+  try {
+    const user = await requireActiveMembership();
+    if (!user) return;
 
-      const perf = await loadJson(PERF_URL).catch(() => null);
-      const screener = await loadJson(SCREEN_URL).catch(() => null);
+    clearMsgs();
 
-      if (!perf) showNotice("Performance data not available yet.");
-      if (!screener) showNotice((noticeBox.style.display === "block" ? noticeBox.textContent + " " : "") + "Screener data not available yet.");
+    const perf = await loadJson(PERF_URL).catch(() => null);
+    const screener = await loadJson(SCREEN_URL).catch(() => null);
 
-      if (perf){
-        renderSnapshot(perf);
-        renderNavChart(perf);
-        renderPlbChart(perf);
-      } else {
-        asofLine.textContent = "";
-        navMeta.textContent = "";
-        plbMeta.textContent = "";
-      }
+    if (!perf) showNotice("Performance data not available yet.");
+    if (!screener) showNotice((noticeBox.style.display === "block" ? noticeBox.textContent + " " : "") + "Screener data not available yet.");
 
-      if (screener){
-        renderOpenPositions(screener);
-        renderTrades(screener);
-      } else {
-        posCount.textContent = "—";
-        posMeta.textContent = "—";
-        tradesBody.innerHTML = `<tr><td colspan="4">—</td></tr>`;
-        tradesMeta.textContent = "";
-      }
-    } catch (e){
-      console.error(e);
-      showError(e && e.message ? e.message : String(e));
+    if (perf){
+      renderSnapshot(perf);
+      renderNavChart(perf);
+      renderPlbChart(perf);
+    } else {
+      asofLine.textContent = "";
+      navMeta.textContent = "";
+      plbMeta.textContent = "";
     }
-  })();
+
+    if (screener){
+      renderOpenPositions(screener);
+      renderTrades(screener);
+    } else {
+      posCount.textContent = "—";
+      posMeta.textContent = "—";
+      tradesBody.innerHTML = `<tr><td colspan="4">—</td></tr>`;
+      tradesMeta.textContent = "";
+    }
+  } catch (e) {
+    console.error(e);
+    showError(e && e.message ? e.message : String(e));
+  }
 })();
 </script>
+
 </body>
 </html>
