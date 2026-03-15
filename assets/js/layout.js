@@ -71,6 +71,21 @@
       </div>
     </div>
   `;
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('#logoutBtn');
+  if (!btn) return;
 
+  e.preventDefault();
+
+  const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
+
+  const supabase = createClient(
+    'https://iiawkbucjgellrtrizhk.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlpYXdrYnVjamdlbGxydHJpemhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0ODAzNjUsImV4cCI6MjA4OTA1NjM2NX0.DK5_m4XQUNGqlCu6UoIMJRSpfKPbMHW8B56ikK1wqPM'
+  );
+
+  await supabase.auth.signOut();
+  window.location.href = 'login.html';
+});
 
 })();
