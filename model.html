@@ -9,12 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-<script type="module">
-  window.__SUPABASE_CONFIG__ = {
-    url: "https://iiawkbucjgellrtrizhk.supabase.co",
-    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlpYXdrYnVjamdlbGxydHJpemhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0ODAzNjUsImV4cCI6MjA4OTA1NjM2NX0.DK5_m4XQUNGqlCu6UoIMJRSpfKPbMHW8B56ikK1wqPM"
-  };
-</script>
 
 <style>
 :root{
@@ -534,7 +528,7 @@ footer{
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 const SUPABASE_URL = 'https://iiawkbucjgellrtrizhk.supabase.co';
-const SUPABASE_ANON_KEY = 'INCOLLA_QUI_LA_TUA_ANON_KEY';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlpYXdrYnVjamdlbGxydHJpemhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0ODAzNjUsImV4cCI6MjA4OTA1NjM2NX0.DK5_m4XQUNGqlCu6UoIMJRSpfKPbMHW8B56ikK1wqPM';
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const PERF_URL = "content/site_performance.json";
