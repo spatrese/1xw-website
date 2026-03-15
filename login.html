@@ -1,175 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>1XW Trading | Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1XW Trading | Login</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --bg:#0b0f17;
-  --bg2:#111827;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --muted2:#6b7280;
-  --hairline:#1a2232;
-  --accent:#7c9cff;
-  --radius-lg:22px;
-  --max:1120px;
-  --px:clamp(18px,5vw,64px);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Inter',sans-serif;
-  color:var(--text);
-  line-height:1.65;
-  background:
-    radial-gradient(900px 600px at 70% -10%, rgba(124,156,255,.12), transparent 60%),
-    radial-gradient(700px 500px at 20% 10%, rgba(124,156,255,.08), transparent 70%),
-    var(--bg);
-}
-a{color:inherit;text-decoration:none;}
-.container{max-width:var(--max);margin:0 auto;padding:0 var(--px);}
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/theme-bloomberg-trial.css">
+  <script defer src="assets/js/layout.js"></script>
 
-.nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(11,15,23,.75);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--hairline);
-}
-.nav-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 0;
-}
-.brand{display:flex;align-items:center;gap:10px;}
-.brand img{height:32px;width:auto;display:block;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));}
-.logo{font-weight:900; letter-spacing:-.8px; text-transform:uppercase; color:var(--accent); line-height:1;}
-.nav-cta{
-  font-weight:900;font-size:.9rem;
-  padding:10px 14px;border-radius:999px;
-  border:1px solid rgba(124,156,255,.35);
-  color:var(--accent);
-  background:rgba(124,156,255,.06);
-}
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --bg2:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --hairline:#1a2232;
+      --accent:#7c9cff;
+      --radius-lg:22px;
+      --radius-md:14px;
+      --max:1120px;
+      --px:clamp(18px,5vw,64px);
+    }
 
-main{
-  min-height: calc(100vh - 74px);
-  display:grid;
-  place-items:center;
-  padding: 56px 0 90px;
-}
-.panel{
-  width: min(520px, 100%);
-  background:var(--bg2);
-  border:1px solid var(--hairline);
-  border-radius:var(--radius-lg);
-  padding:32px;
-}
-.tag{
-  display:inline-flex;
-  font-size:.75rem;
-  text-transform:uppercase;
-  letter-spacing:1.6px;
-  color:var(--accent);
-  border:1px solid rgba(124,156,255,.35);
-  padding:10px 14px;
-  border-radius:999px;
-  background:rgba(124,156,255,.12);
-  margin-bottom:16px;
-}
-h1{font-size:1.6rem; letter-spacing:-.6px; margin-bottom:8px;}
-p{color:var(--muted);}
-.form{margin-top:18px; display:grid; gap:12px;}
-label{font-size:.85rem; color:var(--muted2); font-weight:700;}
-input{
-  width:100%; padding:12px 14px; border-radius:12px;
-  border:1px solid var(--hairline); background:#0f172a; color:var(--text); outline:none;
-}
-input:focus{ border-color: rgba(124,156,255,.55); box-shadow: 0 0 0 4px rgba(124,156,255,.12); }
-.btn{
-  padding:12px 18px; border-radius:999px; border:1px solid var(--accent);
-  background:var(--accent); color:#0b0f17; font-weight:900; font-size:.92rem; cursor:pointer;
-}
-.error{
-  display:none; margin-top:12px; padding:12px 14px; border-radius:12px;
-  border:1px solid rgba(248,113,113,.35); background: rgba(248,113,113,.10); color: #fecaca; font-size:.9rem;
-}
-.meta{ margin-top:12px; font-size:.85rem; display:flex; justify-content:flex-end; }
-small.muted{color:var(--muted2);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Inter',sans-serif;
+      color:var(--text);
+      line-height:1.65;
+      background:
+        radial-gradient(900px 600px at 70% -10%, rgba(124,156,255,.12), transparent 60%),
+        radial-gradient(700px 500px at 20% 10%, rgba(124,156,255,.08), transparent 70%),
+        var(--bg);
+      min-height:100vh;
+    }
 
-@media (max-width:520px){
-  .brand .logo{display:none;}
-  .panel{padding:24px 18px;}
-}
-footer{ padding:22px 0; text-align:center; color:rgba(100,116,139,.9); font-size:.85rem; }
-</style>
-<link rel="stylesheet" href="assets/css/theme.css">
-<link rel="stylesheet" href="assets/css/components.css">
-<link rel="stylesheet" href="assets/css/theme-bloomberg-trial.css">
-<script defer src="assets/js/layout.js"></script>
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--px);}
+    .login-wrap{
+      min-height:calc(100vh - 90px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:64px 0;
+    }
+
+    .login-card{
+      width:100%;
+      max-width:560px;
+      background:linear-gradient(180deg,#111827,#0f172a);
+      border:1px solid var(--hairline);
+      border-radius:var(--radius-lg);
+      padding:34px;
+      box-shadow:0 20px 60px rgba(0,0,0,.28);
+    }
+
+    .kicker{
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:1.4px;
+      font-size:.72rem;
+      color:var(--accent);
+      margin-bottom:10px;
+    }
+
+    h1{
+      font-size:clamp(1.9rem,4vw,2.6rem);
+      line-height:1.15;
+      margin-bottom:10px;
+      letter-spacing:-1px;
+    }
+
+    .sub{
+      color:var(--muted);
+      margin-bottom:26px;
+      font-size:1rem;
+    }
+
+    .field-label{
+      display:block;
+      font-size:.92rem;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+
+    .input{
+      width:100%;
+      background:#0b1220;
+      border:1px solid #273244;
+      color:var(--text);
+      border-radius:14px;
+      padding:14px 16px;
+      font-size:1rem;
+      outline:none;
+    }
+
+    .input:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 3px rgba(124,156,255,.12);
+    }
+
+    .btn{
+      width:100%;
+      margin-top:16px;
+      padding:14px 18px;
+      border:none;
+      border-radius:999px;
+      background:var(--accent);
+      color:#0b0f17;
+      font-weight:800;
+      font-size:.95rem;
+      cursor:pointer;
+    }
+
+    .btn:hover{ background:#9fb6ff; }
+    .btn:disabled{ opacity:.65; cursor:not-allowed; }
+
+    .note{
+      margin-top:16px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .msg{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:14px;
+      font-size:.94rem;
+      display:none;
+    }
+
+    .msg.show{ display:block; }
+    .msg.info{
+      background:rgba(124,156,255,.10);
+      border:1px solid rgba(124,156,255,.24);
+      color:#d8e2ff;
+    }
+    .msg.error{
+      background:rgba(239,68,68,.10);
+      border:1px solid rgba(239,68,68,.24);
+      color:#ffd9d9;
+    }
+    .msg.success{
+      background:rgba(16,185,129,.10);
+      border:1px solid rgba(16,185,129,.24);
+      color:#d7fff0;
+    }
+
+    .helper{
+      margin-top:24px;
+      padding-top:20px;
+      border-top:1px solid var(--hairline);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .helper a{
+      color:var(--accent);
+      text-decoration:none;
+    }
+
+    .hidden{ display:none !important; }
+
+    @media (max-width:768px){
+      .login-wrap{ padding:40px 0; }
+      .login-card{ padding:24px 18px; }
+    }
+  </style>
 </head>
 
-<body data-page="login" data-shell="auth">
+<body data-page="login" data-shell="public">
   <div id="siteNav"></div>
 
-<main class="container">
-    <div class="panel">
-      <div class="tag">Member Access</div>
-      <h1>Login</h1>
-      <p>Enter your access credentials to view weekly research and the 1XW model dashboard.</p>
+  <main class="login-wrap">
+    <div class="container">
+      <div class="login-card">
+        <div class="kicker">Members access</div>
+        <h1>Login to 1XW Research</h1>
+        <p class="sub">
+          Enter your email and we’ll send you a secure sign-in link.
+        </p>
 
-      <form class="form" id="loginForm">
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="name@domain.com" />
+        <form id="loginForm">
+          <label class="field-label" for="email">Email</label>
+          <input
+            id="email"
+            class="input"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+          <button id="sendBtn" class="btn" type="submit">Send login link</button>
+        </form>
+
+        <div id="message" class="msg info"></div>
+
+        <div class="helper">
+          Not subscribed yet?
+          <a href="https://buy.stripe.com/fZu8wQd2zf9BeYw4WE8g000">Subscribe here</a>.
         </div>
-
-        <div>
-          <label for="password">Access Password</label>
-          <input id="password" name="password" type="password" placeholder="••••••••" required />
-        </div>
-
-        <button class="btn btn-primary" type="submit">Sign In</button>
-        <div class="error" id="errorBox">Invalid password.</div>
-
-        <div class="meta">
-          <a href="index.html#contact"><small class="muted">Need access?</small></a>
-        </div>
-      </form>
+      </div>
     </div>
   </main>
 
-  <footer>1XW TRADING © 2026. All rights reserved.</footer>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-<script>
-(() => {
-  const ACCESS_PASSWORD = "CHANGE_ME"; 
-  const TOKEN_KEY = "1xw_auth";
+    const SUPABASE_URL = 'https://iiawkbucjgellrtrizhk.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlpYXdrYnVjamdlbGxydHJpemhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0ODAzNjUsImV4cCI6MjA4OTA1NjM2NX0.DK5_m4XQUNGqlCu6UoIMJRSpfKPbMHW8B56ikK1wqPM';
 
-  if (localStorage.getItem(TOKEN_KEY) === "ok") {
-    window.location.href = "app.html";
-    return;
-  }
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  const form = document.getElementById("loginForm");
-  const pwd = document.getElementById("password");
-  const err = document.getElementById("errorBox");
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const sendBtn = document.getElementById('sendBtn');
+    const message = document.getElementById('message');
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    err.style.display = "none";
-    if (pwd.value.trim() === ACCESS_PASSWORD) {
-      localStorage.setItem(TOKEN_KEY, "ok");
-      window.location.href = "app.html";
-    } else {
-      err.style.display = "block";
+    function showMessage(text, type = 'info') {
+      message.className = `msg show ${type}`;
+      message.textContent = text;
     }
-  });
-})();
-</script>
+
+    function hideMessage() {
+      message.className = 'msg info';
+      message.textContent = '';
+    }
+
+    async function checkMembershipAndRedirect() {
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session || !session.user?.email) return;
+
+      const email = session.user.email.toLowerCase();
+
+      const { data, error } = await supabase
+        .from('memberships')
+        .select('subscription_status')
+        .eq('email', email)
+        .maybeSingle();
+
+      if (error) {
+        showMessage('Login succeeded, but membership lookup failed. Please try again.', 'error');
+        return;
+      }
+
+      if (!data) {
+        await supabase.auth.signOut();
+        showMessage('No membership record found for this email. Please subscribe first.', 'error');
+        return;
+      }
+
+      if (data.subscription_status !== 'active') {
+        await supabase.auth.signOut();
+        showMessage('Your membership is not active. Please renew or contact support.', 'error');
+        return;
+      }
+
+      window.location.href = 'app.html';
+    }
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideMessage();
+
+      const email = emailInput.value.trim().toLowerCase();
+      if (!email) {
+        showMessage('Please enter your email.', 'error');
+        return;
+      }
+
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Sending...';
+
+      const redirectTo = `${window.location.origin}${window.location.pathname}`;
+
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: redirectTo
+        }
+      });
+
+      if (error) {
+        showMessage(error.message || 'Could not send login link.', 'error');
+      } else {
+        showMessage('Login link sent. Check your email and click the link to continue.', 'success');
+      }
+
+      sendBtn.disabled = false;
+      sendBtn.textContent = 'Send login link';
+    });
+
+    checkMembershipAndRedirect();
+  </script>
 </body>
 </html>

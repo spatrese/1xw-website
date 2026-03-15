@@ -10,18 +10,19 @@
 
   const pages = {
     index: {
-      brandHref: 'index.html',
-      links: [
-        { href: '#what', label: 'What it is', active: body.dataset.active === 'what' },
-        { href: '#principles', label: 'Principles', active: body.dataset.active === 'principles' },
-        { href: '#edge', label: 'The Edge', active: body.dataset.active === 'edge' },
-        { href: '#coinflip', label: 'Coin Flip', active: body.dataset.active === 'coinflip' },
-        { href: '#performance', label: 'Performance', active: body.dataset.active === 'performance' },
-        { href: '#plb', label: 'PLB', active: body.dataset.active === 'plb' },
-        { href: '#transparency', label: 'Transparency', active: body.dataset.active === 'transparency' },
-        { href: 'login.html', label: 'Login', cta: true }
-      ]
-    },
+  brandHref: 'index.html',
+  links: [
+    { href: '#what', label: 'What it is', active: body.dataset.active === 'what' },
+    { href: '#principles', label: 'Principles', active: body.dataset.active === 'principles' },
+    { href: '#edge', label: 'The Edge', active: body.dataset.active === 'edge' },
+    { href: '#coinflip', label: 'Coin Flip', active: body.dataset.active === 'coinflip' },
+    { href: '#performance', label: 'Performance', active: body.dataset.active === 'performance' },
+    { href: '#plb', label: 'PLB', active: body.dataset.active === 'plb' },
+    { href: '#transparency', label: 'Transparency', active: body.dataset.active === 'transparency' },
+    { href: 'https://buy.stripe.com/14A14o3rZ7H9dUsfBi8g001', label: 'Subscribe', cta: true },
+    { href: 'login.html', label: 'Login', cta: true }
+  ]
+},
     app: {
       brandHref: 'index.html',
       links: [
