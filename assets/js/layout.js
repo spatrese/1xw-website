@@ -72,11 +72,5 @@
     </div>
   `;
 
-  const logoutBtn = document.getElementById('logoutBtn');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', () => {
-      try { localStorage.removeItem('1xw_auth'); } catch (e) {}
-      window.location.href = 'login.html';
-    });
-  }
+
 })();
