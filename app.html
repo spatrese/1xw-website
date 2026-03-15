@@ -382,7 +382,7 @@ footer{
 <link rel="stylesheet" href="assets/css/components.css">
 <link rel="stylesheet" href="assets/css/theme-bloomberg-trial.css">
 <script defer src="assets/js/layout.js"></script>
-<script src="assets/js/layout.js"></script>
+
 </head>
 
 <body data-page="app" data-shell="member">
@@ -1185,13 +1185,14 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
     window.addEventListener('resize', closeTip);
   }
 
-const logoutBtn = $('logoutBtn');
-if (logoutBtn) {
-  logoutBtn.addEventListener('click', async () => {
-    await supabase.auth.signOut();
-    window.location.href = 'login.html';
-  });
-}
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('#logoutBtn');
+  if (!btn) return;
+
+  e.preventDefault();
+  await supabase.auth.signOut();
+  window.location.href = 'login.html';
+});
 
   init();
   initInfoTips();
