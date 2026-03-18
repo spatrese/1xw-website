@@ -273,7 +273,7 @@ def build_technical_overview(universe_rows: List[Dict[str, Any]]) -> Dict[str, A
 
         row = {
             'symbol': display_symbol,
-            'name': r.get('name') or '',
+            'name': display_symbol if ac == 'FX' else (r.get('name') or ''),
             'asset_class': ac,
             'setup': display_setup,
             'score': display_score,
@@ -307,7 +307,6 @@ def build_technical_overview(universe_rows: List[Dict[str, Any]]) -> Dict[str, A
             'text': f'Breadth is {tone}: avg score {avg:.2f}, bullish {bullish}/{n_rows}, bearish {bearish}/{n_rows}.',
         }
 
-    return {'by_symbol': by_symbol, 'by_asset_class': by_asset_class}
     return {'by_symbol': by_symbol, 'by_asset_class': by_asset_class}
 
 
@@ -424,7 +423,7 @@ def build_top_ideas(universe_rows: List[Dict[str, Any]], fund_overview: Dict[str
 
         base = {
              'symbol': display_symbol,
-             'name': r.get('name') or '',
+             'name': display_symbol if ac == 'FX' else (r.get('name') or ''),
              'asset_class': ac,
              'setup': setup,
              'score': float(score_for_top),
