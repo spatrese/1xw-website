@@ -268,9 +268,7 @@ def build_technical_overview(universe_rows: List[Dict[str, Any]]) -> Dict[str, A
         display_score = fx_row_score(sym, r.get('score')) if ac == 'FX' else parse_float(r.get('score'))
 
         display_setup = r.get('setup') or ''
-        if ac == 'FX':
-            display_setup = display_setup.replace(' (down)', '').replace(' (up)', '').replace('(down)', '').replace('(up)', '').strip()
-
+        
         row = {
             'symbol': display_symbol,
             'name': display_symbol if ac == 'FX' else (r.get('name') or ''),
@@ -384,12 +382,20 @@ def attach_events_to_fundamentals(fundamental_overview: Dict[str, Any], event_ca
 
     return fundamental_overview
 
-def build_rationale(side: str, setup: str, asset_class: str, tone: str) -> str:
+def build_rationale(side: str, setup: str, asset_class: str, tone: str, symbol: str = '') -> str:
     s = setup_key(setup)
+
+    if safe_str(symbol).upper() == 'VIX':
+        if side == 'LONG':
+            return 'Volatility expansion with risk-off dynamics.'
+        else:
+            return 'Volatility compression as risk sentiment stabilises.'
+
     if side == 'LONG':
         tech_text = 'Breakout setup' if 'breakout' in s else 'Trend strength' if 'trend continuation' in s else 'Constructive technical setup'
     else:
         tech_text = 'Breakdown setup' if 'breakdown' in s else 'Downtrend remains in place' if 'down' in s else 'Fragile technical setup'
+
     return f'{tech_text} in {asset_class} with {tone.lower()} macro tone.'
 
 
@@ -402,8 +408,6 @@ def build_top_ideas(universe_rows: List[Dict[str, Any]], fund_overview: Dict[str
             continue
         ac = canonical_asset_class(r.get('asset_class') or r.get('assetClass') or 'Other')
         setup = safe_str(r.get('setup') or '')
-        if ac == 'FX':
-            setup = setup.replace(' (down)', '').replace(' (up)', '').replace('(down)', '').replace('(up)', '').strip()
 
         score = parse_float(r.get('score')) or 0.0
         score_for_top = fx_row_score(sym, score) if ac == 'FX' else score
@@ -436,7 +440,7 @@ def build_top_ideas(universe_rows: List[Dict[str, Any]], fund_overview: Dict[str
             'fund_support': f_long,
             'macro_alignment': f_long,
             'final_score': 0.75 * tlong + 0.25 * f_long,
-            'rationale': build_rationale('LONG', setup, ac, tone),
+            'rationale': build_rationale('LONG', setup, ac, tone, display_symbol),
         })
         shorts.append({
             **base,
@@ -445,7 +449,7 @@ def build_top_ideas(universe_rows: List[Dict[str, Any]], fund_overview: Dict[str
             'fund_support': f_short,
             'macro_alignment': f_short,
             'final_score': 0.75 * tshort + 0.25 * f_short,
-            'rationale': build_rationale('SHORT', setup, ac, tone),
+            'rationale': build_rationale('SHORT', setup, ac, tone, display_symbol),
         })
     return {
         'methodology': {
