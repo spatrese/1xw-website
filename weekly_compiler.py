@@ -54,29 +54,26 @@ def canonical_asset_class(ac: str) -> str:
         'crypto': 'Crypto',
     }.get(s, safe_str(ac).strip() or 'Other')
 
-def fx_usd_centric_score(symbol: str, score: Optional[float]) -> Optional[float]:
+def fx_display_symbol(symbol: str) -> str:
+    s = safe_str(symbol).strip().upper()
+    if len(s) == 6 and s.startswith("USD"):
+        # USDJPY -> JPYUSD ; USDCAD -> CADUSD
+        return s[3:] + "USD"
+    return s
+
+
+def fx_row_score(symbol: str, score: Optional[float]) -> Optional[float]:
     s = safe_str(symbol).strip().upper()
     sc = parse_float(score)
     if sc is None:
         return None
-    if not s:
-        return sc
 
-    # USD as base -> keep sign
-    if s.startswith("USD"):
-        return sc
-
-    # USD as quote -> invert sign
-    if s.endswith("USD"):
+    # We want the score to reflect strength of the non-USD currency.
+    # EURUSD up -> + score stays as is
+    # USDJPY up -> JPYUSD should read as weaker JPY -> invert sign
+    if len(s) == 6 and s.startswith("USD"):
         return -sc
-
     return sc
-
-def fx_usd_centric_symbol(symbol: str) -> str:
-    s = safe_str(symbol).strip().upper()
-    if len(s) == 6 and s.endswith("USD") and not s.startswith("USD"):
-        return "USD" + s[:3]
-    return s
 
 def normalize_score_long(score: float) -> float:
     return clamp((score + 4.0) / 8.0)
@@ -129,54 +126,40 @@ def text_score(title: str, summary: str) -> int:
     txt = f"{title} {summary}".lower()
     return sum(1 for w in POS_WORDS if w in txt) - sum(1 for w in NEG_WORDS if w in txt)
 
-def fx_usd_bias_score(title: str, summary: str) -> int:
+def fx_row_bias_score(title: str, summary: str) -> int:
     txt = f"{safe_str(title)} {safe_str(summary)}".lower()
-
     score = 0
 
-    # USD-positive
-    usd_pos = [
-        'stronger dollar', 'dollar rises', 'dollar gains', 'usd gains',
-        'fed hawkish', 'hawkish fed', 'higher yields', 'treasury yields rise',
-        'boj dovish', 'ecb dovish', 'boe dovish', 'rba dovish', 'boc dovish'
-    ]
-
-    # USD-negative
-    usd_neg = [
-        'weaker dollar', 'dollar falls', 'dollar drops', 'usd falls',
-        'fed dovish', 'dovish fed', 'lower yields', 'treasury yields fall',
-        'boj hawkish', 'ecb hawkish', 'boe hawkish', 'rba hawkish', 'boc hawkish'
-    ]
-
-    # non-USD currency strength = USD negative
-    other_ccy_strong = [
-        'euro rises', 'euro gains', 'yen rises', 'yen gains',
+    row_positive = [
+        'euro rises', 'euro gains', 'eur rises', 'eur gains',
+        'yen rises', 'yen gains', 'jpy rises', 'jpy gains',
         'pound rises', 'pound gains', 'sterling rises', 'sterling gains',
-        'aud rises', 'aussie rises', 'cad rises', 'loonie rises'
+        'aud rises', 'aud gains', 'aussie rises', 'aussie gains',
+        'cad rises', 'cad gains', 'loonie rises', 'loonie gains',
+        'dollar falls', 'dollar drops', 'weaker dollar', 'usd falls',
+        'fed dovish', 'dovish fed', 'lower yields', 'treasury yields fall',
+        'ecb hawkish', 'boj hawkish', 'boe hawkish', 'rba hawkish', 'boc hawkish',
     ]
 
-    # non-USD currency weakness = USD positive
-    other_ccy_weak = [
-        'euro falls', 'euro drops', 'yen falls', 'yen drops',
+    row_negative = [
+        'euro falls', 'euro drops', 'eur falls', 'eur drops',
+        'yen falls', 'yen drops', 'jpy falls', 'jpy drops',
         'pound falls', 'pound drops', 'sterling falls', 'sterling drops',
-        'aud falls', 'aussie falls', 'cad falls', 'loonie falls'
+        'aud falls', 'aud drops', 'aussie falls', 'aussie drops',
+        'cad falls', 'cad drops', 'loonie falls', 'loonie drops',
+        'dollar rises', 'dollar gains', 'stronger dollar', 'usd gains',
+        'fed hawkish', 'hawkish fed', 'higher yields', 'treasury yields rise',
+        'ecb dovish', 'boj dovish', 'boe dovish', 'rba dovish', 'boc dovish',
     ]
 
-    for w in usd_pos:
+    for w in row_positive:
         if w in txt:
             score += 1
-    for w in usd_neg:
+    for w in row_negative:
         if w in txt:
             score -= 1
-    for w in other_ccy_strong:
-        if w in txt:
-            score -= 1
-    for w in other_ccy_weak:
-        if w in txt:
-            score += 1
 
     return score
-
 
 def build_fund_commentary(ac: str, tone: str, bias: float, conf: float, top_news: List[Dict[str, Any]]) -> str:
     leads = {
@@ -191,9 +174,9 @@ def build_fund_commentary(ac: str, tone: str, bias: float, conf: float, top_news
             'Mixed': 'Rates remain data-dependent, with no clean trend yet across inflation and policy expectations.',
         },
         'FX': {
-    'Supportive':'USD macro tone is supportive, with policy divergence favouring the dollar.',
-    'Cautious':'USD macro tone is cautious, with policy and growth uncertainty limiting conviction.',
-    'Mixed':'USD macro tone is mixed, with conflicting cross-currents across major currencies.'
+            'Supportive': 'Major currencies are broadly supported against the dollar, with macro divergence favouring the rest of the world.',
+            'Cautious': 'The dollar backdrop remains supportive, limiting follow-through in major currencies.',
+            'Mixed': 'Major currencies show mixed signals against the dollar, with no clean macro direction yet.',
         },
         'Commodities': {
             'Supportive': 'Commodity tone is supportive, with supply dynamics still relevant.',
@@ -222,7 +205,7 @@ def build_fundamentals(news_digest: Dict[str, Any], per_class_news: int = 3) -> 
     for ac, lst in ac_map.items():
         lst_sorted = sorted(lst, key=lambda it: safe_str(it.get('date') or it.get('published') or ''), reverse=True)
         if ac == 'FX':
-            scores = [fx_usd_bias_score(safe_str(it.get('title')), safe_str(it.get('summary'))) for it in lst_sorted]
+            scores = [fx_row_bias_score(safe_str(it.get('title')), safe_str(it.get('summary'))) for it in lst_sorted]
         else:
             scores = [text_score(safe_str(it.get('title')), safe_str(it.get('summary'))) for it in lst_sorted]
         if scores:
@@ -281,35 +264,50 @@ def build_technical_overview(universe_rows: List[Dict[str, Any]]) -> Dict[str, A
         if not sym:
             continue
         ac = canonical_asset_class(r.get('asset_class') or r.get('assetClass') or 'Other')
-        raw_score = parse_float(r.get('score'))
-        display_symbol = fx_usd_centric_symbol(sym) if ac == 'FX' else str(sym).strip()
-        adj_score = fx_usd_centric_score(sym, raw_score) if ac == 'FX' else raw_score
+        display_symbol = fx_display_symbol(sym) if ac == 'FX' else str(sym).strip()
+        display_score = fx_row_score(sym, r.get('score')) if ac == 'FX' else parse_float(r.get('score'))
+
+        display_setup = r.get('setup') or ''
+        if ac == 'FX':
+            display_setup = display_setup.replace(' (down)', '').replace(' (up)', '').replace('(down)', '').replace('(up)', '').strip()
 
         row = {
             'symbol': display_symbol,
             'name': r.get('name') or '',
             'asset_class': ac,
-            'setup': r.get('setup') or '',
-            'score': adj_score,
+            'setup': display_setup,
+            'score': display_score,
             'ret_20d_pct': r.get('ret_20d_%') if r.get('ret_20d_%') is not None else r.get('ret_20d_pct'),
-            'ret_60d_pct': r.get('ret_60d_%') if r.get('ret_60d_%') is not None else r.get('ret_60d_pct')
-        }
+            'ret_60d_pct': r.get('ret_60d_%') if r.get('ret_60d_%') is not None else r.get('ret_60d_pct'),
+       }
         by_symbol[row['symbol']] = row
         by_ac.setdefault(ac, []).append(row)
     by_asset_class = {}
     for ac, rows in by_ac.items():
-        scores = [parse_float(rr.get('score')) for rr in rows if parse_float(rr.get('score')) is not None]
+        breadth_rows = rows
+        if ac == 'FX':
+            breadth_rows = [
+                rr for rr in rows
+                if safe_str(rr.get('symbol')).strip().upper() not in {'DOLLAR INDEX', 'DX', 'DXY'}
+                and safe_str(rr.get('name')).strip().upper() not in {'DOLLAR INDEX', 'DX', 'DXY'}
+            ]
+
+        scores = [parse_float(rr.get('score')) for rr in breadth_rows if parse_float(rr.get('score')) is not None]
         bullish = sum(1 for s in scores if s >= 2)
         bearish = sum(1 for s in scores if s <= -2)
         avg = sum(scores) / len(scores) if scores else 0.0
         tone = 'constructive' if avg >= 0.5 else 'defensive' if avg <= -0.5 else 'balanced'
+        n_rows = len(breadth_rows)
+
         by_asset_class[ac] = {
-            'n': len(rows),
+            'n': n_rows,
             'avg_score': round(avg, 3),
             'bullish': bullish,
             'bearish': bearish,
-            'text': f'Breadth is {tone}: avg score {avg:.2f}, bullish {bullish}/{len(rows)}, bearish {bearish}/{len(rows)}.',
+            'text': f'Breadth is {tone}: avg score {avg:.2f}, bullish {bullish}/{n_rows}, bearish {bearish}/{n_rows}.',
         }
+
+    return {'by_symbol': by_symbol, 'by_asset_class': by_asset_class}
     return {'by_symbol': by_symbol, 'by_asset_class': by_asset_class}
 
 
@@ -405,10 +403,16 @@ def build_top_ideas(universe_rows: List[Dict[str, Any]], fund_overview: Dict[str
             continue
         ac = canonical_asset_class(r.get('asset_class') or r.get('assetClass') or 'Other')
         setup = safe_str(r.get('setup') or '')
+        if ac == 'FX':
+            setup = setup.replace(' (down)', '').replace(' (up)', '').replace('(down)', '').replace('(up)', '').strip()
+
         score = parse_float(r.get('score')) or 0.0
-        score_for_top = fx_usd_centric_score(sym, score) if ac == 'FX' else score
+        score_for_top = fx_row_score(sym, score) if ac == 'FX' else score
+
         r_for_top = dict(r)
         r_for_top['score'] = score_for_top
+        r_for_top['setup'] = setup
+
         tlong, tshort = tech_scores(r_for_top)
         f = fund_by.get(ac, {})
         bias = parse_float(f.get('bias')) or 0.0
@@ -416,16 +420,15 @@ def build_top_ideas(universe_rows: List[Dict[str, Any]], fund_overview: Dict[str
         tone = safe_str(f.get('tone') or 'Mixed')
         fund = bias * conf
         f_long, f_short = clamp((fund + 1.0) / 2.0), clamp((-fund + 1.0) / 2.0)
-        display_symbol = fx_usd_centric_symbol(sym) if ac == 'FX' else str(sym).strip()
-        display_score = fx_usd_centric_score(sym, score) if ac == 'FX' else float(score)
+        display_symbol = fx_display_symbol(sym) if ac == 'FX' else str(sym).strip()
 
         base = {
-            'symbol': display_symbol,
-            'name': r.get('name') or '',
-            'asset_class': ac,
-            'setup': setup,
-            'score': float(display_score),
-            'ret_20d_pct': parse_float(r.get('ret_20d_%')) if r.get('ret_20d_%') is not None else parse_float(r.get('ret_20d_pct'))
+             'symbol': display_symbol,
+             'name': r.get('name') or '',
+             'asset_class': ac,
+             'setup': setup,
+             'score': float(score_for_top),
+             'ret_20d_pct': parse_float(r.get('ret_20d_%')) if r.get('ret_20d_%') is not None else parse_float(r.get('ret_20d_pct')),
         }
         longs.append({
             **base,

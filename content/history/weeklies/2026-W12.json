@@ -210,48 +210,48 @@
         "ret_20d_pct": 3.04,
         "ret_60d_pct": 1.8
       },
-      "USDEUR": {
-        "symbol": "USDEUR",
+      "EURUSD": {
+        "symbol": "EURUSD",
         "name": "EURUSD",
         "asset_class": "FX",
-        "setup": "Trend continuation (down)",
-        "score": 4.0,
+        "setup": "Trend continuation",
+        "score": -4.0,
         "ret_20d_pct": -3.14,
         "ret_60d_pct": -1.93
       },
-      "USDGBP": {
-        "symbol": "USDGBP",
+      "GBPUSD": {
+        "symbol": "GBPUSD",
         "name": "GBPUSD",
         "asset_class": "FX",
-        "setup": "Trend continuation (down)",
-        "score": 4.0,
+        "setup": "Trend continuation",
+        "score": -4.0,
         "ret_20d_pct": -2.04,
         "ret_60d_pct": -0.65
       },
-      "USDAUD": {
-        "symbol": "USDAUD",
+      "AUDUSD": {
+        "symbol": "AUDUSD",
         "name": "AUDUSD",
         "asset_class": "FX",
         "setup": "Neutral",
-        "score": -2.0,
+        "score": 2.0,
         "ret_20d_pct": -0.31,
         "ret_60d_pct": 6.86
       },
-      "USDCAD": {
-        "symbol": "USDCAD",
+      "CADUSD": {
+        "symbol": "CADUSD",
         "name": "USDCAD",
         "asset_class": "FX",
         "setup": "Neutral",
-        "score": -2.0,
+        "score": 2.0,
         "ret_20d_pct": 0.42,
         "ret_60d_pct": -0.78
       },
-      "USDJPY": {
-        "symbol": "USDJPY",
+      "JPYUSD": {
+        "symbol": "JPYUSD",
         "name": "USDJPY",
         "asset_class": "FX",
         "setup": "Trend continuation",
-        "score": 4.0,
+        "score": -4.0,
         "ret_20d_pct": 3.91,
         "ret_60d_pct": 1.0
       },
@@ -317,11 +317,11 @@
         "text": "Breadth is constructive: avg score 1.38, bullish 10/16, bearish 2/16."
       },
       "FX": {
-        "n": 6,
-        "avg_score": 2.0,
-        "bullish": 4,
-        "bearish": 2,
-        "text": "Breadth is constructive: avg score 2.00, bullish 4/6, bearish 2/6."
+        "n": 5,
+        "avg_score": -1.6,
+        "bullish": 2,
+        "bearish": 3,
+        "text": "Breadth is defensive: avg score -1.60, bullish 2/5, bearish 3/5."
       },
       "Rates": {
         "n": 3,
@@ -632,9 +632,9 @@
       },
       "FX": {
         "tone": "Mixed",
-        "bias": 0.125,
+        "bias": -0.125,
         "confidence": 0.5145833333333333,
-        "commentary": "USD macro tone is mixed, with conflicting cross-currents across major currencies. Bias +0.12, confidence 0.51. Primary flow source: FXStreet.",
+        "commentary": "Major currencies show mixed signals against the dollar, with no clean macro direction yet. Bias -0.12, confidence 0.51. Primary flow source: FXStreet.",
         "top_news": [
           {
             "title": "Pound Sterling underperforms against its peers as Fed-BoE policy takes centre stage",
@@ -927,40 +927,40 @@
     ],
     "top_short": [
       {
+        "symbol": "EURUSD",
+        "name": "EURUSD",
+        "asset_class": "FX",
+        "setup": "Trend continuation",
+        "score": -4.0,
+        "ret_20d_pct": -3.14,
+        "side": "SHORT",
+        "tech_score": 1.0,
+        "fund_support": 0.5321614583333333,
+        "macro_alignment": 0.5321614583333333,
+        "final_score": 0.8830403645833333,
+        "rationale": "Fragile technical setup in FX with mixed macro tone."
+      },
+      {
+        "symbol": "GBPUSD",
+        "name": "GBPUSD",
+        "asset_class": "FX",
+        "setup": "Trend continuation",
+        "score": -4.0,
+        "ret_20d_pct": -2.04,
+        "side": "SHORT",
+        "tech_score": 1.0,
+        "fund_support": 0.5321614583333333,
+        "macro_alignment": 0.5321614583333333,
+        "final_score": 0.8830403645833333,
+        "rationale": "Fragile technical setup in FX with mixed macro tone."
+      },
+      {
         "symbol": "ZB",
         "name": "US Treasury",
         "asset_class": "Rates",
         "setup": "Trend continuation (down)",
         "score": -4.0,
         "ret_20d_pct": -2.34,
-        "side": "SHORT",
-        "tech_score": 1.0,
-        "fund_support": 0.5,
-        "macro_alignment": 0.5,
-        "final_score": 0.875,
-        "rationale": "Downtrend remains in place in Rates with mixed macro tone."
-      },
-      {
-        "symbol": "BTP",
-        "name": "Italy BTP",
-        "asset_class": "Rates",
-        "setup": "Trend continuation (down)",
-        "score": -4.0,
-        "ret_20d_pct": -2.83,
-        "side": "SHORT",
-        "tech_score": 1.0,
-        "fund_support": 0.5,
-        "macro_alignment": 0.5,
-        "final_score": 0.875,
-        "rationale": "Downtrend remains in place in Rates with mixed macro tone."
-      },
-      {
-        "symbol": "GBL",
-        "name": "Germany Bund",
-        "asset_class": "Rates",
-        "setup": "Trend continuation (down)",
-        "score": -4.0,
-        "ret_20d_pct": -1.74,
         "side": "SHORT",
         "tech_score": 1.0,
         "fund_support": 0.5,
