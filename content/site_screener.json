@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T07:17:53Z",
+  "updatedAt": "2026-03-19T08:47:55Z",
   "tradeIdeas": [
     {
       "id": "IB-LONG-CL",
@@ -559,7 +559,7 @@
     },
     {
       "id": "IB-LONG-VIX",
-      "date": "2026-03-17",
+      "date": "2026-03-19",
       "asset": "VIX",
       "direction": "Long",
       "status": "Open",
@@ -577,7 +577,7 @@
     },
     {
       "id": "IB-LONG-CL",
-      "date": "2026-03-17",
+      "date": "2026-03-19",
       "asset": "CL",
       "direction": "Long",
       "status": "Open",
@@ -595,7 +595,7 @@
     },
     {
       "id": "IB-LONG-RB",
-      "date": "2026-03-17",
+      "date": "2026-03-19",
       "asset": "RB",
       "direction": "Long",
       "status": "Open",
@@ -612,8 +612,26 @@
       "week": "2026-W12"
     },
     {
+      "id": "IB-LONG-NG",
+      "date": "2026-03-19",
+      "asset": "NG",
+      "direction": "Long",
+      "status": "Open",
+      "setup": "Trend continuation",
+      "thesis": "Score 4 (trend + momentum).",
+      "structure": "Signal (IB screener)",
+      "horizon": "2-8w",
+      "confidence": 3,
+      "tags": [
+        "Commodities",
+        "screener"
+      ],
+      "notes": "",
+      "week": "2026-W12"
+    },
+    {
       "id": "IB-LONG-ZC",
-      "date": "2026-03-17",
+      "date": "2026-03-19",
       "asset": "ZC",
       "direction": "Long",
       "status": "Open",
@@ -631,26 +649,8 @@
     },
     {
       "id": "IB-LONG-ZW",
-      "date": "2026-03-17",
+      "date": "2026-03-19",
       "asset": "ZW",
-      "direction": "Long",
-      "status": "Open",
-      "setup": "Trend continuation",
-      "thesis": "Score 4 (trend + momentum).",
-      "structure": "Signal (IB screener)",
-      "horizon": "2-8w",
-      "confidence": 3,
-      "tags": [
-        "Commodities",
-        "screener"
-      ],
-      "notes": "",
-      "week": "2026-W12"
-    },
-    {
-      "id": "IB-LONG-ZS",
-      "date": "2026-03-17",
-      "asset": "ZS",
       "direction": "Long",
       "status": "Open",
       "setup": "Trend continuation",
@@ -726,11 +726,11 @@
       "name": "S&P 500",
       "asset_class": "Equity",
       "contract_type": "FUT",
-      "score": -2,
-      "setup": "Neutral",
-      "close": 6755.5,
-      "ret_20d_pct": -2.12,
-      "ret_60d_pct": -2.2
+      "score": -4,
+      "setup": "Trend continuation (down)",
+      "close": 6677.0,
+      "ret_20d_pct": -3.87,
+      "ret_60d_pct": -2.98
     },
     {
       "symbol": "NQ",
@@ -739,9 +739,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 24891.25,
-      "ret_20d_pct": -0.51,
-      "ret_60d_pct": -2.77
+      "close": 24651.25,
+      "ret_20d_pct": -2.07,
+      "ret_60d_pct": -3.26
     },
     {
       "symbol": "RTY",
@@ -750,9 +750,9 @@
       "contract_type": "FUT",
       "score": -2,
       "setup": "Neutral",
-      "close": 2520.9,
-      "ret_20d_pct": -5.58,
-      "ret_60d_pct": -1.38
+      "close": 2495.5,
+      "ret_20d_pct": -6.88,
+      "ret_60d_pct": -1.93
     },
     {
       "symbol": "DAX",
@@ -761,9 +761,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 23475.0,
-      "ret_20d_pct": -6.32,
-      "ret_60d_pct": -3.24
+      "close": 23154.0,
+      "ret_20d_pct": -8.43,
+      "ret_60d_pct": -5.83
     },
     {
       "symbol": "NIY",
@@ -772,9 +772,9 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Neutral",
-      "close": 54275.0,
-      "ret_20d_pct": -5.43,
-      "ret_60d_pct": 9.64
+      "close": 53465.0,
+      "ret_20d_pct": -6.77,
+      "ret_60d_pct": 8.85
     },
     {
       "symbol": "VIX",
@@ -783,9 +783,9 @@
       "contract_type": "IND",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 23.51,
-      "ret_20d_pct": 10.9,
-      "ret_60d_pct": 42.66
+      "close": 25.82,
+      "ret_20d_pct": 27.63,
+      "ret_60d_pct": 73.17
     },
     {
       "symbol": "CL",
@@ -794,9 +794,9 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 94.22,
-      "ret_20d_pct": 50.08,
-      "ret_60d_pct": 71.59
+      "close": 99.05,
+      "ret_20d_pct": 53.69,
+      "ret_60d_pct": 78.92
     },
     {
       "symbol": "RB",
@@ -805,53 +805,53 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 3.0121,
-      "ret_20d_pct": 40.99,
-      "ret_60d_pct": 57.3
+      "close": 3.1555,
+      "ret_20d_pct": 45.25,
+      "ret_60d_pct": 65.0
     },
     {
       "symbol": "NG",
       "name": "Natural Gas",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 2,
-      "setup": "Neutral",
-      "close": 3.031,
-      "ret_20d_pct": -4.89,
-      "ret_60d_pct": 29.64
+      "score": 4,
+      "setup": "Trend continuation",
+      "close": 3.202,
+      "ret_20d_pct": 8.21,
+      "ret_60d_pct": 36.72
     },
     {
       "symbol": "HG",
       "name": "Copper",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 0,
+      "score": -2,
       "setup": "Neutral",
-      "close": 5.8375,
-      "ret_20d_pct": -0.12,
-      "ret_60d_pct": 7.8
+      "close": 5.4735,
+      "ret_20d_pct": -6.19,
+      "ret_60d_pct": -0.07
     },
     {
       "symbol": "GC",
       "name": "Gold",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 2,
+      "score": 0,
       "setup": "Neutral",
-      "close": 5011.3,
-      "ret_20d_pct": -1.04,
-      "ret_60d_pct": 14.89
+      "close": 4823.9,
+      "ret_20d_pct": -3.45,
+      "ret_60d_pct": 9.79
     },
     {
       "symbol": "SI",
       "name": "Silver",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 2,
+      "score": 0,
       "setup": "Neutral",
-      "close": 81.0,
-      "ret_20d_pct": 4.07,
-      "ret_60d_pct": 26.05
+      "close": 75.42,
+      "ret_20d_pct": -2.92,
+      "ret_60d_pct": 14.4
     },
     {
       "symbol": "ZC",
@@ -860,9 +860,9 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 454.75,
-      "ret_20d_pct": 2.94,
-      "ret_60d_pct": 1.85
+      "close": 463.5,
+      "ret_20d_pct": 6.19,
+      "ret_60d_pct": 1.92
     },
     {
       "symbol": "ZW",
@@ -871,9 +871,9 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 597.0,
-      "ret_20d_pct": 7.71,
-      "ret_60d_pct": 15.98
+      "close": 605.5,
+      "ret_20d_pct": 9.3,
+      "ret_60d_pct": 18.03
     },
     {
       "symbol": "ZS",
@@ -882,31 +882,31 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 1155.25,
-      "ret_20d_pct": 0.54,
-      "ret_60d_pct": 6.3
+      "close": 1163.75,
+      "ret_20d_pct": 1.39,
+      "ret_60d_pct": 8.05
     },
     {
       "symbol": "SB",
       "name": "Sugar",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 0,
-      "setup": "Mean reversion (pullback)",
-      "close": 14.19,
-      "ret_20d_pct": 5.19,
-      "ret_60d_pct": -2.0
+      "score": 2,
+      "setup": "Neutral",
+      "close": 14.83,
+      "ret_20d_pct": 8.25,
+      "ret_60d_pct": 2.42
     },
     {
       "symbol": "KC",
       "name": "Coffee",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": -4,
-      "setup": "Trend continuation (down)",
-      "close": 292.85,
-      "ret_20d_pct": -1.83,
-      "ret_60d_pct": -13.49
+      "score": -2,
+      "setup": "Neutral",
+      "close": 292.9,
+      "ret_20d_pct": 2.72,
+      "ret_60d_pct": -11.72
     },
     {
       "symbol": "CC",
@@ -915,9 +915,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 3418.0,
-      "ret_20d_pct": -6.94,
-      "ret_60d_pct": -44.28
+      "close": 3260.0,
+      "ret_20d_pct": -1.63,
+      "ret_60d_pct": -46.28
     },
     {
       "symbol": "CT",
@@ -926,9 +926,9 @@
       "contract_type": "FUT",
       "score": 2,
       "setup": "Neutral",
-      "close": 68.04,
-      "ret_20d_pct": 6.91,
-      "ret_60d_pct": 4.37
+      "close": 67.64,
+      "ret_20d_pct": 5.46,
+      "ret_60d_pct": 3.09
     },
     {
       "symbol": "LE",
@@ -937,9 +937,9 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Mean reversion (bounce)",
-      "close": 231.85,
-      "ret_20d_pct": -2.81,
-      "ret_60d_pct": 0.35
+      "close": 234.225,
+      "ret_20d_pct": -2.68,
+      "ret_60d_pct": 2.39
     },
     {
       "symbol": "GF",
@@ -948,9 +948,9 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Mean reversion (bounce)",
-      "close": 345.775,
-      "ret_20d_pct": -3.58,
-      "ret_60d_pct": 4.12
+      "close": 350.4,
+      "ret_20d_pct": -3.78,
+      "ret_60d_pct": 6.38
     },
     {
       "symbol": "HE",
@@ -959,9 +959,9 @@
       "contract_type": "FUT",
       "score": 2,
       "setup": "Neutral",
-      "close": 107.25,
-      "ret_20d_pct": 2.53,
-      "ret_60d_pct": 2.12
+      "close": 107.425,
+      "ret_20d_pct": 1.34,
+      "ret_60d_pct": 3.07
     },
     {
       "symbol": "DX",
@@ -970,9 +970,9 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 99.765,
-      "ret_20d_pct": 3.04,
-      "ret_60d_pct": 1.8
+      "close": 100.035,
+      "ret_20d_pct": 2.48,
+      "ret_60d_pct": 2.74
     },
     {
       "symbol": "EURUSD",
@@ -981,9 +981,9 @@
       "contract_type": "CASH",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 1.148355,
-      "ret_20d_pct": -3.14,
-      "ret_60d_pct": -1.93
+      "close": 1.144895,
+      "ret_20d_pct": -2.76,
+      "ret_60d_pct": -2.93
     },
     {
       "symbol": "GBPUSD",
@@ -992,9 +992,9 @@
       "contract_type": "CASH",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 1.32903,
-      "ret_20d_pct": -2.04,
-      "ret_60d_pct": -0.65
+      "close": 1.325305,
+      "ret_20d_pct": -1.58,
+      "ret_60d_pct": -1.96
     },
     {
       "symbol": "AUDUSD",
@@ -1003,20 +1003,20 @@
       "contract_type": "CASH",
       "score": 2,
       "setup": "Neutral",
-      "close": 0.7064,
-      "ret_20d_pct": -0.31,
-      "ret_60d_pct": 6.86
+      "close": 0.703625,
+      "ret_20d_pct": -0.28,
+      "ret_60d_pct": 4.99
     },
     {
       "symbol": "USDCAD",
       "name": "USDCAD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": -2,
+      "score": 2,
       "setup": "Neutral",
-      "close": 1.369365,
-      "ret_20d_pct": 0.42,
-      "ret_60d_pct": -0.78
+      "close": 1.374185,
+      "ret_20d_pct": 0.45,
+      "ret_60d_pct": 0.4
     },
     {
       "symbol": "USDJPY",
@@ -1025,9 +1025,9 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 159.335,
-      "ret_20d_pct": 3.91,
-      "ret_60d_pct": 1.0
+      "close": 159.292,
+      "ret_20d_pct": 2.76,
+      "ret_60d_pct": 1.96
     },
     {
       "symbol": "ZB",
@@ -1036,9 +1036,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 114.625,
-      "ret_20d_pct": -2.34,
-      "ret_60d_pct": -0.3
+      "close": 114.25,
+      "ret_20d_pct": -2.53,
+      "ret_60d_pct": -0.92
     },
     {
       "symbol": "BTP",
@@ -1047,9 +1047,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 117.81,
-      "ret_20d_pct": -2.83,
-      "ret_60d_pct": -1.13
+      "close": 117.2,
+      "ret_20d_pct": -3.32,
+      "ret_60d_pct": -1.74
     },
     {
       "symbol": "GBL",
@@ -1058,9 +1058,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 126.08,
-      "ret_20d_pct": -1.74,
-      "ret_60d_pct": -0.37
+      "close": 125.87,
+      "ret_20d_pct": -1.84,
+      "ret_60d_pct": -0.55
     },
     {
       "symbol": "MBT",
@@ -1069,9 +1069,9 @@
       "contract_type": "FUT",
       "score": -2,
       "setup": "Neutral",
-      "close": 74335.0,
-      "ret_20d_pct": 7.54,
-      "ret_60d_pct": -16.55
+      "close": 71280.0,
+      "ret_20d_pct": 7.01,
+      "ret_60d_pct": -17.86
     },
     {
       "symbol": "MET",
@@ -1080,9 +1080,9 @@
       "contract_type": "FUT",
       "score": -2,
       "setup": "Neutral",
-      "close": 2335.5,
-      "ret_20d_pct": 13.59,
-      "ret_60d_pct": -21.65
+      "close": 2189.0,
+      "ret_20d_pct": 12.46,
+      "ret_60d_pct": -23.56
     }
   ],
   "by_symbol": {
@@ -1091,11 +1091,11 @@
       "name": "S&P 500",
       "asset_class": "Equity",
       "contract_type": "FUT",
-      "score": -2,
-      "setup": "Neutral",
-      "close": 6755.5,
-      "ret_20d_pct": -2.12,
-      "ret_60d_pct": -2.2
+      "score": -4,
+      "setup": "Trend continuation (down)",
+      "close": 6677.0,
+      "ret_20d_pct": -3.87,
+      "ret_60d_pct": -2.98
     },
     "NQ": {
       "symbol": "NQ",
@@ -1104,9 +1104,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 24891.25,
-      "ret_20d_pct": -0.51,
-      "ret_60d_pct": -2.77
+      "close": 24651.25,
+      "ret_20d_pct": -2.07,
+      "ret_60d_pct": -3.26
     },
     "RTY": {
       "symbol": "RTY",
@@ -1115,9 +1115,9 @@
       "contract_type": "FUT",
       "score": -2,
       "setup": "Neutral",
-      "close": 2520.9,
-      "ret_20d_pct": -5.58,
-      "ret_60d_pct": -1.38
+      "close": 2495.5,
+      "ret_20d_pct": -6.88,
+      "ret_60d_pct": -1.93
     },
     "DAX": {
       "symbol": "DAX",
@@ -1126,9 +1126,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 23475.0,
-      "ret_20d_pct": -6.32,
-      "ret_60d_pct": -3.24
+      "close": 23154.0,
+      "ret_20d_pct": -8.43,
+      "ret_60d_pct": -5.83
     },
     "NIY": {
       "symbol": "NIY",
@@ -1137,9 +1137,9 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Neutral",
-      "close": 54275.0,
-      "ret_20d_pct": -5.43,
-      "ret_60d_pct": 9.64
+      "close": 53465.0,
+      "ret_20d_pct": -6.77,
+      "ret_60d_pct": 8.85
     },
     "VIX": {
       "symbol": "VIX",
@@ -1148,9 +1148,9 @@
       "contract_type": "IND",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 23.51,
-      "ret_20d_pct": 10.9,
-      "ret_60d_pct": 42.66
+      "close": 25.82,
+      "ret_20d_pct": 27.63,
+      "ret_60d_pct": 73.17
     },
     "CL": {
       "symbol": "CL",
@@ -1159,9 +1159,9 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 94.22,
-      "ret_20d_pct": 50.08,
-      "ret_60d_pct": 71.59
+      "close": 99.05,
+      "ret_20d_pct": 53.69,
+      "ret_60d_pct": 78.92
     },
     "RB": {
       "symbol": "RB",
@@ -1170,53 +1170,53 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 3.0121,
-      "ret_20d_pct": 40.99,
-      "ret_60d_pct": 57.3
+      "close": 3.1555,
+      "ret_20d_pct": 45.25,
+      "ret_60d_pct": 65.0
     },
     "NG": {
       "symbol": "NG",
       "name": "Natural Gas",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 2,
-      "setup": "Neutral",
-      "close": 3.031,
-      "ret_20d_pct": -4.89,
-      "ret_60d_pct": 29.64
+      "score": 4,
+      "setup": "Trend continuation",
+      "close": 3.202,
+      "ret_20d_pct": 8.21,
+      "ret_60d_pct": 36.72
     },
     "HG": {
       "symbol": "HG",
       "name": "Copper",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 0,
+      "score": -2,
       "setup": "Neutral",
-      "close": 5.8375,
-      "ret_20d_pct": -0.12,
-      "ret_60d_pct": 7.8
+      "close": 5.4735,
+      "ret_20d_pct": -6.19,
+      "ret_60d_pct": -0.07
     },
     "GC": {
       "symbol": "GC",
       "name": "Gold",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 2,
+      "score": 0,
       "setup": "Neutral",
-      "close": 5011.3,
-      "ret_20d_pct": -1.04,
-      "ret_60d_pct": 14.89
+      "close": 4823.9,
+      "ret_20d_pct": -3.45,
+      "ret_60d_pct": 9.79
     },
     "SI": {
       "symbol": "SI",
       "name": "Silver",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 2,
+      "score": 0,
       "setup": "Neutral",
-      "close": 81.0,
-      "ret_20d_pct": 4.07,
-      "ret_60d_pct": 26.05
+      "close": 75.42,
+      "ret_20d_pct": -2.92,
+      "ret_60d_pct": 14.4
     },
     "ZC": {
       "symbol": "ZC",
@@ -1225,9 +1225,9 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 454.75,
-      "ret_20d_pct": 2.94,
-      "ret_60d_pct": 1.85
+      "close": 463.5,
+      "ret_20d_pct": 6.19,
+      "ret_60d_pct": 1.92
     },
     "ZW": {
       "symbol": "ZW",
@@ -1236,9 +1236,9 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 597.0,
-      "ret_20d_pct": 7.71,
-      "ret_60d_pct": 15.98
+      "close": 605.5,
+      "ret_20d_pct": 9.3,
+      "ret_60d_pct": 18.03
     },
     "ZS": {
       "symbol": "ZS",
@@ -1247,31 +1247,31 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 1155.25,
-      "ret_20d_pct": 0.54,
-      "ret_60d_pct": 6.3
+      "close": 1163.75,
+      "ret_20d_pct": 1.39,
+      "ret_60d_pct": 8.05
     },
     "SB": {
       "symbol": "SB",
       "name": "Sugar",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 0,
-      "setup": "Mean reversion (pullback)",
-      "close": 14.19,
-      "ret_20d_pct": 5.19,
-      "ret_60d_pct": -2.0
+      "score": 2,
+      "setup": "Neutral",
+      "close": 14.83,
+      "ret_20d_pct": 8.25,
+      "ret_60d_pct": 2.42
     },
     "KC": {
       "symbol": "KC",
       "name": "Coffee",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": -4,
-      "setup": "Trend continuation (down)",
-      "close": 292.85,
-      "ret_20d_pct": -1.83,
-      "ret_60d_pct": -13.49
+      "score": -2,
+      "setup": "Neutral",
+      "close": 292.9,
+      "ret_20d_pct": 2.72,
+      "ret_60d_pct": -11.72
     },
     "CC": {
       "symbol": "CC",
@@ -1280,9 +1280,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 3418.0,
-      "ret_20d_pct": -6.94,
-      "ret_60d_pct": -44.28
+      "close": 3260.0,
+      "ret_20d_pct": -1.63,
+      "ret_60d_pct": -46.28
     },
     "CT": {
       "symbol": "CT",
@@ -1291,9 +1291,9 @@
       "contract_type": "FUT",
       "score": 2,
       "setup": "Neutral",
-      "close": 68.04,
-      "ret_20d_pct": 6.91,
-      "ret_60d_pct": 4.37
+      "close": 67.64,
+      "ret_20d_pct": 5.46,
+      "ret_60d_pct": 3.09
     },
     "LE": {
       "symbol": "LE",
@@ -1302,9 +1302,9 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Mean reversion (bounce)",
-      "close": 231.85,
-      "ret_20d_pct": -2.81,
-      "ret_60d_pct": 0.35
+      "close": 234.225,
+      "ret_20d_pct": -2.68,
+      "ret_60d_pct": 2.39
     },
     "GF": {
       "symbol": "GF",
@@ -1313,9 +1313,9 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Mean reversion (bounce)",
-      "close": 345.775,
-      "ret_20d_pct": -3.58,
-      "ret_60d_pct": 4.12
+      "close": 350.4,
+      "ret_20d_pct": -3.78,
+      "ret_60d_pct": 6.38
     },
     "HE": {
       "symbol": "HE",
@@ -1324,9 +1324,9 @@
       "contract_type": "FUT",
       "score": 2,
       "setup": "Neutral",
-      "close": 107.25,
-      "ret_20d_pct": 2.53,
-      "ret_60d_pct": 2.12
+      "close": 107.425,
+      "ret_20d_pct": 1.34,
+      "ret_60d_pct": 3.07
     },
     "DX": {
       "symbol": "DX",
@@ -1335,9 +1335,9 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 99.765,
-      "ret_20d_pct": 3.04,
-      "ret_60d_pct": 1.8
+      "close": 100.035,
+      "ret_20d_pct": 2.48,
+      "ret_60d_pct": 2.74
     },
     "EURUSD": {
       "symbol": "EURUSD",
@@ -1346,9 +1346,9 @@
       "contract_type": "CASH",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 1.148355,
-      "ret_20d_pct": -3.14,
-      "ret_60d_pct": -1.93
+      "close": 1.144895,
+      "ret_20d_pct": -2.76,
+      "ret_60d_pct": -2.93
     },
     "GBPUSD": {
       "symbol": "GBPUSD",
@@ -1357,9 +1357,9 @@
       "contract_type": "CASH",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 1.32903,
-      "ret_20d_pct": -2.04,
-      "ret_60d_pct": -0.65
+      "close": 1.325305,
+      "ret_20d_pct": -1.58,
+      "ret_60d_pct": -1.96
     },
     "AUDUSD": {
       "symbol": "AUDUSD",
@@ -1368,20 +1368,20 @@
       "contract_type": "CASH",
       "score": 2,
       "setup": "Neutral",
-      "close": 0.7064,
-      "ret_20d_pct": -0.31,
-      "ret_60d_pct": 6.86
+      "close": 0.703625,
+      "ret_20d_pct": -0.28,
+      "ret_60d_pct": 4.99
     },
     "USDCAD": {
       "symbol": "USDCAD",
       "name": "USDCAD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": -2,
+      "score": 2,
       "setup": "Neutral",
-      "close": 1.369365,
-      "ret_20d_pct": 0.42,
-      "ret_60d_pct": -0.78
+      "close": 1.374185,
+      "ret_20d_pct": 0.45,
+      "ret_60d_pct": 0.4
     },
     "USDJPY": {
       "symbol": "USDJPY",
@@ -1390,9 +1390,9 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 159.335,
-      "ret_20d_pct": 3.91,
-      "ret_60d_pct": 1.0
+      "close": 159.292,
+      "ret_20d_pct": 2.76,
+      "ret_60d_pct": 1.96
     },
     "ZB": {
       "symbol": "ZB",
@@ -1401,9 +1401,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 114.625,
-      "ret_20d_pct": -2.34,
-      "ret_60d_pct": -0.3
+      "close": 114.25,
+      "ret_20d_pct": -2.53,
+      "ret_60d_pct": -0.92
     },
     "BTP": {
       "symbol": "BTP",
@@ -1412,9 +1412,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 117.81,
-      "ret_20d_pct": -2.83,
-      "ret_60d_pct": -1.13
+      "close": 117.2,
+      "ret_20d_pct": -3.32,
+      "ret_60d_pct": -1.74
     },
     "GBL": {
       "symbol": "GBL",
@@ -1423,9 +1423,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 126.08,
-      "ret_20d_pct": -1.74,
-      "ret_60d_pct": -0.37
+      "close": 125.87,
+      "ret_20d_pct": -1.84,
+      "ret_60d_pct": -0.55
     },
     "MBT": {
       "symbol": "MBT",
@@ -1434,9 +1434,9 @@
       "contract_type": "FUT",
       "score": -2,
       "setup": "Neutral",
-      "close": 74335.0,
-      "ret_20d_pct": 7.54,
-      "ret_60d_pct": -16.55
+      "close": 71280.0,
+      "ret_20d_pct": 7.01,
+      "ret_60d_pct": -17.86
     },
     "MET": {
       "symbol": "MET",
@@ -1445,11 +1445,9 @@
       "contract_type": "FUT",
       "score": -2,
       "setup": "Neutral",
-      "close": 2335.5,
-      "ret_20d_pct": 13.59,
-      "ret_60d_pct": -21.65
+      "close": 2189.0,
+      "ret_20d_pct": 12.46,
+      "ret_60d_pct": -23.56
     }
-  },
-  "modelTrades_source": "Blotter",
-  "asof": "2026-03-31"
+  }
 }
