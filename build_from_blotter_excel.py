@@ -349,6 +349,7 @@ def extract_model_trades_from_blotter(df_tr: pd.DataFrame) -> List[Dict[str, Any
         or find_col_contains(df_tr, ["under"])
     )
     instrument_col = find_col(df_tr, ["Instrument", "INSTRUMENT"]) or find_col_contains(df_tr, ["instrument"])
+    asset_class_col = find_col(df_tr, ["ASSET CLASS", "Asset Class"]) or find_col_contains(df_tr, ["asset", "class"])
     init_qty_col = find_col(df_tr, ["INITIAL QUANTITY", "Initial Quantity"]) or find_col_contains(df_tr, ["initial", "quantity"])
     qty_col = find_col(df_tr, ["QUANTITY", "Quantity"]) or find_col_contains(df_tr, ["quantity"])
 
@@ -363,6 +364,7 @@ def extract_model_trades_from_blotter(df_tr: pd.DataFrame) -> List[Dict[str, Any
 
         inst = safe_str(r.get(ticker_col)) if ticker_col else ""
         structure = safe_str(r.get(instrument_col)) if instrument_col else ""
+        asset_class = safe_str(r.get(asset_class_col)) if asset_class_col else "" 
 
         init_q = to_float(r.get(init_qty_col)) if init_qty_col else None
         q = to_float(r.get(qty_col)) if qty_col else None
