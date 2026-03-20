@@ -382,6 +382,7 @@ def extract_model_trades_from_blotter(df_tr: pd.DataFrame) -> List[Dict[str, Any
             {
                 "week": wk,
                 "instrument": inst,
+                "asset_class": asset_class,
                 "structure": structure,
                 "status": status,
                 "side": side,
