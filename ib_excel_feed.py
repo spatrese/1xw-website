@@ -141,9 +141,12 @@ def ensure_log_header(ws_log: xw.Sheet):
 
 
 def log(ws_log: xw.Sheet, level: str, msg: str):
-    last = ws_log.range("A" + str(ws_log.cells.last_cell.row)).end("up").row
-    row = 2 if last < 2 else last + 1
-    ws_log.range(f"A{row}").value = [now_ts(), level, msg]
+    try:
+        last = ws_log.range("A" + str(ws_log.cells.last_cell.row)).end("up").row
+        row = 2 if last < 2 else last + 1
+        ws_log.range(f"A{row}").value = [now_ts(), level, msg]
+    except Exception:
+        print(f"[{now_ts()}] {level}: {msg}")
 
 
 # -----------------------

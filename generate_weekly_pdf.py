@@ -371,12 +371,10 @@ main.container {{ max-width:none !important; width:100% !important; padding:0 !i
   <section class=\"page cover\">
     <img class=\"cover-logo\" src=\"{logo_uri}\" alt=\"1XW Trading logo\" />
     <h1>Weekly Research</h1>
-    <div class=\"subline\">Cross-asset weekly snapshot highlighting market breadth,<br>
-macro tone and relative long / short strength.</div>
+    <div class=\"subline\">Cross-asset weekly snapshot for market breadth, macro tone and long / short strength.<br><br>This document presents the research output of the 1XW framework, combining technical breadth and fundamental tone across the covered investment universe. Technical signals are derived from trend and momentum conditions, while the weekly fundamental layer incorporates macro news flow and event risk. Final rankings combine technical strength with fundamental alignment, but should be read as research outputs rather than standalone execution signals. Top-ranked instruments highlight relative strength or weakness in the current regime, but do not necessarily represent immediate trade entries.<br><br> The investment universe covers a liquid cross-asset set of global markets, designed to capture broad macro dynamics through a consistent technical framework applied across all instruments on a weekly basis:<br><br><b>Equities</b>: S&amp;P 500, Nasdaq 100, Russell 2000, DAX, Nikkei 225, VIX Index. <br><b>Rates</b>: US Treasury, Germany Bund, Italy BTP. <br><b>FX</b>: Dollar Index, EURUSD, GBPUSD, AUDUSD, USDCAD, USDJPY. <br><b>Commodities</b>: WTI, RBOB, Nat Gas, Gold, Silver, Copper, Corn, Wheat, Soybeans, Coffee, Cocoa, Sugar, Cotton, Live Cattle, Hogs, Feeder Cattle. <br><b>Crypto</b>: Bitcoin, Ethereum.</div>
     <div class=\"meta-line\">
       <span class=\"meta-chip\">As of {esc(asof)}</span>
       <span class=\"meta-chip\">Week {esc(week_id)}</span>
-      <span class=\"meta-chip\">{esc(ranking)}</span>
     </div>
     <div class=\"disc-wrap\">
       <div class=\"disc-title\">Disclaimer</div>
