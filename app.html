@@ -761,14 +761,23 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
       return;
     }
     holder.innerHTML = entries.map(([ac, row]) => {
-      const headlines = Array.isArray(row.top_news) ? row.top_news.slice(0,2).map(n => compactHeadline(n.title || '')).filter(Boolean) : [];
+      const headlines = Array.isArray(row.top_news) 
+        ? row.top_news.slice(0,3).map(n => {
+            const title = compactHeadline(n.title || '');
+            const url = n.url || '';
+            if (!title) return '';
+            return url 
+              ? `<a href="${url}" target="_blank" style="text-decoration:underline;">${escapeHtml(title)}</a>`
+              : escapeHtml(title);
+           }).filter(Boolean)
+         : [];
       const tail = [firstSentence(row.commentary || '')].filter(Boolean);
       if (headlines.length) tail.push(headlines.join(' • '));
       return rowHtml('row-fund', [
         { label:'Asset Class', html:`<span class="label">${escapeHtml(ac)}</span>` },
         { label:'Tone', html:`<span class="pill tone ${toneClass(row.tone)}">${escapeHtml(row.tone || 'Mixed')}</span>` },
         { label:'Bias / Conf', html:`bias ${escapeHtml(signed(row.bias,2))} · conf ${escapeHtml(scorePct(row.confidence))}` },
-        { label:'Commentary / Headlines', html: escapeHtml(tail.join(' — ')), wrap:true, extra:'muted' }
+        { label:'Commentary / Headlines', html: tail.join(' — '), wrap:true, extra:'muted' }
       ]);
     }).join('');
   }
