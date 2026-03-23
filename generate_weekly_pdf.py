@@ -140,8 +140,8 @@ def render_top_ideas(data: dict[str, Any]) -> str:
             "<tr>"
             + td(f'<span class="label">{esc(side)} {esc(item.get("name") or "—")}</span>')
             + td(esc(item.get("setup") or "—"))
-            + td(f'<span class="pill {tone}">{final_score}</span>')
-            + td(f'<span class="pill">{tech_score}</span>')
+            + td(f'<span class="pill">{final_score}</span>')
+            + td(f'<span class="pill {tone}">{tech_score}</span>')
             + td(f'<span class="pill side {side_class}">{macro_score}</span>')
             + td(esc(build_idea_rationale(item) or "No specific rationale available."), wrap=True)
             + "</tr>"
@@ -204,20 +204,30 @@ def render_tech_overview(data: dict[str, Any]) -> str:
 def render_fund_overview(data: dict[str, Any]) -> str:
     rows = []
     for ac, row in (data.get("fundamental_overview", {}).get("by_asset_class", {}) or {}).items():
-        headlines = [str(n.get("title") or "").strip() for n in (row.get("top_news") or [])[:2] if str(n.get("title") or "").strip()]
-        parts = [first_sentence(row.get("commentary") or "")]
+        headlines = []
+        for n in (row.get("top_news") or [])[:3]:
+            title = str(n.get("title") or "").strip()
+            url = str(n.get("url") or "").strip()
+            if not title:
+                continue
+            if url:
+                headlines.append(f'<a href="{esc(url)}" class="news-link">{esc(title)}</a>')
+            else:
+                headlines.append(esc(title))
+
+        parts = [esc(first_sentence(row.get("commentary") or ""))]
         if headlines:
             parts.append(" • ".join(headlines))
+
         rows.append(
             "<tr>"
             + td(f'<span class="label">{esc(ac)}</span>')
             + td(f'<span class="pill tone {tone_class(row.get("tone"))}">{esc(row.get("tone") or "Mixed")}</span>')
             + td(f'bias {esc(signed(row.get("bias"), 2))} · conf {esc(score_pct(row.get("confidence")))}')
-            + td(esc(" — ".join(p for p in parts if p)), wrap=True)
+            + td(" — ".join(p for p in parts if p), wrap=True)
             + "</tr>"
         )
     return table_html("fund-table", ["Asset Class", "Tone", "Bias / Conf", "Commentary / Headlines"], rows)
-
 
 def render_events(data: dict[str, Any]) -> str:
     rows = []
@@ -353,6 +363,7 @@ main.container {{ max-width:none !important; width:100% !important; padding:0 !i
 .events-table th:nth-child(2), .events-table td:nth-child(2) {{ width:12%; }}
 .events-table th:nth-child(3), .events-table td:nth-child(3) {{ width:46%; }}
 .events-table th:nth-child(4), .events-table td:nth-child(4) {{ width:30%; }}
+
 """
 
     return f"""<!DOCTYPE html>
