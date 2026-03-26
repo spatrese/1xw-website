@@ -193,6 +193,117 @@ def build_fund_commentary(ac: str, tone: str, bias: float, conf: float, top_news
     src = safe_str(top_news[0].get('source')) if top_news else ''
     return f"{lead} Bias {bias:+.2f}, confidence {conf:.2f}.{(' Primary flow source: ' + src + '.') if src else ''}"
 
+def display_news_score(ac: str, item: Dict[str, Any]) -> float:
+    title = safe_str(item.get("title")).lower()
+    summary = safe_str(item.get("summary")).lower()
+    source = safe_str(item.get("source")).lower()
+    text = f"{title} {summary}"
+
+    score = 0.0
+
+    try:
+        score += float(item.get("score") or 0.0)
+    except Exception:
+        pass
+
+    macro_bonus = {
+        "Equities": [
+            ("s&p", 1.8), ("nasdaq", 1.8), ("stocks", 1.4), ("equities", 1.4),
+            ("risk sentiment", 1.8), ("risk-off", 1.5), ("risk-on", 1.5),
+            ("valuation", 1.2), ("growth", 1.0), ("recession", 1.3),
+            ("fed", 1.2), ("rates", 1.0), ("yields", 1.0), ("policy", 0.8),
+            ("market", 0.8), ("index", 0.8)
+        ],
+        "Rates": [
+            ("fed", 1.8), ("ecb", 1.8), ("boj", 1.5), ("boe", 1.5),
+            ("inflation", 1.7), ("cpi", 1.7), ("ppi", 1.3),
+            ("yield", 1.7), ("yields", 1.7), ("treasury", 1.4),
+            ("rate cut", 1.6), ("rate hike", 1.6), ("policy", 1.0)
+        ],
+        "FX": [
+            ("dollar", 1.7), ("dxy", 1.7), ("euro", 1.3), ("yen", 1.3),
+            ("currency", 1.2), ("fx", 1.2), ("foreign exchange", 1.4),
+            ("fed", 1.0), ("ecb", 1.0), ("boj", 1.0), ("rate differential", 1.5)
+        ],
+        "Commodities": [
+            ("oil", 1.7), ("wti", 1.7), ("brent", 1.7), ("gold", 1.4),
+            ("silver", 1.2), ("copper", 1.2), ("natural gas", 1.4),
+            ("opec", 1.7), ("supply", 1.2), ("demand", 1.2),
+            ("inventory", 1.4), ("energy", 1.0)
+        ],
+        "Crypto": [
+            ("bitcoin", 1.8), ("btc", 1.5), ("ethereum", 1.5), ("eth", 1.2),
+            ("crypto", 1.4), ("etf", 1.4), ("sec", 1.3), ("regulation", 1.2),
+            ("stablecoin", 1.1), ("exchange", 1.0), ("liquidity", 1.0)
+        ],
+    }
+
+    for kw, bonus in macro_bonus.get(ac, []):
+        if kw in text:
+            score += bonus
+
+    if ac == "Equities":
+        equity_penalties = [
+            ("earnings", 2.4), ("guidance", 1.8), ("dividend", 1.4),
+            ("transcript", 1.8), ("quarter", 1.2), ("q1", 1.0), ("q2", 1.0),
+            ("q3", 1.0), ("q4", 1.0), ("eps", 1.2), ("shares", 0.8),
+            ("profit", 1.0), ("revenue", 1.0), ("ceo", 0.8)
+        ]
+        for kw, malus in equity_penalties:
+            if kw in text:
+                score -= malus
+
+        upper_tokens = re.findall(r"\b[A-Z]{2,5}\b", safe_str(item.get("title")))
+        if len(upper_tokens) >= 2:
+            score -= 1.2
+
+    if "federal reserve" in source or source == "ecb (press/speeches/interviews)":
+        score += 0.5
+    if "cnbc top news" in source and ac == "Equities":
+        score -= 0.3
+
+    if len(summary) >= 120:
+        score += 0.25
+
+    return score
+
+
+def choose_display_news(ac: str, items: List[Dict[str, Any]], n: int = 3) -> List[Dict[str, Any]]:
+    ranked = sorted(
+        items,
+        key=lambda it: (
+            display_news_score(ac, it),
+            safe_str(it.get("date") or it.get("published") or "")
+        ),
+        reverse=True
+    )
+
+    out = []
+    seen = set()
+
+    for it in ranked:
+        title = safe_str(it.get("title"))
+        if not title:
+            continue
+
+        key = title.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+
+        out.append({
+            "title": it.get("title") or "",
+            "source": it.get("source") or "",
+            "date": it.get("date") or "",
+            "url": it.get("url") or "",
+            "summary": it.get("summary") or ""
+        })
+
+        if len(out) >= n:
+            break
+
+    return out
+
 
 def build_fundamentals(news_digest: Dict[str, Any], per_class_news: int = 3) -> Dict[str, Any]:
     by = news_digest.get('by_asset_class')
@@ -216,16 +327,8 @@ def build_fundamentals(news_digest: Dict[str, Any], per_class_news: int = 3) -> 
         else:
             bias, conf = 0.0, 0.0
         tone = 'Supportive' if bias >= 0.25 else 'Cautious' if bias <= -0.25 else 'Mixed'
-        top_news = [
-            {
-                'title': it.get('title') or '',
-                'source': it.get('source') or '',
-                'date': it.get('date') or '',
-                'url': it.get('url') or '',
-                'summary': it.get('summary') or '',
-            }
-            for it in lst_sorted[:per_class_news]
-        ]
+        top_news = choose_display_news(ac, lst_sorted, n=per_class_news)
+
         out['by_asset_class'][ac] = {
             'tone': tone,
             'bias': bias,
