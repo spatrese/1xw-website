@@ -791,7 +791,7 @@ document.addEventListener('click', async (e) => {
         },
         scales:{
           x:{ grid:{ color:"rgba(124,156,255,0.08)" }, ticks:{ color:"rgba(229,231,235,0.75)", maxTicksLimit:8 } },
-          y:{ grid:{ color:"rgba(124,156,255,0.08)" }, ticks:{ color:"rgba(229,231,235,0.75)", callback:(v)=>`${(Number(v)*100).toFixed(0)}%` } }
+          y:{ grid:{ color:"rgba(124,156,255,0.08)" }, ticks:{ color:"rgba(229,231,235,0.75)", callback:(v)=>`${(Number(v)*100).toFixed(1)}%` } }
         }
       }
     });
