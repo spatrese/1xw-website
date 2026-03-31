@@ -343,29 +343,29 @@
     "by_asset_class": {
       "Equities": {
         "tone": "Mixed",
-        "bias": 0.014492753623188406,
-        "confidence": 0.7036231884057971,
-        "commentary": "Equity signals are balanced, with supportive pockets offset by an uneven backdrop. Bias +0.01, confidence 0.70. Primary flow source: Bloomberg.",
+        "bias": 0.04057971014492753,
+        "confidence": 0.7101449275362318,
+        "commentary": "Equity signals are balanced, with supportive pockets offset by an uneven backdrop. Bias +0.04, confidence 0.71. Primary flow source: Bloomberg.",
         "top_news": [
           {
             "title": "Stocks Climb, Oil Wavers as Trump Weighs War Exit: Markets Wrap",
             "source": "Bloomberg",
-            "date": "2026-03-31T13:40:20Z",
+            "date": "2026-03-31T13:48:59Z",
             "url": "https://www.bloomberg.com/news/articles/2026-03-30/stock-market-today-dow-s-p-live-updates",
+            "summary": ""
+          },
+          {
+            "title": "Dow climbs, S&P 500 and Nasdaq gain over 1% on report Trump could end war without reopening Strait of Hormuz",
+            "source": "MarketWatch",
+            "date": "2026-03-31T13:48:59Z",
+            "url": "https://www.marketwatch.com/livecoverage/s-p-500-nasdaq-dow-jones-rise-donald-trump-iran-war-strait-of-hormuz",
             "summary": ""
           },
           {
             "title": "Dow rallies 400 points in final day of March on hopes the U.S.-Iran war could end soon",
             "source": "CNBC",
-            "date": "2026-03-31T13:40:20Z",
+            "date": "2026-03-31T13:48:59Z",
             "url": "https://www.cnbc.com/2026/03/30/stock-market-today-live-updates.html",
-            "summary": ""
-          },
-          {
-            "title": "S&P 500 heads for worst quarter since 2022 as Iran war, rate worries rattle Wall Street",
-            "source": "Reuters",
-            "date": "2026-03-31T13:40:20Z",
-            "url": "https://www.reuters.com/business/finance/sp-500-heads-worst-quarter-since-2022-iran-war-rate-worries-rattle-wall-street-2026-03-31/",
             "summary": ""
           }
         ],
@@ -467,21 +467,21 @@
           {
             "title": "US Bonds Are Caught in a Tug-of-War Between Inflation and Growth",
             "source": "Bloomberg",
-            "date": "2026-03-31T13:40:20Z",
+            "date": "2026-03-31T13:48:59Z",
             "url": "https://www.bloomberg.com/news/articles/2026-03-31/bond-traders-caught-in-inflation-growth-tug-of-war-as-oil-swings",
             "summary": ""
           },
           {
             "title": "Oil Shock Tests Bank of Thailand’s Wait-and-See Policy Stance",
             "source": "Bloomberg",
-            "date": "2026-03-31T13:40:20Z",
+            "date": "2026-03-31T13:48:59Z",
             "url": "https://www.bloomberg.com/news/articles/2026-03-31/oil-shock-tests-bank-of-thailand-s-wait-and-see-policy-stance",
             "summary": ""
           },
           {
             "title": "Ethiopia Keeps Key Rate Flat Citing Need to Contain Inflation",
             "source": "Bloomberg",
-            "date": "2026-03-31T13:40:20Z",
+            "date": "2026-03-31T13:48:59Z",
             "url": "https://www.bloomberg.com/news/articles/2026-03-31/ethiopia-keeps-key-rate-flat-citing-need-to-contain-inflation",
             "summary": ""
           }
@@ -584,7 +584,7 @@
           {
             "title": "Turkey Restarts FX Swaps to Counter War Impact on Reserves",
             "source": "Bloomberg",
-            "date": "2026-03-31T13:40:20Z",
+            "date": "2026-03-31T13:48:59Z",
             "url": "https://www.bloomberg.com/news/articles/2026-03-31/turkey-restarts-fx-swaps-to-counter-war-impact-on-reserves",
             "summary": ""
           },
@@ -701,21 +701,21 @@
           {
             "title": "Russian Oil Exports Plunge as Drone Strikes Cripple Baltic Ports",
             "source": "Bloomberg",
-            "date": "2026-03-31T13:40:20Z",
+            "date": "2026-03-31T13:48:59Z",
             "url": "https://www.bloomberg.com/news/articles/2026-03-31/russia-s-oil-exports-plunge-as-drone-strikes-cripple-baltic-ports",
             "summary": ""
           },
           {
             "title": "Another Greek Oil Tanker Exits Hormuz Despite Iran’s Blockade",
             "source": "Bloomberg",
-            "date": "2026-03-31T13:40:20Z",
+            "date": "2026-03-31T13:48:59Z",
             "url": "https://www.bloomberg.com/news/articles/2026-03-31/another-greek-oil-tanker-exits-hormuz-despite-iran-s-blockade",
             "summary": ""
           },
           {
             "title": "India Set for Searing Summer as Iran War Strains Energy Supplies",
             "source": "Bloomberg",
-            "date": "2026-03-31T13:40:20Z",
+            "date": "2026-03-31T13:48:59Z",
             "url": "https://www.bloomberg.com/news/articles/2026-03-31/india-set-for-searing-summer-as-iran-war-strains-energy-supplies",
             "summary": ""
           }
@@ -771,6 +771,20 @@
     },
     "top_long": [
       {
+        "symbol": "VIX",
+        "name": "VIX Index",
+        "asset_class": "Equities",
+        "setup": "Trend continuation",
+        "score": 4.0,
+        "ret_20d_pct": 22.53,
+        "side": "LONG",
+        "tech_score": 1.0,
+        "fund_support": 0.5144087376601554,
+        "macro_alignment": 0.5144087376601554,
+        "final_score": 0.8786021844150389,
+        "rationale": "Volatility expansion with risk-off dynamics."
+      },
+      {
         "symbol": "CL",
         "name": "WTI Crude",
         "asset_class": "Commodities",
@@ -791,20 +805,6 @@
         "setup": "Trend continuation",
         "score": 4.0,
         "ret_20d_pct": 40.64,
-        "side": "LONG",
-        "tech_score": 1.0,
-        "fund_support": 0.505632,
-        "macro_alignment": 0.505632,
-        "final_score": 0.876408,
-        "rationale": "Trend strength in Commodities with mixed macro tone."
-      },
-      {
-        "symbol": "ZC",
-        "name": "Corn",
-        "asset_class": "Commodities",
-        "setup": "Trend continuation",
-        "score": 4.0,
-        "ret_20d_pct": 2.24,
         "side": "LONG",
         "tech_score": 1.0,
         "fund_support": 0.505632,
