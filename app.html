@@ -821,87 +821,38 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
   return null;
 }
 
-  function collectEvents(fund){
-  const out = [];
+  function collectEvents(weekly){
+  const raw = Array.isArray(weekly?.event_calendar) ? weekly.event_calendar : [];
 
-  for (const [ac, row] of Object.entries(fund?.by_asset_class || {})) {
-    const pushEvent = (evt) => {
-      if (!evt || !evt.title) return;
-      out.push(evt);
-    };
+  const merged = new Map();
 
-    const structuredMacro = Array.isArray(row.macro_calendar) ? row.macro_calendar : [];
-    structuredMacro.forEach(e => pushEvent({
-      date: e.date || '',
-      type: 'Macro',
-      title: normalizeSpaces(e.label || e.title || ''),
-      assets: Array.isArray(e.asset_tags) && e.asset_tags.length ? e.asset_tags : [ac],
-      source: e.source || ''
-    }));
+  raw.forEach(e => {
+    const title = normalizeSpaces(e.title || '');
+    if (!title) return;
 
-    const structuredEarn = [
-      ...(ac === 'Equities' && Array.isArray(row.earnings_calendar) ? row.earnings_calendar : []),
-      ...(ac === 'Equities' && Array.isArray(row.earnings_watch) ? row.earnings_watch : [])
-    ];
-
-    structuredEarn.forEach(e => pushEvent({
-      date: e.date || '',
-      type: 'Earnings',
-      title: normalizeSpaces(e.label || e.company || e.title || ''),
-      ticker: normalizeSpaces(e.ticker || e.title || ''),
-      assets: ['Equities'],
-      source: e.source || ''
-    }));
-
-    
-    const eventTicker = normalizeSpaces(e.ticker || '').toUpperCase();
-    const dedupeId = e.type === 'Earnings'
-      ? (eventTicker || title.toLowerCase())
+    const ticker = normalizeSpaces(e.ticker || '').toUpperCase();
+    const type = normalizeSpaces(e.type || '');
+    const date = normalizeSpaces(e.date || '');
+    const dedupeId = type === 'Earnings'
+      ? (ticker || title.toLowerCase())
       : title.toLowerCase();
 
-    const key = `${e.date || ''}|${e.type}|${dedupeId}`;
+    const key = `${date}|${type}|${dedupeId}`;
 
-    if (!merge.has(key)) {
-      merge.set(key, {
-        ...e,
+    if (!merged.has(key)) {
+      merged.set(key, {
+        date,
+        type,
         title,
-        ticker: eventTicker || e.ticker || '',
-        assets: [...(e.assets || [])]
+        ticker,
+        source: normalizeSpaces(e.source || ''),
+        markets: Array.isArray(e.markets) ? e.markets : [],
+        assets: Array.isArray(e.markets) ? e.markets : []
       });
-    } else {
-      const cur = merge.get(key);
-      cur.assets = Array.from(new Set([...(cur.assets || []), ...(e.assets || [])]));
-
-      if ((!cur.source || cur.source === '') && e.source) cur.source = e.source;
-
-      if ((cur.title || '').length < title.length) cur.title = title;
-      if (!cur.ticker && eventTicker) cur.ticker = eventTicker;
     }
   });
 
-  const cleaned = new Map();
-  Array.from(merge.values()).forEach(e => {
-    let title = normalizeSpaces(e.title || '').toLowerCase();
-
-    if (title === 'fed') title = 'fed meeting / rate decision';
-    if (title === 'gdp') title = 'gdp release';
-    if (title === 'ecb') title = 'ecb meeting / rate decision';
-
-    const eventTicker = normalizeSpaces(e.ticker || '').toUpperCase();
-    const dedupeId = e.type === 'Earnings'
-      ? (eventTicker || title)
-      : title;
-
-    const key = `${e.date || ''}|${e.type}|${dedupeId}`;
-    const existing = cleaned.get(key);
-
-    if (!existing || (e.title || '').length > (existing.title || '').length) {
-      cleaned.set(key, e);
-    }
-  });
-
-  return Array.from(cleaned.values())
-    .filter(e => e.title && (!/CNBC Top News/i.test(e.source || '') || e.type === 'Earnings'))
+  return Array.from(merged.values())
     .sort((a, b) => {
       const da = parseDate(a.date)?.getTime() || 0;
       const db = parseDate(b.date)?.getTime() || 0;
@@ -1032,7 +983,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
       renderTone(weekly.fundamental_overview || {});
       renderTechnicalOverview(weekly.technical_overview || {});
       renderFundamentalOverview(weekly.fundamental_overview || {});
-      renderEvents(collectEvents(weekly.fundamental_overview || {}));
+      renderEvents(collectEvents(weekly));
 
       if (index && index.weeks && index.weeks.length) {
         bindHistoryControls(index, activeWeekId || index.current);
