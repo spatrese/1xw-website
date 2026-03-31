@@ -853,54 +853,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
       source: e.source || ''
     }));
 
-    const legacyEvents = Array.isArray(row.key_events) ? row.key_events : [];
-    legacyEvents.forEach(e => {
-      const rawTitle = normalizeSpaces(e.title || e.label || '');
-      if (!rawTitle) return;
-
-      const rawType = String(e.type || '').toLowerCase();
-      const source = normalizeSpaces(e.source || '');
-
-      const looksLikeTickerOnly = /^[A-Z]{1,6}$/.test(rawTitle);
-      const inferredEarningsTitle = extractCompanyFromHeadline(rawTitle);
-      const looksLikeEarnings =
-        rawType === 'earnings' ||
-        !!inferredEarningsTitle ||
-        (ac === 'Equities' && source.toLowerCase().includes('finviz') && looksLikeTickerOnly);
-
-      if (looksLikeEarnings) {
-        if (ac !== 'Equities') return;
-
-        pushEvent({
-          date: e.date || '',
-          type: 'Earnings',
-          title: inferredEarningsTitle || rawTitle,
-          ticker: looksLikeTickerOnly ? rawTitle : '',
-          assets: ['Equities'],
-          source: e.source || ''
-        });
-        return;
-      }
-
-      const macroTitle = normalizeMacroTitle(rawTitle);
-      if (!macroTitle) return;
-
-      pushEvent({
-        date: e.date || '',
-        type: 'Macro',
-        title: macroTitle,
-        assets: [ac],
-        source: e.source || ''
-      });
-    });
-
-  }
-
-  const merge = new Map();
-  out.forEach(e => {
-    const title = normalizeSpaces(e.title);
-    if (!title) return;
-
+    
     const eventTicker = normalizeSpaces(e.ticker || '').toUpperCase();
     const dedupeId = e.type === 'Earnings'
       ? (eventTicker || title.toLowerCase())

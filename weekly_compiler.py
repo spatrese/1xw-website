@@ -193,103 +193,273 @@ def build_fund_commentary(ac: str, tone: str, bias: float, conf: float, top_news
     src = safe_str(top_news[0].get('source')) if top_news else ''
     return f"{lead} Bias {bias:+.2f}, confidence {conf:.2f}.{(' Primary flow source: ' + src + '.') if src else ''}"
 
-def display_news_score(ac: str, item: Dict[str, Any]) -> float:
-    title = safe_str(item.get("title")).lower()
-    summary = safe_str(item.get("summary")).lower()
-    source = safe_str(item.get("source")).lower()
-    text = f"{title} {summary}"
 
+DISPLAY_STRONG_MACRO = {
+    "Equities": [
+        ("fed", 2.2), ("fomc", 2.2), ("inflation", 2.0), ("cpi", 2.0),
+        ("ppi", 1.5), ("yields", 1.8), ("yield", 1.6), ("rates", 1.4),
+        ("treasury", 1.4), ("policy", 1.3), ("recession", 1.5),
+        ("growth", 1.1), ("risk sentiment", 2.0), ("risk-off", 1.8),
+        ("risk-on", 1.8), ("stocks", 1.4), ("equities", 1.4),
+        ("s&p", 1.8), ("nasdaq", 1.8), ("volatility", 1.2), ("vix", 1.2),
+        ("oil", 1.0), ("geopolitical", 1.2), ("tariff", 1.2)
+    ],
+    "Rates": [
+        ("fed", 2.4), ("ecb", 2.4), ("boj", 2.0), ("boe", 2.0),
+        ("inflation", 2.3), ("cpi", 2.2), ("ppi", 1.7),
+        ("yield", 2.0), ("yields", 2.0), ("treasury", 1.8),
+        ("rate cut", 2.0), ("rate hike", 2.0), ("policy", 1.5),
+        ("central bank", 1.6), ("liquidity", 1.2)
+    ],
+    "FX": [
+        ("dollar", 2.0), ("dxy", 2.0), ("euro", 1.4), ("yen", 1.4),
+        ("currency", 1.4), ("fx", 1.4), ("foreign exchange", 1.6),
+        ("fed", 1.2), ("ecb", 1.2), ("boj", 1.2), ("boe", 1.0),
+        ("rate differential", 1.8), ("yield spread", 1.5)
+    ],
+    "Commodities": [
+        ("oil", 2.2), ("wti", 2.0), ("brent", 2.0), ("gold", 1.6),
+        ("silver", 1.2), ("copper", 1.3), ("natural gas", 1.6),
+        ("opec", 2.0), ("inventory", 1.6), ("supply", 1.4),
+        ("demand", 1.4), ("energy", 1.2), ("middle east", 1.3),
+        ("strait of hormuz", 1.8)
+    ],
+    "Crypto": [
+        ("bitcoin", 2.2), ("btc", 1.8), ("ethereum", 1.8), ("eth", 1.4),
+        ("crypto", 1.6), ("etf", 1.7), ("sec", 1.5), ("regulation", 1.4),
+        ("stablecoin", 1.3), ("exchange", 1.1), ("liquidity", 1.2)
+    ],
+}
+
+LOW_SIGNAL_PATTERNS = [
+    "airport", "tsa", "security wait", "flight",
+    "celebrity", "sports", "weather", "traffic", "crime", "real estate listing",
+    "restaurant", "consumer tip", "shopping", "holiday travel"
+]
+
+SYSTEMIC_EQUITY_TERMS = [
+    "fed", "fomc", "inflation", "cpi", "ppi", "yields", "rates",
+    "s&p", "nasdaq", "stocks", "equities", "risk-on", "risk-off",
+    "recession", "growth", "policy", "treasury", "volatility", "vix",
+    "oil", "geopolitical", "tariff", "earnings", "guidance"
+]
+
+MICRO_EQUITY_TERMS = [
+    "dividend", "ceo", "quarter", "q1", "q2", "q3", "q4", "eps",
+    "buyback", "shareholder", "merger talks", "product launch", "store opening"
+]
+
+def contains_any(text: str, terms: List[str]) -> bool:
+    return any(t in text for t in terms)
+
+def source_quality_bonus(source: str) -> float:
+    s = source.lower()
+    if "federal reserve" in s or "ecb" in s or "bank of england" in s or "bank of japan" in s or "eia" in s:
+        return 0.8
+    if "financial times" in s or "reuters" in s or "bloomberg" in s or "wsj" in s:
+        return 0.5
+    if "cnbc" in s or "yahoo" in s or "investing.com" in s or "finviz" in s or "fxstreet" in s:
+        return 0.1
+    return 0.0
+
+def idiosyncratic_penalty(ac: str, text: str) -> float:
+    penalty = 0.0
+    for pat in LOW_SIGNAL_PATTERNS:
+        if pat in text:
+            penalty += 2.0
+
+    if ac == "Equities":
+        systemic = sum(1 for t in SYSTEMIC_EQUITY_TERMS if t in text)
+        micro = sum(1 for t in MICRO_EQUITY_TERMS if t in text)
+
+        if systemic == 0 and micro > 0:
+            penalty += 1.8
+        if "earnings" in text and systemic == 0:
+            penalty += 1.2
+
+    return penalty
+
+def display_news_score(ac: str, item: Dict[str, Any]) -> float:
+    title_raw = safe_str(item.get("title"))
+    title = title_raw.lower()
+    summary = safe_str(item.get("summary")).lower()
+    source = safe_str(item.get("source"))
+    
+    text = f"{title} {summary}"
+ 
     score = 0.0
 
+    if any(p in text for p in [
+       "what happens if",
+       "should you buy",
+       "stocks of the week",
+       "how to invest",
+       "retirement",
+       "tax refund",
+       "analysis:",
+       "opinion",
+       "commentary",
+   ]):
+       score -= 1.5
+
     try:
-        score += float(item.get("score") or 0.0)
+        score += float(item.get("score") or 0.0)   # score dal news_engine
     except Exception:
         pass
 
-    macro_bonus = {
-        "Equities": [
-            ("s&p", 1.8), ("nasdaq", 1.8), ("stocks", 1.4), ("equities", 1.4),
-            ("risk sentiment", 1.8), ("risk-off", 1.5), ("risk-on", 1.5),
-            ("valuation", 1.2), ("growth", 1.0), ("recession", 1.3),
-            ("fed", 1.2), ("rates", 1.0), ("yields", 1.0), ("policy", 0.8),
-            ("market", 0.8), ("index", 0.8)
-        ],
-        "Rates": [
-            ("fed", 1.8), ("ecb", 1.8), ("boj", 1.5), ("boe", 1.5),
-            ("inflation", 1.7), ("cpi", 1.7), ("ppi", 1.3),
-            ("yield", 1.7), ("yields", 1.7), ("treasury", 1.4),
-            ("rate cut", 1.6), ("rate hike", 1.6), ("policy", 1.0)
-        ],
-        "FX": [
-            ("dollar", 1.7), ("dxy", 1.7), ("euro", 1.3), ("yen", 1.3),
-            ("currency", 1.2), ("fx", 1.2), ("foreign exchange", 1.4),
-            ("fed", 1.0), ("ecb", 1.0), ("boj", 1.0), ("rate differential", 1.5)
-        ],
-        "Commodities": [
-            ("oil", 1.7), ("wti", 1.7), ("brent", 1.7), ("gold", 1.4),
-            ("silver", 1.2), ("copper", 1.2), ("natural gas", 1.4),
-            ("opec", 1.7), ("supply", 1.2), ("demand", 1.2),
-            ("inventory", 1.4), ("energy", 1.0)
-        ],
-        "Crypto": [
-            ("bitcoin", 1.8), ("btc", 1.5), ("ethereum", 1.5), ("eth", 1.2),
-            ("crypto", 1.4), ("etf", 1.4), ("sec", 1.3), ("regulation", 1.2),
-            ("stablecoin", 1.1), ("exchange", 1.0), ("liquidity", 1.0)
-        ],
-    }
-
-    for kw, bonus in macro_bonus.get(ac, []):
+    for kw, bonus in DISPLAY_STRONG_MACRO.get(ac, []):
         if kw in text:
             score += bonus
 
-    if ac == "Equities":
-        equity_penalties = [
-            ("earnings", 2.4), ("guidance", 1.8), ("dividend", 1.4),
-            ("transcript", 1.8), ("quarter", 1.2), ("q1", 1.0), ("q2", 1.0),
-            ("q3", 1.0), ("q4", 1.0), ("eps", 1.2), ("shares", 0.8),
-            ("profit", 1.0), ("revenue", 1.0), ("ceo", 0.8)
-        ]
-        for kw, malus in equity_penalties:
-            if kw in text:
-                score -= malus
+    score += source_quality_bonus(source)
 
-        upper_tokens = re.findall(r"\b[A-Z]{2,5}\b", safe_str(item.get("title")))
-        if len(upper_tokens) >= 2:
-            score -= 1.2
-
-    if "federal reserve" in source or source == "ecb (press/speeches/interviews)":
-        score += 0.5
-    if "cnbc top news" in source and ac == "Equities":
-        score -= 0.3
-
+    # headline con summary più ricco sono spesso più utili
     if len(summary) >= 120:
         score += 0.25
+
+    # penalità micro / noise
+    score -= idiosyncratic_penalty(ac, text)
+
+    if ac == "Equities":
+        # ticker soup / company-specific clutter
+        upper_tokens = re.findall(r"\b[A-Z]{2,5}\b", title_raw)
+        if len(upper_tokens) >= 2:
+            score -= 1.0
+
+        # premia earnings solo se sembrano market-relevant
+        if "earnings" in text or "guidance" in text:
+            if contains_any(text, ["s&p", "nasdaq", "market", "stocks", "fed", "rates", "ai", "chip"]):
+                score += 0.8
+            else:
+                score -= 0.8
+    if ac != "Crypto":
+        if any(t in text for t in ["bitcoin", "btc", "ethereum", "eth", "crypto", "xrp", "stablecoin", "token"]):
+            score -= 1.5
+
+    if ac == "Commodities":
+        core = ["oil", "wti", "brent", "gold", "silver", "copper", "gas", "opec", "energy", "commodity"]
+        if not any(t in text for t in core):
+            score -= 1.8
+    return score
+
+def news_theme_key(ac: str, item: Dict[str, Any]) -> str:
+    text = f"{safe_str(item.get('title'))} {safe_str(item.get('summary'))}".lower()
+
+    if ac == "Equities":
+        if contains_any(text, ["fed", "fomc", "rates", "yields", "inflation", "cpi", "ppi"]):
+            return "macro-policy"
+        if contains_any(text, ["earnings", "guidance", "eps"]):
+            return "earnings"
+        if contains_any(text, ["oil", "war", "geopolitical", "tariff"]):
+            return "macro-shock"
+        return "broad-market"
+
+    if ac == "Rates":
+        if contains_any(text, ["inflation", "cpi", "ppi"]):
+            return "inflation"
+        if contains_any(text, ["fed", "ecb", "boj", "boe", "policy", "rate cut", "rate hike"]):
+            return "central-bank"
+        return "yields"
+
+    if ac == "FX":
+        if contains_any(text, ["dollar", "dxy"]):
+            return "usd"
+        if contains_any(text, ["yen", "boj"]):
+            return "jpy"
+        if contains_any(text, ["euro", "ecb"]):
+            return "eur"
+        return "fx-macro"
+
+    if ac == "Commodities":
+        if contains_any(text, ["oil", "wti", "brent", "opec"]):
+            return "energy"
+        if contains_any(text, ["gold", "silver"]):
+            return "precious"
+        return "commodities-macro"
+
+    if ac == "Crypto":
+        if contains_any(text, ["etf", "sec", "regulation"]):
+            return "regulation"
+        return "crypto-market"
+
+    return "other"
+
+def editorial_score(ac: str, title: str, summary: str) -> float:
+    text = f"{safe_str(title)} {safe_str(summary)}".lower()
+    score = 0.0
+
+    core = {
+        "Equities": ["s&p", "nasdaq", "dow", "stocks", "equities", "shares", "earnings", "guidance", "wall street"],
+        "Rates": ["fed", "fomc", "ecb", "boj", "boe", "yield", "yields", "treasury", "bond", "bonds", "inflation", "cpi", "ppi", "policy", "central bank"],
+        "FX": ["usd", "dollar", "eur", "euro", "yen", "jpy", "gbp", "sterling", "fx", "currency", "currencies", "dxy", "foreign exchange"],
+        "Commodities": ["oil", "wti", "brent", "gold", "silver", "copper", "gas", "natural gas", "opec", "commodity", "commodities", "energy",
+                        "corn", "wheat", "soy", "soybean", "coffee", "cocoa", "sugar", "cotton", "cattle", "hog", "livestock"],
+        "Crypto": ["bitcoin", "btc", "ethereum", "eth", "crypto", "etf", "token", "blockchain", "stablecoin", "xrp"]
+    }
+
+    macro = [
+        "war", "conflict", "iran", "russia", "ukraine", "china",
+        "inflation", "growth", "recession", "tariff", "tariffs", "trade",
+        "sanctions", "rates", "policy", "supply", "demand"
+    ]
+
+    noise = [
+        "should you buy", "what happens if", "opinion", "commentary",
+        "analysis:", "stocks of the week", "how to invest", "retirement",
+        "tax refund"
+    ]
+
+    micro = [
+        "price target", "upgrades", "downgrades", "hold rating",
+        "reiterates", "interim results", "six months results",
+        "quarter results", "earnings report"
+    ]
+
+    if any(k in text for k in core.get(ac, [])):
+        score += 2.0
+
+    if any(k in text for k in macro):
+        score += 1.2
+
+    if any(k in text for k in noise):
+        score -= 2.0
+
+    if any(k in text for k in micro):
+        score -= 1.2
 
     return score
 
 
 def choose_display_news(ac: str, items: List[Dict[str, Any]], n: int = 3) -> List[Dict[str, Any]]:
-    ranked = sorted(
-        items,
-        key=lambda it: (
-            display_news_score(ac, it),
-            safe_str(it.get("date") or it.get("published") or "")
+    scored = []
+
+    for it in items:
+        score = editorial_score(
+            ac,
+            safe_str(it.get("title")),
+            safe_str(it.get("summary"))
+        )
+        scored.append((score, it))
+
+    scored.sort(
+        key=lambda x: (
+            x[0],
+            safe_str(x[1].get("date") or x[1].get("published") or "")
         ),
         reverse=True
     )
 
     out = []
-    seen = set()
+    used_title_starts = set()
 
-    for it in ranked:
+    for score, it in scored:
         title = safe_str(it.get("title"))
         if not title:
             continue
 
-        key = title.lower()
-        if key in seen:
+        title_key = title[:50].lower()
+        if title_key in used_title_starts:
             continue
-        seen.add(key)
 
         out.append({
             "title": it.get("title") or "",
@@ -299,11 +469,12 @@ def choose_display_news(ac: str, items: List[Dict[str, Any]], n: int = 3) -> Lis
             "summary": it.get("summary") or ""
         })
 
+        used_title_starts.add(title_key)
+
         if len(out) >= n:
             break
 
     return out
-
 
 def build_fundamentals(news_digest: Dict[str, Any], per_class_news: int = 3) -> Dict[str, Any]:
     by = news_digest.get('by_asset_class')

@@ -75,8 +75,12 @@ KEYWORDS = {
 }
 
 IMPORTANT_KWS = [
-    "fed", "fomc", "ecb", "boj", "pboc", "imf", "inflation", "cpi", "ppi", "rates", "yield",
-    "opec", "oil", "earnings", "guidance", "etf", "sec", "yuan", "renminbi"
+    "fed", "fomc", "ecb", "boj", "boe", "pboc", "central bank",
+    "inflation", "cpi", "ppi", "rates", "rate cut", "rate hike",
+    "yield", "yields", "treasury", "policy", "liquidity",
+    "recession", "growth", "risk-off", "risk-on",
+    "oil", "opec", "energy", "geopolitical", "tariff",
+    "earnings", "guidance", "etf", "sec", "yuan", "renminbi"
 ]
 
 
@@ -158,18 +162,54 @@ def classify_item(title: str, summary: str, source_hint: str) -> str:
         return source_hint
     return best
 
+NOISE_PATTERNS = [
+    "airport", "tsa", "security wait", "flight",
+    "celebrity", "sports", "weather", "traffic", "crime",
+    "shopping", "restaurant", "holiday travel"
+]
+
+def keyword_hits(text: str, kws: List[str]) -> int:
+    return sum(1 for kw in kws if kw in text)
+
+def mild_noise_penalty(text: str) -> float:
+    penalty = 0.0
+    for pat in NOISE_PATTERNS:
+        if pat in text:
+            penalty += 0.5
+    return penalty
+
+def macro_relevance_score(text: str) -> float:
+    score = 0.0
+
+    score += 0.22 * keyword_hits(text, IMPORTANT_KWS)
+
+    if "central bank" in text:
+        score += 0.30
+    if "inflation" in text or "cpi" in text or "ppi" in text:
+        score += 0.30
+    if "yield" in text or "yields" in text:
+        score += 0.25
+    if "risk-off" in text or "risk-on" in text:
+        score += 0.25
+    if "oil" in text or "opec" in text or "energy" in text:
+        score += 0.20
+
+    return score
 
 def rank_score(title: str, summary: str, published_dt: Optional[datetime], tier: int) -> float:
     base = {1: 0.45, 2: 0.25}.get(tier, 0.0)
     text = normalize_text(title) + " " + normalize_text(summary)
+
     if published_dt:
         age_hours = (datetime.now(timezone.utc) - published_dt).total_seconds() / 3600.0
         base += max(0.0, 72.0 - age_hours) / 72.0
-    for kw in IMPORTANT_KWS:
-        if kw in text:
-            base += 0.20
+
+    base += macro_relevance_score(text)
+    base -= mild_noise_penalty(text)
+
     if len(strip_html(title)) >= 50:
         base += 0.10
+
     return round(float(base), 3)
 
 
@@ -239,18 +279,54 @@ def parse_rss_source(src: Dict[str, Any], days: int) -> List[Dict[str, Any]]:
     text = fetch_text(src["url"])
     feed = feedparser.parse(text)
     out: List[Dict[str, Any]] = []
+
+    HARD_EXCLUDE = [
+        "should you buy",
+        "stocks of the week",
+        "retirement",
+        "tax refund",
+        "dui",
+        "lawsuit",
+        "victims",
+        "celebrity",
+        "crime",
+        "restaurant",
+        "shopping",
+        "consumer tips",
+        "how to invest",
+        "jim cramer",
+    ]
+
     for ent in (getattr(feed, "entries", []) or [])[:80]:
         title = strip_html(ent.get("title", ""))
         if not title:
             continue
+
         summary = strip_html(ent.get("summary", "") or ent.get("description", ""))
+        txt = (title + " " + summary).lower()
+
+        if any(p in txt for p in HARD_EXCLUDE):
+            continue
+
         link = (ent.get("link", "") or "").strip()
-        published = parse_possible_datetime(ent.get("published_parsed") or ent.get("updated_parsed") or ent.get("published") or ent.get("updated"))
+        published = parse_possible_datetime(
+            ent.get("published_parsed")
+            or ent.get("updated_parsed")
+            or ent.get("published")
+            or ent.get("updated")
+        )
+
         if not within_days(published, days):
             continue
-        out.append({"title": title, "summary": summary, "link": link, "published": published})
-    return out
 
+        out.append({
+            "title": title,
+            "summary": summary,
+            "link": link,
+            "published": published,
+        })
+
+    return out
 
 def parse_html_source(src: Dict[str, Any], days: int) -> List[Dict[str, Any]]:
     html = fetch_text(src["url"])
@@ -303,7 +379,7 @@ def parse_source(src: Dict[str, Any], days: int) -> List[Dict[str, Any]]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--days", type=int, default=7, help="Lookback window for items")
-    parser.add_argument("--per_class", type=int, default=5, help="Max items per asset class")
+    parser.add_argument("--per_class", type=int, default=30, help="Max items per asset class")
     parser.add_argument("--out", default="content/news_digest.json")
     args = parser.parse_args()
 
@@ -354,7 +430,7 @@ def main() -> None:
                 continue
             seen.add(key)
             deduped.append(item)
-        buckets[ac] = deduped[: max(0, int(args.per_class))]
+        buckets[ac] = deduped
 
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     digest = {"updatedAt": updated_at, "week": wk, "by_asset_class": buckets}
