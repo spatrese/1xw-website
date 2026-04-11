@@ -847,6 +847,19 @@ document.addEventListener('click', async (e) => {
     return "—";
   }
 
+  function getStructureFromInstrument(inst){
+    const s = String(inst || "").trim().toUpperCase();
+
+    if (s.includes("PAXOS")) return "Spot";
+
+    if (/ [CP]\d+/.test(s)) {
+      if (s.includes(" P")) return "Put";
+      if (s.includes(" C")) return "Call";
+    }
+
+    return "Futures";
+  }
+
     function renderTrades(screener){
     const list = Array.isArray(screener.modelTrades) ? screener.modelTrades : [];
     if (!list.length){
