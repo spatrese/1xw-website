@@ -321,6 +321,7 @@ footer{
   .table td:last-child{border-bottom:none;}
   .table td:nth-child(1)::before{content:'Week';}
   .table td:nth-child(2)::before{content:'Instrument';}
+  .table td:nth-child(3)::before{content:'Description';}
   .table td:nth-child(3)::before{content:'Asset Class';}
   .table td:nth-child(4)::before{content:'Long / Short';}
   .table td:nth-child(5)::before{content:'Structure';}
@@ -506,6 +507,7 @@ footer{
           <tr>
             <th>Week</th>
             <th>Instrument</th>
+            <th>Description</th>
             <th>Asset Class</th>
             <th>Long / Short</th>
             <th>Structure</th>
@@ -513,7 +515,7 @@ footer{
           </tr>
         </thead>
         <tbody id="tradesBody">
-          <tr><td colspan="4">Loading…</td></tr>
+          <tr><td colspan="7">Loading…</td></tr>
         </tbody>
       </table>
 
@@ -797,10 +799,54 @@ document.addEventListener('click', async (e) => {
     });
   }
 
+  function getUnderlyingDescription(inst){
+    const s = String(inst || "").trim().toUpperCase();
+
+    if (s.startsWith("HG")) return "Copper";
+    if (s.startsWith("GC")) return "Gold";
+    if (s.startsWith("SI")) return "Silver";
+    if (s.startsWith("CL") || s.startsWith("LO")) return "WTI Crude Oil";
+    if (s.startsWith("NG")) return "Natural Gas";
+    if (s.startsWith("RB")) return "RBOB Gasoline";
+    if (s.startsWith("CC")) return "Cocoa";
+    if (s.startsWith("KC")) return "Coffee";
+    if (s.startsWith("SB")) return "Sugar";
+    if (s.startsWith("CT")) return "Cotton";
+    if (s.startsWith("ZC")) return "Corn";
+    if (s.startsWith("ZW")) return "Wheat";
+    if (s.startsWith("ZS")) return "Soybeans";
+    if (s.startsWith("LE")) return "Live Cattle";
+    if (s.startsWith("HE")) return "Lean Hogs";
+    if (s.startsWith("GF")) return "Feeder Cattle";
+
+    if (s.startsWith("ES")) return "S&P 500";
+    if (s.startsWith("NQ")) return "Nasdaq 100";
+    if (s.startsWith("RTY")) return "Russell 2000";
+    if (s.startsWith("DAX")) return "DAX";
+    if (s.startsWith("NIY") || s.startsWith("NKD")) return "Nikkei 225";
+    if (s.startsWith("VIX")) return "VIX Index";
+
+    if (s.startsWith("ZB")) return "US Treasury Bond";
+    if (s.startsWith("GBL")) return "Germany Bund";
+    if (s.startsWith("BTP")) return "Italy BTP";
+
+    if (s.startsWith("DX")) return "Dollar Index";
+    if (s.startsWith("EUR")) return "EURUSD";
+    if (s.startsWith("GBP")) return "GBPUSD";
+    if (s.startsWith("AUD")) return "AUDUSD";
+    if (s.startsWith("CAD")) return "USDCAD";
+    if (s.startsWith("JPY")) return "USDJPY";
+
+    if (s.includes("ETH")) return "Ethereum";
+    if (s.includes("BTC")) return "Bitcoin";
+
+    return "—";
+  }
+
     function renderTrades(screener){
     const list = Array.isArray(screener.modelTrades) ? screener.modelTrades : [];
     if (!list.length){
-      tradesBody.innerHTML = `<tr><td colspan="6">No model trades available.</td></tr>`;
+      tradesBody.innerHTML = `<tr><td colspan="7">No model trades available.</td></tr>`;
       tradesMeta.textContent = "";
       return;
     }
@@ -809,6 +855,7 @@ document.addEventListener('click', async (e) => {
     list.slice(0, 100).forEach(t => {
       const wk = (t && t.week) ? String(t.week).trim() : "—";
       const inst = (t && t.instrument) ? String(t.instrument).trim() : "—";
+      const description = getUnderlyingDescription(inst);
       const assetClass = (t && t.asset_class) ? String(t.asset_class).trim() : "—";
       const side = (t && t.side) ? String(t.side).trim().toUpperCase() : "—";
       const structure = (t && t.structure) ? String(t.structure).trim() : "—";
@@ -823,6 +870,7 @@ document.addEventListener('click', async (e) => {
       tr.innerHTML = `
         <td>${wk}</td>
         <td>${inst}</td>
+        <td>${description}</td>
         <td>${assetClass}</td>
         <td>${sideHtml}</td>
         <td>${structure}</td>
@@ -863,7 +911,7 @@ document.addEventListener('click', async (e) => {
     } else {
       posCount.textContent = "—";
       posMeta.textContent = "—";
-      tradesBody.innerHTML = `<tr><td colspan="4">—</td></tr>`;
+      tradesBody.innerHTML = `<tr><td colspan="7">—</td></tr>`;
       tradesMeta.textContent = "";
     }
   } catch (e) {
