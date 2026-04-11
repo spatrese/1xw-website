@@ -322,10 +322,10 @@ footer{
   .table td:nth-child(1)::before{content:'Week';}
   .table td:nth-child(2)::before{content:'Instrument';}
   .table td:nth-child(3)::before{content:'Description';}
-  .table td:nth-child(3)::before{content:'Asset Class';}
-  .table td:nth-child(4)::before{content:'Long / Short';}
-  .table td:nth-child(5)::before{content:'Structure';}
-  .table td:nth-child(6)::before{content:'Status';}
+  .table td:nth-child(4)::before{content:'Asset Class';}
+  .table td:nth-child(5)::before{content:'Long / Short';}
+  .table td:nth-child(6)::before{content:'Structure';}
+  .table td:nth-child(7)::before{content:'Status';}
   .table td::before{
     display:block;
     margin-bottom:3px;
@@ -623,7 +623,7 @@ document.addEventListener('click', async (e) => {
     return (xDec >= 0 ? "+" : "") + (xDec * 100).toFixed(2) + "%";
   }
 
-  function renderOpenPositions(screener){
+    function renderOpenPositions(screener){
     const list = Array.isArray(screener.openPositions) ? screener.openPositions : [];
     posPills.innerHTML = "";
     posCount.textContent = String(list.length);
@@ -633,6 +633,10 @@ document.addEventListener('click', async (e) => {
       const sym = (p && p.symbol) ? String(p.symbol).trim() : "—";
       const side = (p && p.side) ? String(p.side).toUpperCase().trim() : "";
 
+      const description = getUnderlyingDescription(sym);
+      const structure = getStructureFromInstrument(sym);
+      const displayLabel = `${description} ${structure}`.trim();
+
       const pill = document.createElement("div");
       pill.className = "pill";
       pill.style.display = "inline-flex";
@@ -641,7 +645,7 @@ document.addEventListener('click', async (e) => {
 
       const left = document.createElement("span");
       left.style.fontWeight = "700";
-      left.textContent = sym;
+      left.textContent = displayLabel;
       pill.appendChild(left);
 
       if (side === "LONG" || side === "SHORT"){
@@ -803,7 +807,7 @@ document.addEventListener('click', async (e) => {
     const s = String(inst || "").trim().toUpperCase();
 
     if (s.startsWith("HG")) return "Copper";
-    if (s.startsWith("GC"))|| s.startsWith("OG")) return "Gold";
+    if (s.startsWith("GC")|| s.startsWith("OG")) return "Gold";
     if (s.startsWith("SI")) return "Silver";
     if (s.startsWith("CL")|| s.startsWith("LO")) return "WTI Crude Oil";
     if (s.startsWith("NG")) return "Natural Gas";
