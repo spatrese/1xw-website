@@ -803,9 +803,9 @@ document.addEventListener('click', async (e) => {
     const s = String(inst || "").trim().toUpperCase();
 
     if (s.startsWith("HG")) return "Copper";
-    if (s.startsWith("GC")) return "Gold";
+    if (s.startsWith("GC"))|| s.startsWith("OG")) return "Gold";
     if (s.startsWith("SI")) return "Silver";
-    if (s.startsWith("CL") || s.startsWith("LO")) return "WTI Crude Oil";
+    if (s.startsWith("CL")|| s.startsWith("LO")) return "WTI Crude Oil";
     if (s.startsWith("NG")) return "Natural Gas";
     if (s.startsWith("RB")) return "RBOB Gasoline";
     if (s.startsWith("CC")) return "Cocoa";
