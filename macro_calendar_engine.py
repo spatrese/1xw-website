@@ -61,11 +61,12 @@ HEADERS = {
 }
 TIMEOUT = 20
 
+
 # ---------------------------------------------------------
 # Canonical macro registry
 # ---------------------------------------------------------
 EVENT_REGISTRY: Dict[str, Dict[str, Any]] = {
-    # US — BLS / BEA / Census / Fed
+    # US — BLS / BEA / Census / Fed / ISM / Conference Board
     "US_NFP": {
         "title": "US Non-Farm Payrolls",
         "country": "US",
@@ -143,6 +144,41 @@ EVENT_REGISTRY: Dict[str, Dict[str, Any]] = {
         "markets": ["Equities", "Rates", "FX"],
         "source_family": "U.S. Census",
     },
+    "US_DURABLE_GOODS_ORDERS": {
+        "title": "US Durable Goods Orders",
+        "country": "US",
+        "importance": "medium",
+        "markets": ["Equities", "Rates", "FX", "Commodities"],
+        "source_family": "U.S. Census",
+    },
+    "US_HOUSING_STARTS_BUILDING_PERMITS": {
+        "title": "US Housing Starts / Building Permits",
+        "country": "US",
+        "importance": "medium",
+        "markets": ["Rates", "FX", "Equities"],
+        "source_family": "U.S. Census",
+    },
+    "US_ISM_MANUFACTURING_PMI": {
+        "title": "ISM Manufacturing PMI",
+        "country": "US",
+        "importance": "medium",
+        "markets": ["Equities", "Rates", "FX", "Commodities"],
+        "source_family": "ISM",
+    },
+    "US_ISM_SERVICES_PMI": {
+        "title": "ISM Services PMI",
+        "country": "US",
+        "importance": "medium",
+        "markets": ["Equities", "Rates", "FX"],
+        "source_family": "ISM",
+    },
+    "US_CONSUMER_CONFIDENCE": {
+        "title": "US Consumer Confidence",
+        "country": "US",
+        "importance": "medium",
+        "markets": ["Equities", "Rates", "FX"],
+        "source_family": "Conference Board",
+    },
     "FOMC_RATE_DECISION": {
         "title": "FOMC Rate Decision",
         "country": "US",
@@ -201,6 +237,20 @@ EVENT_REGISTRY: Dict[str, Dict[str, Any]] = {
         "markets": ["FX", "Rates", "Equities"],
         "source_family": "Eurostat",
     },
+    "EA_ECONOMIC_SENTIMENT": {
+        "title": "Euro Area Economic Sentiment Indicators",
+        "country": "Euro Area",
+        "importance": "medium",
+        "markets": ["Equities", "Rates", "FX"],
+        "source_family": "European Commission",
+    },
+    "EA_PMI": {
+        "title": "Euro Area PMI (Manufacturing / Services)",
+        "country": "Euro Area",
+        "importance": "medium",
+        "markets": ["Equities", "Rates", "FX", "Commodities"],
+        "source_family": "S&P Global",
+    },
     "ECB_RATE_DECISION": {
         "title": "ECB Rate Decision",
         "country": "Euro Area",
@@ -209,7 +259,7 @@ EVENT_REGISTRY: Dict[str, Dict[str, Any]] = {
         "source_family": "ECB",
     },
 
-    # China — NBS
+    # China — NBS / Customs / PBOC (where needed)
     "CN_CPI": {
         "title": "China CPI",
         "country": "China",
@@ -228,6 +278,13 @@ EVENT_REGISTRY: Dict[str, Dict[str, Any]] = {
         "title": "China PMI",
         "country": "China",
         "importance": "high",
+        "markets": ["Commodities", "Equities", "FX"],
+        "source_family": "NBS China",
+    },
+    "CN_PMI_SPLIT": {
+        "title": "China Manufacturing / Non-Manufacturing PMI",
+        "country": "China",
+        "importance": "medium",
         "markets": ["Commodities", "Equities", "FX"],
         "source_family": "NBS China",
     },
@@ -259,7 +316,36 @@ EVENT_REGISTRY: Dict[str, Dict[str, Any]] = {
         "markets": ["Commodities", "Equities", "FX"],
         "source_family": "NBS China",
     },
+    "CN_HOUSE_PRICES": {
+        "title": "China House Prices",
+        "country": "China",
+        "importance": "medium",
+        "markets": ["Commodities", "Equities", "FX"],
+        "source_family": "NBS China",
+    },
+    "CN_TRADE_BALANCE": {
+        "title": "China Trade Balance",
+        "country": "China",
+        "importance": "medium",
+        "markets": ["FX", "Commodities", "Equities"],
+        "source_family": "General Administration of Customs of China",
+    },
+    "CN_TSF": {
+        "title": "China Credit / Total Social Financing (TSF)",
+        "country": "China",
+        "importance": "medium",
+        "markets": ["Rates", "FX", "Equities", "Commodities"],
+        "source_family": "PBOC",
+    },
+    "CN_NEW_LOANS": {
+        "title": "China New Loans",
+        "country": "China",
+        "importance": "medium",
+        "markets": ["Rates", "FX", "Equities", "Commodities"],
+        "source_family": "PBOC",
+    },
 }
+
 
 # ---------------------------------------------------------
 # Generic helpers
@@ -296,6 +382,7 @@ def parse_date_any(s: str, default_year: Optional[int] = None) -> Optional[date]
     formats = [
         "%A, %B %d, %Y", "%A, %B %d %Y", "%B %d, %Y", "%b %d, %Y",
         "%d/%m/%Y", "%d %B %Y", "%d %b %Y", "%Y-%m-%d",
+        "%b. %d, %Y", "%B %d %Y", "%b %d %Y",
     ]
     for fmt in formats:
         try:
@@ -303,33 +390,12 @@ def parse_date_any(s: str, default_year: Optional[int] = None) -> Optional[date]
         except Exception:
             pass
     if default_year is not None:
-        for fmt in ["%B %d", "%b %d"]:
+        for fmt in ["%B %d", "%b %d", "%b. %d"]:
             try:
                 return datetime.strptime(f"{s} {default_year}", f"{fmt} %Y").date()
             except Exception:
                 pass
     return None
-
-
-def month_label(month_num: int) -> str:
-    return [
-        "Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.",
-        "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec.",
-    ][month_num - 1]
-
-
-def add_event(out: List[Dict[str, Any]], d: date, title: str, country: str,
-              importance: str, markets: List[str], source: str, url: str = "") -> None:
-    out.append({
-        "date": d.isoformat(),
-        "type": "Macro",
-        "title": title,
-        "country": country,
-        "importance": importance,
-        "markets": markets,
-        "source": source,
-        "url": url,
-    })
 
 
 def add_registry_event(
@@ -341,12 +407,6 @@ def add_registry_event(
     *,
     extra: Optional[Dict[str, Any]] = None,
 ) -> None:
-    # safety guard: prevent impossible source/event combinations
-    if source == "Eurostat" and not event_key.startswith("EA_"):
-        return
-    if source == "BLS" and not event_key.startswith("US_"):
-        return
-
     meta = EVENT_REGISTRY[event_key]
     ev = {
         "date": d.isoformat(),
@@ -364,6 +424,7 @@ def add_registry_event(
         ev.update(extra)
     out.append(ev)
 
+
 def dedupe_events(events: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
     merged: Dict[Tuple[str, str, str, str], Dict[str, Any]] = {}
 
@@ -377,7 +438,6 @@ def dedupe_events(events: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
             norm(ev.get("ticker") or ev.get("title")),
             norm(ev.get("country")),
         )
-
         if key not in merged:
             new_ev = dict(ev)
             src = normalize_space(ev.get("source"))
@@ -390,18 +450,14 @@ def dedupe_events(events: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
         cur = merged[key]
         src = normalize_space(ev.get("source"))
         url = normalize_space(ev.get("url"))
-
         if src and src not in cur.get("sources", []):
             cur.setdefault("sources", []).append(src)
-
         if url and url not in cur.get("urls", []):
             cur.setdefault("urls", []).append(url)
-
         if not cur.get("source") and src:
             cur["source"] = src
         if not cur.get("url") and url:
             cur["url"] = url
-
     return list(merged.values())
 
 
@@ -417,78 +473,163 @@ def html_tables(
     except Exception:
         return []
 
-def bls_get_text(url: str) -> str:
-    sess = requests.Session()
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/123.0.0.0 Safari/537.36"
-        ),
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Cache-Control": "no-cache",
-        "Pragma": "no-cache",
-        "Upgrade-Insecure-Requests": "1",
-        "Connection": "keep-alive",
-        "Referer": "https://www.bls.gov/",
-    }
-    r = sess.get(url, headers=headers, timeout=30)
-    r.raise_for_status()
-    return r.text
 
 # ---------------------------------------------------------
 # US macro block
 # ---------------------------------------------------------
 
+def fetch_us_calendar_proxy_events(start: date, end: date) -> List[Dict[str, Any]]:
+    events: List[Dict[str, Any]] = []
+    session = requests.Session()
+
+    label_map = {
+        "employment situation": [("US_NFP", "BLS"), ("US_UNEMPLOYMENT", "BLS")],
+        "consumer price index": [("US_CPI", "BLS"), ("US_CORE_CPI", "BLS")],
+        "producer price index": [("US_PPI", "BLS")],
+        "jolts": [("US_JOLTS", "BLS")],
+        "imports and exports": [("US_IMPORT_EXPORT_PRICES", "BLS")],
+        "advance retail sales": [("US_RETAIL_SALES", "U.S. Census")],
+        "new residential construction": [("US_HOUSING_STARTS_BUILDING_PERMITS", "U.S. Census")],
+        "advance durable goods": [("US_DURABLE_GOODS_ORDERS", "U.S. Census")],
+        "consumer confidence": [("US_CONSUMER_CONFIDENCE", "Conference Board")],
+        "ism manufacturing": [("US_ISM_MANUFACTURING_PMI", "ISM")],
+        "ism non-manufacturing": [("US_ISM_SERVICES_PMI", "ISM")],
+        "trade balance": [("US_TRADE_BALANCE", "BEA")],
+        "gross domestic product 1st release": [("US_GDP", "BEA")],
+        "gross domestic product 2nd release": [("US_GDP", "BEA")],
+        "gross domestic product 3rd release": [("US_GDP", "BEA")],
+        "gross domestic product": [("US_GDP", "BEA")],
+        "personal income and the pce deflator": [("US_PERSONAL_INCOME_OUTLAYS", "BEA")],
+        "personal income": [("US_PERSONAL_INCOME_OUTLAYS", "BEA")],
+    }
+
+    months_to_pull = sorted({
+        (start.year, start.month),
+        (end.year, end.month),
+    })
+
+    for year_num, month_num in months_to_pull:
+        try:
+            # es. https://www.newyorkfed.org/research/calendars/i-apr26.html
+            month_abbr = calendar.month_abbr[month_num].lower()
+            yy = str(year_num)[2:]
+            url = f"https://www.newyorkfed.org/research/calendars/i-{month_abbr}{yy}.html"
+
+            html = session_get_text(url, session=session)
+            soup = BeautifulSoup(html, "html.parser")
+            text = soup.get_text("\n", strip=True)
+            lines = [normalize_space(x) for x in text.splitlines() if normalize_space(x)]
+
+            current_day: Optional[int] = None
+
+            for line in lines:
+                # giorno del mese isolato
+                if re.fullmatch(r"\d{1,2}", line):
+                    current_day = int(line)
+                    continue
+
+                if current_day is None:
+                    continue
+
+                low = line.lower()
+
+                for label, mappings in label_map.items():
+                    if label in low:
+                        try:
+                            d = date(year_num, month_num, current_day)
+                        except Exception:
+                            continue
+
+                        if not in_range(d, start, end):
+                            continue
+
+                        for event_key, source_name in mappings:
+                            add_registry_event(
+                                events,
+                                event_key,
+                                d,
+                                source_name,
+                                url,
+                                extra={"scheduler_source": "New York Fed Economic Indicators Calendar"},
+                            )
+                        break
+
+        except Exception as e:
+            print(f"⚠️ fetch_us_calendar_proxy_events [{year_num}-{month_num:02d}]: {e}")
+
+    return dedupe_events(events)
+
+
 def fetch_us_bls_events(start: date, end: date) -> List[Dict[str, Any]]:
     events: List[Dict[str, Any]] = []
+    session = requests.Session()
 
-    def _extract_next_release_date(text: str) -> Optional[date]:
-        # estrae date tipo "April 10, 2026"
-        m = re.search(r"([A-Z][a-z]+ \d{1,2}, \d{4})", text)
-        if not m:
-            return None
-        return parse_date_any(m.group(1))
+    def _extract_date(text: str) -> Optional[date]:
+        m = re.search(
+            r"([A-Z][a-z]+ \d{1,2}, \d{4})",
+            text
+        )
+        return parse_date_any(m.group(1)) if m else None
 
-    # CPI
+    # --- CPI ---
     try:
         url = "https://www.bls.gov/cpi/"
-        text = BeautifulSoup(bls_get_text(url), "html.parser").get_text(" ", strip=True)
-        if "Next Release" in text:
-            d = _extract_next_release_date(text)
-            if d and in_range(d, start, end):
-                add_registry_event(events, "US_CPI", d, "BLS", url)
-                add_registry_event(events, "US_CORE_CPI", d, "BLS", url)
+        text = BeautifulSoup(session_get_text(url, session=session), "html.parser").get_text(" ", strip=True)
+        d = _extract_date(text)
+        if d and in_range(d, start, end):
+            add_registry_event(events, "US_CPI", d, "BLS", url)
+            add_registry_event(events, "US_CORE_CPI", d, "BLS", url)
     except Exception as e:
-        print(f"⚠️ fetch_us_bls_events [cpi_home]: {e}")
+        print(f"⚠️ CPI fallback: {e}")
 
-    # PPI
+    # --- PPI ---
     try:
         url = "https://www.bls.gov/ppi/"
-        text = BeautifulSoup(bls_get_text(url), "html.parser").get_text(" ", strip=True)
-        if "Next Release" in text:
-            d = _extract_next_release_date(text)
-            if d and in_range(d, start, end):
-                add_registry_event(events, "US_PPI", d, "BLS", url)
+        text = BeautifulSoup(session_get_text(url, session=session), "html.parser").get_text(" ", strip=True)
+        d = _extract_date(text)
+        if d and in_range(d, start, end):
+            add_registry_event(events, "US_PPI", d, "BLS", url)
     except Exception as e:
-        print(f"⚠️ fetch_us_bls_events [ppi_home]: {e}")
+        print(f"⚠️ PPI fallback: {e}")
 
-    # Employment Situation
+    # --- NFP ---
     try:
         url = "https://www.bls.gov/news.release/empsit.nr0.htm"
-        text = BeautifulSoup(bls_get_text(url), "html.parser").get_text(" ", strip=True)
+        text = BeautifulSoup(session_get_text(url, session=session), "html.parser").get_text(" ", strip=True)
+
         m = re.search(
             r"scheduled to be released on\s+(?:[A-Z][a-z]+,\s+)?([A-Z][a-z]+ \d{1,2}, \d{4})",
             text,
-            flags=re.I,
+            flags=re.I
         )
+
         d = parse_date_any(m.group(1)) if m else None
+
         if d and in_range(d, start, end):
             add_registry_event(events, "US_NFP", d, "BLS", url)
             add_registry_event(events, "US_UNEMPLOYMENT", d, "BLS", url)
     except Exception as e:
-        print(f"⚠️ fetch_us_bls_events [empsit_summary]: {e}")
+        print(f"⚠️ NFP fallback: {e}")
+
+    # --- JOLTS ---
+    try:
+        url = "https://www.bls.gov/jlt/"
+        text = BeautifulSoup(session_get_text(url, session=session), "html.parser").get_text(" ", strip=True)
+        d = _extract_date(text)
+        if d and in_range(d, start, end):
+            add_registry_event(events, "US_JOLTS", d, "BLS", url)
+    except Exception as e:
+        print(f"⚠️ JOLTS fallback: {e}")
+
+    # --- Import/Export Prices ---
+    try:
+        url = "https://www.bls.gov/mxp/"
+        text = BeautifulSoup(session_get_text(url, session=session), "html.parser").get_text(" ", strip=True)
+        d = _extract_date(text)
+        if d and in_range(d, start, end):
+            add_registry_event(events, "US_IMPORT_EXPORT_PRICES", d, "BLS", url)
+    except Exception as e:
+        print(f"⚠️ MXP fallback: {e}")
 
     return dedupe_events(events)
 
@@ -525,22 +666,59 @@ def fetch_us_bea_events(start: date, end: date) -> List[Dict[str, Any]]:
 
     return dedupe_events(events)
 
+def extract_census_release_date(text: str) -> Optional[date]:
+    text = normalize_space(text)
+
+    patterns = [
+        r"have been rescheduled for release on ([A-Z][a-z]+ \d{1,2}, \d{4})",
+        r"is scheduled for release on ([A-Z][a-z]+ \d{1,2}, \d{4})",
+        r"next release[:\s]+([A-Z][a-z]+ \d{1,2}, \d{4})",
+        r"next release.*?([A-Z][a-z]+ \d{1,2}, \d{4})",
+    ]
+
+    for pat in patterns:
+        m = re.search(pat, text, flags=re.I)
+        if m:
+            return parse_date_any(m.group(1))
+
+    return None
+
 
 def fetch_us_census_events(start: date, end: date) -> List[Dict[str, Any]]:
-    url = "https://www.census.gov/retail/release_schedule.html"
-    text = BeautifulSoup(session_get_text(url), "html.parser").get_text(" ")
     events: List[Dict[str, Any]] = []
-    patterns = [
-        r"Advance Monthly Sales for Retail and Food Services.*?release on ([A-Z][a-z]+ \d{1,2}, \d{4})",
-        r"Advance Monthly Sales for Retail and Food Services.*?scheduled for ([A-Z][a-z]+ \d{1,2}, \d{4})",
-    ]
-    for pat in patterns:
-        for m in re.finditer(pat, text, flags=re.I | re.S):
-            d = parse_date_any(m.group(1))
-            if d and in_range(d, start, end):
-                add_registry_event(events, "US_RETAIL_SALES", d, "U.S. Census", url)
-    return dedupe_events(events)
+    session = requests.Session()
 
+    # Retail Sales
+    try:
+        url = "https://www.census.gov/retail/release_schedule.html"
+        text = BeautifulSoup(session_get_text(url, session=session), "html.parser").get_text(" ", strip=True)
+        d = extract_census_release_date(text)
+        if d and in_range(d, start, end):
+            add_registry_event(events, "US_RETAIL_SALES", d, "U.S. Census", url)
+    except Exception as e:
+        print(f"⚠️ fetch_us_census_events [retail]: {e}")
+
+    # Durable Goods Orders
+    try:
+        url = "https://www.census.gov/manufacturing/m3/release_schedule.html"
+        text = BeautifulSoup(session_get_text(url, session=session), "html.parser").get_text(" ", strip=True)
+        d = extract_census_release_date(text)
+        if d and in_range(d, start, end):
+            add_registry_event(events, "US_DURABLE_GOODS_ORDERS", d, "U.S. Census", url)
+    except Exception as e:
+        print(f"⚠️ fetch_us_census_events [durable_goods]: {e}")
+
+    # Housing Starts / Building Permits
+    try:
+        url = "https://www.census.gov/construction/nrc/current/index.html"
+        text = BeautifulSoup(session_get_text(url, session=session), "html.parser").get_text(" ", strip=True)
+        d = extract_census_release_date(text)
+        if d and in_range(d, start, end):
+            add_registry_event(events, "US_HOUSING_STARTS_BUILDING_PERMITS", d, "U.S. Census", url)
+    except Exception as e:
+        print(f"⚠️ fetch_us_census_events [housing]: {e}")
+
+    return dedupe_events(events)
 
 def fetch_us_fed_events(start: date, end: date) -> List[Dict[str, Any]]:
     url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
@@ -611,12 +789,89 @@ def fetch_us_fed_events(start: date, end: date) -> List[Dict[str, Any]]:
     return dedupe_events(events)
 
 
+def fetch_us_ism_events(start: date, end: date) -> List[Dict[str, Any]]:
+    events: List[Dict[str, Any]] = []
+    url = "https://www.ismworld.org/supply-management-news-and-reports/reports/rob-report-calendar/"
+
+    try:
+        html = session_get_text(url)
+        soup = BeautifulSoup(html, "html.parser")
+
+        tables = soup.find_all("table")
+        if not tables:
+            return []
+
+        month_map = {calendar.month_name[i].lower(): i for i in range(1, 13)}
+
+        for table in tables:
+            text = normalize_space(table.get_text(" ", strip=True)).lower()
+            if "manufacturing" not in text or "services" not in text:
+                continue
+
+            rows = table.find_all("tr")
+            for tr in rows:
+                cells = [normalize_space(td.get_text(" ", strip=True)) for td in tr.find_all(["td", "th"])]
+                if len(cells) < 3:
+                    continue
+
+                # prova a trovare una riga tipo: April 2026 | 1 | 6
+                m = re.match(r"^([A-Za-z]+)\s+(\d{4})$", cells[0])
+                if not m:
+                    continue
+
+                month_name = m.group(1).lower()
+                year_num = int(m.group(2))
+                if month_name not in month_map:
+                    continue
+
+                month_num = month_map[month_name]
+
+                mfg_day = re.search(r"\b(\d{1,2})\b", cells[1])
+                srv_day = re.search(r"\b(\d{1,2})\b", cells[2])
+
+                if mfg_day:
+                    try:
+                        d = date(year_num, month_num, int(mfg_day.group(1)))
+                        if in_range(d, start, end):
+                            add_registry_event(events, "US_ISM_MANUFACTURING_PMI", d, "ISM", url)
+                    except Exception:
+                        pass
+
+                if srv_day:
+                    try:
+                        d = date(year_num, month_num, int(srv_day.group(1)))
+                        if in_range(d, start, end):
+                            add_registry_event(events, "US_ISM_SERVICES_PMI", d, "ISM", url)
+                    except Exception:
+                        pass
+
+            break
+
+    except Exception as e:
+        print(f"⚠️ fetch_us_ism_events: {e}")
+
+    return dedupe_events(events)
+
+def fetch_us_conference_board_events(start: date, end: date) -> List[Dict[str, Any]]:
+    events: List[Dict[str, Any]] = []
+    url = "https://www.conference-board.org/topics/consumer-confidence"
+    try:
+        text = BeautifulSoup(session_get_text(url), "html.parser").get_text(" ", strip=True)
+        m = re.search(r"next release.*?([A-Z][a-z]+\s+\d{1,2},\s+\d{4})", text, flags=re.I | re.S)
+        d = parse_date_any(m.group(1)) if m else None
+        if d and in_range(d, start, end):
+            add_registry_event(events, "US_CONSUMER_CONFIDENCE", d, "Conference Board", url)
+    except Exception:
+        pass
+    return dedupe_events(events)
+
+
 def us_macro_events(start: date, end: date) -> List[Dict[str, Any]]:
     events: List[Dict[str, Any]] = []
     fetchers = [
-        fetch_us_bls_events,
-        fetch_us_bea_events,
+        fetch_us_calendar_proxy_events,
         fetch_us_census_events,
+        fetch_us_bea_events, 
         fetch_us_fed_events,
     ]
     for fn in fetchers:
@@ -631,67 +886,229 @@ def us_macro_events(start: date, end: date) -> List[Dict[str, Any]]:
 # Euro Area macro block
 # ---------------------------------------------------------
 def fetch_euro_area_ecb_events(start: date, end: date) -> List[Dict[str, Any]]:
-    url = "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html"
-    soup = BeautifulSoup(session_get_text(url), "html.parser")
-    lines = [normalize_space(x) for x in soup.stripped_strings]
     events: List[Dict[str, Any]] = []
 
-    for i, line in enumerate(lines):
-        d = parse_date_any(line, default_year=start.year)
-        if not d or not in_range(d, start, end) or i + 1 >= len(lines):
-            continue
+    try:
+        url = "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html"
+        soup = BeautifulSoup(session_get_text(url), "html.parser")
+        lines = [normalize_space(x) for x in soup.stripped_strings]
+        for i, line in enumerate(lines):
+            d = parse_date_any(line, default_year=start.year)
+            if not d or not in_range(d, start, end) or i + 1 >= len(lines):
+                continue
+            title = lines[i + 1].lower()
+            if "monetary policy meeting" in title and ("day 2" in title or "press conference" in title):
+                add_registry_event(events, "ECB_RATE_DECISION", d, "ECB", url)
+    except Exception as e:
+        print(f"⚠️ fetch_euro_area_ecb_events [policy]: {e}")
 
-        title = lines[i + 1].lower()
-        if "monetary policy meeting" in title and ("day 2" in title or "press conference" in title):
-            add_registry_event(events, "ECB_RATE_DECISION", d, "ECB", url)
+    try:
+        url = "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
+        soup = BeautifulSoup(session_get_text(url), "html.parser")
+        lines = [normalize_space(x) for x in soup.stripped_strings]
+        for i, line in enumerate(lines):
+            d = parse_date_any(line)
+            if not d or not in_range(d, start, end) or i + 1 >= len(lines):
+                continue
+            title = lines[i + 1].lower()
+            if "hicp flash estimate" in title:
+                add_registry_event(events, "EA_CPI_FLASH", d, "ECB Statistical Calendar", url)
+            elif "seasonally adjusted hicp" in title or "hicp" in title and "final" in title:
+                add_registry_event(events, "EA_CPI_FINAL", d, "ECB Statistical Calendar", url)
+    except Exception as e:
+        print(f"⚠️ fetch_euro_area_ecb_events [stats]: {e}")
 
     return dedupe_events(events)
 
+
 def fetch_euro_area_eurostat_events(start: date, end: date) -> List[Dict[str, Any]]:
     events: List[Dict[str, Any]] = []
-
-    # Primary target: Euro area inflation release page on Eurostat
     candidates = [
+        "https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar",
         "https://ec.europa.eu/eurostat/web/products-euro-indicators",
-        "https://ec.europa.eu/eurostat/web/hicp",
-        "https://ec.europa.eu/eurostat/news/release-calendar",
+    ]
+
+    keyword_map = [
+        (r"flash estimate.*hicp|euro area annual inflation|flash estimate inflation", "EA_CPI_FLASH"),
+        (r"final.*hicp|seasonally adjusted hicp|harmonised index of consumer prices", "EA_CPI_FINAL"),
+        (r"gdp and employment|gross domestic product|gdp", "EA_GDP"),
+        (r"unemployment", "EA_UNEMPLOYMENT"),
+        (r"industrial production", "EA_INDUSTRIAL_PRODUCTION"),
+        (r"volume of retail trade|retail trade|retail sales", "EA_RETAIL_SALES"),
+        (r"international trade in goods|trade balance|balance of trade", "EA_TRADE_BALANCE"),
     ]
 
     for url in candidates:
         try:
-            text = BeautifulSoup(session_get_text(url), "html.parser").get_text(" ", strip=True)
-            text = normalize_space(text)
-
-            # Try patterns like:
-            # "Euro area annual inflation up to 2.5% 31 March 2026"
-            m = re.search(
-                r"Euro area annual inflation.*?(\d{1,2}\s+[A-Z][a-z]+\s+\d{4})",
-                text,
-                flags=re.I,
-            )
-            if not m:
-                # fallback for release-calendar wording
-                m = re.search(
-                    r"flash estimate inflation euro area.*?(\d{1,2}\s+[A-Z][a-z]+\s+\d{4})",
-                    text,
-                    flags=re.I,
-                )
-
-            d = parse_date_any(m.group(1)) if m else None
-            if d and in_range(d, start, end):
-                add_registry_event(events, "EA_CPI_FLASH", d, "Eurostat", url)
-                return dedupe_events(events)
-
+            soup = BeautifulSoup(session_get_text(url), "html.parser")
+            text = soup.get_text("\n", strip=True)
+            lines = [normalize_space(x) for x in text.splitlines() if normalize_space(x)]
+            current_date: Optional[date] = None
+            for line in lines:
+                d = parse_date_any(line, default_year=start.year)
+                if d:
+                    current_date = d
+                    continue
+                if not current_date or not in_range(current_date, start, end):
+                    continue
+                low = line.lower()
+                for pat, event_key in keyword_map:
+                    if re.search(pat, low):
+                        add_registry_event(events, event_key, current_date, "Eurostat", url)
+                        break
         except Exception as e:
             print(f"⚠️ fetch_euro_area_eurostat_events [{url}]: {e}")
 
     return dedupe_events(events)
 
+
+def fetch_euro_area_optional_events(start: date, end: date) -> List[Dict[str, Any]]:
+    """
+    Optional additions required by the universe doc but outside the strict
+    Eurostat/ECB primary-source rule.
+    """
+    events: List[Dict[str, Any]] = []
+
+    # Economic Sentiment
+    try:
+        url = "https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/business-and-consumer-surveys_en"
+        text = BeautifulSoup(session_get_text(url), "html.parser").get_text(" ", strip=True)
+        m = re.search(r"next release.*?([A-Z][a-z]+\s+\d{1,2},\s+\d{4})", text, flags=re.I | re.S)
+        d = parse_date_any(m.group(1)) if m else None
+        if d and in_range(d, start, end):
+            add_registry_event(events, "EA_ECONOMIC_SENTIMENT", d, "European Commission", url)
+    except Exception:
+        pass
+
+    # Euro Area PMI - forward-looking release calendar
+    try:
+        url = "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
+        html = session_get_text(url)
+        text = normalize_space(BeautifulSoup(html, "html.parser").get_text(" ", strip=True))
+
+        # Esempi target:
+        # "April 01 2026 08:00 UTC S&P Global Eurozone Manufacturing PMI"
+        # "01 Apr 08:00 UTC S&P Global Eurozone Manufacturing PMI"
+        full_re = re.compile(
+            r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+            r"\s+(\d{1,2})\s+(\d{4})\s+\d{2}:\d{2}(?:\s+UTC)?\s+.*?\bEurozone\b.*?\bPMI\b",
+            flags=re.I,
+        )
+
+        compact_re = re.compile(
+            r"(\d{1,2})\s+"
+            r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"
+            r"\s+\d{2}:\d{2}(?:\s+UTC)?\s+.*?\bEurozone\b.*?\bPMI\b",
+            flags=re.I,
+        )
+
+        month_map_short = {
+            "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+            "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+        }
+
+        candidate_years = sorted({start.year, end.year})
+
+        for m in full_re.finditer(text):
+            month_name = m.group(1)
+            day_num = int(m.group(2))
+            year_num = int(m.group(3))
+            try:
+                d = datetime.strptime(f"{month_name} {day_num} {year_num}", "%B %d %Y").date()
+            except Exception:
+                continue
+            if in_range(d, start, end):
+                add_registry_event(
+                    events,
+                    "EA_PMI",
+                    d,
+                    "S&P Global",
+                    url,
+                    extra={"scheduler_source": "S&P Global PMI ReleaseDates"},
+                )
+
+        for m in compact_re.finditer(text):
+            day_num = int(m.group(1))
+            month_num = month_map_short[m.group(2).lower()]
+            for year_num in candidate_years:
+                try:
+                    d = date(year_num, month_num, day_num)
+                except Exception:
+                    continue
+                if in_range(d, start, end):
+                    add_registry_event(
+                        events,
+                        "EA_PMI",
+                        d,
+                        "S&P Global",
+                        url,
+                        extra={"scheduler_source": "S&P Global PMI ReleaseDates"},
+                    )
+                    break
+
+    except Exception:
+        pass
+
+    return dedupe_events(events)
+
+def fetch_euro_area_hicp_release(start: date, end: date) -> List[Dict[str, Any]]:
+    events: List[Dict[str, Any]] = []
+    index_url = "https://ec.europa.eu/eurostat/web/products-euro-indicators"
+
+    try:
+        html = session_get_text(index_url)
+        soup = BeautifulSoup(html, "html.parser")
+
+        article_url = None
+
+        # trova articolo inflation
+        for a in soup.find_all("a", href=True):
+            title = normalize_space(a.get_text(" "))
+            low = title.lower()
+
+            if "inflation" in low and "euro" in low:
+                article_url = urljoin(index_url, a["href"])
+                break
+
+        if not article_url:
+            return []
+
+        # apri articolo
+        article_html = session_get_text(article_url)
+        article_text = BeautifulSoup(article_html, "html.parser").get_text(" ", strip=True)
+
+        # cerca data ufficiale release
+        patterns = [
+            r"next release with full data .*? scheduled for (\d{1,2} [A-Z][a-z]+ \d{4})",
+            r"next release .*? scheduled for (\d{1,2} [A-Z][a-z]+ \d{4})",
+            r"next release with full data .*? scheduled for ([A-Z][a-z]+ \d{1,2}, \d{4})",
+            r"next release .*? scheduled for ([A-Z][a-z]+ \d{1,2}, \d{4})",
+        ]
+
+        release_date = None
+        for pat in patterns:
+            m = re.search(pat, article_text, flags=re.I | re.S)
+            if m:
+                release_date = parse_date_any(m.group(1))
+                if release_date:
+                    break
+
+        if release_date and in_range(release_date, start, end):
+            add_registry_event(events, "EA_CPI_FINAL", release_date, "Eurostat", article_url)
+
+    except Exception as e:
+        print(f"⚠️ fetch_euro_area_hicp_release: {e}")
+
+    return dedupe_events(events)
+
+
 def euro_area_macro_events(start: date, end: date) -> List[Dict[str, Any]]:
     events: List[Dict[str, Any]] = []
     fetchers = [
-        fetch_euro_area_eurostat_events,
         fetch_euro_area_ecb_events,
+        fetch_euro_area_eurostat_events,
+        fetch_euro_area_optional_events,
+        fetch_euro_area_hicp_release,
     ]
     for fn in fetchers:
         try:
@@ -704,16 +1121,6 @@ def euro_area_macro_events(start: date, end: date) -> List[Dict[str, Any]]:
 # ---------------------------------------------------------
 # China macro block
 # ---------------------------------------------------------
-def _month_from_line(line: str) -> Optional[int]:
-    low = normalize_space(line).lower().strip(".: ")
-    for m in range(1, 13):
-        if low in {calendar.month_name[m].lower(), calendar.month_abbr[m].lower().strip(".")}:
-            return m
-        if low == calendar.month_abbr[m].lower() + ".":
-            return m
-    return None
-
-
 def fetch_china_nbs_events(start: date, end: date) -> List[Dict[str, Any]]:
     base_url = "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/"
     soup = BeautifulSoup(session_get_text(base_url), "html.parser")
@@ -748,14 +1155,21 @@ def fetch_china_nbs_events(start: date, end: date) -> List[Dict[str, Any]]:
     events: List[Dict[str, Any]] = []
 
     keyword_map = {
-        "monthly report on consumer price index": "CN_CPI",
-        "monthly report on industrial producer price index": "CN_PPI",
-        "monthly report on purchasing managers’ index": "CN_PMI",
-        "monthly report on purchasing managers' index": "CN_PMI",
-        "national economic performance": "CN_NATIONAL_ECONOMIC_PERFORMANCE",
-        "monthly report on total retail sales of consumer goods": "CN_RETAIL_SALES",
-        "monthly report on industrial production operation above the designated size": "CN_INDUSTRIAL_PRODUCTION",
-        "monthly report on investment in fixed assets": "CN_FIXED_ASSET_INVESTMENT",
+        "monthly report on consumer price index": ["CN_CPI"],
+        "monthly report on industrial producer price index": ["CN_PPI"],
+        "monthly report on purchasing managers’ index": ["CN_PMI", "CN_PMI_SPLIT"],
+        "monthly report on purchasing managers' index": ["CN_PMI", "CN_PMI_SPLIT"],
+        "national economic performance": [
+            "CN_NATIONAL_ECONOMIC_PERFORMANCE",
+            "CN_RETAIL_SALES",
+            "CN_INDUSTRIAL_PRODUCTION",
+            "CN_FIXED_ASSET_INVESTMENT",
+        ],
+        "monthly report on total retail sales of consumer goods": ["CN_RETAIL_SALES"],
+        "monthly report on industrial production operation above the designated size": ["CN_INDUSTRIAL_PRODUCTION"],
+        "monthly report on investment in fixed assets": ["CN_FIXED_ASSET_INVESTMENT"],
+        "sales prices of residential buildings": ["CN_HOUSE_PRICES"],
+        "70 medium and large-sized cities": ["CN_HOUSE_PRICES"],
     }
 
     i = body_start
@@ -770,40 +1184,72 @@ def fetch_china_nbs_events(start: date, end: date) -> List[Dict[str, Any]]:
         content = lines[i + 1].lower()
         day_cells = lines[i + 2:i + 14]
 
-        for key, event_key in keyword_map.items():
-            if key not in content:
-                continue
+        matched_keys: List[str] = []
+        for key, event_keys in keyword_map.items():
+            if key in content:
+                matched_keys.extend(event_keys)
 
+        if matched_keys:
             for month_num in range(1, 13):
                 if month_num < start.month - 1 or month_num > end.month + 1:
                     continue
-
                 raw_day = day_cells[month_num - 1]
                 m = re.search(r"(\d{1,2})", raw_day)
                 if not m:
                     continue
-
                 try:
                     d = date(start.year, month_num, int(m.group(1)))
                 except Exception:
                     continue
-
                 if in_range(d, start, end):
-                    add_registry_event(events, event_key, d, "NBS China", article_url)
-
-            break
+                    for event_key in set(matched_keys):
+                        add_registry_event(events, event_key, d, "NBS China", article_url)
 
         i += 26
 
     return dedupe_events(events)
 
 
-def china_macro_events(start: date, end: date) -> List[Dict[str, Any]]:
+def fetch_china_optional_events(start: date, end: date) -> List[Dict[str, Any]]:
+    """
+    Optional additions outside strict NBS-only rule.
+    We keep them best-effort because the universe document explicitly lists them.
+    """
+    events: List[Dict[str, Any]] = []
+
     try:
-        return dedupe_events(fetch_china_nbs_events(start, end))
-    except Exception as e:
-        print(f"⚠️ fetch_china_nbs_events: {e}")
-        return []
+        url = "http://english.customs.gov.cn/"
+        text = BeautifulSoup(session_get_text(url), "html.parser").get_text(" ", strip=True)
+        m = re.search(r"(?:next release|release date).*?([A-Z][a-z]+\s+\d{1,2},\s+\d{4})", text, flags=re.I | re.S)
+        d = parse_date_any(m.group(1)) if m else None
+        if d and in_range(d, start, end):
+            add_registry_event(events, "CN_TRADE_BALANCE", d, "China Customs", url)
+    except Exception:
+        pass
+
+    try:
+        url = "http://www.pbc.gov.cn/en/3688110/index.html"
+        text = BeautifulSoup(session_get_text(url), "html.parser").get_text(" ", strip=True)
+        m = re.search(r"(?:next release|release date).*?([A-Z][a-z]+\s+\d{1,2},\s+\d{4})", text, flags=re.I | re.S)
+        d = parse_date_any(m.group(1)) if m else None
+        if d and in_range(d, start, end):
+            add_registry_event(events, "CN_TSF", d, "PBOC", url)
+            add_registry_event(events, "CN_NEW_LOANS", d, "PBOC", url)
+    except Exception:
+        pass
+
+    return dedupe_events(events)
+
+
+def china_macro_events(start: date, end: date) -> List[Dict[str, Any]]:
+    events: List[Dict[str, Any]] = []
+    fetchers = [fetch_china_nbs_events, fetch_china_optional_events]
+    for fn in fetchers:
+        try:
+            events.extend(fn(start, end))
+        except Exception as e:
+            print(f"⚠️ {fn.__name__}: {e}")
+    return dedupe_events(events)
 
 
 # ---------------------------------------------------------
@@ -818,7 +1264,7 @@ def macro_events(start: date, end: date) -> List[Dict[str, Any]]:
 
 
 # ---------------------------------------------------------
-# Earnings: kept materially unchanged from the prior version
+# Earnings
 # ---------------------------------------------------------
 def normalize_ticker(ticker: str) -> str:
     t = normalize_space(ticker).upper().replace("/", "-")

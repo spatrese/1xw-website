@@ -56,13 +56,20 @@ KEYWORDS = {
         r"\bmonetary\b", r"\bliquidity\b", r"\binterest rate\b"
     ],
     "FX": [
-        r"\bdollar\b", r"\beuro\b", r"\byen\b", r"\bsterling\b", r"\bfx\b", r"\bcurrency\b",
-        r"\bforeign exchange\b", r"\bdxy\b", r"\busd\b", r"\beur\b", r"\bjpy\b", r"\bgbp\b",
+        r"\bdollar\b", r"\bus dollar\b", r"\busd\b", r"\bdxy\b", r"\bdollar index\b",
+        r"\beuro\b", r"\beur\b", r"\byen\b", r"\bjpy\b", r"\bsterling\b", r"\bgbp\b",
+        r"\baud\b", r"\baussie\b", r"\bcad\b", r"\bloonie\b",
+        r"\bcurrency\b", r"\bcurrencies\b", r"\bforeign exchange\b", r"\bfx\b",
+        r"\beur/usd\b", r"\bgbp/usd\b", r"\baud/usd\b", r"\bnzd/usd\b", r"\busd/jpy\b", r"\busd/cad\b",
         r"\brmb\b", r"\byuan\b", r"\brenminbi\b"
     ],
     "Commodities": [
-        r"\boil\b", r"\bbrent\b", r"\bwti\b", r"\bgold\b", r"\bsilver\b", r"\bcopper\b",
-        r"\bnatural gas\b", r"\bopec\b", r"\bcommodit(y|ies)\b", r"\benergy\b", r"\beia\b"
+        r"\boil\b", r"\bbrent\b", r"\bwti\b", r"\bnatural gas\b", r"\bopec\b", r"\benergy\b", r"\beia\b",
+        r"\bgold\b", r"\bsilver\b", r"\bcopper\b",
+        r"\bcorn\b", r"\bwheat\b", r"\bsoy\b", r"\bsoybean(s)?\b",
+        r"\bcoffee\b", r"\bcocoa\b", r"\bsugar\b", r"\bcotton\b",
+        r"\bcattle\b", r"\blive cattle\b", r"\bfeeder cattle\b", r"\bhogs?\b", r"\blivestock\b",
+        r"\bcommodit(y|ies)\b"
     ],
     "Crypto": [
         r"\bbitcoin\b", r"\bbtc\b", r"\beth\b", r"\bethereum\b", r"\bcrypto\b",
@@ -78,8 +85,13 @@ IMPORTANT_KWS = [
     "fed", "fomc", "ecb", "boj", "boe", "pboc", "central bank",
     "inflation", "cpi", "ppi", "rates", "rate cut", "rate hike",
     "yield", "yields", "treasury", "policy", "liquidity",
+    "dollar index", "us dollar", "eur/usd", "gbp/usd", "aud/usd", "usd/jpy", "usd/cad",
     "recession", "growth", "risk-off", "risk-on",
     "oil", "opec", "energy", "geopolitical", "tariff",
+    "gold", "silver", "copper",
+    "corn", "wheat", "soybean", "soybeans",
+    "coffee", "cocoa", "sugar", "cotton",
+    "cattle", "hogs", "livestock",
     "earnings", "guidance", "etf", "sec", "yuan", "renminbi"
 ]
 
@@ -191,7 +203,13 @@ def macro_relevance_score(text: str) -> float:
         score += 0.25
     if "risk-off" in text or "risk-on" in text:
         score += 0.25
-    if "oil" in text or "opec" in text or "energy" in text:
+    if any(x in text for x in [
+        "oil", "opec", "energy",
+        "gold", "silver", "copper",
+        "corn", "wheat", "soy", "soybean", "soybeans",
+        "coffee", "cocoa", "sugar", "cotton",
+        "cattle", "hogs", "livestock"
+    ]):
         score += 0.20
 
     return score

@@ -858,7 +858,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
       const db = parseDate(b.date)?.getTime() || 0;
       return da - db || a.type.localeCompare(b.type) || a.title.localeCompare(b.title);
     })
-    .slice(0, 14);
+    .slice(0, 50);
 }
 
   function renderEvents(eventCalendar){

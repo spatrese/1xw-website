@@ -108,6 +108,8 @@ def td(inner: str, cls: str = "", wrap: bool = False) -> str:
 def ths(cols: list[str]) -> str:
     return "<thead><tr>" + "".join(f"<th>{esc(c)}</th>" for c in cols) + "</tr></thead>"
 
+def chunked(seq: list[Any], size: int) -> list[list[Any]]:
+    return [seq[i:i + size] for i in range(0, len(seq), size)]
 
 def table_html(classes: str, cols: list[str], body_rows: list[str]) -> str:
     body = "".join(body_rows) if body_rows else '<tr><td colspan="99" class="empty-cell">No data available.</td></tr>'
@@ -229,7 +231,7 @@ def render_fund_overview(data: dict[str, Any]) -> str:
         )
     return table_html("fund-table", ["Asset Class", "Tone", "Bias / Conf", "Commentary / Headlines"], rows)
 
-def render_events(data: dict[str, Any]) -> str:
+def build_event_rows(data: dict[str, Any]) -> list[str]:
     rows = []
 
     for e in data.get("event_calendar") or []:
@@ -268,11 +270,7 @@ def render_events(data: dict[str, Any]) -> str:
             + "</tr>"
         )
 
-    return table_html(
-        "events-table",
-        ["Date", "Type", "Event", "Markets"],
-        rows,
-    )
+    return rows
 
 def panel(kicker: str, title: str, subtitle: str, inner: str, extra_class: str = "") -> str:
     return (
@@ -366,7 +364,22 @@ main.container {{ max-width:none !important; width:100% !important; padding:0 !i
 
 """
 
+    event_rows = build_event_rows(data)
+    event_chunks = chunked(event_rows, 14)
+    event_pages = []
+
+    event_cols = ["Date", "Type", "Event", "Markets"]
+
+    for i, chunk in enumerate(event_chunks):
+        event_title = "Event Calendar" if i == 0 else "Event Calendar (cont.)"
+        event_table = table_html("events-table", event_cols, chunk)
+        event_pages.append(f'<section class="page">{panel("Events", event_title, "Weekly macro and earnings watchlist.", event_table)}</section>')
+
+    event_pages_html = "".join(event_pages)
+
+
     return f"""<!DOCTYPE html>
+
 <html lang=\"en\">
 <head>
 <meta charset=\"UTF-8\" />
@@ -382,7 +395,7 @@ main.container {{ max-width:none !important; width:100% !important; padding:0 !i
   <section class=\"page cover\">
     <img class=\"cover-logo\" src=\"{logo_uri}\" alt=\"1XW Trading logo\" />
     <h1>Weekly Research</h1>
-    <div class=\"subline\">Cross-asset weekly snapshot for market breadth, macro tone and long / short strength.<br><br>This document presents the research output of the 1XW framework, combining technical breadth and fundamental tone across the covered investment universe. Technical signals are derived from trend and momentum conditions, while the weekly fundamental layer incorporates macro news flow and event risk. Final rankings combine technical strength with fundamental alignment, but should be read as research outputs rather than standalone execution signals. Top-ranked instruments highlight relative strength or weakness in the current regime, but do not necessarily represent immediate trade entries.<br><br>The investment universe covers a liquid cross-asset set of global markets, implemented through futures and options on futures, and designed to capture broad macro dynamics through a consistent technical framework applied across all instruments on a weekly basis:<br><br><b>Equities</b>: S&amp;P 500, Nasdaq 100, Russell 2000, DAX, Nikkei 225, VIX Index. <br><b>Rates</b>: US Treasury, Germany Bund, Italy BTP. <br><b>FX</b>: Dollar Index, EURUSD, GBPUSD, AUDUSD, USDCAD, USDJPY. <br><b>Commodities</b>: WTI, RBOB, Nat Gas, Gold, Silver, Copper, Corn, Wheat, Soybeans, Coffee, Cocoa, Sugar, Cotton, Live Cattle, Hogs, Feeder Cattle. <br><b>Crypto</b>: Bitcoin, Ethereum.</div>
+    <div class=\"subline\">Cross-asset weekly snapshot for market breadth, macro tone and long / short strength.<br><br>This document presents the research output of the 1XW framework, combining technical breadth and fundamental tone across the covered investment universe. Technical signals are derived from trend and momentum conditions, while the weekly fundamental layer incorporates macro news flow and event risk. Final rankings combine technical strength with fundamental alignment, but should be read as research outputs rather than standalone execution signals. Top-ranked instruments highlight relative strength or weakness in the current regime, but do not necessarily represent immediate trade entries.<br><br>The investment universe covers a liquid cross-asset set of global markets, implemented through futures and options on futures, and designed to capture broad macro dynamics through a consistent technical framework applied across all instruments on a weekly basis:<br><br><b>Equities</b>: S&amp;P 500, Nasdaq 100, Russell 2000, DAX, Nikkei 225, VIX Index. <br><b>Rates</b>: US Treasury, Germany Bund, Italy BTP. <br><b>FX</b>: Dollar Index, EURUSD, GBPUSD, AUDUSD, USDCAD, USDJPY. <br><b>Commodities</b>: WTI, RBOB, Nat Gas, Gold, Silver, Copper, Corn, Wheat, Soybeans, Coffee, Cocoa, Sugar, Cotton, Live Cattle, Feeder Cattle, Hogs. <br><b>Crypto</b>: Bitcoin, Ethereum.</div>
     <div class=\"meta-line\">
       <span class=\"meta-chip\">As of {esc(asof)}</span>
       <span class=\"meta-chip\">Week {esc(week_id)}</span>
@@ -398,7 +411,7 @@ main.container {{ max-width:none !important; width:100% !important; padding:0 !i
 <section class="page">{panel('Overview', 'Fundamental Tone', 'Quick macro read by asset class.', render_tone(data))}</section>
 <section class="page">{panel('Technical', 'Technical Overview', 'Instrument-level technical output.', render_tech_overview(data))}</section>
 <section class="page">{panel('Fundamental', 'Fundamental Overview', 'Commentary and highlights by asset class.', render_fund_overview(data))}</section>
-<section class="page">{panel('Events', 'Event Calendar', 'Weekly macro and earnings watchlist.', render_events(data))}</section>
+{event_pages_html}
 </main>
 </body>
 </html>"""
