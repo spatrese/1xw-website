@@ -397,6 +397,305 @@ def extract_model_trades_from_blotter(df_tr: pd.DataFrame) -> List[Dict[str, Any
 
     out.sort(key=sort_key, reverse=True)
     return out
+
+def normalize_option_strike(underlying: str, raw_strike: float) -> float:
+    u = safe_str(underlying).upper()
+
+    if u in {"CL"}:
+        return raw_strike / 100.0
+
+    return raw_strike
+
+def fallback_expiry_from_ticker(ticker: str) -> str:
+    import re
+
+    month_map = {
+        "F": "Jan", "G": "Feb", "H": "Mar", "J": "Apr",
+        "K": "May", "M": "Jun", "N": "Jul", "Q": "Aug",
+        "U": "Sep", "V": "Oct", "X": "Nov", "Z": "Dec",
+    }
+
+    t = safe_str(ticker).upper()
+    m = re.search(r"([FGHJKMNQUVXZ])(\d)", t)
+    if not m:
+        return ""
+
+    mon = month_map.get(m.group(1), "")
+    yr = f"202{m.group(2)}"
+    return f"{mon} {yr}" if mon else ""
+
+
+def format_expiry_display(x: Any, ticker: str = "") -> str:
+    d = normalize_date(x)
+    if d:
+        try:
+            return pd.to_datetime(d).strftime("%d %b %Y")
+        except Exception:
+            return d
+    return fallback_expiry_from_ticker(ticker)
+
+
+def build_open_positions_detailed(df_blotter, df_plb_trades, aum, name_map, trades_expiry_map):
+    out = []
+
+    col_week = find_col(df_blotter, ["WEEK", "Week"]) or find_col_contains(df_blotter, ["week"])
+    col_ticker = find_col(df_blotter, ["TICKER", "SYMBOL"])
+    col_under = find_col(df_blotter, ["UNDERLYING", "SYMBOL"])
+    col_instr = find_col(df_blotter, ["INSTRUMENT"])
+    col_asset = find_col(df_blotter, ["ASSET CLASS"])
+    col_entry = find_col(df_blotter, ["ENTRY PRICE"])
+    col_risk = find_col(df_blotter, ["RISK $", "INITIAL RISK $"])
+    col_side = find_col(df_blotter, ["SIDE"])
+    col_qty = find_col(df_blotter, ["QUANTITY"])
+    col_tech_sl = find_col(df_blotter, ["TECH SL"])
+    
+    col_expiry = (
+        find_col(df_blotter, ["EXPIRY", "LAST TRADE DATE", "LAST TRADE DATE OR CONTRACT MONTH"])
+        or find_col_contains(df_blotter, ["expiry"])
+        or find_col_contains(df_blotter, ["last", "trade", "date"])
+    )
+    
+    col_plb_week = find_col(df_plb_trades, ["WEEK", "Week"]) or find_col_contains(df_plb_trades, ["week"])
+    col_plb_instr = find_col(df_plb_trades, ["INSTRUMENT"])
+    col_theme = find_col(df_plb_trades, ["THEME"])
+    col_setup = (
+        find_col(df_plb_trades, ["TECHNICAL SET-UP"])
+        or find_col(df_plb_trades, ["TECHNICAL SET UP"])
+        or find_col_contains(df_plb_trades, ["technical", "set"])
+    )
+
+    import re
+
+    for _, r in df_blotter.iterrows():
+        q = to_float(r.get(col_qty))
+        if q is None or q == 0:
+            continue
+
+        week = safe_str(r.get(col_week))
+        ticker = safe_str(r.get(col_ticker))
+        expiry = trades_expiry_map.get(ticker, fallback_expiry_from_ticker(ticker))
+        underlying = safe_str(r.get(col_under))
+        description = name_map.get(underlying.upper(), underlying)
+        structure = safe_str(r.get(col_instr))
+        asset = safe_str(r.get(col_asset))
+
+        if col_side:
+            side = safe_str(r.get(col_side)).upper()
+        else:
+            side = "LONG" if q > 0 else "SHORT"
+
+        if side not in {"LONG", "SHORT"}:
+            side = "LONG" if q > 0 else "SHORT"
+
+        entry = to_float(r.get(col_entry))
+        risk_dollar = to_float(r.get(col_risk))
+        tech_sl = to_float(r.get(col_tech_sl))
+
+        if not underlying or not ticker or risk_dollar is None:
+            continue
+
+        obj = {
+            "week": week,
+            "ticker": ticker,
+            "underlying": underlying,
+            "description": description,
+            "structure": structure,
+            "asset_class": asset,
+            "side": side,
+            "expiry": expiry,
+            "risk_dollar_raw": risk_dollar,
+            "risk_dollar": abs(risk_dollar) if risk_dollar is not None else None,
+            "max_loss_pct_capital": (abs(risk_dollar) / aum * 100.0) if aum else None,
+        }
+
+        if structure.strip().lower() in {"futures", "spot"}:
+            obj["entry_price"] = entry
+            obj["tech_stop"] = tech_sl
+
+            if entry is not None and tech_sl is not None and entry != 0:
+                if side == "LONG":
+                    dist = (tech_sl - entry) / entry
+                else:
+                    dist = (entry - tech_sl) / entry
+                obj["stop_distance_pct"] = min(dist * 100.0, 0.0)
+        else:
+            m = re.search(r"[CP](\d+)", ticker.upper())
+            if m:
+                raw_strike = float(m.group(1))
+                obj["strike"] = normalize_option_strike(underlying, raw_strike)
+
+        for _, p in df_plb_trades.iterrows():
+            plb_week = safe_str(p.get(col_plb_week)).strip()
+            plb_instr = safe_str(p.get(col_plb_instr)).strip().lower()
+
+            if plb_week == week.strip() and underlying.lower() in plb_instr:
+                obj["theme"] = safe_str(p.get(col_theme))
+                obj["technical_setup"] = safe_str(p.get(col_setup))
+                break
+
+        out.append(obj)
+
+    return out
+
+def build_underlying_name_map(screener: Dict[str, Any]) -> Dict[str, str]:
+    out: Dict[str, str] = {}
+
+    by_symbol = screener.get("by_symbol", {})
+    if isinstance(by_symbol, dict):
+        for sym, row in by_symbol.items():
+            name = safe_str((row or {}).get("name"))
+            if sym and name:
+                out[sym.upper()] = name
+
+    universe = screener.get("universe", [])
+    if isinstance(universe, list):
+        for row in universe:
+            sym = safe_str((row or {}).get("symbol")).upper()
+            name = safe_str((row or {}).get("name"))
+            if sym and name and sym not in out:
+                out[sym] = name
+
+    # fallback manuali utili
+    out.setdefault("CC", "Cocoa")
+    out.setdefault("CL", "WTI Crude")
+    out.setdefault("GC", "Gold")
+    out.setdefault("HG", "Copper")
+    out.setdefault("NKD", "Nikkei 225")
+    out.setdefault("ETH_PAXOS", "Ethereum")
+    out.setdefault("6E", "EURUSD")
+
+    return out
+
+def aggregate_positions_for_alerts(positions: List[Dict[str, Any]], aum: float) -> List[Dict[str, Any]]:
+    grouped: Dict[Tuple[str, str], List[Dict[str, Any]]] = {}
+
+    for p in positions:
+        week = safe_str(p.get("week"))
+        underlying = safe_str(p.get("underlying"))
+        if not week or not underlying:
+            continue
+        grouped.setdefault((week, underlying), []).append(p)
+
+    out: List[Dict[str, Any]] = []
+
+    for (week, underlying), items in grouped.items():
+        option_legs = [x for x in items if safe_str(x.get("structure")) in {"Call", "Put"}]
+        non_option_legs = [x for x in items if safe_str(x.get("structure")) not in {"Call", "Put"}]
+
+        # Se c'è una singola posizione non-opzione, la lasciamo invariata
+        if len(items) == 1 and non_option_legs:
+            out.append(items[0])
+            continue
+
+        # Se ci sono esattamente 2 gambe opzioni dello stesso tipo, aggrega in spread
+        if len(option_legs) == 2:
+            leg1, leg2 = option_legs[0], option_legs[1]
+
+            type1 = safe_str(leg1.get("structure"))
+            type2 = safe_str(leg2.get("structure"))
+
+            if type1 == type2 and type1 in {"Call", "Put"}:
+                strikes = []
+                for leg in option_legs:
+                    strike = leg.get("strike")
+                    if strike is not None:
+                        strikes.append(float(strike))
+                strikes = sorted(strikes, reverse=True)
+
+                total_risk_dollar_raw = sum(
+                    float(x.get("risk_dollar_raw", 0.0) or 0.0)
+                    for x in option_legs
+                )
+
+                premium_max_loss = (abs(total_risk_dollar_raw) / aum * 100.0) if aum else None
+
+                description = safe_str(leg1.get("description"))
+                asset_class = safe_str(leg1.get("asset_class"))
+                theme = safe_str(leg1.get("theme"))
+                technical_setup = safe_str(leg1.get("technical_setup"))
+                expiries = sorted(
+                    {safe_str(x.get("expiry")) for x in option_legs if safe_str(x.get("expiry"))}
+                )
+                expiry_value = expiries[0] if len(expiries) == 1 else ""
+
+                out.append({
+                    "week": week,
+                    "underlying": underlying,
+                    "description": description,
+                    "structure": f"{type1} Spread",
+                    "asset_class": asset_class,
+                    "side": "LONG",
+                    "strikes": strikes,
+                    "risk_dollar_raw": total_risk_dollar_raw,
+                    "risk_dollar": abs(total_risk_dollar_raw),
+                    "premium_max_loss_pct_capital": premium_max_loss,
+                    "theme": theme,
+                    "technical_setup": technical_setup,
+                    "expiry": expiry_value,
+                    "expiries": expiries if len(expiries) > 1 else None,
+                    "legs": [
+                        {
+                            "ticker": safe_str(leg1.get("ticker")),
+                            "side": safe_str(leg1.get("side")),
+                            "strike": leg1.get("strike"),
+                        },
+                        {
+                            "ticker": safe_str(leg2.get("ticker")),
+                            "side": safe_str(leg2.get("side")),
+                            "strike": leg2.get("strike"),
+                        },
+                    ],
+                })
+                continue
+
+        # Fallback: se non rientra nei casi sopra, lascia gli elementi originali
+        out.extend(items)
+
+    def sort_key(x: Dict[str, Any]) -> int:
+        try:
+            return int(float(safe_str(x.get("week"))))
+        except Exception:
+            return 0
+
+    out.sort(key=sort_key)
+    return out
+
+def build_trades_expiry_map(df_trades: pd.DataFrame) -> Dict[str, str]:
+    out: Dict[str, str] = {}
+
+    col_symbol = (
+        find_col(df_trades, ["Symbol", "SYMBOL"])
+        or find_col_contains(df_trades, ["symbol"])
+    )
+    col_expiry = (
+        find_col(df_trades, ["Expiry", "EXPIRY"])
+        or find_col_contains(df_trades, ["expiry"])
+    )
+
+    if not col_symbol or not col_expiry:
+        return out
+
+    for _, r in df_trades.iterrows():
+        sym = safe_str(r.get(col_symbol))
+        if not sym:
+            continue
+
+        raw = r.get(col_expiry)
+        try:
+            dt = pd.to_datetime(raw, errors="coerce")
+            if pd.notna(dt):
+                out[sym] = dt.strftime("%d %b %Y")
+                continue
+        except Exception:
+            pass
+
+        s = safe_str(raw)
+        if s:
+            out[sym] = s
+
+    return out
+
+
 # ----------------------------
 # Main
 # ----------------------------
@@ -413,6 +712,15 @@ def main() -> None:
     open_positions = extract_open_positions(df_blotter)
     model_trades = extract_model_trades_from_blotter(df_blotter)
 
+    df_trades = parse_table_by_tokens_all(
+        xl,
+        "Trades",
+        ["Symbol", "Expiry"],
+        max_scan_rows=600,
+    )
+
+    trades_expiry_map = build_trades_expiry_map(df_trades)
+
     # NAV
     df_nav = parse_table_by_tokens_all(xl, "NAV", ["Date", "EoP"], max_scan_rows=250)
     nav_labels, nav_values = extract_nav(df_nav)
@@ -426,6 +734,16 @@ def main() -> None:
         ["DATE", "PERF %", "PLB %", "Initial PLB %"],
         max_scan_rows=300,
     )
+    df_plb_trades = parse_table_by_tokens_all(
+        xl,
+        "PLB",
+        ["INSTRUMENT", "THEME", "TECHNICAL"],
+        max_scan_rows=600,
+    )
+    
+    print("PLB TRADES COLUMNS:", df_plb_trades.columns.tolist())
+    print(df_plb_trades.head(10))
+    
     plb_usd = extract_plb_usd(df_plb)
     plb_block = extract_plb_percent_series(df_plb)
 
@@ -452,6 +770,22 @@ def main() -> None:
     screener_path = "content/site_screener.json"
     screener = read_json(screener_path)
     screener["openPositions"] = open_positions
+    name_map = build_underlying_name_map(screener)
+
+    # ---- AUM (NAV ultimo) ----
+    aum = nav_last if nav_last else 1.0
+
+    open_positions_detailed = build_open_positions_detailed(
+        df_blotter,
+        df_plb_trades,
+        aum,
+        name_map,
+        trades_expiry_map,
+    )
+    open_positions_aggregated = aggregate_positions_for_alerts(open_positions_detailed, aum)
+
+    screener["openPositionsDetailed"] = open_positions_detailed
+    screener["openPositionsAggregated"] = open_positions_aggregated
     screener["modelTrades"] = model_trades
     screener["modelTrades_source"] = "Blotter"
     screener["asof"] = screener.get("asof") or asof
