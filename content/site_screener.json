@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-11T08:14:02Z",
+  "updatedAt": "2026-04-13T10:29:39Z",
   "tradeIdeas": [
     {
       "id": "IB-LONG-CL",
@@ -988,9 +988,125 @@
       ],
       "notes": "",
       "week": "2026-W15"
+    },
+    {
+      "id": "IB-LONG-NIY",
+      "date": "2026-04-13",
+      "asset": "NIY",
+      "direction": "Long",
+      "status": "Open",
+      "setup": "Trend continuation",
+      "thesis": "Score 4 (trend + momentum).",
+      "structure": "Signal (IB screener)",
+      "horizon": "2-8w",
+      "confidence": 3,
+      "tags": [
+        "Equity",
+        "screener"
+      ],
+      "notes": "",
+      "week": "2026-W16"
+    },
+    {
+      "id": "IB-LONG-CL",
+      "date": "2026-04-13",
+      "asset": "CL",
+      "direction": "Long",
+      "status": "Open",
+      "setup": "Trend continuation",
+      "thesis": "Score 4 (trend + momentum).",
+      "structure": "Signal (IB screener)",
+      "horizon": "2-8w",
+      "confidence": 3,
+      "tags": [
+        "Commodities",
+        "screener"
+      ],
+      "notes": "",
+      "week": "2026-W16"
+    },
+    {
+      "id": "IB-LONG-RB",
+      "date": "2026-04-13",
+      "asset": "RB",
+      "direction": "Long",
+      "status": "Open",
+      "setup": "Trend continuation",
+      "thesis": "Score 4 (trend + momentum).",
+      "structure": "Signal (IB screener)",
+      "horizon": "2-8w",
+      "confidence": 3,
+      "tags": [
+        "Commodities",
+        "screener"
+      ],
+      "notes": "",
+      "week": "2026-W16"
+    },
+    {
+      "id": "IB-LONG-CT",
+      "date": "2026-04-13",
+      "asset": "CT",
+      "direction": "Long",
+      "status": "Open",
+      "setup": "Trend continuation",
+      "thesis": "Score 4 (trend + momentum).",
+      "structure": "Signal (IB screener)",
+      "horizon": "2-8w",
+      "confidence": 3,
+      "tags": [
+        "Commodities",
+        "screener"
+      ],
+      "notes": "",
+      "week": "2026-W16"
+    },
+    {
+      "id": "IB-LONG-LE",
+      "date": "2026-04-13",
+      "asset": "LE",
+      "direction": "Long",
+      "status": "Open",
+      "setup": "Trend continuation",
+      "thesis": "Score 4 (trend + momentum).",
+      "structure": "Signal (IB screener)",
+      "horizon": "2-8w",
+      "confidence": 3,
+      "tags": [
+        "Commodities",
+        "screener"
+      ],
+      "notes": "",
+      "week": "2026-W16"
+    },
+    {
+      "id": "IB-LONG-GF",
+      "date": "2026-04-13",
+      "asset": "GF",
+      "direction": "Long",
+      "status": "Open",
+      "setup": "Trend continuation",
+      "thesis": "Score 4 (trend + momentum).",
+      "structure": "Signal (IB screener)",
+      "horizon": "2-8w",
+      "confidence": 3,
+      "tags": [
+        "Commodities",
+        "screener"
+      ],
+      "notes": "",
+      "week": "2026-W16"
     }
   ],
   "modelTrades": [
+    {
+      "week": "7",
+      "instrument": "6EM6",
+      "asset_class": "FX",
+      "structure": "Futures",
+      "status": "OPEN",
+      "side": "LONG"
+    },
     {
       "week": "6",
       "instrument": "OGM6 C5500",
@@ -1057,6 +1173,12 @@
     }
   ],
   "openPositions": [
+    {
+      "symbol": "6EM6",
+      "side": "LONG",
+      "quantity": 5.0,
+      "asset_class": "FX"
+    },
     {
       "symbol": "CCK6",
       "side": "LONG",
@@ -1145,11 +1267,11 @@
       "name": "DAX",
       "asset_class": "Equity",
       "contract_type": "FUT",
-      "score": -2,
-      "setup": "Neutral",
-      "close": 24037.0,
-      "ret_20d_pct": 0.96,
-      "ret_60d_pct": -6.38
+      "score": -4,
+      "setup": "Trend continuation (down)",
+      "close": 23744.0,
+      "ret_20d_pct": -0.19,
+      "ret_60d_pct": -7.73
     },
     {
       "symbol": "NIY",
@@ -1169,9 +1291,9 @@
       "contract_type": "IND",
       "score": 0,
       "setup": "Neutral",
-      "close": 19.23,
-      "ret_20d_pct": -29.53,
-      "ret_60d_pct": 20.34
+      "close": 21.3,
+      "ret_20d_pct": -21.66,
+      "ret_60d_pct": 27.16
     },
     {
       "symbol": "CL",
@@ -1279,9 +1401,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 13.75,
-      "ret_20d_pct": -4.38,
-      "ret_60d_pct": -5.5
+      "close": 13.86,
+      "ret_20d_pct": -3.55,
+      "ret_60d_pct": -3.35
     },
     {
       "symbol": "KC",
@@ -1290,9 +1412,9 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Neutral",
-      "close": 295.9,
-      "ret_20d_pct": 2.81,
-      "ret_60d_pct": -13.34
+      "close": 298.2,
+      "ret_20d_pct": 6.08,
+      "ret_60d_pct": -11.63
     },
     {
       "symbol": "CC",
@@ -1301,9 +1423,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 3327.0,
-      "ret_20d_pct": -2.09,
-      "ret_60d_pct": -39.23
+      "close": 3356.0,
+      "ret_20d_pct": -0.68,
+      "ret_60d_pct": -37.09
     },
     {
       "symbol": "CT",
@@ -1312,9 +1434,9 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 75.33,
-      "ret_20d_pct": 12.4,
-      "ret_60d_pct": 9.24
+      "close": 75.66,
+      "ret_20d_pct": 11.68,
+      "ret_60d_pct": 9.54
     },
     {
       "symbol": "LE",
@@ -1356,9 +1478,9 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Neutral",
-      "close": 98.44,
-      "ret_20d_pct": -1.67,
-      "ret_60d_pct": -0.52
+      "close": 98.785,
+      "ret_20d_pct": -0.69,
+      "ret_60d_pct": -0.17
     },
     {
       "symbol": "EURUSD",
@@ -1367,31 +1489,31 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 1.172445,
-      "ret_20d_pct": 2.7,
-      "ret_60d_pct": 1.09
+      "close": 1.168485,
+      "ret_20d_pct": 1.57,
+      "ret_60d_pct": 0.33
     },
     {
       "symbol": "GBPUSD",
       "name": "GBPUSD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": 4,
-      "setup": "Trend continuation",
-      "close": 1.346365,
-      "ret_20d_pct": 1.84,
-      "ret_60d_pct": 0.62
+      "score": 2,
+      "setup": "Neutral",
+      "close": 1.342575,
+      "ret_20d_pct": 0.79,
+      "ret_60d_pct": 0.0
     },
     {
       "symbol": "AUDUSD",
       "name": "AUDUSD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": 4,
-      "setup": "Trend continuation",
-      "close": 0.706465,
-      "ret_20d_pct": 1.2,
-      "ret_60d_pct": 5.7
+      "score": 2,
+      "setup": "Neutral",
+      "close": 0.70466,
+      "ret_20d_pct": -0.35,
+      "ret_60d_pct": 4.95
     },
     {
       "symbol": "USDCAD",
@@ -1400,20 +1522,20 @@
       "contract_type": "CASH",
       "score": 2,
       "setup": "Trend continuation",
-      "close": 1.3841,
-      "ret_20d_pct": 0.89,
-      "ret_60d_pct": -0.53
+      "close": 1.38427,
+      "ret_20d_pct": 1.14,
+      "ret_60d_pct": -0.18
     },
     {
       "symbol": "USDJPY",
       "name": "USDJPY",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": 2,
-      "setup": "Neutral",
-      "close": 159.273,
-      "ret_20d_pct": -0.28,
-      "ret_60d_pct": 0.73
+      "score": 4,
+      "setup": "Trend continuation",
+      "close": 159.71,
+      "ret_20d_pct": 0.4,
+      "ret_60d_pct": 1.01
     },
     {
       "symbol": "ZB",
@@ -1433,9 +1555,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 117.29,
-      "ret_20d_pct": -0.94,
-      "ret_60d_pct": -2.32
+      "close": 116.82,
+      "ret_20d_pct": -0.83,
+      "ret_60d_pct": -2.84
     },
     {
       "symbol": "GBL",
@@ -1444,9 +1566,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 125.2,
-      "ret_20d_pct": -0.89,
-      "ret_60d_pct": -1.68
+      "close": 124.91,
+      "ret_20d_pct": -0.99,
+      "ret_60d_pct": -1.95
     },
     {
       "symbol": "MBT",
@@ -1510,11 +1632,11 @@
       "name": "DAX",
       "asset_class": "Equity",
       "contract_type": "FUT",
-      "score": -2,
-      "setup": "Neutral",
-      "close": 24037.0,
-      "ret_20d_pct": 0.96,
-      "ret_60d_pct": -6.38
+      "score": -4,
+      "setup": "Trend continuation (down)",
+      "close": 23744.0,
+      "ret_20d_pct": -0.19,
+      "ret_60d_pct": -7.73
     },
     "NIY": {
       "symbol": "NIY",
@@ -1534,9 +1656,9 @@
       "contract_type": "IND",
       "score": 0,
       "setup": "Neutral",
-      "close": 19.23,
-      "ret_20d_pct": -29.53,
-      "ret_60d_pct": 20.34
+      "close": 21.3,
+      "ret_20d_pct": -21.66,
+      "ret_60d_pct": 27.16
     },
     "CL": {
       "symbol": "CL",
@@ -1644,9 +1766,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 13.75,
-      "ret_20d_pct": -4.38,
-      "ret_60d_pct": -5.5
+      "close": 13.86,
+      "ret_20d_pct": -3.55,
+      "ret_60d_pct": -3.35
     },
     "KC": {
       "symbol": "KC",
@@ -1655,9 +1777,9 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Neutral",
-      "close": 295.9,
-      "ret_20d_pct": 2.81,
-      "ret_60d_pct": -13.34
+      "close": 298.2,
+      "ret_20d_pct": 6.08,
+      "ret_60d_pct": -11.63
     },
     "CC": {
       "symbol": "CC",
@@ -1666,9 +1788,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 3327.0,
-      "ret_20d_pct": -2.09,
-      "ret_60d_pct": -39.23
+      "close": 3356.0,
+      "ret_20d_pct": -0.68,
+      "ret_60d_pct": -37.09
     },
     "CT": {
       "symbol": "CT",
@@ -1677,9 +1799,9 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 75.33,
-      "ret_20d_pct": 12.4,
-      "ret_60d_pct": 9.24
+      "close": 75.66,
+      "ret_20d_pct": 11.68,
+      "ret_60d_pct": 9.54
     },
     "LE": {
       "symbol": "LE",
@@ -1721,9 +1843,9 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Neutral",
-      "close": 98.44,
-      "ret_20d_pct": -1.67,
-      "ret_60d_pct": -0.52
+      "close": 98.785,
+      "ret_20d_pct": -0.69,
+      "ret_60d_pct": -0.17
     },
     "EURUSD": {
       "symbol": "EURUSD",
@@ -1732,31 +1854,31 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 1.172445,
-      "ret_20d_pct": 2.7,
-      "ret_60d_pct": 1.09
+      "close": 1.168485,
+      "ret_20d_pct": 1.57,
+      "ret_60d_pct": 0.33
     },
     "GBPUSD": {
       "symbol": "GBPUSD",
       "name": "GBPUSD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": 4,
-      "setup": "Trend continuation",
-      "close": 1.346365,
-      "ret_20d_pct": 1.84,
-      "ret_60d_pct": 0.62
+      "score": 2,
+      "setup": "Neutral",
+      "close": 1.342575,
+      "ret_20d_pct": 0.79,
+      "ret_60d_pct": 0.0
     },
     "AUDUSD": {
       "symbol": "AUDUSD",
       "name": "AUDUSD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": 4,
-      "setup": "Trend continuation",
-      "close": 0.706465,
-      "ret_20d_pct": 1.2,
-      "ret_60d_pct": 5.7
+      "score": 2,
+      "setup": "Neutral",
+      "close": 0.70466,
+      "ret_20d_pct": -0.35,
+      "ret_60d_pct": 4.95
     },
     "USDCAD": {
       "symbol": "USDCAD",
@@ -1765,20 +1887,20 @@
       "contract_type": "CASH",
       "score": 2,
       "setup": "Trend continuation",
-      "close": 1.3841,
-      "ret_20d_pct": 0.89,
-      "ret_60d_pct": -0.53
+      "close": 1.38427,
+      "ret_20d_pct": 1.14,
+      "ret_60d_pct": -0.18
     },
     "USDJPY": {
       "symbol": "USDJPY",
       "name": "USDJPY",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": 2,
-      "setup": "Neutral",
-      "close": 159.273,
-      "ret_20d_pct": -0.28,
-      "ret_60d_pct": 0.73
+      "score": 4,
+      "setup": "Trend continuation",
+      "close": 159.71,
+      "ret_20d_pct": 0.4,
+      "ret_60d_pct": 1.01
     },
     "ZB": {
       "symbol": "ZB",
@@ -1798,9 +1920,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 117.29,
-      "ret_20d_pct": -0.94,
-      "ret_60d_pct": -2.32
+      "close": 116.82,
+      "ret_20d_pct": -0.83,
+      "ret_60d_pct": -2.84
     },
     "GBL": {
       "symbol": "GBL",
@@ -1809,9 +1931,9 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 125.2,
-      "ret_20d_pct": -0.89,
-      "ret_60d_pct": -1.68
+      "close": 124.91,
+      "ret_20d_pct": -0.99,
+      "ret_60d_pct": -1.95
     },
     "MBT": {
       "symbol": "MBT",
@@ -1836,6 +1958,308 @@
       "ret_60d_pct": -30.22
     }
   },
+  "openPositionsDetailed": [
+    {
+      "week": "1",
+      "ticker": "ETH.USD-PAXOS",
+      "underlying": "ETH_PAXOS",
+      "description": "Ethereum",
+      "structure": "Spot",
+      "asset_class": "Crypto",
+      "side": "LONG",
+      "expiry": "",
+      "risk_dollar_raw": 0.0,
+      "risk_dollar": 0.0,
+      "max_loss_pct_capital": 0.0,
+      "entry_price": 1986.5461873597799,
+      "tech_stop": 1986.5461873597799,
+      "stop_distance_pct": 0.0
+    },
+    {
+      "week": "2",
+      "ticker": "CCK6",
+      "underlying": "CC",
+      "description": "Cocoa",
+      "structure": "Futures",
+      "asset_class": "Commodities",
+      "side": "LONG",
+      "expiry": "14 May 2026",
+      "risk_dollar_raw": 9000.0,
+      "risk_dollar": 9000.0,
+      "max_loss_pct_capital": 0.8479203020715183,
+      "entry_price": 3235.297,
+      "tech_stop": 2935.297,
+      "stop_distance_pct": -9.272719011577609,
+      "theme": "Ivory Coast and Ghana supply destruction / HF speculation / Production adjustment to price from companies",
+      "technical_setup": "Retrace to the pre breakout price region ~$3000. Inside week + weekly up"
+    },
+    {
+      "week": "3",
+      "ticker": "LOM6 P7500",
+      "underlying": "CL",
+      "description": "WTI Crude",
+      "structure": "Put",
+      "asset_class": "Commodities",
+      "side": "LONG",
+      "expiry": "14 May 2026",
+      "risk_dollar_raw": 10627.110000000002,
+      "risk_dollar": 10627.110000000002,
+      "max_loss_pct_capital": 1.0012158134830282,
+      "strike": 75.0,
+      "theme": "Iran war de-escalation",
+      "technical_setup": "Massive weekly / daily blow-off"
+    },
+    {
+      "week": "3",
+      "ticker": "LOM6 P5500",
+      "underlying": "CL",
+      "description": "WTI Crude",
+      "structure": "Put",
+      "asset_class": "Commodities",
+      "side": "SHORT",
+      "expiry": "14 May 2026",
+      "risk_dollar_raw": -1042.8899999999999,
+      "risk_dollar": 1042.8899999999999,
+      "max_loss_pct_capital": 0.09825417820304061,
+      "strike": 55.0,
+      "theme": "Iran war de-escalation",
+      "technical_setup": "Massive weekly / daily blow-off"
+    },
+    {
+      "week": "4",
+      "ticker": "HGK6",
+      "underlying": "HG",
+      "description": "Copper",
+      "structure": "Futures",
+      "asset_class": "Commodities",
+      "side": "LONG",
+      "expiry": "27 May 2026",
+      "risk_dollar_raw": 7192.5,
+      "risk_dollar": 7192.5,
+      "max_loss_pct_capital": 0.6776296414054883,
+      "entry_price": 5.470098800000001,
+      "tech_stop": 5.1823988000000005,
+      "stop_distance_pct": -5.259502808249095,
+      "theme": "Structural deficit (EV, AI, ore grade decay). War de-escalation and improved sentiment",
+      "technical_setup": "Daily 200SMA test and bounce (after H&S top)"
+    },
+    {
+      "week": "5",
+      "ticker": "NKDM6",
+      "underlying": "NKD",
+      "description": "Nikkei 225",
+      "structure": "Futures",
+      "asset_class": "Equity",
+      "side": "LONG",
+      "expiry": "12 Jun 2026",
+      "risk_dollar_raw": -8745.0,
+      "risk_dollar": 8745.0,
+      "max_loss_pct_capital": 0.8238958935128252,
+      "entry_price": 49667.852,
+      "tech_stop": 51416.852,
+      "stop_distance_pct": 0.0,
+      "theme": "End of deflation era / pro-growth government policies / attractive valuations",
+      "technical_setup": "Weekly retrace to previous support area and weekly up"
+    },
+    {
+      "week": "6",
+      "ticker": "OGM6 C5500",
+      "underlying": "GC",
+      "description": "Gold",
+      "structure": "Call",
+      "asset_class": "Commodities",
+      "side": "SHORT",
+      "expiry": "26 May 2026",
+      "risk_dollar_raw": -2637.0,
+      "risk_dollar": 2637.0,
+      "max_loss_pct_capital": 0.24844064850695485,
+      "strike": 5500.0,
+      "theme": "Central banks buying spree / geopolitical or dollar shock hedge",
+      "technical_setup": "Weekly hammer after 50% retrace and weekly up"
+    },
+    {
+      "week": "6",
+      "ticker": "OGM6 C4930",
+      "underlying": "GC",
+      "description": "Gold",
+      "structure": "Call",
+      "asset_class": "Commodities",
+      "side": "LONG",
+      "expiry": "26 May 2026",
+      "risk_dollar_raw": 12543.0,
+      "risk_dollar": 12543.0,
+      "max_loss_pct_capital": 1.181718260987006,
+      "strike": 4930.0,
+      "theme": "Central banks buying spree / geopolitical or dollar shock hedge",
+      "technical_setup": "Weekly hammer after 50% retrace and weekly up"
+    },
+    {
+      "week": "7",
+      "ticker": "6EM6",
+      "underlying": "6E",
+      "description": "6E",
+      "structure": "Futures",
+      "asset_class": "FX",
+      "side": "LONG",
+      "expiry": "Jun 2026",
+      "risk_dollar_raw": 8859.375,
+      "risk_dollar": 8859.375,
+      "max_loss_pct_capital": 0.8346715473516508,
+      "entry_price": 1.1721699999999997,
+      "tech_stop": 1.1579949999999997,
+      "stop_distance_pct": -1.2092955799926677
+    }
+  ],
+  "openPositionsAggregated": [
+    {
+      "week": "1",
+      "ticker": "ETH.USD-PAXOS",
+      "underlying": "ETH_PAXOS",
+      "description": "Ethereum",
+      "structure": "Spot",
+      "asset_class": "Crypto",
+      "side": "LONG",
+      "expiry": "",
+      "risk_dollar_raw": 0.0,
+      "risk_dollar": 0.0,
+      "max_loss_pct_capital": 0.0,
+      "entry_price": 1986.5461873597799,
+      "tech_stop": 1986.5461873597799,
+      "stop_distance_pct": 0.0
+    },
+    {
+      "week": "2",
+      "ticker": "CCK6",
+      "underlying": "CC",
+      "description": "Cocoa",
+      "structure": "Futures",
+      "asset_class": "Commodities",
+      "side": "LONG",
+      "expiry": "14 May 2026",
+      "risk_dollar_raw": 9000.0,
+      "risk_dollar": 9000.0,
+      "max_loss_pct_capital": 0.8479203020715183,
+      "entry_price": 3235.297,
+      "tech_stop": 2935.297,
+      "stop_distance_pct": -9.272719011577609,
+      "theme": "Ivory Coast and Ghana supply destruction / HF speculation / Production adjustment to price from companies",
+      "technical_setup": "Retrace to the pre breakout price region ~$3000. Inside week + weekly up"
+    },
+    {
+      "week": "3",
+      "underlying": "CL",
+      "description": "WTI Crude",
+      "structure": "Put Spread",
+      "asset_class": "Commodities",
+      "side": "LONG",
+      "strikes": [
+        75.0,
+        55.0
+      ],
+      "risk_dollar_raw": 9584.220000000003,
+      "risk_dollar": 9584.220000000003,
+      "premium_max_loss_pct_capital": 0.9029616352799876,
+      "theme": "Iran war de-escalation",
+      "technical_setup": "Massive weekly / daily blow-off",
+      "expiry": "14 May 2026",
+      "expiries": null,
+      "legs": [
+        {
+          "ticker": "LOM6 P7500",
+          "side": "LONG",
+          "strike": 75.0
+        },
+        {
+          "ticker": "LOM6 P5500",
+          "side": "SHORT",
+          "strike": 55.0
+        }
+      ]
+    },
+    {
+      "week": "4",
+      "ticker": "HGK6",
+      "underlying": "HG",
+      "description": "Copper",
+      "structure": "Futures",
+      "asset_class": "Commodities",
+      "side": "LONG",
+      "expiry": "27 May 2026",
+      "risk_dollar_raw": 7192.5,
+      "risk_dollar": 7192.5,
+      "max_loss_pct_capital": 0.6776296414054883,
+      "entry_price": 5.470098800000001,
+      "tech_stop": 5.1823988000000005,
+      "stop_distance_pct": -5.259502808249095,
+      "theme": "Structural deficit (EV, AI, ore grade decay). War de-escalation and improved sentiment",
+      "technical_setup": "Daily 200SMA test and bounce (after H&S top)"
+    },
+    {
+      "week": "5",
+      "ticker": "NKDM6",
+      "underlying": "NKD",
+      "description": "Nikkei 225",
+      "structure": "Futures",
+      "asset_class": "Equity",
+      "side": "LONG",
+      "expiry": "12 Jun 2026",
+      "risk_dollar_raw": -8745.0,
+      "risk_dollar": 8745.0,
+      "max_loss_pct_capital": 0.8238958935128252,
+      "entry_price": 49667.852,
+      "tech_stop": 51416.852,
+      "stop_distance_pct": 0.0,
+      "theme": "End of deflation era / pro-growth government policies / attractive valuations",
+      "technical_setup": "Weekly retrace to previous support area and weekly up"
+    },
+    {
+      "week": "6",
+      "underlying": "GC",
+      "description": "Gold",
+      "structure": "Call Spread",
+      "asset_class": "Commodities",
+      "side": "LONG",
+      "strikes": [
+        5500.0,
+        4930.0
+      ],
+      "risk_dollar_raw": 9906.0,
+      "risk_dollar": 9906.0,
+      "premium_max_loss_pct_capital": 0.9332776124800511,
+      "theme": "Central banks buying spree / geopolitical or dollar shock hedge",
+      "technical_setup": "Weekly hammer after 50% retrace and weekly up",
+      "expiry": "26 May 2026",
+      "expiries": null,
+      "legs": [
+        {
+          "ticker": "OGM6 C5500",
+          "side": "SHORT",
+          "strike": 5500.0
+        },
+        {
+          "ticker": "OGM6 C4930",
+          "side": "LONG",
+          "strike": 4930.0
+        }
+      ]
+    },
+    {
+      "week": "7",
+      "ticker": "6EM6",
+      "underlying": "6E",
+      "description": "6E",
+      "structure": "Futures",
+      "asset_class": "FX",
+      "side": "LONG",
+      "expiry": "Jun 2026",
+      "risk_dollar_raw": 8859.375,
+      "risk_dollar": 8859.375,
+      "max_loss_pct_capital": 0.8346715473516508,
+      "entry_price": 1.1721699999999997,
+      "tech_stop": 1.1579949999999997,
+      "stop_distance_pct": -1.2092955799926677
+    }
+  ],
   "modelTrades_source": "Blotter",
   "asof": "2026-04-30"
 }
