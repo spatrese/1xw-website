@@ -90,6 +90,18 @@ def fx_row_score(symbol: str, score: Optional[float]) -> Optional[float]:
         return -sc
     return sc
 
+ASSET_CLASS_ORDER = ["Equities", "Commodities", "FX", "Rates", "Crypto"]
+
+
+def order_asset_classes(d: Dict[str, Any]) -> Dict[str, Any]:
+    ordered = {}
+    for ac in ASSET_CLASS_ORDER:
+        if ac in d:
+            ordered[ac] = d[ac]
+    for ac, v in d.items():
+        if ac not in ordered:
+            ordered[ac] = v
+    return ordered
 
 UP_WORDS = [
     "rise", "rises", "rising",
@@ -1154,6 +1166,7 @@ def build_fundamentals(news_digest: Dict[str, Any], per_class_news: int = 3) -> 
             'key_events': [],
         }
 
+    out['by_asset_class'] = order_asset_classes(out['by_asset_class'])
     return out
 
 def extract_universe_rows(screener: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -1221,6 +1234,7 @@ def build_technical_overview(universe_rows: List[Dict[str, Any]]) -> Dict[str, A
             'text': f'Breadth is {tone}: avg score {avg:.2f}, bullish {bullish}/{n_rows}, bearish {bearish}/{n_rows}.',
         }
 
+    by_asset_class = order_asset_classes(by_asset_class)
     return {'by_symbol': by_symbol, 'by_asset_class': by_asset_class}
 
 

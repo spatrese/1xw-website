@@ -127,6 +127,35 @@ def format_options_email(p: Dict[str, Any]) -> Dict[str, str]:
 
     return {"subject": subject, "body": "\n".join(lines)}
 
+def format_close_email(p: Dict[str, Any]) -> Dict[str, str]:
+    subject = "1XW Model Update — Position Closed"
+
+    lines = [
+        "A position has been closed in the 1XW model portfolio.",
+        "",
+        f"Underlying: {p.get('description', p.get('underlying', ''))}",
+        f"Instrument: {p.get('structure', '')}",
+        f"Asset class: {p.get('asset_class', '')}",
+    ]
+
+    if p.get("expiry"):
+        lines.append(f"Expiry: {p.get('expiry')}")
+
+    if p.get("strikes"):
+        strike_text = " / ".join(
+            str(int(s)) if float(s).is_integer() else str(s)
+            for s in p["strikes"]
+        )
+        lines.append(f"Strikes: {strike_text}")
+    elif p.get("strike") is not None:
+        s = p["strike"]
+        strike_text = str(int(s)) if float(s).is_integer() else str(s)
+        lines.append(f"Strike: {strike_text}")
+
+    return {
+        "subject": subject,
+        "body": "\n".join(lines)
+    }
 
 def build_email_preview(p: Dict[str, Any]) -> Dict[str, str]:
     structure = str(p.get("structure", "")).lower()
@@ -143,6 +172,7 @@ def main() -> None:
     previous_positions = previous.get("openPositionsAggregated", [])
 
     previous_keys = {alert_key(p) for p in previous_positions}
+    current_keys = {alert_key(p) for p in current_positions}
 
     print("\n--- DEBUG KEYS ---")
 
@@ -150,11 +180,12 @@ def main() -> None:
     for p in current_positions:
         print(alert_key(p))
 
-    print("\nPREVIOUS:") 
+    print("\nPREVIOUS:")
     for p in previous_positions:
         print(alert_key(p))
 
     new_positions = [p for p in current_positions if alert_key(p) not in previous_keys]
+    closed_positions = [p for p in previous_positions if alert_key(p) not in current_keys]
 
     previews: List[Dict[str, Any]] = []
     text_blocks: List[str] = []
@@ -163,6 +194,20 @@ def main() -> None:
         email = build_email_preview(p)
         previews.append({
             "key": alert_key(p),
+            "type": "open",
+            "position": p,
+            "email": email,
+        })
+        text_blocks.append(email["subject"])
+        text_blocks.append("")
+        text_blocks.append(email["body"])
+        text_blocks.append("\n" + "=" * 80 + "\n")
+
+    for p in closed_positions:
+        email = format_close_email(p)
+        previews.append({
+            "key": alert_key(p),
+            "type": "close",
             "position": p,
             "email": email,
         })
