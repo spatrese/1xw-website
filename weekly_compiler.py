@@ -1223,7 +1223,7 @@ def build_technical_overview(universe_rows: List[Dict[str, Any]]) -> Dict[str, A
         bullish = sum(1 for s in scores if s >= 2)
         bearish = sum(1 for s in scores if s <= -2)
         avg = sum(scores) / len(scores) if scores else 0.0
-        tone = 'constructive' if avg >= 0.5 else 'defensive' if avg <= -0.5 else 'balanced'
+        tone = 'constructive' if avg >= 1.0 else 'defensive' if avg <= -1.0 else 'balanced'
         n_rows = len(breadth_rows)
 
         by_asset_class[ac] = {
