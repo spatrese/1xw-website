@@ -19,7 +19,7 @@
     { href: '#performance', label: 'Performance', active: body.dataset.active === 'performance' },
     { href: '#plb', label: 'PLB', active: body.dataset.active === 'plb' },
     { href: '#transparency', label: 'Transparency', active: body.dataset.active === 'transparency' },
-    { href: 'https://buy.stripe.com/14A14o3rZ7H9dUsfBi8g001', label: 'Subscribe', cta: true },
+    { href: 'https://buy.stripe.com/00w14obYvf9B3fO88Q8g002', label: 'Subscribe', cta: true },
     { href: 'login.html', label: 'Login', cta: true }
   ]
 },
