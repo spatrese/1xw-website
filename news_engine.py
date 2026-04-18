@@ -160,6 +160,15 @@ def parse_possible_datetime(value: Any) -> Optional[datetime]:
 
 def classify_item(title: str, summary: str, source_hint: str) -> str:
     text = normalize_text(title) + " " + normalize_text(summary)
+
+    # --- HARD FILTER: exclude non-Rates themes ---
+    if any(x in text for x in [
+        "gold", "silver", "copper",
+        "shipping", "dry-bulk", "freight", "capesize"
+    ]):
+        # fallback: reclassify as Commodities (or ignore)
+        return "Commodities"
+
     scores = {ac: 0 for ac in ASSET_CLASSES}
     for ac, pats in KEYWORDS.items():
         for p in pats:
