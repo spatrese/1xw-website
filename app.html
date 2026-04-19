@@ -484,7 +484,20 @@ footer{
         </div>
         <div class="rows">
           <div class="col-head row-tech">
-            <div>Instrument</div><div>Asset Class</div><div>Setup</div><div>Score</div><div>20d</div><div>60d</div>
+           <div>Instrument</div>
+           <div>Asset Class</div>
+           <div>Setup</div>
+           <div>
+            Score
+            <span
+              class="info-tip"
+              tabindex="0"
+              aria-label="Technical score explanation"
+              data-tip="<strong>Score</strong><br>Composite technical score for the instrument.<br><br><strong>Range:</strong> -4 to +4.<br><strong>+4:</strong> strongest bullish regime.<br><strong>-4:</strong> strongest bearish regime.<br><br>The score adds four binary signals:<br>+1 / -1 vs MA50<br>+1 / -1 vs MA200<br>+1 / -1 on 20d return<br>+1 / -1 on 60d return."
+            >?</span>
+           </div>
+            <div>20d</div>
+            <div>60d</div>
           </div>
           <div id="techInstrumentRows"></div>
         </div>
