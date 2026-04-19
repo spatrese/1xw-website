@@ -839,17 +839,20 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
     const key = `${date}|${type}|${dedupeId}`;
 
-    if (!merged.has(key)) {
-      merged.set(key, {
-        date,
-        type,
-        title,
-        ticker,
-        source: normalizeSpaces(e.source || ''),
-        markets: Array.isArray(e.markets) ? e.markets : [],
-        assets: Array.isArray(e.markets) ? e.markets : []
-      });
-    }
+
+if (!merged.has(key)) {
+  merged.set(key, {
+    date,
+    type,
+    title,
+    ticker,
+    company: normalizeSpaces(e.company || ''),
+    source: normalizeSpaces(e.source || ''),
+    markets: Array.isArray(e.markets) ? e.markets : [],
+    assets: Array.isArray(e.markets) ? e.markets : []
+  });
+}
+
   });
 
   return Array.from(merged.values())
@@ -871,7 +874,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
     holder.innerHTML = events.map(e => rowHtml('row-events', [
       { label:'Date', html: escapeHtml(prettyDate(e.date)) },
       { label:'Type', html:`<span class="pill ${String(e.type).toLowerCase() === 'earnings' ? 'tone mixed' : ''}">${escapeHtml(e.type || '')}</span>` },
-      { label:'Event', html:`<span class="event-title">${escapeHtml(e.title || '')}${e.type === 'Earnings' && e.ticker && e.ticker !== e.title ? ` (${escapeHtml(e.ticker)})` : ''}</span>${e.source ? `<span class="event-src">${escapeHtml(e.source)}</span>` : ''}`, wrap:true },
+      { label:'Event', html:`<span class="event-title">${escapeHtml(e.title || '')}${e.type === 'Earnings' && e.company ? ` — ${escapeHtml(e.company)}` : ''}${e.type === 'Earnings' && !e.company && e.ticker && e.ticker !== e.title ? ` (${escapeHtml(e.ticker)})` : ''}</span>${e.source ? `<span class="event-src">${escapeHtml(e.source)}</span>` : ''}`, wrap:true },
       { label:'Markets', html:`<div class="inline-tags">${(e.markets || e.assets || []).map(a => `<span class="pill">${escapeHtml(a)}</span>`).join('')}</div>`, wrap:true }
     ])).join('');
   }
