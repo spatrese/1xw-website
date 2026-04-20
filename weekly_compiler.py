@@ -90,6 +90,34 @@ def fx_row_score(symbol: str, score: Optional[float]) -> Optional[float]:
         return -sc
     return sc
 
+def fx_display_return(symbol: str, value: Optional[float]) -> Optional[float]:
+    s = safe_str(symbol).strip().upper()
+    v = parse_float(value)
+    if v is None:
+        return None
+    if len(s) == 6 and s.startswith("USD"):
+        return -v
+    return v
+
+
+def fx_display_setup(symbol: str, setup: str) -> str:
+    s = safe_str(symbol).strip().upper()
+    st = safe_str(setup).strip()
+
+    if not (len(s) == 6 and s.startswith("USD")):
+        return st
+
+    mapping = {
+        "Trend continuation": "Trend continuation (down)",
+        "Trend continuation (down)": "Trend continuation",
+        "Breakout": "Breakdown",
+        "Breakdown": "Breakout",
+        "Mean reversion (bounce)": "Mean reversion (pullback)",
+        "Mean reversion (pullback)": "Mean reversion (bounce)",
+        "Neutral": "Neutral",
+    }
+    return mapping.get(st, st)
+
 ASSET_CLASS_ORDER = ["Equities", "Commodities", "FX", "Rates", "Crypto"]
 
 
@@ -1195,18 +1223,23 @@ def build_technical_overview(universe_rows: List[Dict[str, Any]]) -> Dict[str, A
         ac = canonical_asset_class(r.get('asset_class') or r.get('assetClass') or 'Other')
         display_symbol = fx_display_symbol(sym) if ac == 'FX' else str(sym).strip()
         display_score = fx_row_score(sym, r.get('score')) if ac == 'FX' else parse_float(r.get('score'))
+        raw_ret_20 = r.get('ret_20d_%') if r.get('ret_20d_%') is not None else r.get('ret_20d_pct')
+        raw_ret_60 = r.get('ret_60d_%') if r.get('ret_60d_%') is not None else r.get('ret_60d_pct')
 
-        display_setup = r.get('setup') or ''
-        
+        display_setup = fx_display_setup(sym, r.get('setup') or '') if ac == 'FX' else (r.get('setup') or '')
+        display_ret_20 = fx_display_return(sym, raw_ret_20) if ac == 'FX' else parse_float(raw_ret_20)
+        display_ret_60 = fx_display_return(sym, raw_ret_60) if ac == 'FX' else parse_float(raw_ret_60)
+
         row = {
             'symbol': display_symbol,
             'name': display_symbol if ac == 'FX' else (r.get('name') or ''),
             'asset_class': ac,
             'setup': display_setup,
             'score': display_score,
-            'ret_20d_pct': r.get('ret_20d_%') if r.get('ret_20d_%') is not None else r.get('ret_20d_pct'),
-            'ret_60d_pct': r.get('ret_60d_%') if r.get('ret_60d_%') is not None else r.get('ret_60d_pct'),
-       }
+            'ret_20d_pct': display_ret_20,
+            'ret_60d_pct': display_ret_60,
+        }
+
         by_symbol[row['symbol']] = row
         by_ac.setdefault(ac, []).append(row)
     by_asset_class = {}
@@ -1337,14 +1370,19 @@ def build_top_ideas(universe_rows: List[Dict[str, Any]], fund_overview: Dict[str
         if not sym:
             continue
         ac = canonical_asset_class(r.get('asset_class') or r.get('assetClass') or 'Other')
-        setup = safe_str(r.get('setup') or '')
+        raw_setup = safe_str(r.get('setup') or '')
+        setup = fx_display_setup(sym, raw_setup) if ac == 'FX' else raw_setup
 
         score = parse_float(r.get('score')) or 0.0
         score_for_top = fx_row_score(sym, score) if ac == 'FX' else score
 
+        raw_ret_20 = parse_float(r.get('ret_20d_%')) if r.get('ret_20d_%') is not None else parse_float(r.get('ret_20d_pct'))
+        ret_20_for_top = fx_display_return(sym, raw_ret_20) if ac == 'FX' else raw_ret_20
+
         r_for_top = dict(r)
         r_for_top['score'] = score_for_top
         r_for_top['setup'] = setup
+        r_for_top['ret_20d_pct'] = ret_20_for_top
 
         tlong, tshort = tech_scores(r_for_top)
         f = fund_by.get(ac, {})
@@ -1368,7 +1406,7 @@ def build_top_ideas(universe_rows: List[Dict[str, Any]], fund_overview: Dict[str
              'asset_class': ac,
              'setup': setup,
              'score': float(score_for_top),
-             'ret_20d_pct': parse_float(r.get('ret_20d_%')) if r.get('ret_20d_%') is not None else parse_float(r.get('ret_20d_pct')),
+             'ret_20d_pct': ret_20_for_top,
         }
         longs.append({
             **base,

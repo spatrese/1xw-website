@@ -11,7 +11,7 @@ PREVIOUS_PATH = "content/site_screener_prev.json"
 
 # Meglio mettere questi in variabili ambiente.
 # Per ora puoi anche incollarli direttamente qui per test.
-BOT_TOKEN = "8789123634:AAHRd1iBDl6Qarz3q13PSgg9v6FP7D4ouR0"
+BOT_TOKEN = "8676635408:AAH1A6DSw3P7cyvhUtpzqx8s9-8Nq3RfIM4"
 CHAT_ID = "-1003523484797"
 
 

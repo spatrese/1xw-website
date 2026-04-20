@@ -671,20 +671,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
   function normalizeSpaces(s){
     return String(s || '').replace(/\s+/g, ' ').trim();
   }
-  function displayTechnicalSetup(row){
-  const instrument = String(row?.name || row?.symbol || '').toUpperCase();
-  const setup = String(row?.setup || '');
-  const assetClass = String(row?.asset_class || '');
 
-  if (assetClass !== 'FX') return setup;
-
-  if (instrument === 'CADUSD' || instrument === 'JPYUSD') {
-    if (setup === 'Trend continuation') return 'Trend continuation (down)';
-    if (setup === 'Trend continuation (down)') return 'Trend continuation';
-  }
-
-  return setup;
-}
   
   function buildIdeaRationale(item){
     const parts = [];
@@ -774,7 +761,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
     holder.innerHTML = rows.map(row => rowHtml('row-tech', [
       { label:'Instrument', html:`<span class="label">${escapeHtml(row.name || row.symbol || '')}</span>` },
       { label:'Asset Class', html: escapeHtml(row.asset_class || '') },
-      { label:'Setup', html: escapeHtml(displayTechnicalSetup(row) || '') },
+      { label:'Setup', html: escapeHtml(row.setup || '') },
       { label:'Score', html:`<span class="${classForNum(row.score)}">${escapeHtml(signed(row.score,0))}</span>` },
       { label:'20d', html:`<span class="${classForNum(row.ret_20d_pct)}">${escapeHtml(pct(row.ret_20d_pct,1))}</span>` },
       { label:'60d', html:`<span class="${classForNum(row.ret_60d_pct)}">${escapeHtml(pct(row.ret_60d_pct,1))}</span>` }

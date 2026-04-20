@@ -3,7 +3,7 @@ from typing import Any, Dict
 
 import requests
 
-BOT_TOKEN = "8789123634:AAHRd1iBDl6Qarz3q13PSgg9v6FP7D4ouR0"
+BOT_TOKEN = "8676635408:AAH1A6DSw3P7cyvhUtpzqx8s9-8Nq3RfIM4"
 CHAT_ID = "-1003523484797"
 
 PERF_JSON = "content/site_performance.json"
