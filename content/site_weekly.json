@@ -342,22 +342,22 @@
   "fundamental_overview": {
     "by_asset_class": {
       "Equities": {
-        "tone": "Supportive",
-        "bias": 0.208,
-        "confidence": 0.638,
-        "commentary": "Risk sentiment remains constructive, though leadership is selective. Bias +0.21, confidence 0.64. Primary flow source: Yahoo Finance.",
+        "tone": "Mixed",
+        "bias": 0.178,
+        "confidence": 0.633,
+        "commentary": "Equity signals are balanced, with supportive pockets offset by an uneven backdrop. Bias +0.18, confidence 0.63. Primary flow source: Yahoo Finance.",
         "top_news": [
           {
             "title": "Nasdaq futures rise on tech optimism, while Dow and S&P lag",
             "source": "Yahoo Finance",
-            "date": "2026-04-24T12:29:36Z",
+            "date": "2026-04-24T12:57:22Z",
             "url": "https://finance.yahoo.com/markets/stocks/live/stock-market-today-friday-april-24-224547261.html",
             "summary": ""
           },
           {
-            "title": "Stocks Climb on Tech Results, Iran Talks Optimism: Markets Wrap",
+            "title": "Stocks Climb on Iran Talks Optimism, Tech Results: Markets Wrap",
             "source": "Bloomberg",
-            "date": "2026-04-24T12:29:36Z",
+            "date": "2026-04-24T12:57:22Z",
             "url": "https://www.bloomberg.com/news/articles/2026-04-23/stock-market-today-dow-s-p-live-updates",
             "summary": ""
           },
@@ -392,7 +392,7 @@
             "score": -0.32
           },
           {
-            "title": "Stocks Climb on Tech Results, Iran Talks Optimism: Markets Wrap",
+            "title": "Stocks Climb on Iran Talks Optimism, Tech Results: Markets Wrap",
             "source": "Bloomberg",
             "direction": 1.0,
             "relevance": 2.0,
@@ -420,11 +420,11 @@
             "score": -0.56
           },
           {
-            "title": "Gentex shares rise nearly 4% after Q1 earnings, revenue beats",
+            "title": "European shares drop amid U.S.-Iran standoff",
             "source": "Investing.com",
-            "direction": 1.0,
-            "relevance": 1.4,
-            "score": 0.56
+            "direction": -1.0,
+            "relevance": 1.1,
+            "score": -0.44
           },
           {
             "title": "Trump warns of ‘big tariff’ if UK doesn’t drop digital services tax on U.S. tech firms",
@@ -652,10 +652,10 @@
         ]
       },
       "Commodities": {
-        "tone": "Cautious",
-        "bias": -0.276,
-        "confidence": 0.651,
-        "commentary": "Commodity tone is cautious, with growth uncertainty weighing against supply support. Bias -0.28, confidence 0.65. Primary flow source: FXStreet.",
+        "tone": "Mixed",
+        "bias": -0.11,
+        "confidence": 0.62,
+        "commentary": "Commodity signals are mixed, with demand uncertainty offsetting selective support. Bias -0.11, confidence 0.62. Primary flow source: FXStreet.",
         "top_news": [
           {
             "title": "Oil: Tight gas outlook and conflict risks support prices – BNY",
@@ -697,6 +697,20 @@
           {
             "title": "Oil holds gains as Iran talks impasse adds to uncertainty",
             "source": "Yahoo Finance",
+            "direction": 1.0,
+            "relevance": 1.8,
+            "score": 1.8
+          },
+          {
+            "title": "Oil fear vs AI greed: Barclays flags rising crude as cap on equity upside",
+            "source": "Investing.com",
+            "direction": 1.0,
+            "relevance": 1.8,
+            "score": 1.8
+          },
+          {
+            "title": "Bitcoin dips below $78k amid elevated oil prices; set for 4th weekly rise",
+            "source": "Investing.com",
             "direction": 1.0,
             "relevance": 1.8,
             "score": 1.8
@@ -842,9 +856,9 @@
       },
       "FX": {
         "tone": "Mixed",
-        "bias": 0.019,
-        "confidence": 0.603,
-        "commentary": "Major currencies show mixed signals against the dollar, with no clean macro direction yet. Bias +0.02, confidence 0.60. Primary flow source: FXStreet.",
+        "bias": -0.078,
+        "confidence": 0.614,
+        "commentary": "Major currencies show mixed signals against the dollar, with no clean macro direction yet. Bias -0.08, confidence 0.61. Primary flow source: FXStreet.",
         "top_news": [
           {
             "title": "NZD/USD edges higher as softer US Dollar, firm RBNZ outlook support pair",
@@ -869,6 +883,20 @@
           }
         ],
         "score_details": [
+          {
+            "title": "U.S. dollar on track for weely gain as Mideast jitters persist",
+            "source": "Investing.com",
+            "direction": -1.0,
+            "relevance": 2.0,
+            "score": -2.0
+          },
+          {
+            "title": "Dollar softens but heads for weekly gain amid Middle East uncertainty",
+            "source": "Investing.com",
+            "direction": -1.0,
+            "relevance": 2.0,
+            "score": -2.0
+          },
           {
             "title": "EUR/USD: Range-bound as Eurozone outlook weakens – BBH",
             "source": "FXStreet",
@@ -1127,7 +1155,7 @@
           {
             "title": "One by One, Europe’s Safest Government Bonds Fall From Grace",
             "source": "Bloomberg",
-            "date": "2026-04-24T12:29:36Z",
+            "date": "2026-04-24T12:57:22Z",
             "url": "https://www.bloomberg.com/news/articles/2026-04-24/europe-s-safest-government-bonds-fall-from-grace-one-by-one",
             "summary": ""
           },
@@ -1375,10 +1403,10 @@
         "ret_20d_pct": 7.41,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.566352,
-        "macro_alignment": 0.566352,
-        "final_score": 0.891588,
-        "rationale": "Trend strength in Equities with supportive macro tone."
+        "fund_support": 0.556337,
+        "macro_alignment": 0.556337,
+        "final_score": 0.88908425,
+        "rationale": "Trend strength in Equities with mixed macro tone."
       },
       {
         "symbol": "NQ",
@@ -1389,10 +1417,10 @@
         "ret_20d_pct": 10.57,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.566352,
-        "macro_alignment": 0.566352,
-        "final_score": 0.891588,
-        "rationale": "Trend strength in Equities with supportive macro tone."
+        "fund_support": 0.556337,
+        "macro_alignment": 0.556337,
+        "final_score": 0.88908425,
+        "rationale": "Trend strength in Equities with mixed macro tone."
       },
       {
         "symbol": "RTY",
@@ -1403,10 +1431,10 @@
         "ret_20d_pct": 8.88,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.566352,
-        "macro_alignment": 0.566352,
-        "final_score": 0.891588,
-        "rationale": "Trend strength in Equities with supportive macro tone."
+        "fund_support": 0.556337,
+        "macro_alignment": 0.556337,
+        "final_score": 0.88908425,
+        "rationale": "Trend strength in Equities with mixed macro tone."
       }
     ],
     "top_short": [
@@ -1433,10 +1461,10 @@
         "ret_20d_pct": -11.66,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.589838,
-        "macro_alignment": 0.589838,
-        "final_score": 0.8974595,
-        "rationale": "Downtrend remains in place in Commodities with cautious macro tone."
+        "fund_support": 0.5341,
+        "macro_alignment": 0.5341,
+        "final_score": 0.883525,
+        "rationale": "Downtrend remains in place in Commodities with mixed macro tone."
       },
       {
         "symbol": "SB",
@@ -1447,10 +1475,10 @@
         "ret_20d_pct": -12.92,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.589838,
-        "macro_alignment": 0.589838,
-        "final_score": 0.8974595,
-        "rationale": "Downtrend remains in place in Commodities with cautious macro tone."
+        "fund_support": 0.5341,
+        "macro_alignment": 0.5341,
+        "final_score": 0.883525,
+        "rationale": "Downtrend remains in place in Commodities with mixed macro tone."
       }
     ]
   },
