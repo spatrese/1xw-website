@@ -342,30 +342,30 @@
   "fundamental_overview": {
     "by_asset_class": {
       "Equities": {
-        "tone": "Mixed",
-        "bias": 0.178,
-        "confidence": 0.633,
-        "commentary": "Equity signals are balanced, with supportive pockets offset by an uneven backdrop. Bias +0.18, confidence 0.63. Primary flow source: Yahoo Finance.",
+        "tone": "Supportive",
+        "bias": 0.208,
+        "confidence": 0.638,
+        "commentary": "Risk sentiment remains constructive, though leadership is selective. Bias +0.21, confidence 0.64. Primary flow source: Yahoo Finance.",
         "top_news": [
           {
             "title": "Nasdaq futures rise on tech optimism, while Dow and S&P lag",
             "source": "Yahoo Finance",
-            "date": "2026-04-24T12:17:56Z",
+            "date": "2026-04-24T12:29:36Z",
             "url": "https://finance.yahoo.com/markets/stocks/live/stock-market-today-friday-april-24-224547261.html",
             "summary": ""
           },
           {
             "title": "Stocks Climb on Tech Results, Iran Talks Optimism: Markets Wrap",
             "source": "Bloomberg",
-            "date": "2026-04-24T12:17:56Z",
+            "date": "2026-04-24T12:29:36Z",
             "url": "https://www.bloomberg.com/news/articles/2026-04-23/stock-market-today-dow-s-p-live-updates",
             "summary": ""
           },
           {
-            "title": "Lakewood-Amedex stock surges 20% on Nasdaq debut",
-            "source": "Investing.com",
-            "date": "2026-04-24T12:00:15Z",
-            "url": "https://www.investing.com/news/stock-market-news/lakewoodamedex-stock-surges-20-on-nasdaq-debut-93CH-4635406",
+            "title": "Oklo Inc (OKLO) Mimics Wall Street Rally, Jumps 15.6%",
+            "source": "Yahoo Finance",
+            "date": "2026-04-23T01:10:28Z",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/oklo-inc-oklo-mimics-wall-011028488.html",
             "summary": ""
           }
         ],
@@ -420,11 +420,11 @@
             "score": -0.56
           },
           {
-            "title": "Lakewood-Amedex stock surges 20% on Nasdaq debut",
+            "title": "Gentex shares rise nearly 4% after Q1 earnings, revenue beats",
             "source": "Investing.com",
             "direction": 1.0,
-            "relevance": 1.7,
-            "score": 1.7
+            "relevance": 1.4,
+            "score": 0.56
           },
           {
             "title": "Trump warns of ‘big tariff’ if UK doesn’t drop digital services tax on U.S. tech firms",
@@ -453,13 +453,6 @@
             "direction": 1.0,
             "relevance": 1.0,
             "score": 0.4
-          },
-          {
-            "title": "Equities: Earnings resilience and oil risk – BNY",
-            "source": "FXStreet",
-            "direction": -1.0,
-            "relevance": 1.7,
-            "score": -1.7
           },
           {
             "title": "Oklo Inc (OKLO) Mimics Wall Street Rally, Jumps 15.6%",
@@ -659,11 +652,18 @@
         ]
       },
       "Commodities": {
-        "tone": "Mixed",
-        "bias": -0.07,
-        "confidence": 0.613,
-        "commentary": "Commodity signals are mixed, with demand uncertainty offsetting selective support. Bias -0.07, confidence 0.61. Primary flow source: FXStreet.",
+        "tone": "Cautious",
+        "bias": -0.276,
+        "confidence": 0.651,
+        "commentary": "Commodity tone is cautious, with growth uncertainty weighing against supply support. Bias -0.28, confidence 0.65. Primary flow source: FXStreet.",
         "top_news": [
+          {
+            "title": "Oil: Tight gas outlook and conflict risks support prices – BNY",
+            "source": "FXStreet",
+            "date": "2026-04-24T11:46:18Z",
+            "url": "https://www.fxstreet.com/news/oil-tight-gas-outlook-and-conflict-risks-support-prices-bny-202604241146",
+            "summary": "BNY’s Bob Savage reports that Oil remains a key market barometer as the Iran war disrupts supply, with Brent up sharply and the International Energy Agency warning that the global natural gas market will stay tight for at least two more years."
+          },
           {
             "title": "Silver price today: Silver falls, according to FXStreet data",
             "source": "FXStreet",
@@ -677,16 +677,16 @@
             "date": "2026-04-20T14:00:00Z",
             "url": "https://www.eia.gov/todayinenergy/detail.php?id=67504",
             "summary": "In the 1970s, the United States and other OECD countries established strategic oil stocks aimed at mitigating the impact of supply disruptions. In March 2026, the United States, along with other members of the International Energy Agency, agreed to a coordinat"
-          },
-          {
-            "title": "Oil Declines as Officials in Pakistan Say US-Iran Talks Expected",
-            "source": "Bloomberg",
-            "date": "2026-04-24T12:17:56Z",
-            "url": "https://www.bloomberg.com/news/articles/2026-04-24/oil-declines-as-officials-in-pakistan-say-us-iran-talks-expected",
-            "summary": ""
           }
         ],
         "score_details": [
+          {
+            "title": "The ‘simple math’ why oil prices need to rise a lot more, according to JPMorgan",
+            "source": "MarketWatch",
+            "direction": 1.0,
+            "relevance": 1.7,
+            "score": 1.7
+          },
           {
             "title": "Oil Declines as Officials in Pakistan Say US-Iran Talks Expected",
             "source": "Bloomberg",
@@ -700,6 +700,13 @@
             "direction": 1.0,
             "relevance": 1.8,
             "score": 1.8
+          },
+          {
+            "title": "Oil: Tight gas outlook and conflict risks support prices – BNY",
+            "source": "FXStreet",
+            "direction": -4.0,
+            "relevance": 1.8,
+            "score": -7.2
           },
           {
             "title": "Silver price today: Silver falls, according to FXStreet data",
@@ -835,10 +842,17 @@
       },
       "FX": {
         "tone": "Mixed",
-        "bias": -0.098,
-        "confidence": 0.618,
-        "commentary": "Major currencies show mixed signals against the dollar, with no clean macro direction yet. Bias -0.10, confidence 0.62. Primary flow source: FXStreet.",
+        "bias": 0.019,
+        "confidence": 0.603,
+        "commentary": "Major currencies show mixed signals against the dollar, with no clean macro direction yet. Bias +0.02, confidence 0.60. Primary flow source: FXStreet.",
         "top_news": [
+          {
+            "title": "NZD/USD edges higher as softer US Dollar, firm RBNZ outlook support pair",
+            "source": "FXStreet",
+            "date": "2026-04-24T11:22:49Z",
+            "url": "https://www.fxstreet.com/news/nzd-usd-edges-higher-as-softer-us-dollar-firm-rbnz-outlook-support-pair-202604241122",
+            "summary": "NZD/USD trades higher around 0.5865 on Friday, gaining 0.22% at the time of writing, while the US Dollar (USD) loses ground with the US Dollar Index (DXY) down 0.18% at 98.65."
+          },
           {
             "title": "DXY: Range holds as energy shock eases – BBH",
             "source": "FXStreet",
@@ -852,16 +866,44 @@
             "date": "2026-04-24T09:50:08Z",
             "url": "https://www.fxstreet.com/news/dxy-fed-repricing-supports-us-currency-deutsche-bank-202604240950",
             "summary": "Deutsche Bank analysts note that strong United States (US) Purchasing Managers' Index (PMI) data have reinforced perceptions of economic resilience and rising price pressures, leading markets to scale back expectations for Federal Reserve (Fed) rate cuts."
-          },
-          {
-            "title": "USD/JPY: Higher range capped below 160.05 – UOB",
-            "source": "FXStreet",
-            "date": "2026-04-24T09:59:02Z",
-            "url": "https://www.fxstreet.com/news/usd-jpy-higher-range-capped-below-16005-uob-202604240959",
-            "summary": "United Overseas Bank (UOB) strategists Quek Ser Leang and Lee Sue Ann note USD/JPY has pushed up to 159.84, validating earlier expectations for a retest of 159.65. While upward momentum is slowing, they still look for the pair to edge higher within a 159.40–16"
           }
         ],
         "score_details": [
+          {
+            "title": "EUR/USD: Range-bound as Eurozone outlook weakens – BBH",
+            "source": "FXStreet",
+            "direction": 1.0,
+            "relevance": 2.0,
+            "score": 2.0
+          },
+          {
+            "title": "EUR/USD shrugs off the risk-off mood and weak data, pops up above 1.1700",
+            "source": "FXStreet",
+            "direction": 1.0,
+            "relevance": 2.0,
+            "score": 2.0
+          },
+          {
+            "title": "GBP: Retail surprise tempers Pound outlook – TD Securities",
+            "source": "FXStreet",
+            "direction": 1.0,
+            "relevance": 1.1,
+            "score": 1.1
+          },
+          {
+            "title": "USD/JPY: BoJ stance risks renewed Yen slide – MUFG",
+            "source": "FXStreet",
+            "direction": -1.0,
+            "relevance": 2.0,
+            "score": -2.0
+          },
+          {
+            "title": "NZD/USD edges higher as softer US Dollar, firm RBNZ outlook support pair",
+            "source": "FXStreet",
+            "direction": 1.0,
+            "relevance": 2.3,
+            "score": 2.3
+          },
           {
             "title": "DXY: Range holds as energy shock eases – BBH",
             "source": "FXStreet",
@@ -927,13 +969,6 @@
           },
           {
             "title": "USD/JPY: Uptrend resumes toward 2024 highs – Societe Generale",
-            "source": "FXStreet",
-            "direction": 1.0,
-            "relevance": 2.0,
-            "score": 2.0
-          },
-          {
-            "title": "EUR/USD trades flat below 1.1700 before entering into central banks’ policies week",
             "source": "FXStreet",
             "direction": 1.0,
             "relevance": 2.0,
@@ -1085,23 +1120,16 @@
       },
       "Rates": {
         "tone": "Cautious",
-        "bias": -0.293,
-        "confidence": 0.494,
-        "commentary": "Rates remain cautious, with inflation and policy communication driving repricing risk. Bias -0.29, confidence 0.49. Primary flow source: Bloomberg.",
+        "bias": -0.773,
+        "confidence": 0.502,
+        "commentary": "Rates remain cautious, with inflation and policy communication driving repricing risk. Bias -0.77, confidence 0.50. Primary flow source: Bloomberg.",
         "top_news": [
           {
             "title": "One by One, Europe’s Safest Government Bonds Fall From Grace",
             "source": "Bloomberg",
-            "date": "2026-04-24T12:17:56Z",
+            "date": "2026-04-24T12:29:36Z",
             "url": "https://www.bloomberg.com/news/articles/2026-04-24/europe-s-safest-government-bonds-fall-from-grace-one-by-one",
             "summary": ""
-          },
-          {
-            "title": "EUR/USD: Heavy tone with downside risks – ING",
-            "source": "FXStreet",
-            "date": "2026-04-24T08:09:33Z",
-            "url": "https://www.fxstreet.com/news/eur-usd-heavy-tone-with-downside-risks-ing-202604240809",
-            "summary": "ING’s Chris Turner says rising short-dated Eurozone yields on higher Oil and pass-through of input costs are not clearly supportive for EUR/USD. He argues the European Central Bank must get ahead of inflation expectations and that current real rate differentia"
           },
           {
             "title": "ECB: Hawkish hold and June options – Nordea",
@@ -1125,13 +1153,6 @@
             "direction": -1.0,
             "relevance": 1.8,
             "score": -1.8
-          },
-          {
-            "title": "EUR/USD: Heavy tone with downside risks – ING",
-            "source": "FXStreet",
-            "direction": 2.0,
-            "relevance": 1.8,
-            "score": 3.6
           }
         ],
         "macro_calendar": [
@@ -1354,10 +1375,10 @@
         "ret_20d_pct": 7.41,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.556337,
-        "macro_alignment": 0.556337,
-        "final_score": 0.88908425,
-        "rationale": "Trend strength in Equities with mixed macro tone."
+        "fund_support": 0.566352,
+        "macro_alignment": 0.566352,
+        "final_score": 0.891588,
+        "rationale": "Trend strength in Equities with supportive macro tone."
       },
       {
         "symbol": "NQ",
@@ -1368,10 +1389,10 @@
         "ret_20d_pct": 10.57,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.556337,
-        "macro_alignment": 0.556337,
-        "final_score": 0.88908425,
-        "rationale": "Trend strength in Equities with mixed macro tone."
+        "fund_support": 0.566352,
+        "macro_alignment": 0.566352,
+        "final_score": 0.891588,
+        "rationale": "Trend strength in Equities with supportive macro tone."
       },
       {
         "symbol": "RTY",
@@ -1382,10 +1403,10 @@
         "ret_20d_pct": 8.88,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.556337,
-        "macro_alignment": 0.556337,
-        "final_score": 0.88908425,
-        "rationale": "Trend strength in Equities with mixed macro tone."
+        "fund_support": 0.566352,
+        "macro_alignment": 0.566352,
+        "final_score": 0.891588,
+        "rationale": "Trend strength in Equities with supportive macro tone."
       }
     ],
     "top_short": [
@@ -1398,9 +1419,9 @@
         "ret_20d_pct": -0.52,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.572371,
-        "macro_alignment": 0.572371,
-        "final_score": 0.89309275,
+        "fund_support": 0.6940230000000001,
+        "macro_alignment": 0.6940230000000001,
+        "final_score": 0.92350575,
         "rationale": "Downtrend remains in place in Rates with cautious macro tone."
       },
       {
@@ -1412,10 +1433,10 @@
         "ret_20d_pct": -11.66,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.521455,
-        "macro_alignment": 0.521455,
-        "final_score": 0.88036375,
-        "rationale": "Downtrend remains in place in Commodities with mixed macro tone."
+        "fund_support": 0.589838,
+        "macro_alignment": 0.589838,
+        "final_score": 0.8974595,
+        "rationale": "Downtrend remains in place in Commodities with cautious macro tone."
       },
       {
         "symbol": "SB",
@@ -1426,10 +1447,10 @@
         "ret_20d_pct": -12.92,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.521455,
-        "macro_alignment": 0.521455,
-        "final_score": 0.88036375,
-        "rationale": "Downtrend remains in place in Commodities with mixed macro tone."
+        "fund_support": 0.589838,
+        "macro_alignment": 0.589838,
+        "final_score": 0.8974595,
+        "rationale": "Downtrend remains in place in Commodities with cautious macro tone."
       }
     ]
   },
