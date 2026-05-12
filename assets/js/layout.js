@@ -26,7 +26,7 @@
     app: {
       brandHref: 'index.html',
       links: [
-        { href: 'app.html', label: 'Research', active: true },
+        { href: 'research.html', label: 'Research', active: true },
         { href: 'model.html', label: 'Model' },
         { button: true, id: 'logoutBtn', label: 'Logout', cta: true }
       ]
@@ -34,7 +34,7 @@
     model: {
       brandHref: 'index.html',
       links: [
-        { href: 'app.html', label: 'Research' },
+        { href: 'research.html', label: 'Research' },
         { href: 'model.html', label: 'Model', active: true },
         { button: true, id: 'logoutBtn', label: 'Logout', cta: true }
       ]
