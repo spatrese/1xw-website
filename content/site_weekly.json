@@ -39,9 +39,9 @@
         "asset_class": "Equities",
         "setup": "Trend continuation",
         "score": 2.0,
-        "ret_20d_pct": 1.61,
-        "ret_60d_pct": -2.0,
-        "exhaustion": "Neutral+ (61)"
+        "ret_20d_pct": 1.79,
+        "ret_60d_pct": -1.82,
+        "exhaustion": "Neutral+ (62)"
       },
       "NIY": {
         "symbol": "NIY",
@@ -59,9 +59,9 @@
         "asset_class": "Equities",
         "setup": "Trend continuation (down)",
         "score": -4.0,
-        "ret_20d_pct": -7.82,
-        "ret_60d_pct": -10.79,
-        "exhaustion": "Neutral- (36)"
+        "ret_20d_pct": -9.63,
+        "ret_60d_pct": -2.68,
+        "exhaustion": "Neutral- (37)"
       },
       "CL": {
         "symbol": "CL",
@@ -157,11 +157,11 @@
         "symbol": "SB",
         "name": "Sugar",
         "asset_class": "Commodities",
-        "setup": "Neutral",
-        "score": 0.0,
-        "ret_20d_pct": 6.66,
-        "ret_60d_pct": 3.66,
-        "exhaustion": "Neutral+ (50)"
+        "setup": "Mean reversion (pullback)",
+        "score": 2.0,
+        "ret_20d_pct": 7.63,
+        "ret_60d_pct": 5.28,
+        "exhaustion": "Neutral+ (54)"
       },
       "KC": {
         "symbol": "KC",
@@ -189,9 +189,9 @@
         "asset_class": "Commodities",
         "setup": "Trend continuation",
         "score": 4.0,
-        "ret_20d_pct": 0.98,
-        "ret_60d_pct": 17.85,
-        "exhaustion": "Neutral+ (50)"
+        "ret_20d_pct": 1.65,
+        "ret_60d_pct": 18.63,
+        "exhaustion": "Neutral+ (52)"
       },
       "LE": {
         "symbol": "LE",
@@ -229,9 +229,9 @@
         "asset_class": "FX",
         "setup": "Trend continuation",
         "score": 4.0,
-        "ret_20d_pct": 0.51,
-        "ret_60d_pct": 1.65,
-        "exhaustion": "Neutral+ (59)"
+        "ret_20d_pct": 0.6,
+        "ret_60d_pct": 1.74,
+        "exhaustion": "Neutral+ (61)"
       },
       "EURUSD": {
         "symbol": "EURUSD",
@@ -239,9 +239,9 @@
         "asset_class": "FX",
         "setup": "Trend continuation (down)",
         "score": -4.0,
-        "ret_20d_pct": -0.5,
-        "ret_60d_pct": -1.46,
-        "exhaustion": "Neutral- (42)"
+        "ret_20d_pct": -0.6,
+        "ret_60d_pct": -1.56,
+        "exhaustion": "Neutral- (40)"
       },
       "GBPUSD": {
         "symbol": "GBPUSD",
@@ -269,9 +269,9 @@
         "asset_class": "FX",
         "setup": "Neutral",
         "score": -2.0,
-        "ret_20d_pct": -0.43,
-        "ret_60d_pct": -0.57,
-        "exhaustion": "Neutral- (40)"
+        "ret_20d_pct": -0.53,
+        "ret_60d_pct": -0.67,
+        "exhaustion": "Neutral- (38)"
       },
       "JPYUSD": {
         "symbol": "JPYUSD",
@@ -279,8 +279,8 @@
         "asset_class": "FX",
         "setup": "Neutral",
         "score": -2.0,
-        "ret_20d_pct": 0.42,
-        "ret_60d_pct": -1.86,
+        "ret_20d_pct": 0.45,
+        "ret_60d_pct": -1.83,
         "exhaustion": "Neutral- (45)"
       },
       "ZB": {
@@ -299,9 +299,9 @@
         "asset_class": "Rates",
         "setup": "Neutral",
         "score": -2.0,
-        "ret_20d_pct": -0.33,
-        "ret_60d_pct": -3.48,
-        "exhaustion": "Neutral+ (51)"
+        "ret_20d_pct": -0.24,
+        "ret_60d_pct": -3.39,
+        "exhaustion": "Neutral+ (52)"
       },
       "GBL": {
         "symbol": "GBL",
@@ -309,9 +309,9 @@
         "asset_class": "Rates",
         "setup": "Trend continuation (down)",
         "score": -4.0,
-        "ret_20d_pct": -0.71,
-        "ret_60d_pct": -2.92,
-        "exhaustion": "Neutral- (45)"
+        "ret_20d_pct": -0.56,
+        "ret_60d_pct": -2.78,
+        "exhaustion": "Neutral- (47)"
       },
       "MBT": {
         "symbol": "MBT",
@@ -344,10 +344,10 @@
       },
       "Commodities": {
         "n": 16,
-        "avg_score": 1.75,
-        "bullish": 11,
+        "avg_score": 1.875,
+        "bullish": 12,
         "bearish": 4,
-        "text": "Breadth is constructive: avg score 1.75, bullish 11/16, bearish 4/16."
+        "text": "Breadth is constructive: avg score 1.88, bullish 12/16, bearish 4/16."
       },
       "FX": {
         "n": 5,
@@ -376,164 +376,91 @@
     "by_asset_class": {
       "Equities": {
         "tone": "Supportive",
-        "bias": 0.271,
-        "confidence": 0.65,
-        "commentary": "Risk sentiment remains constructive, though leadership is selective. Bias +0.27, confidence 0.65. Primary flow source: Bloomberg.",
+        "bias": 0.31,
+        "confidence": 0.657,
+        "commentary": "Risk sentiment remains constructive, though leadership is selective. Bias +0.31, confidence 0.66. Primary flow source: FXStreet.",
         "top_news": [
           {
-            "title": "Stocks Rise on Best Asian Tech Rally in Six Weeks: Markets Wrap",
-            "source": "Bloomberg",
-            "date": "2026-05-21T06:08:48Z",
-            "url": "https://www.bloomberg.com/news/articles/2026-05-20/asian-stocks-to-rise-as-nvidia-whipsaws-on-results-markets-wrap",
-            "summary": ""
-          },
-          {
-            "title": "Stocks, Bonds Climb as Oil Falls on US-Iran Hopes: Markets Wrap",
-            "source": "Bloomberg",
-            "date": "2026-05-21T06:08:48Z",
-            "url": "https://www.bloomberg.com/news/articles/2026-05-19/asian-stocks-to-track-us-drop-on-inflation-fears-markets-wrap",
-            "summary": ""
+            "title": "Equities: Risk-on rotation with Iran peace hopes – Danske Bank",
+            "source": "FXStreet",
+            "date": "2026-05-21T06:47:25Z",
+            "url": "https://www.fxstreet.com/news/equities-risk-on-rotation-with-iran-peace-hopes-danske-bank-202605210647",
+            "summary": "Danske Research Team reports a strong risk-on session in equities, driven by optimism around a possible US–Iran deal and lower Oil prices. Cyclical growth and momentum outperformed, while defensives and energy lagged."
           },
           {
             "title": "Korean Stocks Jump as Samsung Reaches Tentative Deal With Union",
             "source": "Bloomberg",
-            "date": "2026-05-21T06:08:48Z",
+            "date": "2026-05-21T08:09:45Z",
             "url": "https://www.bloomberg.com/news/articles/2026-05-21/korean-stocks-jump-as-samsung-reaches-tentative-deal-with-union",
             "summary": ""
+          },
+          {
+            "title": "Elon Musk’s SpaceX sets out plans for biggest IPO in history",
+            "source": "Financial Times",
+            "date": "2026-05-20T23:05:51Z",
+            "url": "https://www.ft.com/content/c9713173-6bf4-4406-8152-ae010898ac75",
+            "summary": "AI and satellite company fires starting gun on wave of massive Wall Street listings"
           }
         ],
         "score_details": [
           {
-            "title": "Stocks, Bonds Climb as Oil Falls on US-Iran Hopes: Markets Wrap",
-            "source": "Bloomberg",
-            "direction": 1.4,
-            "relevance": 2.0,
-            "score": 2.8,
-            "reason": "Broad risk assets rising while oil falls on lower geopolitical stress is clearly supportive for equities."
-          },
-          {
-            "title": "Shares rally on Nvidia earnings, Samsung strike suspension",
-            "source": "Reuters",
-            "direction": 1.5,
-            "relevance": 2.0,
-            "score": 1.2,
-            "reason": "Broad share rally driven by Nvidia/semiconductors and easing Samsung labor risk supports global equity sentiment."
-          },
-          {
-            "title": "Nvidia beats on earnings, issues upbeat outlook",
-            "source": "Yahoo Finance",
-            "direction": 1.4,
-            "relevance": 1.9,
-            "score": 1.064,
-            "reason": "Nvidia is a market-moving AI leader; earnings beat and upbeat outlook are supportive for equity leadership."
-          },
-          {
             "title": "SoftBank Group Shares Surge Almost 20% on OpenAI, SB Energy IPOs",
             "source": "Bloomberg",
-            "direction": 1.1,
-            "relevance": 1.5,
-            "score": 0.66,
-            "reason": "SoftBank rally supports AI/private-market risk sentiment, though it is partly single-stock specific."
-          },
-          {
-            "title": "S&P 500 futures edge lower as traders analyze Nvidia earnings: Live updates",
-            "source": "CNBC",
-            "direction": -0.4,
-            "relevance": 1.6,
-            "score": -0.64,
-            "reason": "Futures edging lower is mildly negative, but the move is tactical and linked to post-earnings digestion."
-          },
-          {
-            "title": "Nvidia delivers upbeat outlook, boosts dividend, but the stock falls. Here’s what to know.",
-            "source": "MarketWatch",
-            "direction": -0.3,
-            "relevance": 1.4,
-            "score": -0.168,
-            "reason": "Upbeat guidance is positive but stock falling shows market reaction is not cleanly bullish."
-          },
-          {
-            "title": "Stocks Rise on Best Asian Tech Rally in Six Weeks: Markets Wrap",
-            "source": "Bloomberg",
-            "direction": 1.5,
-            "relevance": 2.0,
-            "score": 3.0,
-            "reason": "Best Asian tech rally in six weeks is a strong positive equity breadth signal."
-          },
-          {
-            "title": "Nvidia’s Huang Spurs Asia Tech Rally With AI, Robots Hype",
-            "source": "Bloomberg",
             "direction": 1.2,
-            "relevance": 1.7,
-            "score": 0.816,
-            "reason": "Nvidia-linked AI/robotics enthusiasm is supportive for tech-heavy equity sentiment."
-          },
-          {
-            "title": "Samsung shares soar as strike averted, but bonuses of $416,000 for some stoke concern",
-            "source": "Reuters",
-            "direction": 0.9,
-            "relevance": 1.5,
-            "score": 0.54,
-            "reason": "Averted strike supports chip supply-chain sentiment, partly offset by lingering cost/bonus concerns."
+            "relevance": 1.3,
+            "score": 0.624,
+            "reason": "Large move in a major conglomerate tied to AI/IPO momentum supports risk appetite and tech sector flows. Relevance moderate-high given SoftBank's market footprint and signalling effect for AI-related listings."
           },
           {
             "title": "Korean Stocks Jump as Samsung Reaches Tentative Deal With Union",
             "source": "Bloomberg",
-            "direction": 1.0,
-            "relevance": 1.5,
-            "score": 1.5,
-            "reason": "Korean stocks jumping on reduced Samsung labor risk is supportive but regional."
-          },
-          {
-            "title": "Nvidia says it has ‘largely conceded’ China’s AI chip market to Huawei",
-            "source": "CNBC",
-            "direction": -0.8,
-            "relevance": 1.5,
-            "score": -0.48,
-            "reason": "China AI-chip market loss is negative for Nvidia/geopolitical tech sentiment."
-          },
-          {
-            "title": "SoftBank Group shares soar 20% as Nvidia earnings signal strong AI momentum",
-            "source": "CNBC",
-            "direction": 1.1,
-            "relevance": 1.5,
-            "score": 0.66,
-            "reason": "AI momentum through Nvidia/Arm/SoftBank is supportive for Asian tech sentiment."
-          },
-          {
-            "title": "Nvidia lifts dividend as investors fret about growth prospects",
-            "source": "Financial Times",
-            "direction": -0.4,
-            "relevance": 1.5,
-            "score": -0.24,
-            "reason": "Despite better results, investor concern about growth prospects slightly offsets the AI-positive earnings narrative."
-          },
-          {
-            "title": "Inside India newsletter: India’s investment appeal dims as firms and funds pivot to the U.S.",
-            "source": "CNBC",
-            "direction": -0.7,
-            "relevance": 1.2,
-            "score": -0.336,
-            "reason": "Capital pivot away from India is negative for local equity flows, but not a broad global equity driver."
-          },
-          {
-            "title": "Intuit plans to cut workforce by about 17% as tax software maker reckons with slowing growth",
-            "source": "CNBC",
-            "direction": -0.5,
+            "direction": 0.9,
             "relevance": 1.0,
-            "score": -0.2,
-            "reason": "Large tech/software layoffs signal pressure in some growth stocks, but this is company-specific."
+            "score": 0.9,
+            "reason": "Resolution of a major strike reduces regional operational risk and supports Korean market performance; positive but localized to Korea/tech supply chain."
+          },
+          {
+            "title": "Equities: Risk-on rotation with Iran peace hopes – Danske Bank",
+            "source": "FXStreet",
+            "direction": 1.5,
+            "relevance": 1.4,
+            "score": 2.1,
+            "reason": "Clear risk-on move tied to improving geopolitical outlook and falling oil — broad positive for equities/risk assets. Relevance high because it reflects market-wide sentiment and commodity-driven impact on cyclicals."
+          },
+          {
+            "title": "Nvidia fails to dazzle investors despite lifting dividends",
+            "source": "Financial Times",
+            "direction": 0.6,
+            "relevance": 1.6,
+            "score": 0.154,
+            "reason": "Mega-cap Nvidia delivered strong revenue/forecasts but the stock reaction was muted/dip — mixed signal. Still positive for long-term AI-led demand, but near-term market reaction reduces upside for broad indices."
+          },
+          {
+            "title": "Anthropic on track for first profitable quarter",
+            "source": "Financial Times",
+            "direction": 0.8,
+            "relevance": 1.1,
+            "score": 0.352,
+            "reason": "Profitability at a large AI lab is constructive for AI sector valuation and IPO appetite, supporting investor sentiment toward AI-related equities."
+          },
+          {
+            "title": "Elon Musk’s SpaceX sets out plans for biggest IPO in history",
+            "source": "Financial Times",
+            "direction": 1.4,
+            "relevance": 1.6,
+            "score": 0.896,
+            "reason": "SpaceX filing signals a potential mega IPO wave, likely to attract risk capital and boost tech/IPO market sentiment — material for equity markets and fund flows."
+          },
+          {
+            "title": "OpenAI takes the lead in AI IPO horse race: 'Getting to public markets first is very important'",
+            "source": "CNBC",
+            "direction": 0.9,
+            "relevance": 1.1,
+            "score": 0.396,
+            "reason": "OpenAI IPO prospects reinforce AI sector momentum and could draw significant capital into tech equities; positive for risk appetite though timing/details uncertain."
           }
         ],
         "macro_calendar": [
-          {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
           {
             "label": "US Consumer Confidence",
             "title": "US Consumer Confidence",
@@ -602,15 +529,6 @@
             "url": "https://finviz.com/quote.ashx?t=WMT"
           },
           {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
-          {
             "label": "US Consumer Confidence",
             "title": "US Consumer Confidence",
             "ticker": "",
@@ -634,6 +552,15 @@
             "ticker": "",
             "company": "",
             "source": "U.S. Census",
+            "date": "2026-05-28",
+            "url": "https://www.newyorkfed.org/research/calendars/i-may26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
             "date": "2026-05-28",
             "url": "https://www.newyorkfed.org/research/calendars/i-may26.html"
           }
@@ -649,15 +576,6 @@
             "url": "https://finviz.com/quote.ashx?t=WMT"
           },
           {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
-          {
             "label": "US Consumer Confidence",
             "title": "US Consumer Confidence",
             "ticker": "",
@@ -683,129 +601,113 @@
             "source": "U.S. Census",
             "date": "2026-05-28",
             "url": "https://www.newyorkfed.org/research/calendars/i-may26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-05-28",
+            "url": "https://www.newyorkfed.org/research/calendars/i-may26.html"
           }
         ]
       },
       "Commodities": {
-        "tone": "Mixed",
-        "bias": 0.187,
-        "confidence": 0.634,
-        "commentary": "Commodity signals are mixed, with demand uncertainty offsetting selective support. Bias +0.19, confidence 0.63. Primary flow source: Bloomberg.",
+        "tone": "Supportive",
+        "bias": 0.23,
+        "confidence": 0.642,
+        "commentary": "Commodity tone is supportive, with supply dynamics still relevant. Bias +0.23, confidence 0.64. Primary flow source: Bloomberg.",
         "top_news": [
           {
             "title": "Goldman Says Global Oil Stockpiles Falling at Record Pace on War",
             "source": "Bloomberg",
-            "date": "2026-05-21T06:08:48Z",
+            "date": "2026-05-21T08:09:45Z",
             "url": "https://www.bloomberg.com/news/articles/2026-05-21/goldman-says-global-oil-stockpiles-falling-at-record-pace-on-war",
             "summary": ""
           },
           {
             "title": "Oil Near $100 Emerges as Consensus for Next Year With Iran War",
             "source": "Bloomberg",
-            "date": "2026-05-21T06:08:48Z",
+            "date": "2026-05-21T08:09:45Z",
             "url": "https://www.bloomberg.com/news/articles/2026-05-21/oil-near-100-emerges-as-consensus-for-next-year-with-iran-war",
             "summary": ""
           },
           {
-            "title": "Dollar Rallies and Gold Falls as T-note Yields Climb",
-            "source": "Yahoo Finance",
-            "date": "2026-05-19T19:34:19Z",
-            "url": "https://finance.yahoo.com/markets/currencies/articles/dollar-rallies-gold-falls-t-193419457.html",
-            "summary": ""
+            "title": "UAE says new pipeline that will bypass Strait of Hormuz is nearly 50% complete",
+            "source": "CNBC",
+            "date": "2026-05-20T18:56:33Z",
+            "url": "https://www.cnbc.com/2026/05/20/uae-pipeline-strait-hormuz-iran-war-oil.html",
+            "summary": "The UAE has redirected some oil exports through an existing pipeline to Fujairah, which has a maximum capacity of 1.8 million barrels per day."
           }
         ],
         "score_details": [
           {
-            "title": "Goldman Says Global Oil Stockpiles Falling at Record Pace on War",
-            "source": "Bloomberg",
-            "direction": 1.7,
-            "relevance": 2.0,
-            "score": 3.4,
-            "reason": "Oil inventories falling at record pace is strongly bullish crude."
+            "title": "Gold steady as US-Iran peace deal hopes offset inflation fears",
+            "source": "Reuters",
+            "direction": 0.5,
+            "relevance": 1.0,
+            "score": 0.5,
+            "reason": "Geopolitical thaw (lower oil/geo risk) plus lower odds of hikes supports gold modestly; market-level metal story with macro implications for safe-haven demand."
           },
           {
-            "title": "Gold Steadies as Hopes of US-Iran Truce Lower Odds of Rate Hikes",
+            "title": "Goldman Says Global Oil Stockpiles Falling at Record Pace on War",
             "source": "Bloomberg",
-            "direction": 0.4,
-            "relevance": 1.3,
-            "score": 0.52,
-            "reason": "Lower odds of rate hikes support gold, but price action is steady rather than strongly bullish."
+            "direction": 1.4,
+            "relevance": 1.8,
+            "score": 2.52,
+            "reason": "Record-paced global oil stock drawdowns due to conflict represent a strong supply shock — materially bullish for oil prices and energy commodities."
           },
           {
             "title": "Oil Near $100 Emerges as Consensus for Next Year With Iran War",
             "source": "Bloomberg",
-            "direction": 1.3,
-            "relevance": 1.9,
-            "score": 2.47,
-            "reason": "Oil near $100 consensus on war risk is bullish energy."
-          },
-          {
-            "title": "Oil Edges Up After Plunging on Optimism Over US-Iran Agreement",
-            "source": "Bloomberg",
-            "direction": 0.3,
-            "relevance": 1.4,
-            "score": 0.42,
-            "reason": "Oil edging up after a sharp drop is only mildly supportive; peace optimism limits upside."
-          },
-          {
-            "title": "Gold slips as hawkish Fed and Iran uncertainty support USD",
-            "source": "FXStreet",
-            "direction": -1.1,
+            "direction": 1.5,
             "relevance": 1.6,
-            "score": -1.76,
-            "reason": "Gold slipping as USD and hawkish Fed dominate is negative precious metals."
+            "score": 2.4,
+            "reason": "Market consensus that oil could be near $100 next year due to ongoing Iran war implies a sustained, material upward risk to oil prices — significant for energy markets."
           },
           {
-            "title": "Silver Price Forecast: XAG/USD bulls target break above $76.75 confluence hurdle",
+            "title": "Gold extends slide as hawkish Fed bets and US-Iran peace doubts support USD",
             "source": "FXStreet",
-            "direction": 0.5,
-            "relevance": 0.8,
-            "score": 0.4,
-            "reason": "Silver upside setup is mildly positive but technical/price-forecast content gets low relevance."
+            "direction": -1.0,
+            "relevance": 0.7,
+            "score": -0.7,
+            "reason": "Price/technical intraday note linking hawkish Fed bets and USD strength to lower gold — precious-metal weakness driven by rates/USD dynamics (TA-focused, limited relevance)."
           },
           {
-            "title": "WTI stabilizes above $98.00 amid mixed US-Iran peace deal signals",
+            "title": "Silver Price Forecast: XAG/USD faces pressure near $76.60 as US yields rebound",
             "source": "FXStreet",
-            "direction": 0.4,
-            "relevance": 1.4,
-            "score": 0.56,
-            "reason": "WTI stabilizing after a sharp fall is mildly supportive but signals are mixed."
+            "direction": -1.0,
+            "relevance": 0.6,
+            "score": -0.6,
+            "reason": "Precious-metal technical/price story tied to US yields; higher yields/USD are negative for silver. Price-forecast/TA item — limited relevance per framework."
           },
           {
-            "title": "Gold holds steady near $4,550 as market eyes Middle East developments",
-            "source": "FXStreet",
-            "direction": 0.1,
-            "relevance": 1.0,
-            "score": 0.1,
-            "reason": "Gold steady near high levels is slightly supportive but mostly neutral."
+            "title": "UAE says new pipeline that will bypass Strait of Hormuz is nearly 50% complete",
+            "source": "CNBC",
+            "direction": -1.0,
+            "relevance": 1.2,
+            "score": -1.2,
+            "reason": "Pipeline bypassing Strait of Hormuz reduces chokepoint risk for oil shipments — lowers geopolitical risk premium, negative for oil prices."
           },
           {
-            "title": "Silver Price Analysis: Bullish harami forms, eyes on $80 breakout",
-            "source": "FXStreet",
+            "title": "Coal remains competitive for power generation in the central United States",
+            "source": "EIA Today in Energy",
             "direction": 0.6,
             "relevance": 0.8,
             "score": 0.48,
-            "reason": "Bullish silver technical setup is positive but low relevance because it is chart-based."
+            "reason": "Short-run economics keep coal competitive in parts of the US power mix — modestly supportive for coal demand/prices regionally."
           },
           {
-            "title": "Dollar Rallies and Gold Falls as T-note Yields Climb",
-            "source": "Yahoo Finance",
-            "direction": -1.2,
-            "relevance": 1.6,
-            "score": -1.92,
-            "reason": "Gold falling on stronger USD/higher yields is negative for precious metals."
+            "title": "U.S. industrial natural gas consumption expected to hit records in 2026 and 2027",
+            "source": "EIA Today in Energy",
+            "direction": 1.0,
+            "relevance": 1.2,
+            "score": 1.2,
+            "reason": "Forecast record industrial gas demand increases are a clear bullish demand-side factor for natural gas markets."
           }
         ],
         "macro_calendar": [
-          {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
           {
             "label": "US Durable Goods Orders",
             "title": "US Durable Goods Orders",
@@ -819,15 +721,6 @@
         "earnings_calendar": [],
         "key_watchpoints": [
           {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
-          {
             "label": "US Durable Goods Orders",
             "title": "US Durable Goods Orders",
             "ticker": "",
@@ -838,15 +731,6 @@
           }
         ],
         "key_events": [
-          {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
           {
             "label": "US Durable Goods Orders",
             "title": "US Durable Goods Orders",
@@ -860,56 +744,104 @@
       },
       "FX": {
         "tone": "Mixed",
-        "bias": -0.073,
+        "bias": -0.069,
         "confidence": 0.613,
         "commentary": "Major currencies show mixed signals against the dollar, with no clean macro direction yet. Bias -0.07, confidence 0.61. Primary flow source: Bloomberg.",
         "top_news": [
           {
             "title": "Iran War Spurs Extreme Bear Scenarios for Asia Currencies, Bonds",
             "source": "Bloomberg",
-            "date": "2026-05-21T06:08:48Z",
+            "date": "2026-05-21T08:09:45Z",
             "url": "https://www.bloomberg.com/news/articles/2026-05-21/iran-war-spurs-extreme-bear-scenarios-for-asia-currencies-bonds",
             "summary": ""
           },
           {
-            "title": "Swiss Franc declines as US Dollar advances on US-Iran uncertainty",
+            "title": "ECB’s Rehn: Raising rates may be needed in adverse scenario to maintain credibility",
             "source": "FXStreet",
-            "date": "2026-05-21T04:20:13Z",
-            "url": "https://www.fxstreet.com/news/swiss-franc-declines-as-us-dollar-advances-on-us-iran-uncertainty-202605210420",
-            "summary": ""
+            "date": "2026-05-21T05:14:48Z",
+            "url": "https://www.fxstreet.com/news/ecbs-rehn-raising-rates-may-be-needed-in-adverse-scenario-to-maintain-credibility-202605210514",
+            "summary": "European Central Bank (ECB) official and Finnish Central Bank Governor Olli Rehn said that under adverse circumstances, it might be necessary to raise interest rates to maintain credibility, Reuters reported on Thursday."
           },
           {
-            "title": "Japanese Yen holds gains following Trade Balance data",
+            "title": "Japanese Yen: BoJ hike risks rise with cost pressures – Danske Bank",
             "source": "FXStreet",
-            "date": "2026-05-21T00:42:07Z",
-            "url": "https://www.fxstreet.com/news/japanese-yen-holds-gains-following-trade-balance-data-202605210042",
-            "summary": ""
+            "date": "2026-05-21T07:33:39Z",
+            "url": "https://www.fxstreet.com/news/japanese-yen-boj-hike-risks-rise-with-cost-pressures-danske-bank-202605210733",
+            "summary": "Danske Research Team argues that greater certainty in energy markets could actually increase near-term rate-hike odds from the Bank of Japan (BoJ)."
           }
         ],
         "score_details": [
           {
-            "title": "RBC BlueBay Adds to Yen Longs on Intervention, BOJ Rate View",
-            "source": "Bloomberg",
-            "direction": 0.8,
-            "relevance": 1.4,
-            "score": 1.12,
-            "reason": "Institutional yen longs on intervention/BoJ view are positive for JPYUSD."
-          },
-          {
             "title": "Iran War Spurs Extreme Bear Scenarios for Asia Currencies, Bonds",
             "source": "Bloomberg",
-            "direction": -1.0,
-            "relevance": 1.6,
-            "score": -1.6,
-            "reason": "Asia currency stress implies USD strength/risk-off, negative for the FX basket."
+            "direction": -1.2,
+            "relevance": 1.4,
+            "score": -1.68,
+            "reason": "Headline signals elevated geopolitical risk creating pronounced USD safe-haven demand and downside pressure on Asian FX and bonds — high-impact risk-off scenario for FX markets."
+          },
+          {
+            "title": "RBC BlueBay Adds to Yen Longs on Intervention, BOJ Rate View",
+            "source": "Bloomberg",
+            "direction": 0.7,
+            "relevance": 0.9,
+            "score": 0.63,
+            "reason": "Asset manager increasing yen longs on BOJ/ intervention expectations supports near-term JPY strength; market positioning piece with material FX relevance."
+          },
+          {
+            "title": "Germany’s flash Manufacturing PMI unexpectedly declines to 49.9 vs. 51.0 estimates",
+            "source": "FXStreet",
+            "direction": -0.7,
+            "relevance": 1.0,
+            "score": -0.7,
+            "reason": "Soft German PMI is negative for euro-area growth outlook and thus negative for EUR vs USD; important euro-area macro datapoint."
+          },
+          {
+            "title": "Japanese Yen: BoJ hike risks rise with cost pressures – Danske Bank",
+            "source": "FXStreet",
+            "direction": 0.9,
+            "relevance": 1.0,
+            "score": 0.9,
+            "reason": "Rising odds of BoJ tightening would be supportive for JPY vs USD; central-bank repricing for Japan is a notable FX driver."
+          },
+          {
+            "title": "USD/JPY Price Forecast: Remains close to 159.00, descending channel top",
+            "source": "FXStreet",
+            "direction": -0.5,
+            "relevance": 0.6,
+            "score": -0.3,
+            "reason": "Technical note showing USD strength around 159; as a price-forecast piece its market signal is limited in scope, so relevance is capped."
+          },
+          {
+            "title": "British Pound: Limited upside against US Dollar within range – UOB",
+            "source": "FXStreet",
+            "direction": -0.5,
+            "relevance": 0.7,
+            "score": -0.35,
+            "reason": "Bank strategist note highlighting constrained GBP upside vs USD — suggests modest sterling underperformance in current conditions."
+          },
+          {
+            "title": "AUD/USD Price Forecast: Picks up above 0.7120 after finding support in the 0.7100 area",
+            "source": "FXStreet",
+            "direction": -0.6,
+            "relevance": 0.6,
+            "score": -0.36,
+            "reason": "Soft domestic jobs data increases odds of an RBA pause, pressuring AUD vs USD. This is a technical/price-forecast note so relevance is capped."
+          },
+          {
+            "title": "ECB’s Rehn: Raising rates may be needed in adverse scenario to maintain credibility",
+            "source": "FXStreet",
+            "direction": 1.0,
+            "relevance": 1.4,
+            "score": 1.4,
+            "reason": "ECB official signaling potential further hikes is bullish for the euro vs the dollar (reduces relative USD safe-haven), a meaningful central-bank comment with clear FX implications."
           },
           {
             "title": "New Zealand Dollar weakens despite stronger Trade Balance data",
             "source": "FXStreet",
             "direction": -0.5,
-            "relevance": 1.1,
-            "score": -0.55,
-            "reason": "NZD weakness is a negative non-USD currency signal, but outside core universe."
+            "relevance": 0.6,
+            "score": -0.3,
+            "reason": "NZD weakness despite trade data points to broader USD demand or risk sentiment shifts; limited but relevant for antipodean FX flows."
           },
           {
             "title": "EUR/USD Price Forecast: Consolidates above 1.1600 as Iran risks, hawkish Fed support USD",
@@ -917,99 +849,34 @@
             "direction": -0.6,
             "relevance": 0.8,
             "score": -0.48,
-            "reason": "Hawkish Fed/USD support is negative for EURUSD, but the article is a price forecast so relevance is low."
+            "reason": "Hawkish Fed positioning and geopolitical risk are supportive of USD and cap EUR upside; a price-forecast note so relevance is at the allowed cap."
           },
           {
             "title": "Swiss Franc declines as US Dollar advances on US-Iran uncertainty",
             "source": "FXStreet",
-            "direction": -1.0,
-            "relevance": 1.6,
-            "score": -1.6,
-            "reason": "USD advancing versus CHF reflects broad USD support, negative for the FX basket."
+            "direction": -0.8,
+            "relevance": 0.9,
+            "score": -0.72,
+            "reason": "US-Iran uncertainty is supporting the USD (risk-off/safe-haven dynamics), which weighs on CHF/USD crosses; clear USD-strength signal with near-term FX impact."
           },
           {
             "title": "US Dollar Index hovers around 99.00 due to US-Iran peace hopes",
             "source": "FXStreet",
-            "direction": 0.2,
-            "relevance": 1.2,
-            "score": 0.24,
-            "reason": "DXY steady after losses is mildly positive for non-USD currencies, but the directional signal is weak."
+            "direction": 0.3,
+            "relevance": 0.9,
+            "score": 0.27,
+            "reason": "DXY steadiness amid peace hopes suggests a slight easing of safe-haven USD demand — modestly positive for other currencies, limited directional impact."
           },
           {
             "title": "British Pound trades flat as cooling UK inflation, Iran tensions cap upside",
             "source": "FXStreet",
-            "direction": -0.8,
-            "relevance": 1.6,
-            "score": -1.28,
-            "reason": "Cooling UK inflation and capped GBP upside are negative for GBPUSD in the USD-centric FX basket."
-          },
-          {
-            "title": "Australian Dollar falls toward 0.7100 as Unemployment Rate climbs in April",
-            "source": "FXStreet",
-            "direction": -0.9,
-            "relevance": 1.5,
-            "score": -1.35,
-            "reason": "AUDUSD falling on weaker labor data is negative for the USD-centric FX basket."
-          },
-          {
-            "title": "Euro flatlines above 1.1600 amid hawkish Fed stance, Iran deal uncertainty",
-            "source": "FXStreet",
-            "direction": -0.5,
-            "relevance": 1.2,
-            "score": -0.6,
-            "reason": "Hawkish Fed and safe-haven uncertainty cap EURUSD upside, mildly negative FX."
-          },
-          {
-            "title": "Japanese Yen holds gains following Trade Balance data",
-            "source": "FXStreet",
-            "direction": 0.9,
-            "relevance": 1.6,
-            "score": 1.44,
-            "reason": "JPY holding gains means JPYUSD support in the current framework."
-          },
-          {
-            "title": "Australian Dollar softens to near 0.7150 on weak PMIs, US Iran tensions",
-            "source": "FXStreet",
-            "direction": -0.9,
-            "relevance": 1.5,
-            "score": -1.35,
-            "reason": "AUDUSD weakness on poor data and safe-haven USD is negative for the FX basket."
-          },
-          {
-            "title": "Pound Sterling shrugs off its own disinflation",
-            "source": "FXStreet",
-            "direction": 0.8,
-            "relevance": 1.5,
-            "score": 1.2,
-            "reason": "GBP rallying despite dovish inflation data is supportive for GBPUSD."
-          },
-          {
-            "title": "Japanese Yen catches a break, no thanks to the BoJ",
-            "source": "FXStreet",
-            "direction": 0.7,
-            "relevance": 1.3,
-            "score": 0.91,
-            "reason": "JPY firmer is positive for JPYUSD, but the article says it is not supported by BoJ policy so conviction is moderate."
-          },
-          {
-            "title": "New Zealand Dollar rises as improving market sentiment pressures the US Dollar",
-            "source": "FXStreet",
-            "direction": 0.9,
-            "relevance": 1.5,
-            "score": 1.35,
-            "reason": "NZDUSD rising on weaker USD is positive for the USD-centric FX basket, though NZD is outside the core universe."
+            "direction": -0.6,
+            "relevance": 0.9,
+            "score": -0.54,
+            "reason": "Cooling UK inflation is dovish for sterling while geopolitical risk keeps USD demand; net effect is mild GBP weakness vs USD."
           }
         ],
         "macro_calendar": [
-          {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
           {
             "label": "US Consumer Confidence",
             "title": "US Consumer Confidence",
@@ -1050,15 +917,6 @@
         "earnings_calendar": [],
         "key_watchpoints": [
           {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
-          {
             "label": "US Consumer Confidence",
             "title": "US Consumer Confidence",
             "ticker": "",
@@ -1096,15 +954,6 @@
           }
         ],
         "key_events": [
-          {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
           {
             "label": "US Consumer Confidence",
             "title": "US Consumer Confidence",
@@ -1144,29 +993,29 @@
         ]
       },
       "Rates": {
-        "tone": "Mixed",
-        "bias": -0.179,
-        "confidence": 0.633,
-        "commentary": "Rates remain data-dependent, with no clean trend yet across inflation and policy expectations. Bias -0.18, confidence 0.63. Primary flow source: Bloomberg.",
+        "tone": "Cautious",
+        "bias": -0.263,
+        "confidence": 0.648,
+        "commentary": "Rates remain cautious, with inflation and policy communication driving repricing risk. Bias -0.26, confidence 0.65. Primary flow source: Federal Reserve.",
         "top_news": [
           {
-            "title": "Fed Minutes Show More Officials Warned of Rate-Hike Scenario",
-            "source": "Bloomberg",
-            "date": "2026-05-21T06:08:48Z",
-            "url": "https://www.bloomberg.com/news/articles/2026-05-20/fed-minutes-show-more-officials-warning-of-rate-hike-scenario",
-            "summary": ""
+            "title": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
+            "source": "Federal Reserve",
+            "date": "2026-05-20T18:00:00Z",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260520a.htm",
+            "summary": "Minutes of the Federal Open Market Committee, April 28-29, 2026"
           },
           {
-            "title": "Fed officials see rate hike ahead if inflation stays elevated, minutes show",
+            "title": "Treasury yields resume climb as traders monitor inflation risks",
             "source": "CNBC",
-            "date": "2026-05-20T19:04:09Z",
-            "url": "https://www.cnbc.com/2026/05/20/fed-officials-see-rate-hike-ahead-if-inflation-stays-elevated-minutes-show.html",
-            "summary": ""
+            "date": "2026-05-21T07:06:14Z",
+            "url": "https://www.cnbc.com/2026/05/21/treasury-yields-resume-climb-as-traders-monitor-inflation-risks.html",
+            "summary": "Borrowing costs edged higher Thursday as investors eye ongoing inflationary pressures in the U.S. economy."
           },
           {
             "title": "Gilts Jump as UK Inflation Surprise Curbs Rate-Hike Wagers",
             "source": "Bloomberg",
-            "date": "2026-05-21T06:08:48Z",
+            "date": "2026-05-21T08:09:45Z",
             "url": "https://www.bloomberg.com/news/articles/2026-05-20/gilts-jump-on-slower-inflation-as-traders-pare-rate-hike-wagers",
             "summary": ""
           }
@@ -1175,110 +1024,69 @@
           {
             "title": "Bond yields, oil fall amid hopes for Iran deal; stocks end up with chip shares",
             "source": "Reuters",
-            "direction": 1.4,
-            "relevance": 2.0,
-            "score": 2.8,
-            "reason": "Yields falling is positive for bond prices in the Rates framework."
-          },
-          {
-            "title": "Fed Minutes Show More Officials Warned of Rate-Hike Scenario",
-            "source": "Bloomberg",
-            "direction": -1.7,
-            "relevance": 2.0,
-            "score": -3.4,
-            "reason": "More officials warning of a hike scenario implies higher-for-longer policy risk, negative bonds."
+            "direction": 0.8,
+            "relevance": 1.2,
+            "score": 0.96,
+            "reason": "Reuters reports bond yields falling on hopes of an Iran deal — yields down (bond rally) as geopolitical risk premium eases; positive for bonds but story is event-driven and regionally focused."
           },
           {
             "title": "Gilts Jump as UK Inflation Surprise Curbs Rate-Hike Wagers",
             "source": "Bloomberg",
-            "direction": 1.6,
-            "relevance": 2.0,
-            "score": 3.2,
-            "reason": "Gilts rallying as hike wagers are pared is directly positive for bond prices."
-          },
-          {
-            "title": "India Weighs Measures Including Rate Hike to Stabilize Rupee",
-            "source": "Bloomberg",
-            "direction": -0.9,
-            "relevance": 1.3,
-            "score": -1.17,
-            "reason": "Rate-hike discussion is bond-negative, but India-specific and less relevant to core 1XW Rates universe."
-          },
-          {
-            "title": "The AI Boom Is Making Warsh’s Bond-Market Bind Even Worse",
-            "source": "Bloomberg",
-            "direction": -1.0,
-            "relevance": 1.5,
-            "score": -1.5,
-            "reason": "AI/investment-driven inflation concerns worsen the bond-market backdrop."
+            "direction": 1.0,
+            "relevance": 1.4,
+            "score": 1.4,
+            "reason": "UK inflation surprise that reduces rate-hike expectations leads to gilt rally (yields lower) — positive for UK bonds and relevant for global rate sentiment given Gilt market importance."
           },
           {
             "title": "Japan’s Super-Long Bonds See First Foreign Outflow Since 2024",
             "source": "Bloomberg",
-            "direction": -1.1,
-            "relevance": 1.6,
-            "score": -1.76,
-            "reason": "Foreign outflows from super-long JGBs are negative for long-duration bonds."
-          },
-          {
-            "title": "A 220% Bond Rally Snaps as Venezuela Euphoria Gets Reality Check",
-            "source": "Bloomberg",
-            "direction": -0.5,
-            "relevance": 0.8,
-            "score": -0.4,
-            "reason": "EM bond rally reversal is negative but peripheral to the 1XW Rates universe."
-          },
-          {
-            "title": "ECB’s Rehn: Raising rates may be needed in adverse scenario to maintain credibility",
-            "source": "FXStreet",
-            "direction": -1.2,
-            "relevance": 1.8,
-            "score": -2.16,
-            "reason": "ECB rate-hike risk is negative for duration in the bond-price framework."
-          },
-          {
-            "title": "BoJ’s Koeda: Core inflation is already near 2%",
-            "source": "FXStreet",
             "direction": -0.9,
-            "relevance": 1.5,
-            "score": -1.35,
-            "reason": "Japan inflation near target keeps BoJ normalization risk alive, mildly bearish JGBs/global duration."
+            "relevance": 1.2,
+            "score": -1.08,
+            "reason": "Foreign outflows from super-long JGBs imply selling pressure and higher yields in the long end of the Japanese curve; notable for JGB market dynamics and cross-border flows."
           },
           {
-            "title": "Fed officials see rate hike ahead if inflation stays elevated, minutes show",
+            "title": "South Korea Set to Reduce Debt Sales in June as Bonds Slump",
+            "source": "Bloomberg",
+            "direction": -0.9,
+            "relevance": 1.0,
+            "score": -0.9,
+            "reason": "Reports of Korean authorities cutting planned issuance amid a bond slump signal market stress and tighter supply management; negative for local bond sentiment and relevant for Asian rates."
+          },
+          {
+            "title": "India Weighs Measures Including Rate Hike to Stabilize Rupee",
+            "source": "Bloomberg",
+            "direction": -0.8,
+            "relevance": 0.9,
+            "score": -0.72,
+            "reason": "India considering rate hikes to defend the rupee points to potential tightening and higher local rates — negative for bond prices in India and relevant for EM rate outlook."
+          },
+          {
+            "title": "Treasury yields resume climb as traders monitor inflation risks",
             "source": "CNBC",
-            "direction": -1.7,
-            "relevance": 2.0,
-            "score": -3.4,
-            "reason": "FOMC minutes warning of possible rate hikes are bearish duration."
-          },
-          {
-            "title": "Lower gas and electricity bills behind UK inflation fall to 2.8%",
-            "source": "BBC",
-            "direction": 1.0,
+            "direction": -1.2,
             "relevance": 1.6,
-            "score": 1.6,
-            "reason": "Lower inflation drivers reduce tightening pressure, supportive for bonds."
+            "score": -1.92,
+            "reason": "Headline that U.S. Treasury yields are climbing on inflation concerns is directly negative for bond prices (yields up); fairly high market relevance given US Treasury market size and impact on global rates."
           },
           {
-            "title": "United Kingdom CPI inflation cools to 2.8% YoY in April vs. 3.0% forecast",
+            "title": "BoJ’s Koeda: Appropriate to deal with inflation with monetary policy",
             "source": "FXStreet",
-            "direction": 1.2,
+            "direction": -0.6,
+            "relevance": 0.8,
+            "score": -0.48,
+            "reason": "BoJ board member signalling that monetary policy is the appropriate tool to address inflation is modestly hawkish for JGBs — pressure toward higher yields, but phrasing is cautious and domestic to Japan so relevance is limited."
+          },
+          {
+            "title": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
+            "source": "Federal Reserve",
+            "direction": -1.4,
             "relevance": 1.8,
-            "score": 2.16,
-            "reason": "Cooler UK CPI supports gilts and duration."
+            "score": -2.52,
+            "reason": "Official FOMC minutes indicating that officials see the possibility of further hikes if inflation remains elevated is a material hawkish signal for U.S. rates and global bond markets (higher-for-longer pricing)."
           }
         ],
         "macro_calendar": [
-          {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
           {
             "label": "US Consumer Confidence",
             "title": "US Consumer Confidence",
@@ -1319,15 +1127,6 @@
         "earnings_calendar": [],
         "key_watchpoints": [
           {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
-          {
             "label": "US Consumer Confidence",
             "title": "US Consumer Confidence",
             "ticker": "",
@@ -1365,15 +1164,6 @@
           }
         ],
         "key_events": [
-          {
-            "label": "PMI",
-            "title": "Euro Area PMI Flash",
-            "ticker": "",
-            "company": "",
-            "source": "S&P Global",
-            "date": "2026-05-21",
-            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
-          },
           {
             "label": "US Consumer Confidence",
             "title": "US Consumer Confidence",
@@ -1414,9 +1204,9 @@
       },
       "Crypto": {
         "tone": "Mixed",
-        "bias": 0.064,
-        "confidence": 0.612,
-        "commentary": "Crypto tone is balanced, with supportive narratives competing against uncertainty. Bias +0.06, confidence 0.61. Primary flow source: CoinDesk.",
+        "bias": 0.013,
+        "confidence": 0.602,
+        "commentary": "Crypto tone is balanced, with supportive narratives competing against uncertainty. Bias +0.01, confidence 0.60. Primary flow source: CoinDesk.",
         "top_news": [
           {
             "title": "Federal Reserve proposes limited master accounts long pursued by crypto firms",
@@ -1426,17 +1216,17 @@
             "summary": ""
           },
           {
-            "title": "Here's why bitcoin turned lower from the 200-day average",
+            "title": "Prediction markets firms take heat in Senate Commerce hearing scrutinizing surge",
             "source": "CoinDesk",
-            "date": "2026-05-21T04:52:32Z",
-            "url": "https://www.coindesk.com/markets/2026/05/21/bitcoin-s-rebound-has-a-buyer-problem-as-etf-coinbase-and-korea-demand-fade",
+            "date": "2026-05-20T17:16:21Z",
+            "url": "https://www.coindesk.com/policy/2026/05/20/prediction-markets-firms-take-heat-in-senate-commerce-hearing-scrutinizing-surge",
             "summary": ""
           },
           {
-            "title": "Elizabeth Warren Calls Crypto Bank Charter Approvals for Firms Like Coinbase, Ripple Illegal",
-            "source": "Yahoo Finance",
-            "date": "2026-05-19T18:06:29Z",
-            "url": "https://finance.yahoo.com/markets/crypto/articles/elizabeth-warren-calls-crypto-bank-180629225.html",
+            "title": "Bitcoin rebounds above $77,000. Analysts weigh in on whether the bounce has legs.",
+            "source": "CoinDesk",
+            "date": "2026-05-20T11:12:02Z",
+            "url": "https://www.coindesk.com/daybook-us/2026/05/20/bitcoin-rebounds-above-usd77-000-analysts-weigh-in-on-whether-the-bounce-has-legs",
             "summary": ""
           }
         ],
@@ -1444,122 +1234,98 @@
           {
             "title": "Here's why bitcoin turned lower from the 200-day average",
             "source": "CoinDesk",
-            "direction": -1.0,
-            "relevance": 1.6,
-            "score": -1.6,
-            "reason": "Bitcoin failing at a key moving average with weak demand is negative for BTC momentum."
+            "direction": -0.5,
+            "relevance": 0.9,
+            "score": -0.45,
+            "reason": "Technical resistance at the 200-day average and fading demand sources (ETF, regional flows) signal potential lessened upside and greater volatility; modest negative for momentum-driven positioning."
           },
           {
             "title": "Polymarket moves to list parlays while SEC seeks public input on prediction market ETFs",
             "source": "CoinDesk",
-            "direction": 0.6,
-            "relevance": 1.2,
-            "score": 0.72,
-            "reason": "Prediction-market ETF consultation is mildly supportive for crypto-market structure, but not directly BTC/ETH."
+            "direction": -0.6,
+            "relevance": 1.0,
+            "score": -0.6,
+            "reason": "Product expansion (parlays) shows demand, but the SEC's open consultation on prediction-market ETFs signals regulatory uncertainty that could limit product availability and investor appetite."
           },
           {
             "title": "Bitcoin miners tied to AI rise as Nvidia posts big earnings beat and strong outlook",
             "source": "CoinDesk",
-            "direction": 0.8,
-            "relevance": 1.4,
-            "score": 1.12,
-            "reason": "AI-linked bitcoin miners rising supports crypto-equity sentiment."
+            "direction": 0.5,
+            "relevance": 0.8,
+            "score": 0.4,
+            "reason": "Positive risk-on spillover from strong AI/tech earnings lifted related miner stocks; beneficial for mining sector equity performance and sentiment toward crypto infrastructure providers."
           },
           {
             "title": "Federal Reserve proposes limited master accounts long pursued by crypto firms",
             "source": "CoinDesk",
-            "direction": 1.2,
-            "relevance": 1.8,
-            "score": 2.16,
-            "reason": "Limited Fed master accounts would improve crypto firms' access to payment rails, supportive regulation/infrastructure."
+            "direction": 1.4,
+            "relevance": 1.6,
+            "score": 2.24,
+            "reason": "Central-bank access via limited master accounts is a material infrastructure/legitimacy improvement for crypto firms — positive for custody, settlement and institutional adoption, likely to improve funding/liquidity conditions."
           },
           {
             "title": "Elon Musk's SpaceX held 18,712 bitcoin at fair value of $1.29 billion at end of Q1, IPO filing shows",
             "source": "CoinDesk",
             "direction": 0.8,
-            "relevance": 1.4,
-            "score": 1.12,
-            "reason": "Large SpaceX BTC holdings are supportive institutional/adoption signal."
-          },
-          {
-            "title": "Securitize posts record revenue in the first quarter as it gears up for public listing",
-            "source": "CoinDesk",
-            "direction": 0.7,
-            "relevance": 1.2,
-            "score": 0.84,
-            "reason": "Record tokenization-platform revenue is supportive for digital asset infrastructure, though company-specific."
+            "relevance": 1.0,
+            "score": 0.8,
+            "reason": "Large corporate holdings by a high-profile firm are evidence of institutional/treasury demand for bitcoin, supportive for price and credibility of BTC as a reserve asset."
           },
           {
             "title": "Latest Congressional swing at crypto tax reform would direct IRS to review de minimis exemptions",
             "source": "CoinDesk",
-            "direction": 0.6,
-            "relevance": 1.2,
-            "score": 0.72,
-            "reason": "Potential de minimis tax review is modestly supportive for crypto usability."
-          },
-          {
-            "title": "Ethereum Foundation's high-profile departures spark fresh debate",
-            "source": "CoinDesk",
-            "direction": -0.6,
-            "relevance": 1.2,
-            "score": -0.72,
-            "reason": "Ethereum governance/departure debate is negative for ETH sentiment."
-          },
-          {
-            "title": "Why Trump's bitcoin ETF plans likely collapsed before getting off the ground",
-            "source": "CoinDesk",
             "direction": -0.7,
             "relevance": 1.2,
             "score": -0.84,
-            "reason": "Collapsed bitcoin ETF plans are negative for sentiment, though narrow and political."
+            "reason": "Potential changes to tax treatment and de minimis exemptions increase compliance costs and transactional friction for users and firms, a negative for market participation and sentiment."
+          },
+          {
+            "title": "Prediction markets firms take heat in Senate Commerce hearing scrutinizing surge",
+            "source": "CoinDesk",
+            "direction": -1.0,
+            "relevance": 1.4,
+            "score": -1.4,
+            "reason": "Heightened regulatory scrutiny at the Senate level raises legal and operational risks for prediction-market firms and the broader crypto policy environment, a negative for sentiment and product rollout."
           },
           {
             "title": "EU opens MiCA consultation to review if crypto framework is still fit for purpose",
             "source": "CoinDesk",
-            "direction": 0.2,
-            "relevance": 1.0,
-            "score": 0.2,
-            "reason": "Regulatory review is neutral-to-slightly supportive but outcome is uncertain."
+            "direction": -0.5,
+            "relevance": 1.1,
+            "score": -0.55,
+            "reason": "A MiCA review creates regulatory uncertainty in a major jurisdiction; potential tightening or rework could affect EU market participants and cross-border products, modestly negative for sentiment."
           },
           {
             "title": "South Korean funeral company reveals $33 million loss on leveraged ether ETF bet",
             "source": "CoinDesk",
-            "direction": -0.8,
-            "relevance": 1.2,
-            "score": -0.96,
-            "reason": "Leveraged ETH ETF losses highlight speculative risk and negative sentiment."
+            "direction": -0.6,
+            "relevance": 0.8,
+            "score": -0.48,
+            "reason": "A notable leveraged-loss story highlights retail/institutional misuse of leveraged crypto products, which can spur local regulatory scrutiny and damage sentiment among more risk-averse investors."
           },
           {
-            "title": "These bitcoin metrics suggest February’s $60,000 selloff may have marked the bottom",
+            "title": "Vitalik Buterin outlines Ethereum's privacy measures. Here is what it means for the network and ETH",
             "source": "CoinDesk",
-            "direction": 0.8,
-            "relevance": 1.3,
-            "score": 1.04,
-            "reason": "On-chain/market metrics suggesting a bottom are supportive for BTC."
+            "direction": 0.6,
+            "relevance": 0.9,
+            "score": 0.54,
+            "reason": "Advances in privacy features can improve Ethereum's utility and on-chain demand for ETH (e.g., for privacy-aware dApps), a positive technical/ fundamental development for the network."
           },
           {
-            "title": "Bitcoin and ethereum prices today, Wednesday, May 20, 2026: Opened lower but moving higher",
-            "source": "Yahoo Finance",
-            "direction": 0.5,
-            "relevance": 1.0,
-            "score": 0.5,
-            "reason": "BTC/ETH moving higher after opening lower is mildly supportive but price-update relevance is modest."
+            "title": "Bitcoin rebounds above $77,000. Analysts weigh in on whether the bounce has legs.",
+            "source": "CoinDesk",
+            "direction": 0.9,
+            "relevance": 1.2,
+            "score": 1.08,
+            "reason": "A sustained rebound above key nominal levels supports risk sentiment for crypto and could attract flows (including ETFs); market-moving for crypto prices and investor positioning."
           },
           {
             "title": "Bitcoin holds near $77,400 as derivatives signal caution",
             "source": "CoinDesk",
-            "direction": -0.5,
-            "relevance": 1.3,
-            "score": -0.65,
-            "reason": "BTC holding near levels but derivatives caution is mildly negative."
-          },
-          {
-            "title": "Elizabeth Warren Calls Crypto Bank Charter Approvals for Firms Like Coinbase, Ripple Illegal",
-            "source": "Yahoo Finance",
-            "direction": -0.9,
-            "relevance": 1.4,
-            "score": -1.26,
-            "reason": "Political challenge to crypto bank charters is regulatory headwind."
+            "direction": -0.4,
+            "relevance": 0.9,
+            "score": -0.36,
+            "reason": "Derivatives metrics showing caution (elevated funding, options skew, etc.) raise short-term downside risk despite price strength; small negative for near-term risk sentiment."
           }
         ],
         "macro_calendar": [],
@@ -1588,9 +1354,9 @@
         "ret_20d_pct": 3.75,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.588075,
-        "macro_alignment": 0.588075,
-        "final_score": 0.89701875,
+        "fund_support": 0.601835,
+        "macro_alignment": 0.601835,
+        "final_score": 0.90045875,
         "rationale": "Trend remains constructive; broader equities tone remains supportive."
       },
       {
@@ -1602,9 +1368,9 @@
         "ret_20d_pct": 8.01,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.588075,
-        "macro_alignment": 0.588075,
-        "final_score": 0.89701875,
+        "fund_support": 0.601835,
+        "macro_alignment": 0.601835,
+        "final_score": 0.90045875,
         "rationale": "Trend remains constructive; broader equities tone remains supportive."
       },
       {
@@ -1616,9 +1382,9 @@
         "ret_20d_pct": 0.97,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.588075,
-        "macro_alignment": 0.588075,
-        "final_score": 0.89701875,
+        "fund_support": 0.601835,
+        "macro_alignment": 0.601835,
+        "final_score": 0.90045875,
         "rationale": "Trend remains constructive; broader equities tone remains supportive."
       }
     ],
@@ -1632,10 +1398,10 @@
         "ret_20d_pct": -2.93,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.5566535,
-        "macro_alignment": 0.5566535,
-        "final_score": 0.889163375,
-        "rationale": "Downtrend remains in place; broader rates tone remains mixed."
+        "fund_support": 0.5852120000000001,
+        "macro_alignment": 0.5852120000000001,
+        "final_score": 0.8963030000000001,
+        "rationale": "Downtrend remains in place; broader rates tone remains cautious."
       },
       {
         "symbol": "GBL",
@@ -1643,13 +1409,13 @@
         "asset_class": "Rates",
         "setup": "Trend continuation (down)",
         "score": -4.0,
-        "ret_20d_pct": -0.71,
+        "ret_20d_pct": -0.56,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.5566535,
-        "macro_alignment": 0.5566535,
-        "final_score": 0.889163375,
-        "rationale": "Downtrend remains in place; broader rates tone remains mixed."
+        "fund_support": 0.5852120000000001,
+        "macro_alignment": 0.5852120000000001,
+        "final_score": 0.8963030000000001,
+        "rationale": "Downtrend remains in place; broader rates tone remains cautious."
       },
       {
         "symbol": "EURUSD",
@@ -1657,12 +1423,12 @@
         "asset_class": "FX",
         "setup": "Trend continuation (down)",
         "score": -4.0,
-        "ret_20d_pct": -0.5,
+        "ret_20d_pct": -0.6,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.5223745,
-        "macro_alignment": 0.5223745,
-        "final_score": 0.8805936249999999,
+        "fund_support": 0.5211485,
+        "macro_alignment": 0.5211485,
+        "final_score": 0.880287125,
         "rationale": "Downtrend remains in place; broader fx tone remains mixed."
       }
     ]
@@ -1686,31 +1452,6 @@
       ],
       "urls": [
         "https://finviz.com/quote.ashx?t=WMT"
-      ]
-    },
-    {
-      "date": "2026-05-21",
-      "type": "Macro",
-      "title": "Euro Area PMI Flash",
-      "country": "Euro Area",
-      "importance": "high",
-      "markets": [
-        "Equities",
-        "Rates",
-        "FX",
-        "Commodities"
-      ],
-      "source": "S&P Global",
-      "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-      "event_key": "EA_PMI_FLASH",
-      "source_family": "S&P Global",
-      "scheduler_source": "S&P Global PMI Release Calendar",
-      "provider_title": "S&P Global Flash Eurozone PMI",
-      "sources": [
-        "S&P Global"
-      ],
-      "urls": [
-        "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
       ]
     },
     {
