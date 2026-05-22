@@ -376,9 +376,9 @@
     "by_asset_class": {
       "Equities": {
         "tone": "Mixed",
-        "bias": 0.063,
-        "confidence": 0.612,
-        "commentary": "Equity signals are balanced, with supportive pockets offset by an uneven backdrop. Bias +0.06, confidence 0.61. Primary flow source: Reuters.",
+        "bias": 0.15,
+        "confidence": 0.804,
+        "commentary": "Equity signals are balanced, with supportive pockets offset by an uneven backdrop. Bias +0.15, confidence 0.80. Primary flow source: Reuters.",
         "top_news": [
           {
             "title": "UBS Global Wealth Management lifts S&P 500 target on strong consumer spending, AI demand",
@@ -395,10 +395,10 @@
             "summary": ""
           },
           {
-            "title": "EM Stocks Poised for Weekly Gain, Tech Stocks Rise on AI Trade",
-            "source": "Bloomberg",
+            "title": "Wall St futures rise as markets monitor US-Iran peace talks",
+            "source": "Reuters",
             "date": "2026-05-22T11:24:28Z",
-            "url": "https://www.bloomberg.com/news/articles/2026-05-22/em-stocks-poised-for-weekly-gain-tech-stocks-rise-on-ai-trade",
+            "url": "https://www.reuters.com/business/wall-st-futures-rise-markets-monitor-us-iran-peace-talks-2026-05-22/",
             "summary": ""
           }
         ],
@@ -416,7 +416,7 @@
             "source": "Reuters",
             "direction": 1.0,
             "relevance": 1.2,
-            "score": 0.48,
+            "score": 1.2,
             "reason": "Geopolitical risk/demand impulse: easing US–Iran tensions is supporting risk assets and futures — a positive near-term catalyst for equities as headline risk declines."
           },
           {
@@ -440,7 +440,7 @@
             "source": "Reuters",
             "direction": -0.8,
             "relevance": 1.1,
-            "score": -0.352,
+            "score": -0.88,
             "reason": "Cross-market headwind: a firmer dollar (and mixed signals on the Iran deal) is a net negative for equity risk assets — raises funding/currency headwinds and offsets some of the bullish AI/peace-talks flows."
           },
           {
@@ -448,7 +448,7 @@
             "source": "CNBC",
             "direction": -0.9,
             "relevance": 1.1,
-            "score": -0.396,
+            "score": -0.99,
             "reason": "Supply / structural risk: a wave of mega-IPOs (SpaceX/OpenAI etc.) could force passive rebalancing and large share issuance, creating a material headwind for existing market liquidity and potentially marking a market-top risk."
           },
           {
@@ -456,7 +456,7 @@
             "source": "CNBC",
             "direction": 1.0,
             "relevance": 0.9,
-            "score": 0.144,
+            "score": 0.9,
             "reason": "AI leadership signal: company-level beat driven by AI revenue supports the broader market narrative that AI-related winners are driving equity flows — relevant but single-stock in focus."
           },
           {
@@ -464,7 +464,7 @@
             "source": "CNBC",
             "direction": 1.1,
             "relevance": 1.0,
-            "score": 0.176,
+            "score": 1.1,
             "reason": "Risk-on / AI flow: large-cap market-cap gains at SoftBank reflect concentrated investor appetite for AI exposure and crowded positioning — supportive for equity sentiment, especially in tech/Asia."
           },
           {
@@ -472,7 +472,7 @@
             "source": "CNBC",
             "direction": 0.9,
             "relevance": 0.9,
-            "score": 0.13,
+            "score": 0.81,
             "reason": "Earnings / sector leadership: better margins driven by AI reinforce the narrative that AI is translating into improved profitability for software names — supports sector-level equity upside."
           }
         ],
@@ -631,9 +631,9 @@
       },
       "Commodities": {
         "tone": "Mixed",
-        "bias": -0.015,
-        "confidence": 0.603,
-        "commentary": "Commodity signals are mixed, with demand uncertainty offsetting selective support. Bias -0.01, confidence 0.60. Primary flow source: EIA Today in Energy.",
+        "bias": -0.023,
+        "confidence": 0.72,
+        "commentary": "Commodity signals are mixed, with demand uncertainty offsetting selective support. Bias -0.02, confidence 0.72. Primary flow source: EIA Today in Energy.",
         "top_news": [
           {
             "title": "U.S. industrial natural gas consumption expected to hit records in 2026 and 2027",
@@ -699,6 +699,14 @@
             "reason": "Mild hopes of a US‑Iran deal are removing some geopolitical risk premium and weighing on WTI — materially negative for oil in the near term."
           },
           {
+            "title": "Oil-rich Alberta to hold a vote on whether to separate from Canada",
+            "source": "CNBC",
+            "direction": 0.4,
+            "relevance": 0.8,
+            "score": 0.32,
+            "reason": "Political uncertainty in a major oil-producing region raises a supply‑risk premium for Canadian crude — modestly positive for oil/price risk."
+          },
+          {
             "title": "Gold Price Forecast: XAU/USD keeps looking for direction above $4,500",
             "source": "FXStreet",
             "direction": -0.4,
@@ -761,6 +769,14 @@
             "relevance": 1.6,
             "score": 1.6,
             "reason": "EIA projects record industrial gas demand — a clear positive demand-side driver for natural gas and related energy markets."
+          },
+          {
+            "title": "Electricity generation from solar could exceed coal in ERCOT for the first time in 2026",
+            "source": "EIA Today in Energy",
+            "direction": -0.6,
+            "relevance": 1.2,
+            "score": -0.72,
+            "reason": "Structural shift to solar over coal in ERCOT reduces thermal coal demand in a major US region — negative medium-term signal for coal market."
           }
         ],
         "macro_calendar": [
@@ -800,9 +816,9 @@
       },
       "FX": {
         "tone": "Cautious",
-        "bias": -0.456,
-        "confidence": 0.684,
-        "commentary": "The dollar backdrop remains supportive, limiting follow-through in major currencies. Bias -0.46, confidence 0.68. Primary flow source: FXStreet.",
+        "bias": -0.354,
+        "confidence": 0.736,
+        "commentary": "The dollar backdrop remains supportive, limiting follow-through in major currencies. Bias -0.35, confidence 0.74. Primary flow source: FXStreet.",
         "top_news": [
           {
             "title": "Japanese Yen: Energy and rates keep Yen under pressure – Commerzbank",
@@ -858,6 +874,14 @@
             "relevance": 0.7,
             "score": -0.7,
             "reason": "Technical/price-forecast confirmation of the JPY-weakness narrative. Price-TA has lower relevance but supports the view of further USD/JPY upside toward 160.5."
+          },
+          {
+            "title": "Indian Rupee: RBI signal slows depreciation – OCBC",
+            "source": "FXStreet",
+            "direction": 0.8,
+            "relevance": 0.8,
+            "score": 0.64,
+            "reason": "Local policy (RBI signaling intervention and possible hikes) is a constructive idiosyncratic driver for INR strength versus USD — a regional counterpoint to the broader USD-strength story, but lower cross-market impact."
           },
           {
             "title": "Japanese Yen: Energy and rates keep Yen under pressure – Commerzbank",
@@ -1020,10 +1044,10 @@
         ]
       },
       "Rates": {
-        "tone": "Cautious",
-        "bias": -0.219,
-        "confidence": 0.64,
-        "commentary": "Rates remain cautious, with inflation and policy communication driving repricing risk. Bias -0.22, confidence 0.64. Primary flow source: Reuters.",
+        "tone": "Mixed",
+        "bias": -0.151,
+        "confidence": 0.695,
+        "commentary": "Rates remain data-dependent, with no clean trend yet across inflation and policy expectations. Bias -0.15, confidence 0.69. Primary flow source: Reuters.",
         "top_news": [
           {
             "title": "U.S. equity funds record outflows on caution over higher yields",
@@ -1073,6 +1097,14 @@
             "reason": "Planned reduction in long‑term issuance lowers supply pressure — modestly supportive for bond prices (yields down) in the affected market; relevance limited to regional supply dynamics."
           },
           {
+            "title": "Australia Jobless Rate Jumps to 4-1/2 Year High as RBA Bets Fade",
+            "source": "Bloomberg",
+            "direction": 0.5,
+            "relevance": 0.7,
+            "score": 0.35,
+            "reason": "Surprising rise in unemployment reduces odds of further RBA tightening — supportive for Australian bond prices (yields lower), moderate regional relevance."
+          },
+          {
             "title": "Philippines’ BSP Flags Bold Rate Move to Stay Ahead of Inflation",
             "source": "Bloomberg",
             "direction": -0.7,
@@ -1095,6 +1127,30 @@
             "relevance": 1.2,
             "score": 1.2,
             "reason": "Material fall in UK yields after fiscal credibility improved and market rate bets were pared — clear bond‑positive move for gilts, moderate‑high relevance for global rates backdrop but somewhat idiosyncratic to UK."
+          },
+          {
+            "title": "US Dollar Index: Consolidation near resistance – OCBC",
+            "source": "FXStreet",
+            "direction": 0.3,
+            "relevance": 0.6,
+            "score": 0.18,
+            "reason": "Notes linkage between USD and UST yields; signals slightly lower UST yields (bond‑positive) but is primarily FX technical commentary so relevance is limited."
+          },
+          {
+            "title": "Canadian Dollar remains subdued as USD gains on hawkish Fed expectations",
+            "source": "FXStreet",
+            "direction": -0.7,
+            "relevance": 0.7,
+            "score": -0.49,
+            "reason": "USD strength driven by hawkish Fed expectations is a direct signal of higher UST yields (negative for bond prices). FX piece but reflects market rate expectations."
+          },
+          {
+            "title": "Mortgage Rates Had Finally Eased This Spring—Now They’re Surging Again",
+            "source": "Yahoo Finance",
+            "direction": -0.6,
+            "relevance": 0.6,
+            "score": -0.36,
+            "reason": "Resumption of rising mortgage rates is consistent with higher underlying bond yields (US/benchmark influence) — negative for bond prices, but more tactical/retail signal so moderate relevance."
           },
           {
             "title": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
@@ -1251,8 +1307,8 @@
       "Crypto": {
         "tone": "Mixed",
         "bias": 0.168,
-        "confidence": 0.631,
-        "commentary": "Crypto tone is balanced, with supportive narratives competing against uncertainty. Bias +0.17, confidence 0.63. Primary flow source: Yahoo Finance.",
+        "confidence": 0.797,
+        "commentary": "Crypto tone is balanced, with supportive narratives competing against uncertainty. Bias +0.17, confidence 0.80. Primary flow source: Yahoo Finance.",
         "top_news": [
           {
             "title": "SpaceX Bitcoin Stack Reaches $1.45B as Public Listing Nears",
@@ -1424,9 +1480,9 @@
         "ret_20d_pct": 0.9,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.655952,
-        "macro_alignment": 0.655952,
-        "final_score": 0.913988,
+        "fund_support": 0.6302719999999999,
+        "macro_alignment": 0.6302719999999999,
+        "final_score": 0.9075679999999999,
         "rationale": "Trend remains constructive; broader fx tone remains cautious."
       },
       {
@@ -1438,9 +1494,9 @@
         "ret_20d_pct": 4.51,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.519278,
-        "macro_alignment": 0.519278,
-        "final_score": 0.8798195,
+        "fund_support": 0.5603,
+        "macro_alignment": 0.5603,
+        "final_score": 0.890075,
         "rationale": "Trend remains constructive; broader equities tone remains mixed."
       },
       {
@@ -1452,9 +1508,9 @@
         "ret_20d_pct": 9.33,
         "side": "LONG",
         "tech_score": 1.0,
-        "fund_support": 0.519278,
-        "macro_alignment": 0.519278,
-        "final_score": 0.8798195,
+        "fund_support": 0.5603,
+        "macro_alignment": 0.5603,
+        "final_score": 0.890075,
         "rationale": "Trend remains constructive; broader equities tone remains mixed."
       }
     ],
@@ -1468,9 +1524,9 @@
         "ret_20d_pct": -1.02,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.655952,
-        "macro_alignment": 0.655952,
-        "final_score": 0.913988,
+        "fund_support": 0.6302719999999999,
+        "macro_alignment": 0.6302719999999999,
+        "final_score": 0.9075679999999999,
         "rationale": "Downtrend remains in place; broader fx tone remains cautious."
       },
       {
@@ -1482,10 +1538,10 @@
         "ret_20d_pct": -2.61,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.57008,
-        "macro_alignment": 0.57008,
-        "final_score": 0.89252,
-        "rationale": "Downtrend remains in place; broader rates tone remains cautious."
+        "fund_support": 0.5524725,
+        "macro_alignment": 0.5524725,
+        "final_score": 0.888118125,
+        "rationale": "Downtrend remains in place; broader rates tone remains mixed."
       },
       {
         "symbol": "GBL",
@@ -1496,10 +1552,10 @@
         "ret_20d_pct": -0.29,
         "side": "SHORT",
         "tech_score": 1.0,
-        "fund_support": 0.57008,
-        "macro_alignment": 0.57008,
-        "final_score": 0.89252,
-        "rationale": "Downtrend remains in place; broader rates tone remains cautious."
+        "fund_support": 0.5524725,
+        "macro_alignment": 0.5524725,
+        "final_score": 0.888118125,
+        "rationale": "Downtrend remains in place; broader rates tone remains mixed."
       }
     ]
   },
