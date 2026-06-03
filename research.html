@@ -772,7 +772,30 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
   function renderTechnicalOverview(tech){
     const holder = $('techInstrumentRows');
-    const rows = Object.values(tech?.by_symbol || {}).sort((a,b) => (Number(b.score) || 0) - (Number(a.score) || 0));
+    
+    function exhaustionRank(v){
+      const s = String(v || '').toLowerCase();
+
+      const m = s.match(/\((\d+)\)/);
+      const n = m ? Number(m[1]) : 50;
+
+      if (s.includes('extreme ob')) return 1000 + n;
+      if (s.includes('overbought')) return 800 + n;
+      if (s.includes('neutral+')) return 600 + n;
+      if (s.includes('neutral')) return 500 + n;
+      if (s.includes('neutral-')) return 400 + n;
+      if (s.includes('oversold')) return 200 + n;
+      if (s.includes('extreme os')) return 0 + n;
+
+      return n;
+    }
+
+    const rows = Object.values(tech?.by_symbol || {}).sort((a,b) =>
+      (Number(b.score) || 0) - (Number(a.score) || 0) ||
+      exhaustionRank(b.exhaustion) - exhaustionRank(a.exhaustion)
+    );
+
+
     if (!rows.length){
       holder.innerHTML = '<div class="empty">No instrument rows available.</div>';
       return;
