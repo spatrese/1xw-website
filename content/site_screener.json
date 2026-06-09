@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-08T11:03:03Z",
+  "updatedAt": "2026-06-09T11:45:53Z",
   "tradeIdeas": [
     {
       "id": "IB-LONG-CL",
@@ -1854,26 +1854,8 @@
       "week": "2026-W23"
     },
     {
-      "id": "IB-LONG-ES",
-      "date": "2026-06-08",
-      "asset": "ES",
-      "direction": "Long",
-      "status": "Open",
-      "setup": "Trend continuation",
-      "thesis": "Score 4 (trend + momentum).",
-      "structure": "Signal (IB screener)",
-      "horizon": "2-8w",
-      "confidence": 3,
-      "tags": [
-        "Equity",
-        "screener"
-      ],
-      "notes": "",
-      "week": "2026-W24"
-    },
-    {
       "id": "IB-LONG-NQ",
-      "date": "2026-06-08",
+      "date": "2026-06-09",
       "asset": "NQ",
       "direction": "Long",
       "status": "Open",
@@ -1891,7 +1873,7 @@
     },
     {
       "id": "IB-LONG-DAX",
-      "date": "2026-06-08",
+      "date": "2026-06-09",
       "asset": "DAX",
       "direction": "Long",
       "status": "Open",
@@ -1909,7 +1891,7 @@
     },
     {
       "id": "IB-LONG-NIY",
-      "date": "2026-06-08",
+      "date": "2026-06-09",
       "asset": "NIY",
       "direction": "Long",
       "status": "Open",
@@ -1927,7 +1909,7 @@
     },
     {
       "id": "IB-LONG-HG",
-      "date": "2026-06-08",
+      "date": "2026-06-09",
       "asset": "HG",
       "direction": "Long",
       "status": "Open",
@@ -1945,8 +1927,26 @@
     },
     {
       "id": "IB-LONG-DX",
-      "date": "2026-06-08",
+      "date": "2026-06-09",
       "asset": "DX",
+      "direction": "Long",
+      "status": "Open",
+      "setup": "Trend continuation",
+      "thesis": "Score 4 (trend + momentum).",
+      "structure": "Signal (IB screener)",
+      "horizon": "2-8w",
+      "confidence": 3,
+      "tags": [
+        "FX",
+        "screener"
+      ],
+      "notes": "",
+      "week": "2026-W24"
+    },
+    {
+      "id": "IB-LONG-USDCAD",
+      "date": "2026-06-09",
+      "asset": "USDCAD",
       "direction": "Long",
       "status": "Open",
       "setup": "Trend continuation",
@@ -2126,12 +2126,12 @@
       "name": "S&P 500",
       "asset_class": "Equity",
       "contract_type": "FUT",
-      "score": 4,
-      "setup": "Trend continuation",
-      "close": 7400.5,
-      "ret_20d_pct": 0.51,
-      "ret_60d_pct": 8.35,
-      "exhaustion": "Neutral+ (55)"
+      "score": 2,
+      "setup": "Neutral",
+      "close": 7416.0,
+      "ret_20d_pct": -0.04,
+      "ret_60d_pct": 10.23,
+      "exhaustion": "Neutral+ (56)"
     },
     {
       "symbol": "NQ",
@@ -2140,10 +2140,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 29026.5,
-      "ret_20d_pct": 1.2,
-      "ret_60d_pct": 15.18,
-      "exhaustion": "Neutral+ (54)"
+      "close": 29454.75,
+      "ret_20d_pct": 0.42,
+      "ret_60d_pct": 18.9,
+      "exhaustion": "Neutral+ (61)"
     },
     {
       "symbol": "RTY",
@@ -2152,10 +2152,10 @@
       "contract_type": "FUT",
       "score": 2,
       "setup": "Neutral",
-      "close": 2834.8,
-      "ret_20d_pct": -0.49,
-      "ret_60d_pct": 10.69,
-      "exhaustion": "Neutral+ (52)"
+      "close": 2859.5,
+      "ret_20d_pct": -0.28,
+      "ret_60d_pct": 14.07,
+      "exhaustion": "Neutral+ (56)"
     },
     {
       "symbol": "DAX",
@@ -2164,10 +2164,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 24600.0,
-      "ret_20d_pct": 0.77,
-      "ret_60d_pct": 3.33,
-      "exhaustion": "Neutral+ (51)"
+      "close": 24778.0,
+      "ret_20d_pct": 3.16,
+      "ret_60d_pct": 4.16,
+      "exhaustion": "Neutral+ (55)"
     },
     {
       "symbol": "NIY",
@@ -2176,22 +2176,22 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 64025.0,
-      "ret_20d_pct": 2.88,
-      "ret_60d_pct": 17.32,
-      "exhaustion": "Neutral+ (58)"
+      "close": 65570.0,
+      "ret_20d_pct": 2.99,
+      "ret_60d_pct": 22.4,
+      "exhaustion": "Neutral+ (65)"
     },
     {
       "symbol": "VIX",
       "name": "VIX Index",
       "asset_class": "Equity",
       "contract_type": "IND",
-      "score": 2,
-      "setup": "Trend continuation",
-      "close": 19.57,
-      "ret_20d_pct": 13.85,
-      "ret_60d_pct": -28.29,
-      "exhaustion": "Neutral+ (56)"
+      "score": -4,
+      "setup": "Trend continuation (down)",
+      "close": 18.08,
+      "ret_20d_pct": -1.63,
+      "ret_60d_pct": -33.5,
+      "exhaustion": "Neutral- (50)"
     },
     {
       "symbol": "CL",
@@ -2199,11 +2199,11 @@
       "asset_class": "Commodities",
       "contract_type": "FUT",
       "score": 0,
-      "setup": "Mean reversion (bounce)",
-      "close": 90.54,
-      "ret_20d_pct": -0.32,
-      "ret_60d_pct": 13.3,
-      "exhaustion": "Neutral- (43)"
+      "setup": "Neutral",
+      "close": 91.3,
+      "ret_20d_pct": -0.12,
+      "ret_60d_pct": 4.13,
+      "exhaustion": "Neutral- (45)"
     },
     {
       "symbol": "RB",
@@ -2211,11 +2211,11 @@
       "asset_class": "Commodities",
       "contract_type": "FUT",
       "score": 0,
-      "setup": "Mean reversion (bounce)",
-      "close": 3.0459,
-      "ret_20d_pct": -8.17,
-      "ret_60d_pct": 18.07,
-      "exhaustion": "Neutral- (39)"
+      "setup": "Neutral",
+      "close": 3.0706,
+      "ret_20d_pct": -9.29,
+      "ret_60d_pct": 11.94,
+      "exhaustion": "Neutral- (41)"
     },
     {
       "symbol": "NG",
@@ -2224,10 +2224,10 @@
       "contract_type": "FUT",
       "score": 2,
       "setup": "Trend continuation",
-      "close": 3.229,
-      "ret_20d_pct": 11.5,
-      "ret_60d_pct": -7.9,
-      "exhaustion": "Neutral+ (60)"
+      "close": 3.147,
+      "ret_20d_pct": 9.16,
+      "ret_60d_pct": -10.9,
+      "exhaustion": "Neutral+ (53)"
     },
     {
       "symbol": "HG",
@@ -2236,10 +2236,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 6.2845,
-      "ret_20d_pct": 1.76,
-      "ret_60d_pct": 5.66,
-      "exhaustion": "Neutral- (50)"
+      "close": 6.35,
+      "ret_20d_pct": 0.85,
+      "ret_60d_pct": 7.19,
+      "exhaustion": "Neutral+ (53)"
     },
     {
       "symbol": "GC",
@@ -2248,10 +2248,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 4365.3,
-      "ret_20d_pct": -8.02,
-      "ret_60d_pct": -16.91,
-      "exhaustion": "Oversold (25)"
+      "close": 4363.4,
+      "ret_20d_pct": -8.45,
+      "ret_60d_pct": -16.09,
+      "exhaustion": "Oversold (24)"
     },
     {
       "symbol": "SI",
@@ -2260,10 +2260,10 @@
       "contract_type": "FUT",
       "score": -2,
       "setup": "Neutral",
-      "close": 69.105,
-      "ret_20d_pct": -13.81,
-      "ret_60d_pct": -19.79,
-      "exhaustion": "Oversold (31)"
+      "close": 68.585,
+      "ret_20d_pct": -15.19,
+      "ret_60d_pct": -19.99,
+      "exhaustion": "Oversold (30)"
     },
     {
       "symbol": "ZC",
@@ -2272,10 +2272,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 417.5,
-      "ret_20d_pct": -10.7,
-      "ret_60d_pct": -11.12,
-      "exhaustion": "Extreme OS (19)"
+      "close": 418.75,
+      "ret_20d_pct": -11.14,
+      "ret_60d_pct": -11.28,
+      "exhaustion": "Oversold (20)"
     },
     {
       "symbol": "ZW",
@@ -2284,10 +2284,10 @@
       "contract_type": "FUT",
       "score": -2,
       "setup": "Neutral",
-      "close": 580.0,
-      "ret_20d_pct": -5.27,
-      "ret_60d_pct": -3.77,
-      "exhaustion": "Oversold (31)"
+      "close": 583.25,
+      "ret_20d_pct": -5.78,
+      "ret_60d_pct": -3.83,
+      "exhaustion": "Oversold (32)"
     },
     {
       "symbol": "ZS",
@@ -2296,10 +2296,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 1121.5,
-      "ret_20d_pct": -5.93,
-      "ret_60d_pct": -8.93,
-      "exhaustion": "Oversold (24)"
+      "close": 1115.75,
+      "ret_20d_pct": -7.64,
+      "ret_60d_pct": -10.38,
+      "exhaustion": "Oversold (22)"
     },
     {
       "symbol": "SB",
@@ -2308,10 +2308,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 14.34,
-      "ret_20d_pct": -2.38,
-      "ret_60d_pct": -1.71,
-      "exhaustion": "Neutral- (45)"
+      "close": 14.08,
+      "ret_20d_pct": -5.57,
+      "ret_60d_pct": -3.43,
+      "exhaustion": "Neutral- (39)"
     },
     {
       "symbol": "KC",
@@ -2321,9 +2321,9 @@
       "score": -4,
       "setup": "Trend continuation (down)",
       "close": 248.4,
-      "ret_20d_pct": -9.61,
-      "ret_60d_pct": -13.69,
-      "exhaustion": "Oversold (22)"
+      "ret_20d_pct": -12.01,
+      "ret_60d_pct": -11.63,
+      "exhaustion": "Oversold (23)"
     },
     {
       "symbol": "CC",
@@ -2332,10 +2332,10 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Neutral",
-      "close": 3820.0,
-      "ret_20d_pct": -8.66,
-      "ret_60d_pct": 12.42,
-      "exhaustion": "Neutral- (47)"
+      "close": 3923.0,
+      "ret_20d_pct": -16.69,
+      "ret_60d_pct": 16.1,
+      "exhaustion": "Neutral+ (52)"
     },
     {
       "symbol": "CT",
@@ -2344,10 +2344,10 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Neutral",
-      "close": 78.0,
-      "ret_20d_pct": -11.94,
-      "ret_60d_pct": 11.33,
-      "exhaustion": "Oversold (34)"
+      "close": 77.57,
+      "ret_20d_pct": -15.46,
+      "ret_60d_pct": 9.52,
+      "exhaustion": "Oversold (31)"
     },
     {
       "symbol": "LE",
@@ -2355,11 +2355,11 @@
       "asset_class": "Commodities",
       "contract_type": "FUT",
       "score": 0,
-      "setup": "Mean reversion (bounce)",
-      "close": 241.65,
-      "ret_20d_pct": -0.88,
-      "ret_60d_pct": 8.57,
-      "exhaustion": "Neutral- (50)"
+      "setup": "Neutral",
+      "close": 236.725,
+      "ret_20d_pct": -2.45,
+      "ret_60d_pct": 5.86,
+      "exhaustion": "Neutral- (38)"
     },
     {
       "symbol": "GF",
@@ -2367,11 +2367,11 @@
       "asset_class": "Commodities",
       "contract_type": "FUT",
       "score": 0,
-      "setup": "Mean reversion (bounce)",
-      "close": 353.9,
-      "ret_20d_pct": -3.35,
-      "ret_60d_pct": 3.87,
-      "exhaustion": "Neutral- (44)"
+      "setup": "Neutral",
+      "close": 350.7,
+      "ret_20d_pct": -3.71,
+      "ret_60d_pct": 2.9,
+      "exhaustion": "Neutral- (41)"
     },
     {
       "symbol": "HE",
@@ -2380,10 +2380,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 97.225,
-      "ret_20d_pct": -7.36,
-      "ret_60d_pct": -15.66,
-      "exhaustion": "Oversold (23)"
+      "close": 96.15,
+      "ret_20d_pct": -7.68,
+      "ret_60d_pct": -15.82,
+      "exhaustion": "Oversold (22)"
     },
     {
       "symbol": "DX",
@@ -2392,10 +2392,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 100.01,
-      "ret_20d_pct": 2.23,
-      "ret_60d_pct": 0.54,
-      "exhaustion": "Overbought (75)"
+      "close": 99.71,
+      "ret_20d_pct": 1.56,
+      "ret_60d_pct": 0.38,
+      "exhaustion": "Overbought (67)"
     },
     {
       "symbol": "EURUSD",
@@ -2404,10 +2404,10 @@
       "contract_type": "CASH",
       "score": -2,
       "setup": "Trend continuation (down)",
-      "close": 1.152565,
-      "ret_20d_pct": -2.19,
-      "ret_60d_pct": 0.18,
-      "exhaustion": "Oversold (28)"
+      "close": 1.156775,
+      "ret_20d_pct": -1.45,
+      "ret_60d_pct": 0.24,
+      "exhaustion": "Neutral- (36)"
     },
     {
       "symbol": "GBPUSD",
@@ -2416,10 +2416,10 @@
       "contract_type": "CASH",
       "score": -2,
       "setup": "Trend continuation (down)",
-      "close": 1.33413,
-      "ret_20d_pct": -1.98,
-      "ret_60d_pct": 0.16,
-      "exhaustion": "Neutral- (36)"
+      "close": 1.339755,
+      "ret_20d_pct": -1.05,
+      "ret_60d_pct": 0.32,
+      "exhaustion": "Neutral- (44)"
     },
     {
       "symbol": "AUDUSD",
@@ -2428,10 +2428,10 @@
       "contract_type": "CASH",
       "score": -2,
       "setup": "Neutral",
-      "close": 0.70578,
-      "ret_20d_pct": -2.64,
-      "ret_60d_pct": -0.2,
-      "exhaustion": "Neutral- (37)"
+      "close": 0.70572,
+      "ret_20d_pct": -2.53,
+      "ret_60d_pct": -0.67,
+      "exhaustion": "Neutral- (36)"
     },
     {
       "symbol": "USDCAD",
@@ -2440,10 +2440,10 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 1.39431,
-      "ret_20d_pct": 1.94,
-      "ret_60d_pct": 1.88,
-      "exhaustion": "Extreme OB (81)"
+      "close": 1.39279,
+      "ret_20d_pct": 1.69,
+      "ret_60d_pct": 1.73,
+      "exhaustion": "Overbought (77)"
     },
     {
       "symbol": "USDJPY",
@@ -2452,10 +2452,10 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 160.011,
-      "ret_20d_pct": 1.8,
-      "ret_60d_pct": 0.58,
-      "exhaustion": "Overbought (69)"
+      "close": 160.174,
+      "ret_20d_pct": 1.62,
+      "ret_60d_pct": 0.74,
+      "exhaustion": "Overbought (73)"
     },
     {
       "symbol": "ZB",
@@ -2464,34 +2464,34 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 111.75,
-      "ret_20d_pct": -0.8,
-      "ret_60d_pct": -2.21,
-      "exhaustion": "Neutral- (47)"
+      "close": 111.5,
+      "ret_20d_pct": -1.38,
+      "ret_60d_pct": -1.9,
+      "exhaustion": "Neutral- (45)"
     },
     {
       "symbol": "BTP",
       "name": "Italy BTP",
       "asset_class": "Rates",
       "contract_type": "FUT",
-      "score": -4,
-      "setup": "Trend continuation (down)",
-      "close": 117.08,
-      "ret_20d_pct": -0.22,
-      "ret_60d_pct": -0.89,
-      "exhaustion": "Neutral- (47)"
+      "score": 0,
+      "setup": "Mean reversion (pullback)",
+      "close": 117.23,
+      "ret_20d_pct": 0.4,
+      "ret_60d_pct": -0.26,
+      "exhaustion": "Neutral- (49)"
     },
     {
       "symbol": "GBL",
       "name": "Germany Bund",
       "asset_class": "Rates",
       "contract_type": "FUT",
-      "score": -4,
-      "setup": "Trend continuation (down)",
-      "close": 125.3,
-      "ret_20d_pct": -0.04,
-      "ret_60d_pct": -0.87,
-      "exhaustion": "Neutral- (48)"
+      "score": -2,
+      "setup": "Neutral",
+      "close": 125.27,
+      "ret_20d_pct": 0.35,
+      "ret_60d_pct": -0.76,
+      "exhaustion": "Neutral- (47)"
     },
     {
       "symbol": "MBT",
@@ -2500,10 +2500,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 60515.0,
-      "ret_20d_pct": -24.95,
-      "ret_60d_pct": -15.37,
-      "exhaustion": "Extreme OS (13)"
+      "close": 63475.0,
+      "ret_20d_pct": -21.32,
+      "ret_60d_pct": -11.0,
+      "exhaustion": "Extreme OS (19)"
     },
     {
       "symbol": "MET",
@@ -2512,10 +2512,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 1579.5,
-      "ret_20d_pct": -31.53,
-      "ret_60d_pct": -24.8,
-      "exhaustion": "Extreme OS (11)"
+      "close": 1685.5,
+      "ret_20d_pct": -27.61,
+      "ret_60d_pct": -19.55,
+      "exhaustion": "Extreme OS (18)"
     }
   ],
   "by_symbol": {
@@ -2524,12 +2524,12 @@
       "name": "S&P 500",
       "asset_class": "Equity",
       "contract_type": "FUT",
-      "score": 4,
-      "setup": "Trend continuation",
-      "close": 7400.5,
-      "ret_20d_pct": 0.51,
-      "ret_60d_pct": 8.35,
-      "exhaustion": "Neutral+ (55)"
+      "score": 2,
+      "setup": "Neutral",
+      "close": 7416.0,
+      "ret_20d_pct": -0.04,
+      "ret_60d_pct": 10.23,
+      "exhaustion": "Neutral+ (56)"
     },
     "NQ": {
       "symbol": "NQ",
@@ -2538,10 +2538,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 29026.5,
-      "ret_20d_pct": 1.2,
-      "ret_60d_pct": 15.18,
-      "exhaustion": "Neutral+ (54)"
+      "close": 29454.75,
+      "ret_20d_pct": 0.42,
+      "ret_60d_pct": 18.9,
+      "exhaustion": "Neutral+ (61)"
     },
     "RTY": {
       "symbol": "RTY",
@@ -2550,10 +2550,10 @@
       "contract_type": "FUT",
       "score": 2,
       "setup": "Neutral",
-      "close": 2834.8,
-      "ret_20d_pct": -0.49,
-      "ret_60d_pct": 10.69,
-      "exhaustion": "Neutral+ (52)"
+      "close": 2859.5,
+      "ret_20d_pct": -0.28,
+      "ret_60d_pct": 14.07,
+      "exhaustion": "Neutral+ (56)"
     },
     "DAX": {
       "symbol": "DAX",
@@ -2562,10 +2562,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 24600.0,
-      "ret_20d_pct": 0.77,
-      "ret_60d_pct": 3.33,
-      "exhaustion": "Neutral+ (51)"
+      "close": 24778.0,
+      "ret_20d_pct": 3.16,
+      "ret_60d_pct": 4.16,
+      "exhaustion": "Neutral+ (55)"
     },
     "NIY": {
       "symbol": "NIY",
@@ -2574,22 +2574,22 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 64025.0,
-      "ret_20d_pct": 2.88,
-      "ret_60d_pct": 17.32,
-      "exhaustion": "Neutral+ (58)"
+      "close": 65570.0,
+      "ret_20d_pct": 2.99,
+      "ret_60d_pct": 22.4,
+      "exhaustion": "Neutral+ (65)"
     },
     "VIX": {
       "symbol": "VIX",
       "name": "VIX Index",
       "asset_class": "Equity",
       "contract_type": "IND",
-      "score": 2,
-      "setup": "Trend continuation",
-      "close": 19.57,
-      "ret_20d_pct": 13.85,
-      "ret_60d_pct": -28.29,
-      "exhaustion": "Neutral+ (56)"
+      "score": -4,
+      "setup": "Trend continuation (down)",
+      "close": 18.08,
+      "ret_20d_pct": -1.63,
+      "ret_60d_pct": -33.5,
+      "exhaustion": "Neutral- (50)"
     },
     "CL": {
       "symbol": "CL",
@@ -2597,11 +2597,11 @@
       "asset_class": "Commodities",
       "contract_type": "FUT",
       "score": 0,
-      "setup": "Mean reversion (bounce)",
-      "close": 90.54,
-      "ret_20d_pct": -0.32,
-      "ret_60d_pct": 13.3,
-      "exhaustion": "Neutral- (43)"
+      "setup": "Neutral",
+      "close": 91.3,
+      "ret_20d_pct": -0.12,
+      "ret_60d_pct": 4.13,
+      "exhaustion": "Neutral- (45)"
     },
     "RB": {
       "symbol": "RB",
@@ -2609,11 +2609,11 @@
       "asset_class": "Commodities",
       "contract_type": "FUT",
       "score": 0,
-      "setup": "Mean reversion (bounce)",
-      "close": 3.0459,
-      "ret_20d_pct": -8.17,
-      "ret_60d_pct": 18.07,
-      "exhaustion": "Neutral- (39)"
+      "setup": "Neutral",
+      "close": 3.0706,
+      "ret_20d_pct": -9.29,
+      "ret_60d_pct": 11.94,
+      "exhaustion": "Neutral- (41)"
     },
     "NG": {
       "symbol": "NG",
@@ -2622,10 +2622,10 @@
       "contract_type": "FUT",
       "score": 2,
       "setup": "Trend continuation",
-      "close": 3.229,
-      "ret_20d_pct": 11.5,
-      "ret_60d_pct": -7.9,
-      "exhaustion": "Neutral+ (60)"
+      "close": 3.147,
+      "ret_20d_pct": 9.16,
+      "ret_60d_pct": -10.9,
+      "exhaustion": "Neutral+ (53)"
     },
     "HG": {
       "symbol": "HG",
@@ -2634,10 +2634,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 6.2845,
-      "ret_20d_pct": 1.76,
-      "ret_60d_pct": 5.66,
-      "exhaustion": "Neutral- (50)"
+      "close": 6.35,
+      "ret_20d_pct": 0.85,
+      "ret_60d_pct": 7.19,
+      "exhaustion": "Neutral+ (53)"
     },
     "GC": {
       "symbol": "GC",
@@ -2646,10 +2646,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 4365.3,
-      "ret_20d_pct": -8.02,
-      "ret_60d_pct": -16.91,
-      "exhaustion": "Oversold (25)"
+      "close": 4363.4,
+      "ret_20d_pct": -8.45,
+      "ret_60d_pct": -16.09,
+      "exhaustion": "Oversold (24)"
     },
     "SI": {
       "symbol": "SI",
@@ -2658,10 +2658,10 @@
       "contract_type": "FUT",
       "score": -2,
       "setup": "Neutral",
-      "close": 69.105,
-      "ret_20d_pct": -13.81,
-      "ret_60d_pct": -19.79,
-      "exhaustion": "Oversold (31)"
+      "close": 68.585,
+      "ret_20d_pct": -15.19,
+      "ret_60d_pct": -19.99,
+      "exhaustion": "Oversold (30)"
     },
     "ZC": {
       "symbol": "ZC",
@@ -2670,10 +2670,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 417.5,
-      "ret_20d_pct": -10.7,
-      "ret_60d_pct": -11.12,
-      "exhaustion": "Extreme OS (19)"
+      "close": 418.75,
+      "ret_20d_pct": -11.14,
+      "ret_60d_pct": -11.28,
+      "exhaustion": "Oversold (20)"
     },
     "ZW": {
       "symbol": "ZW",
@@ -2682,10 +2682,10 @@
       "contract_type": "FUT",
       "score": -2,
       "setup": "Neutral",
-      "close": 580.0,
-      "ret_20d_pct": -5.27,
-      "ret_60d_pct": -3.77,
-      "exhaustion": "Oversold (31)"
+      "close": 583.25,
+      "ret_20d_pct": -5.78,
+      "ret_60d_pct": -3.83,
+      "exhaustion": "Oversold (32)"
     },
     "ZS": {
       "symbol": "ZS",
@@ -2694,10 +2694,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 1121.5,
-      "ret_20d_pct": -5.93,
-      "ret_60d_pct": -8.93,
-      "exhaustion": "Oversold (24)"
+      "close": 1115.75,
+      "ret_20d_pct": -7.64,
+      "ret_60d_pct": -10.38,
+      "exhaustion": "Oversold (22)"
     },
     "SB": {
       "symbol": "SB",
@@ -2706,10 +2706,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 14.34,
-      "ret_20d_pct": -2.38,
-      "ret_60d_pct": -1.71,
-      "exhaustion": "Neutral- (45)"
+      "close": 14.08,
+      "ret_20d_pct": -5.57,
+      "ret_60d_pct": -3.43,
+      "exhaustion": "Neutral- (39)"
     },
     "KC": {
       "symbol": "KC",
@@ -2719,9 +2719,9 @@
       "score": -4,
       "setup": "Trend continuation (down)",
       "close": 248.4,
-      "ret_20d_pct": -9.61,
-      "ret_60d_pct": -13.69,
-      "exhaustion": "Oversold (22)"
+      "ret_20d_pct": -12.01,
+      "ret_60d_pct": -11.63,
+      "exhaustion": "Oversold (23)"
     },
     "CC": {
       "symbol": "CC",
@@ -2730,10 +2730,10 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Neutral",
-      "close": 3820.0,
-      "ret_20d_pct": -8.66,
-      "ret_60d_pct": 12.42,
-      "exhaustion": "Neutral- (47)"
+      "close": 3923.0,
+      "ret_20d_pct": -16.69,
+      "ret_60d_pct": 16.1,
+      "exhaustion": "Neutral+ (52)"
     },
     "CT": {
       "symbol": "CT",
@@ -2742,10 +2742,10 @@
       "contract_type": "FUT",
       "score": 0,
       "setup": "Neutral",
-      "close": 78.0,
-      "ret_20d_pct": -11.94,
-      "ret_60d_pct": 11.33,
-      "exhaustion": "Oversold (34)"
+      "close": 77.57,
+      "ret_20d_pct": -15.46,
+      "ret_60d_pct": 9.52,
+      "exhaustion": "Oversold (31)"
     },
     "LE": {
       "symbol": "LE",
@@ -2753,11 +2753,11 @@
       "asset_class": "Commodities",
       "contract_type": "FUT",
       "score": 0,
-      "setup": "Mean reversion (bounce)",
-      "close": 241.65,
-      "ret_20d_pct": -0.88,
-      "ret_60d_pct": 8.57,
-      "exhaustion": "Neutral- (50)"
+      "setup": "Neutral",
+      "close": 236.725,
+      "ret_20d_pct": -2.45,
+      "ret_60d_pct": 5.86,
+      "exhaustion": "Neutral- (38)"
     },
     "GF": {
       "symbol": "GF",
@@ -2765,11 +2765,11 @@
       "asset_class": "Commodities",
       "contract_type": "FUT",
       "score": 0,
-      "setup": "Mean reversion (bounce)",
-      "close": 353.9,
-      "ret_20d_pct": -3.35,
-      "ret_60d_pct": 3.87,
-      "exhaustion": "Neutral- (44)"
+      "setup": "Neutral",
+      "close": 350.7,
+      "ret_20d_pct": -3.71,
+      "ret_60d_pct": 2.9,
+      "exhaustion": "Neutral- (41)"
     },
     "HE": {
       "symbol": "HE",
@@ -2778,10 +2778,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 97.225,
-      "ret_20d_pct": -7.36,
-      "ret_60d_pct": -15.66,
-      "exhaustion": "Oversold (23)"
+      "close": 96.15,
+      "ret_20d_pct": -7.68,
+      "ret_60d_pct": -15.82,
+      "exhaustion": "Oversold (22)"
     },
     "DX": {
       "symbol": "DX",
@@ -2790,10 +2790,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 100.01,
-      "ret_20d_pct": 2.23,
-      "ret_60d_pct": 0.54,
-      "exhaustion": "Overbought (75)"
+      "close": 99.71,
+      "ret_20d_pct": 1.56,
+      "ret_60d_pct": 0.38,
+      "exhaustion": "Overbought (67)"
     },
     "EURUSD": {
       "symbol": "EURUSD",
@@ -2802,10 +2802,10 @@
       "contract_type": "CASH",
       "score": -2,
       "setup": "Trend continuation (down)",
-      "close": 1.152565,
-      "ret_20d_pct": -2.19,
-      "ret_60d_pct": 0.18,
-      "exhaustion": "Oversold (28)"
+      "close": 1.156775,
+      "ret_20d_pct": -1.45,
+      "ret_60d_pct": 0.24,
+      "exhaustion": "Neutral- (36)"
     },
     "GBPUSD": {
       "symbol": "GBPUSD",
@@ -2814,10 +2814,10 @@
       "contract_type": "CASH",
       "score": -2,
       "setup": "Trend continuation (down)",
-      "close": 1.33413,
-      "ret_20d_pct": -1.98,
-      "ret_60d_pct": 0.16,
-      "exhaustion": "Neutral- (36)"
+      "close": 1.339755,
+      "ret_20d_pct": -1.05,
+      "ret_60d_pct": 0.32,
+      "exhaustion": "Neutral- (44)"
     },
     "AUDUSD": {
       "symbol": "AUDUSD",
@@ -2826,10 +2826,10 @@
       "contract_type": "CASH",
       "score": -2,
       "setup": "Neutral",
-      "close": 0.70578,
-      "ret_20d_pct": -2.64,
-      "ret_60d_pct": -0.2,
-      "exhaustion": "Neutral- (37)"
+      "close": 0.70572,
+      "ret_20d_pct": -2.53,
+      "ret_60d_pct": -0.67,
+      "exhaustion": "Neutral- (36)"
     },
     "USDCAD": {
       "symbol": "USDCAD",
@@ -2838,10 +2838,10 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 1.39431,
-      "ret_20d_pct": 1.94,
-      "ret_60d_pct": 1.88,
-      "exhaustion": "Extreme OB (81)"
+      "close": 1.39279,
+      "ret_20d_pct": 1.69,
+      "ret_60d_pct": 1.73,
+      "exhaustion": "Overbought (77)"
     },
     "USDJPY": {
       "symbol": "USDJPY",
@@ -2850,10 +2850,10 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 160.011,
-      "ret_20d_pct": 1.8,
-      "ret_60d_pct": 0.58,
-      "exhaustion": "Overbought (69)"
+      "close": 160.174,
+      "ret_20d_pct": 1.62,
+      "ret_60d_pct": 0.74,
+      "exhaustion": "Overbought (73)"
     },
     "ZB": {
       "symbol": "ZB",
@@ -2862,34 +2862,34 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 111.75,
-      "ret_20d_pct": -0.8,
-      "ret_60d_pct": -2.21,
-      "exhaustion": "Neutral- (47)"
+      "close": 111.5,
+      "ret_20d_pct": -1.38,
+      "ret_60d_pct": -1.9,
+      "exhaustion": "Neutral- (45)"
     },
     "BTP": {
       "symbol": "BTP",
       "name": "Italy BTP",
       "asset_class": "Rates",
       "contract_type": "FUT",
-      "score": -4,
-      "setup": "Trend continuation (down)",
-      "close": 117.08,
-      "ret_20d_pct": -0.22,
-      "ret_60d_pct": -0.89,
-      "exhaustion": "Neutral- (47)"
+      "score": 0,
+      "setup": "Mean reversion (pullback)",
+      "close": 117.23,
+      "ret_20d_pct": 0.4,
+      "ret_60d_pct": -0.26,
+      "exhaustion": "Neutral- (49)"
     },
     "GBL": {
       "symbol": "GBL",
       "name": "Germany Bund",
       "asset_class": "Rates",
       "contract_type": "FUT",
-      "score": -4,
-      "setup": "Trend continuation (down)",
-      "close": 125.3,
-      "ret_20d_pct": -0.04,
-      "ret_60d_pct": -0.87,
-      "exhaustion": "Neutral- (48)"
+      "score": -2,
+      "setup": "Neutral",
+      "close": 125.27,
+      "ret_20d_pct": 0.35,
+      "ret_60d_pct": -0.76,
+      "exhaustion": "Neutral- (47)"
     },
     "MBT": {
       "symbol": "MBT",
@@ -2898,10 +2898,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 60515.0,
-      "ret_20d_pct": -24.95,
-      "ret_60d_pct": -15.37,
-      "exhaustion": "Extreme OS (13)"
+      "close": 63475.0,
+      "ret_20d_pct": -21.32,
+      "ret_60d_pct": -11.0,
+      "exhaustion": "Extreme OS (19)"
     },
     "MET": {
       "symbol": "MET",
@@ -2910,10 +2910,10 @@
       "contract_type": "FUT",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 1579.5,
-      "ret_20d_pct": -31.53,
-      "ret_60d_pct": -24.8,
-      "exhaustion": "Extreme OS (11)"
+      "close": 1685.5,
+      "ret_20d_pct": -27.61,
+      "ret_60d_pct": -19.55,
+      "exhaustion": "Extreme OS (18)"
     }
   },
   "openPositionsDetailed": [
@@ -2928,10 +2928,10 @@
       "expiry": "15 Jun 2026",
       "risk_dollar_raw": 8859.375,
       "risk_dollar": 8859.375,
-      "max_loss_pct_capital": 0.8689235372408813,
-      "entry_price": 1.17216976,
-      "tech_stop": 1.15799476,
-      "stop_distance_pct": -1.2092958275941232,
+      "max_loss_pct_capital": 0.8699634433002988,
+      "entry_price": 1.1721697599999998,
+      "tech_stop": 1.1579947599999998,
+      "stop_distance_pct": -1.2092958275941235,
       "theme": "Rate differential expectations / BCE 2-3 hikes before year-end",
       "technical_setup": "Weekly doji + weekly up / potential continuation to new highs"
     },
@@ -2946,7 +2946,7 @@
       "expiry": "08 Sep 2026",
       "risk_dollar_raw": 5597.262,
       "risk_dollar": 5597.262,
-      "max_loss_pct_capital": 0.5489769533295487,
+      "max_loss_pct_capital": 0.549633955281712,
       "entry_price": 117.63000000000001,
       "tech_stop": 116.415,
       "stop_distance_pct": -1.0328997704667204,
@@ -2964,7 +2964,7 @@
       "expiry": "",
       "risk_dollar_raw": 4200.0,
       "risk_dollar": 4200.0,
-      "max_loss_pct_capital": 0.41193412135864005,
+      "max_loss_pct_capital": 0.4124271138608825,
       "entry_price": 1670.0,
       "tech_stop": 1460.0,
       "stop_distance_pct": -12.574850299401197
@@ -2982,10 +2982,10 @@
       "expiry": "15 Jun 2026",
       "risk_dollar_raw": 8859.375,
       "risk_dollar": 8859.375,
-      "max_loss_pct_capital": 0.8689235372408813,
-      "entry_price": 1.17216976,
-      "tech_stop": 1.15799476,
-      "stop_distance_pct": -1.2092958275941232,
+      "max_loss_pct_capital": 0.8699634433002988,
+      "entry_price": 1.1721697599999998,
+      "tech_stop": 1.1579947599999998,
+      "stop_distance_pct": -1.2092958275941235,
       "theme": "Rate differential expectations / BCE 2-3 hikes before year-end",
       "technical_setup": "Weekly doji + weekly up / potential continuation to new highs"
     },
@@ -3000,7 +3000,7 @@
       "expiry": "08 Sep 2026",
       "risk_dollar_raw": 5597.262,
       "risk_dollar": 5597.262,
-      "max_loss_pct_capital": 0.5489769533295487,
+      "max_loss_pct_capital": 0.549633955281712,
       "entry_price": 117.63000000000001,
       "tech_stop": 116.415,
       "stop_distance_pct": -1.0328997704667204,
@@ -3018,7 +3018,7 @@
       "expiry": "",
       "risk_dollar_raw": 4200.0,
       "risk_dollar": 4200.0,
-      "max_loss_pct_capital": 0.41193412135864005,
+      "max_loss_pct_capital": 0.4124271138608825,
       "entry_price": 1670.0,
       "tech_stop": 1460.0,
       "stop_distance_pct": -12.574850299401197
