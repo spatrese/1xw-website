@@ -835,11 +835,10 @@ document.addEventListener('click', async (e) => {
     if (s.startsWith("BTP")) return "Italy BTP";
 
     if (s.startsWith("DX")) return "Dollar Index";
-    if (s.startsWith("EUR")| s.startsWith("6E")) return "EURUSD";
-    if (s.startsWith("GBP")) return "GBPUSD";
-    if (s.startsWith("AUD")) return "AUDUSD";
-    if (s.startsWith("CAD")) return "USDCAD";
-    if (s.startsWith("JPY")) return "USDJPY";
+    if (s.startsWith("GBP") || s.startsWith("6B")) return "GBPUSD";
+    if (s.startsWith("AUD") || s.startsWith("6A")) return "AUDUSD";
+    if (s.startsWith("CAD") || s.startsWith("6C")) return "USDCAD";
+    if (s.startsWith("JPY") || s.startsWith("6J")) return "USDJPY";
 
     if (s.includes("ETH")) return "Ethereum";
     if (s.includes("BTC")) return "Bitcoin";
