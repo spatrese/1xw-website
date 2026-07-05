@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T09:08:37Z",
+  "updatedAt": "2026-07-05T09:35:11Z",
   "tradeIdeas": [
     {
       "id": "IB-LONG-CL",
@@ -2179,7 +2179,7 @@
     },
     {
       "id": "IB-LONG-RTY",
-      "date": "2026-07-03",
+      "date": "2026-07-05",
       "asset": "RTY",
       "direction": "Long",
       "status": "Open",
@@ -2197,7 +2197,7 @@
     },
     {
       "id": "IB-LONG-DAX",
-      "date": "2026-07-03",
+      "date": "2026-07-05",
       "asset": "DAX",
       "direction": "Long",
       "status": "Open",
@@ -2215,7 +2215,7 @@
     },
     {
       "id": "IB-LONG-CC",
-      "date": "2026-07-03",
+      "date": "2026-07-05",
       "asset": "CC",
       "direction": "Long",
       "status": "Open",
@@ -2233,7 +2233,7 @@
     },
     {
       "id": "IB-LONG-DX",
-      "date": "2026-07-03",
+      "date": "2026-07-05",
       "asset": "DX",
       "direction": "Long",
       "status": "Open",
@@ -2251,7 +2251,7 @@
     },
     {
       "id": "IB-LONG-USDCAD",
-      "date": "2026-07-03",
+      "date": "2026-07-05",
       "asset": "USDCAD",
       "direction": "Long",
       "status": "Open",
@@ -2269,7 +2269,7 @@
     },
     {
       "id": "IB-LONG-USDJPY",
-      "date": "2026-07-03",
+      "date": "2026-07-05",
       "asset": "USDJPY",
       "direction": "Long",
       "status": "Open",
@@ -2287,6 +2287,14 @@
     }
   ],
   "modelTrades": [
+    {
+      "week": "18",
+      "instrument": "NGQ6",
+      "asset_class": "Commodities",
+      "structure": "Futures",
+      "status": "OPEN",
+      "side": "LONG"
+    },
     {
       "week": "17",
       "instrument": "6CU6",
@@ -2460,6 +2468,12 @@
       "asset_class": "Crypto"
     },
     {
+      "symbol": "NGQ6",
+      "side": "LONG",
+      "quantity": 3.0,
+      "asset_class": "Commodities"
+    },
+    {
       "symbol": "ZCZ6",
       "side": "LONG",
       "quantity": 12.0,
@@ -2510,10 +2524,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 25759.0,
-      "ret_20d_pct": 3.22,
-      "ret_60d_pct": 6.93,
-      "exhaustion": "Overbought (69)"
+      "close": 25946.0,
+      "ret_20d_pct": 3.97,
+      "ret_60d_pct": 7.7,
+      "exhaustion": "Overbought (73)"
     },
     {
       "symbol": "NIY",
@@ -2532,12 +2546,12 @@
       "name": "VIX Index",
       "asset_class": "Equity",
       "contract_type": "IND",
-      "score": -2,
-      "setup": "Neutral",
-      "close": 16.15,
-      "ret_20d_pct": 0.56,
-      "ret_60d_pct": -37.35,
-      "exhaustion": "Neutral- (43)"
+      "score": -4,
+      "setup": "Trend continuation (down)",
+      "close": 15.81,
+      "ret_20d_pct": -1.56,
+      "ret_60d_pct": -38.67,
+      "exhaustion": "Neutral- (41)"
     },
     {
       "symbol": "CL",
@@ -2738,10 +2752,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 100.495,
-      "ret_20d_pct": 0.7,
-      "ret_60d_pct": 2.34,
-      "exhaustion": "Neutral+ (63)"
+      "close": 100.62,
+      "ret_20d_pct": 0.82,
+      "ret_60d_pct": 2.47,
+      "exhaustion": "Overbought (66)"
     },
     {
       "symbol": "EURUSD",
@@ -2750,10 +2764,10 @@
       "contract_type": "CASH",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 1.145075,
-      "ret_20d_pct": -0.62,
-      "ret_60d_pct": -2.33,
-      "exhaustion": "Neutral- (38)"
+      "close": 1.14357,
+      "ret_20d_pct": -0.75,
+      "ret_60d_pct": -2.46,
+      "exhaustion": "Neutral- (36)"
     },
     {
       "symbol": "GBPUSD",
@@ -2762,10 +2776,10 @@
       "contract_type": "CASH",
       "score": -2,
       "setup": "Neutral",
-      "close": 1.335895,
-      "ret_20d_pct": 0.16,
-      "ret_60d_pct": -0.78,
-      "exhaustion": "Neutral+ (51)"
+      "close": 1.33504,
+      "ret_20d_pct": 0.09,
+      "ret_60d_pct": -0.84,
+      "exhaustion": "Neutral+ (50)"
     },
     {
       "symbol": "AUDUSD",
@@ -2774,9 +2788,9 @@
       "contract_type": "CASH",
       "score": -2,
       "setup": "Mean reversion (bounce)",
-      "close": 0.694115,
-      "ret_20d_pct": -1.53,
-      "ret_60d_pct": -1.75,
+      "close": 0.693855,
+      "ret_20d_pct": -1.56,
+      "ret_60d_pct": -1.78,
       "exhaustion": "Oversold (32)"
     },
     {
@@ -2786,10 +2800,10 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 1.41819,
-      "ret_20d_pct": 1.75,
-      "ret_60d_pct": 2.46,
-      "exhaustion": "Overbought (78)"
+      "close": 1.419595,
+      "ret_20d_pct": 1.85,
+      "ret_60d_pct": 2.56,
+      "exhaustion": "Overbought (79)"
     },
     {
       "symbol": "USDJPY",
@@ -2798,10 +2812,10 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 161.0075,
-      "ret_20d_pct": 0.45,
-      "ret_60d_pct": 1.09,
-      "exhaustion": "Neutral+ (57)"
+      "close": 161.365,
+      "ret_20d_pct": 0.67,
+      "ret_60d_pct": 1.31,
+      "exhaustion": "Neutral+ (62)"
     },
     {
       "symbol": "ZB",
@@ -2834,10 +2848,10 @@
       "contract_type": "FUT",
       "score": 2,
       "setup": "Mean reversion (pullback)",
-      "close": 126.72,
-      "ret_20d_pct": 0.95,
-      "ret_60d_pct": 0.98,
-      "exhaustion": "Neutral+ (59)"
+      "close": 126.66,
+      "ret_20d_pct": 0.9,
+      "ret_60d_pct": 0.93,
+      "exhaustion": "Neutral+ (58)"
     },
     {
       "symbol": "MBT",
@@ -2908,10 +2922,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 25759.0,
-      "ret_20d_pct": 3.22,
-      "ret_60d_pct": 6.93,
-      "exhaustion": "Overbought (69)"
+      "close": 25946.0,
+      "ret_20d_pct": 3.97,
+      "ret_60d_pct": 7.7,
+      "exhaustion": "Overbought (73)"
     },
     "NIY": {
       "symbol": "NIY",
@@ -2930,12 +2944,12 @@
       "name": "VIX Index",
       "asset_class": "Equity",
       "contract_type": "IND",
-      "score": -2,
-      "setup": "Neutral",
-      "close": 16.15,
-      "ret_20d_pct": 0.56,
-      "ret_60d_pct": -37.35,
-      "exhaustion": "Neutral- (43)"
+      "score": -4,
+      "setup": "Trend continuation (down)",
+      "close": 15.81,
+      "ret_20d_pct": -1.56,
+      "ret_60d_pct": -38.67,
+      "exhaustion": "Neutral- (41)"
     },
     "CL": {
       "symbol": "CL",
@@ -3136,10 +3150,10 @@
       "contract_type": "FUT",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 100.495,
-      "ret_20d_pct": 0.7,
-      "ret_60d_pct": 2.34,
-      "exhaustion": "Neutral+ (63)"
+      "close": 100.62,
+      "ret_20d_pct": 0.82,
+      "ret_60d_pct": 2.47,
+      "exhaustion": "Overbought (66)"
     },
     "EURUSD": {
       "symbol": "EURUSD",
@@ -3148,10 +3162,10 @@
       "contract_type": "CASH",
       "score": -4,
       "setup": "Trend continuation (down)",
-      "close": 1.145075,
-      "ret_20d_pct": -0.62,
-      "ret_60d_pct": -2.33,
-      "exhaustion": "Neutral- (38)"
+      "close": 1.14357,
+      "ret_20d_pct": -0.75,
+      "ret_60d_pct": -2.46,
+      "exhaustion": "Neutral- (36)"
     },
     "GBPUSD": {
       "symbol": "GBPUSD",
@@ -3160,10 +3174,10 @@
       "contract_type": "CASH",
       "score": -2,
       "setup": "Neutral",
-      "close": 1.335895,
-      "ret_20d_pct": 0.16,
-      "ret_60d_pct": -0.78,
-      "exhaustion": "Neutral+ (51)"
+      "close": 1.33504,
+      "ret_20d_pct": 0.09,
+      "ret_60d_pct": -0.84,
+      "exhaustion": "Neutral+ (50)"
     },
     "AUDUSD": {
       "symbol": "AUDUSD",
@@ -3172,9 +3186,9 @@
       "contract_type": "CASH",
       "score": -2,
       "setup": "Mean reversion (bounce)",
-      "close": 0.694115,
-      "ret_20d_pct": -1.53,
-      "ret_60d_pct": -1.75,
+      "close": 0.693855,
+      "ret_20d_pct": -1.56,
+      "ret_60d_pct": -1.78,
       "exhaustion": "Oversold (32)"
     },
     "USDCAD": {
@@ -3184,10 +3198,10 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 1.41819,
-      "ret_20d_pct": 1.75,
-      "ret_60d_pct": 2.46,
-      "exhaustion": "Overbought (78)"
+      "close": 1.419595,
+      "ret_20d_pct": 1.85,
+      "ret_60d_pct": 2.56,
+      "exhaustion": "Overbought (79)"
     },
     "USDJPY": {
       "symbol": "USDJPY",
@@ -3196,10 +3210,10 @@
       "contract_type": "CASH",
       "score": 4,
       "setup": "Trend continuation",
-      "close": 161.0075,
-      "ret_20d_pct": 0.45,
-      "ret_60d_pct": 1.09,
-      "exhaustion": "Neutral+ (57)"
+      "close": 161.365,
+      "ret_20d_pct": 0.67,
+      "ret_60d_pct": 1.31,
+      "exhaustion": "Neutral+ (62)"
     },
     "ZB": {
       "symbol": "ZB",
@@ -3232,10 +3246,10 @@
       "contract_type": "FUT",
       "score": 2,
       "setup": "Mean reversion (pullback)",
-      "close": 126.72,
-      "ret_20d_pct": 0.95,
-      "ret_60d_pct": 0.98,
-      "exhaustion": "Neutral+ (59)"
+      "close": 126.66,
+      "ret_20d_pct": 0.9,
+      "ret_60d_pct": 0.93,
+      "exhaustion": "Neutral+ (58)"
     },
     "MBT": {
       "symbol": "MBT",
@@ -3274,7 +3288,7 @@
       "expiry": "08 Sep 2026",
       "risk_dollar_raw": 5597.262,
       "risk_dollar": 5597.262,
-      "max_loss_pct_capital": 0.543845068922423,
+      "max_loss_pct_capital": 0.5428966364882752,
       "entry_price": 117.63,
       "tech_stop": 116.41499999999999,
       "stop_distance_pct": -1.0328997704667207,
@@ -3292,7 +3306,7 @@
       "expiry": "",
       "risk_dollar_raw": 4200.0,
       "risk_dollar": 4200.0,
-      "max_loss_pct_capital": 0.4080833252890747,
+      "max_loss_pct_capital": 0.4073716530065515,
       "entry_price": 1670.0,
       "tech_stop": 1460.0,
       "stop_distance_pct": -12.574850299401197
@@ -3308,7 +3322,7 @@
       "expiry": "14 Dec 2026",
       "risk_dollar_raw": 8100.0,
       "risk_dollar": 8100.0,
-      "max_loss_pct_capital": 0.7870178416289298,
+      "max_loss_pct_capital": 0.7856453307983492,
       "entry_price": 444.0,
       "tech_stop": 430.5,
       "stop_distance_pct": -3.040540540540541,
@@ -3326,12 +3340,30 @@
       "expiry": "15 Sep 2026",
       "risk_dollar_raw": 8903.999999999998,
       "risk_dollar": 8903.999999999998,
-      "max_loss_pct_capital": 0.8651366496128382,
+      "max_loss_pct_capital": 0.8636279043738889,
       "entry_price": 0.7049999999999998,
       "tech_stop": 0.6986399999999998,
       "stop_distance_pct": -0.9021276595744728,
       "theme": "Peak interest rate differential / Priced-in recession / Commodity-driven undervaluation",
       "technical_setup": "Extreme oversold / daily RSI = 14"
+    },
+    {
+      "week": "18",
+      "ticker": "NGQ6",
+      "underlying": "NG",
+      "description": "Natural Gas",
+      "structure": "Futures",
+      "asset_class": "Commodities",
+      "side": "LONG",
+      "expiry": "Aug 2026",
+      "risk_dollar_raw": 8324.999999999998,
+      "risk_dollar": 8324.999999999998,
+      "max_loss_pct_capital": 0.8074688122094144,
+      "entry_price": 3.249,
+      "tech_stop": 2.9715000000000003,
+      "stop_distance_pct": -8.54108956602031,
+      "theme": "AI & data center boom / LNG export expansion / Extreme seasonal weather",
+      "technical_setup": "Weekly bull flag / daily (flattish) cup and handle"
     }
   ],
   "openPositionsAggregated": [
@@ -3346,7 +3378,7 @@
       "expiry": "08 Sep 2026",
       "risk_dollar_raw": 5597.262,
       "risk_dollar": 5597.262,
-      "max_loss_pct_capital": 0.543845068922423,
+      "max_loss_pct_capital": 0.5428966364882752,
       "entry_price": 117.63,
       "tech_stop": 116.41499999999999,
       "stop_distance_pct": -1.0328997704667207,
@@ -3364,7 +3396,7 @@
       "expiry": "",
       "risk_dollar_raw": 4200.0,
       "risk_dollar": 4200.0,
-      "max_loss_pct_capital": 0.4080833252890747,
+      "max_loss_pct_capital": 0.4073716530065515,
       "entry_price": 1670.0,
       "tech_stop": 1460.0,
       "stop_distance_pct": -12.574850299401197
@@ -3380,7 +3412,7 @@
       "expiry": "14 Dec 2026",
       "risk_dollar_raw": 8100.0,
       "risk_dollar": 8100.0,
-      "max_loss_pct_capital": 0.7870178416289298,
+      "max_loss_pct_capital": 0.7856453307983492,
       "entry_price": 444.0,
       "tech_stop": 430.5,
       "stop_distance_pct": -3.040540540540541,
@@ -3398,12 +3430,30 @@
       "expiry": "15 Sep 2026",
       "risk_dollar_raw": 8903.999999999998,
       "risk_dollar": 8903.999999999998,
-      "max_loss_pct_capital": 0.8651366496128382,
+      "max_loss_pct_capital": 0.8636279043738889,
       "entry_price": 0.7049999999999998,
       "tech_stop": 0.6986399999999998,
       "stop_distance_pct": -0.9021276595744728,
       "theme": "Peak interest rate differential / Priced-in recession / Commodity-driven undervaluation",
       "technical_setup": "Extreme oversold / daily RSI = 14"
+    },
+    {
+      "week": "18",
+      "ticker": "NGQ6",
+      "underlying": "NG",
+      "description": "Natural Gas",
+      "structure": "Futures",
+      "asset_class": "Commodities",
+      "side": "LONG",
+      "expiry": "Aug 2026",
+      "risk_dollar_raw": 8324.999999999998,
+      "risk_dollar": 8324.999999999998,
+      "max_loss_pct_capital": 0.8074688122094144,
+      "entry_price": 3.249,
+      "tech_stop": 2.9715000000000003,
+      "stop_distance_pct": -8.54108956602031,
+      "theme": "AI & data center boom / LNG export expansion / Extreme seasonal weather",
+      "technical_setup": "Weekly bull flag / daily (flattish) cup and handle"
     }
   ],
   "modelTrades_source": "Blotter",
