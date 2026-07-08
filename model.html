@@ -839,6 +839,7 @@ document.addEventListener('click', async (e) => {
     if (s.startsWith("AUD") || s.startsWith("6A")) return "AUDUSD";
     if (s.startsWith("CAD") || s.startsWith("6C")) return "USDCAD";
     if (s.startsWith("JPY") || s.startsWith("6J")) return "USDJPY";
+    if (s.startsWith("EUR") || s.startsWith("6E")) return "EURUSD";
 
     if (s.includes("ETH")) return "Ethereum";
     if (s.includes("BTC")) return "Bitcoin";
