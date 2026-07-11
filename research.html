@@ -691,15 +691,45 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
     return String(s || '').replace(/\s+/g, ' ').trim();
   }
 
-  
-  function buildIdeaRationale(item){
-    const parts = [];
-    if (item.setup) parts.push(item.setup);
-    const r20 = Number(item.ret_20d_pct);
-    if (Number.isFinite(r20)) parts.push(`${r20 > 0 ? '+' : ''}${r20.toFixed(1)}% 20d`);
-    if (item.rationale) parts.push(firstSentence(item.rationale));
-    return parts.filter(Boolean).join(' • ');
+  function prettifyTechnicalText(text){
+    return String(text || '')
+      .replaceAll('fib_0.382', 'Fib 38.2%')
+      .replaceAll('fib_0.500', 'Fib 50%')
+      .replaceAll('fib_0.618', 'Fib 61.8%')
+      .replaceAll('fib_0.786', 'Fib 78.6%')
+      .replaceAll('ma50', 'MA50')
+      .replaceAll('ma200', 'MA200')
+      .replaceAll('swing_low', 'Swing Low')
+      .replaceAll('swing_high', 'Swing High')
+      .replaceAll('20d_high', '20-Day High')
+      .replaceAll('20d_low', '20-Day Low')
+      .replaceAll('60d_high', '60-Day High')
+      .replaceAll('60d_low', '60-Day Low')
+      .replaceAll('120d_high', '120-Day High')
+      .replaceAll('120d_low', '120-Day Low')
+      .replaceAll('Support confluence:', 'Support:')
+      .replaceAll('Resistance confluence:', 'Resistance:')
+      .replace(/\s*\/\s*/g, ' / ')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
+
+function buildIdeaRationale(item){
+  const parts = [];
+
+  const r20 = Number(item.ret_20d_pct);
+  if (Number.isFinite(r20)){
+    parts.push(`${r20 > 0 ? '+' : ''}${r20.toFixed(1)}% 20d`);
+  }
+
+  if (item.rationale){
+    parts.push(prettifyTechnicalText(item.rationale));
+  }
+
+  return parts.filter(Boolean).join(' • ');
+}
+ 
+  
   function rowHtml(cls, cells){
     return `<div class="data-row ${cls}">${cells.map(c => `<div class="cell ${c.wrap ? 'wrap' : ''} ${c.extra || ''}" data-label="${c.label || ''}">${c.html}</div>`).join('')}</div>`;
   }
