@@ -723,7 +723,19 @@ function buildIdeaRationale(item){
   }
 
   if (item.rationale){
-    parts.push(prettifyTechnicalText(item.rationale));
+    let rationale = prettifyTechnicalText(item.rationale);
+
+    const setup = String(item.setup || '').trim();
+
+    if (setup){
+      const escapedSetup = setup.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      rationale = rationale.replace(
+        new RegExp(`^${escapedSetup}:?\\s*`, 'i'),
+        ''
+      );
+    }
+
+    parts.push(rationale);
   }
 
   return parts.filter(Boolean).join(' • ');
