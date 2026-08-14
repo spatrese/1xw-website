@@ -3,274 +3,19 @@
   "week_id": "2026-W33",
   "technical_overview": {
     "by_symbol": {
-      "ES": {
-        "symbol": "ES",
-        "name": "S&P 500",
-        "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 3.23,
-        "ret_60d_pct": 4.46,
-        "exhaustion": "Overbought (72)"
-      },
-      "NQ": {
-        "symbol": "NQ",
-        "name": "Nasdaq 100",
-        "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 3.29,
-        "ret_60d_pct": 2.74,
-        "exhaustion": "Neutral+ (62)"
-      },
-      "RTY": {
-        "symbol": "RTY",
-        "name": "Russell 2000",
-        "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 2.32,
-        "ret_60d_pct": 9.24,
-        "exhaustion": "Neutral+ (65)"
-      },
-      "DAX": {
-        "symbol": "DAX",
-        "name": "DAX",
-        "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 6.33,
-        "ret_60d_pct": 5.51,
-        "exhaustion": "Overbought (76)"
-      },
-      "NIY": {
-        "symbol": "NIY",
-        "name": "Nikkei 225",
-        "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 4.75,
-        "ret_60d_pct": 12.18,
-        "exhaustion": "Neutral+ (64)"
-      },
-      "VIX": {
-        "symbol": "VIX",
-        "name": "VIX Index",
-        "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": -4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -22.11,
-        "ret_60d_pct": -19.05,
-        "exhaustion": "Neutral- (37)"
-      },
-      "CL": {
-        "symbol": "CL",
-        "name": "WTI Crude",
-        "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 3.79,
-        "ret_60d_pct": -20.68,
-        "exhaustion": "Neutral+ (51)"
-      },
-      "RB": {
-        "symbol": "RB",
-        "name": "RBOB Gasoline",
-        "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 1.19,
-        "ret_60d_pct": -6.02,
-        "exhaustion": "Neutral+ (60)"
-      },
-      "NG": {
-        "symbol": "NG",
-        "name": "Natural Gas",
-        "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": -4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -5.15,
-        "ret_60d_pct": -15.26,
-        "exhaustion": "Oversold (33)"
-      },
-      "HG": {
-        "symbol": "HG",
-        "name": "Copper",
-        "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 4.19,
-        "ret_60d_pct": 3.57,
-        "exhaustion": "Neutral+ (62)"
-      },
-      "GC": {
-        "symbol": "GC",
-        "name": "Gold",
-        "asset_class": "Commodities",
-        "setup": "Failed Breakout",
-        "score": -81.5,
-        "trend_score": 0.0,
-        "direction": "Short",
-        "setup_score": 81.5,
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/swing_low",
-        "ret_20d_pct": 9.12,
-        "ret_60d_pct": -5.14,
-        "exhaustion": "Overbought (67)"
-      },
-      "SI": {
-        "symbol": "SI",
-        "name": "Silver",
-        "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 0.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 15.67,
-        "ret_60d_pct": -16.71,
-        "exhaustion": "Neutral+ (63)"
-      },
-      "ZC": {
-        "symbol": "ZC",
-        "name": "Corn",
-        "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 0.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 1.72,
-        "ret_60d_pct": -6.95,
-        "exhaustion": "Neutral+ (56)"
-      },
-      "ZW": {
-        "symbol": "ZW",
-        "name": "Wheat",
-        "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 0.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -3.26,
-        "ret_60d_pct": -3.51,
-        "exhaustion": "Neutral+ (55)"
-      },
-      "ZS": {
-        "symbol": "ZS",
-        "name": "Soybeans",
-        "asset_class": "Commodities",
-        "setup": "Pullback to Support",
-        "score": 74.1,
-        "trend_score": 0.0,
-        "direction": "Long",
-        "setup_score": 74.1,
-        "setup_status": "Reversing",
-        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: fib_0.382/ma200, fib_0.618/swing_high",
-        "ret_20d_pct": -1.07,
-        "ret_60d_pct": -3.86,
-        "exhaustion": "Neutral- (48)"
-      },
-      "SB": {
-        "symbol": "SB",
-        "name": "Sugar",
-        "asset_class": "Commodities",
-        "setup": "Overbought Confluence",
-        "score": -66.8,
-        "trend_score": 4.0,
-        "direction": "Short",
-        "setup_score": 66.8,
-        "setup_status": "Early",
-        "setup_reasons": "Overbought condition; Multiple resistance levels align; Initial rejection; Resistance confluence: swing_high/20d_high",
-        "ret_20d_pct": 12.68,
-        "ret_60d_pct": 7.05,
-        "exhaustion": "Overbought (80)"
-      },
-      "KC": {
-        "symbol": "KC",
-        "name": "Coffee",
-        "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 2.85,
-        "ret_60d_pct": 23.73,
-        "exhaustion": "Neutral+ (61)"
-      },
       "CC": {
         "symbol": "CC",
         "name": "Cocoa",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Pullback to Support",
+        "score": 62.6,
         "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 4.67,
-        "ret_60d_pct": 44.75,
+        "direction": "Long",
+        "setup_score": 62.6,
+        "setup_status": "Reversing",
+        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: ma50/swing_low",
+        "ret_20d_pct": 1.72,
+        "ret_60d_pct": 40.86,
         "exhaustion": "Neutral+ (58)"
       },
       "CT": {
@@ -278,15 +23,15 @@
         "name": "Cotton",
         "asset_class": "Commodities",
         "setup": "Trend Resumption",
-        "score": 69.2,
+        "score": 69.0,
         "trend_score": 2.0,
         "direction": "Long",
-        "setup_score": 69.2,
+        "setup_score": 69.0,
         "setup_status": "Developing",
         "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high, swing_high",
-        "ret_20d_pct": 7.02,
-        "ret_60d_pct": -2.23,
-        "exhaustion": "Overbought (72)"
+        "ret_20d_pct": 6.93,
+        "ret_60d_pct": -2.31,
+        "exhaustion": "Overbought (71)"
       },
       "LE": {
         "symbol": "LE",
@@ -344,9 +89,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.96,
-        "ret_60d_pct": 0.69,
-        "exhaustion": "Neutral- (36)"
+        "ret_20d_pct": -0.95,
+        "ret_60d_pct": 0.7,
+        "exhaustion": "Neutral- (37)"
       },
       "EURUSD": {
         "symbol": "EURUSD",
@@ -383,10 +128,10 @@
         "name": "AUDUSD",
         "asset_class": "FX",
         "setup": "Trend Resumption",
-        "score": 74.0,
+        "score": 74.1,
         "trend_score": 2.0,
         "direction": "Long",
-        "setup_score": 74.0,
+        "setup_score": 74.1,
         "setup_status": "Developing",
         "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_low/swing_high",
         "ret_20d_pct": 1.31,
@@ -404,8 +149,8 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 0.92,
-        "ret_60d_pct": -0.54,
+        "ret_20d_pct": 0.93,
+        "ret_60d_pct": -0.53,
         "exhaustion": "Extreme OB (78)"
       },
       "JPYUSD": {
@@ -464,8 +209,8 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.3,
-        "ret_60d_pct": -0.64,
+        "ret_20d_pct": -0.29,
+        "ret_60d_pct": -0.63,
         "exhaustion": "Neutral- (39)"
       },
       "MBT": {
@@ -500,19 +245,12 @@
       }
     },
     "by_asset_class": {
-      "Equities": {
-        "n": 6,
-        "avg_score": 2.667,
-        "bullish": 5,
-        "bearish": 1,
-        "text": "Breadth is constructive: avg score 2.67, bullish 5/6, bearish 1/6."
-      },
       "Commodities": {
-        "n": 16,
-        "avg_score": 0.375,
-        "bullish": 7,
-        "bearish": 4,
-        "text": "Breadth is balanced: avg score 0.38, bullish 7/16, bearish 4/16."
+        "n": 5,
+        "avg_score": -1.2,
+        "bullish": 2,
+        "bearish": 3,
+        "text": "Breadth is defensive: avg score -1.20, bullish 2/5, bearish 3/5."
       },
       "FX": {
         "n": 5,
@@ -540,60 +278,1123 @@
   "fundamental_overview": {
     "by_asset_class": {
       "Equities": {
-        "tone": "Mixed",
-        "bias": 0.0,
-        "confidence": 0.2,
-        "commentary": "Equity signals are balanced, with supportive pockets offset by an uneven backdrop. Bias +0.00, confidence 0.20.",
-        "top_news": [],
-        "score_details": [],
-        "macro_calendar": [],
-        "earnings_calendar": [],
-        "key_watchpoints": [],
-        "key_events": []
+        "tone": "Supportive",
+        "bias": 1.0,
+        "confidence": 0.938,
+        "commentary": "Risk sentiment remains constructive, though leadership is selective. Bias +1.00, confidence 0.94. Primary flow source: FXStreet.",
+        "top_news": [
+          {
+            "title": "Equities: US stock rally broadens as S&P 500 hits new high – Deutsche Bank",
+            "source": "FXStreet",
+            "date": "2026-08-14T06:52:17Z",
+            "url": "https://www.fxstreet.com/news/equities-us-stock-rally-broadens-as-sp-500-hits-new-high-deutsche-bank-202608140652",
+            "summary": "Deutsche Bank strategists report that United States (US) equities, led by the S&amp;P 500, have reached new record highs as softer inflation data and lower Oil prices reinforce expectations that the Fed can stay on hold."
+          },
+          {
+            "title": "S&P 500 notches record-high close as rate-hike worries ease",
+            "source": "Reuters",
+            "date": "2026-08-14T09:01:38Z",
+            "url": "https://www.reuters.com/business/retail-consumer/wall-st-futures-tick-higher-oil-retreats-ahead-inflation-data-2026-08-13/",
+            "summary": ""
+          },
+          {
+            "title": "An inside look at SK Hynix $720 billion AI-fueled buildout that's taking over South Korea",
+            "source": "CNBC",
+            "date": "2026-08-13T09:00:01Z",
+            "url": "https://www.cnbc.com/2026/08/13/inside-sk-hynixs-720-billion-bet-to-build-enough-memory-for-ai.html",
+            "summary": "SK Hynix, the leading maker of high-bandwidth memory, is pouring $720 billion into memory factories to meet AI demand. We got an exclusive first look."
+          }
+        ],
+        "score_details": [
+          {
+            "title": "S&P 500 notches record-high close as rate-hike worries ease",
+            "source": "Reuters",
+            "direction": 1.8,
+            "relevance": 1.5,
+            "score": 2.7,
+            "reason": "Reinforces the dominant narrative that fading rate‑hike bets and cooler inflation are underpinning broad equity gains; meaningful market‑wide confirmation, high relevance."
+          },
+          {
+            "title": "Asian stocks head for strong weekly gains as US rate hike bets fade",
+            "source": "Reuters",
+            "direction": 1.5,
+            "relevance": 1.3,
+            "score": 1.95,
+            "reason": "Cross‑regional confirmation of the same macro regime: fading US rate‑hike expectations are lifting Asian equities, reinforcing global risk‑on bias and breadth of the rally."
+          },
+          {
+            "title": "Equities: US stock rally broadens as S&P 500 hits new high – Deutsche Bank",
+            "source": "FXStreet",
+            "direction": 2.0,
+            "relevance": 1.75,
+            "score": 3.5,
+            "reason": "Clear, high‑impact market regimen: soft inflation + lower oil = Fed hold narrative driving broad S&P record highs. Strongly bullish for equities and market regime, high relevance as a macro driver."
+          },
+          {
+            "title": "AI frenzy drives Chinese tech valuations to multiples of US peers",
+            "source": "Financial Times",
+            "direction": 1.0,
+            "relevance": 1.2,
+            "score": 1.2,
+            "reason": "Highlights how AI‑led narratives are powering international equity rallies (China tech) and fueling valuations—positive for risk appetite but flags concentration/froth risk (moderate relevance)."
+          },
+          {
+            "title": "These charts show why stocks keep rallying. Profit margins are the highest on record",
+            "source": "CNBC",
+            "direction": 1.2,
+            "relevance": 1.3,
+            "score": 1.56,
+            "reason": "Fundamental support for the rally: record profit margins bolster earnings narrative and justify risk appetite—positive for equities but more fundamental/medium relevance than top macro datapoints."
+          },
+          {
+            "title": "An inside look at SK Hynix $720 billion AI-fueled buildout that's taking over South Korea",
+            "source": "CNBC",
+            "direction": 1.6,
+            "relevance": 1.6,
+            "score": 2.56,
+            "reason": "Major structural/sectoral driver: massive AI capex by memory supplier supports tech leadership and capex‑driven equity flows—material for sector leadership and overall market sentiment."
+          }
+        ],
+        "macro_calendar": [
+          {
+            "label": "GDP",
+            "title": "Euro Area GDP",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-08-14",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-14",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "China Fixed Asset Investment",
+            "title": "China Fixed Asset Investment",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China Industrial Production",
+            "title": "China Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China National Economic Performance",
+            "title": "China National Economic Performance",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          }
+        ],
+        "earnings_calendar": [
+          {
+            "label": "Home Depot Inc",
+            "title": "HD",
+            "ticker": "HD",
+            "company": "Home Depot Inc",
+            "source": "Finviz",
+            "date": "2026-08-18",
+            "url": "https://finviz.com/quote.ashx?t=HD"
+          },
+          {
+            "label": "Alibaba Group Holding Ltd ADR",
+            "title": "BABA",
+            "ticker": "BABA",
+            "company": "Alibaba Group Holding Ltd ADR",
+            "source": "Finviz",
+            "date": "2026-08-20",
+            "url": "https://finviz.com/quote.ashx?t=BABA"
+          },
+          {
+            "label": "Walmart Inc",
+            "title": "WMT",
+            "ticker": "WMT",
+            "company": "Walmart Inc",
+            "source": "Finviz",
+            "date": "2026-08-20",
+            "url": "https://finviz.com/quote.ashx?t=WMT"
+          }
+        ],
+        "key_watchpoints": [
+          {
+            "label": "GDP",
+            "title": "Euro Area GDP",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-08-14",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-14",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "China Fixed Asset Investment",
+            "title": "China Fixed Asset Investment",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China Industrial Production",
+            "title": "China Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China National Economic Performance",
+            "title": "China National Economic Performance",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          }
+        ],
+        "key_events": [
+          {
+            "label": "GDP",
+            "title": "Euro Area GDP",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-08-14",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-14",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "China Fixed Asset Investment",
+            "title": "China Fixed Asset Investment",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China Industrial Production",
+            "title": "China Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China National Economic Performance",
+            "title": "China National Economic Performance",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          }
+        ]
       },
       "Commodities": {
-        "tone": "Mixed",
-        "bias": 0.0,
-        "confidence": 0.2,
-        "commentary": "Commodity signals are mixed, with demand uncertainty offsetting selective support. Bias +0.00, confidence 0.20.",
-        "top_news": [],
-        "score_details": [],
-        "macro_calendar": [],
+        "tone": "Cautious",
+        "bias": -0.254,
+        "confidence": 0.731,
+        "commentary": "Commodity tone is cautious, with growth uncertainty weighing against supply support. Bias -0.25, confidence 0.73. Primary flow source: EIA Today in Energy.",
+        "top_news": [
+          {
+            "title": "United States on track for record natural gas production in 2026",
+            "source": "EIA Today in Energy",
+            "date": "2026-08-12T14:00:00Z",
+            "url": "https://www.eia.gov/todayinenergy/detail.php?id=67944",
+            "summary": "We forecast U.S. marketed natural gas production will average 122.5 billion cubic feet per day (Bcf/d) in 2026, surpassing the previous record of 118.5 Bcf/d set in 2025, in our August 2026 Short-Term Energy Outlook (STEO)."
+          },
+          {
+            "title": "Oil rises after US threatens indefinite blockade of Iran; set for weekly gains",
+            "source": "Investing.com",
+            "date": "2026-08-14T08:36:29Z",
+            "url": "https://www.investing.com/news/commodities-news/oil-steadies-after-us-threatens-to-blockade-iran-indefinitely-4859625",
+            "summary": ""
+          },
+          {
+            "title": "Tankers Are Going Dark for Longer to Get Oil Out of Middle East",
+            "source": "Bloomberg",
+            "date": "2026-08-14T09:01:38Z",
+            "url": "https://www.bloomberg.com/news/articles/2026-08-14/tankers-are-going-dark-for-longer-to-get-oil-out-of-middle-east",
+            "summary": ""
+          }
+        ],
+        "score_details": [
+          {
+            "title": "Gold heads for weekly loss as investors unwind inflation-fuelled rally",
+            "source": "Reuters",
+            "direction": -0.6,
+            "relevance": 0.9,
+            "score": -0.54,
+            "reason": "Gold selling as investors take profits and unwind an inflation-driven rally is a near-term bearish impulse for the bullion market. Medium relevance—metal-specific but not signalling a structural regime shift."
+          },
+          {
+            "title": "Tankers Are Going Dark for Longer to Get Oil Out of Middle East",
+            "source": "Bloomberg",
+            "direction": -0.9,
+            "relevance": 1.4,
+            "score": -1.26,
+            "reason": "Reports that tankers are using tactics to move Middle Eastern oil more effectively imply rising physical flows into markets, which is bearish for oil prices and materially relevant to supply-side dynamics."
+          },
+          {
+            "title": "An Influx of Middle Eastern Oil Is Finally Hitting American Shores",
+            "source": "Bloomberg",
+            "direction": -0.8,
+            "relevance": 1.1,
+            "score": -0.88,
+            "reason": "Evidence of increased Middle Eastern crude arrivals into the U.S. increases supply availability and works to lower the oil risk premium; relevant as a physical-flow datapoint countering geopolitical headlines."
+          },
+          {
+            "title": "Tyson to Close More Beef Plants as US Cattle Shortage Drags On",
+            "source": "Bloomberg",
+            "direction": 0.9,
+            "relevance": 1.2,
+            "score": 1.08,
+            "reason": "Plant closures amid a cattle shortage tighten beef supply and are supportive for live cattle prices; relevant because it signals a material supply-side constraint in a covered livestock commodity."
+          },
+          {
+            "title": "Oil rises after US threatens indefinite blockade of Iran; set for weekly gains",
+            "source": "Investing.com",
+            "direction": 1.2,
+            "relevance": 1.4,
+            "score": 1.68,
+            "reason": "A U.S. threat to blockade Iran is a material geopolitical supply shock risk that supports higher oil prices; high relevance because it directly affects perceived physical supply disruption."
+          },
+          {
+            "title": "Brent: Geopolitical premium eases after six-day rally – Deutsche Bank",
+            "source": "FXStreet",
+            "direction": -0.7,
+            "relevance": 1.2,
+            "score": -0.84,
+            "reason": "Analyst view that the geopolitical risk premium is retracting is a clear bearish signal for Brent near-term prices; relevant because it reflects a macro drivers update rather than idiosyncratic noise."
+          },
+          {
+            "title": "How a niche copper trade became a real-time gauge of Trump’s next tariff move",
+            "source": "CNBC",
+            "direction": -0.6,
+            "relevance": 1.0,
+            "score": -0.6,
+            "reason": "Widening exchange spreads as a gauge of tariff risk point to elevated policy-driven uncertainty and potential demand downside for copper; relevant to the metal but not a direct supply/demand shock."
+          },
+          {
+            "title": "Gold recovers intraday losses as reduced Fed hike bets offset geopolitics and weigh on USD",
+            "source": "FXStreet",
+            "direction": 0.5,
+            "relevance": 0.8,
+            "score": 0.4,
+            "reason": "Reduced Fed-hike expectations and a softer USD provide support for gold; intraday/technical focus limits relevance under the scoring rules but still supportive for bullion."
+          },
+          {
+            "title": "Trump-linked oil venture delays Greenland drilling plans after government warning",
+            "source": "CNBC",
+            "direction": 0.3,
+            "relevance": 0.6,
+            "score": 0.18,
+            "reason": "A delay in drilling reduces prospective future supply growth (small near-term impact), modestly supportive for oil prices but limited relevance to global balances."
+          },
+          {
+            "title": "United States on track for record natural gas production in 2026",
+            "source": "EIA Today in Energy",
+            "direction": -1.1,
+            "relevance": 1.6,
+            "score": -1.76,
+            "reason": "EIA forecast for record U.S. gas production is a structurally bearish supply signal for natural gas prices and is highly relevant as an authoritative production outlook."
+          }
+        ],
+        "macro_calendar": [
+          {
+            "label": "China Fixed Asset Investment",
+            "title": "China Fixed Asset Investment",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China Industrial Production",
+            "title": "China Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China National Economic Performance",
+            "title": "China National Economic Performance",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "China Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-08-18",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          }
+        ],
         "earnings_calendar": [],
-        "key_watchpoints": [],
-        "key_events": []
+        "key_watchpoints": [
+          {
+            "label": "China Fixed Asset Investment",
+            "title": "China Fixed Asset Investment",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China Industrial Production",
+            "title": "China Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China National Economic Performance",
+            "title": "China National Economic Performance",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "China Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-08-18",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          }
+        ],
+        "key_events": [
+          {
+            "label": "China Fixed Asset Investment",
+            "title": "China Fixed Asset Investment",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China Industrial Production",
+            "title": "China Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China National Economic Performance",
+            "title": "China National Economic Performance",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "China Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-08-18",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          }
+        ]
       },
       "FX": {
-        "tone": "Mixed",
-        "bias": 0.0,
-        "confidence": 0.2,
-        "commentary": "Major currencies show mixed signals against the dollar, with no clean macro direction yet. Bias +0.00, confidence 0.20.",
-        "top_news": [],
-        "score_details": [],
-        "macro_calendar": [],
+        "tone": "Supportive",
+        "bias": 1.0,
+        "confidence": 0.787,
+        "commentary": "Major currencies are broadly supported against the dollar, with macro divergence favouring the rest of the world. Bias +1.00, confidence 0.79. Primary flow source: Reuters.",
+        "top_news": [
+          {
+            "title": "Japan may see more yen intervention, faster BOJ rate hikes, ex-top FX diplomat says",
+            "source": "Reuters",
+            "date": "2026-08-14T09:01:38Z",
+            "url": "https://www.reuters.com/world/asia-pacific/japan-may-see-more-yen-intervention-faster-boj-rate-hikes-ex-top-fx-diplomat-2026-08-14/",
+            "summary": ""
+          },
+          {
+            "title": "US Dollar Index Price Forecast: DXY declines to 99.75-99.70 amid receding Fed hike bets",
+            "source": "FXStreet",
+            "date": "2026-08-14T08:58:29Z",
+            "url": "https://www.fxstreet.com/news/us-dollar-index-price-forecast-dxy-declines-to-9975-9970-amid-receding-fed-hike-bets-202608140858",
+            "summary": "The US Dollar Index (DXY), which tracks the Greenback against a basket of currencies, continues to lose ground through the first half of the European session on Friday and retreats further from a two-week high, touched the previous day."
+          },
+          {
+            "title": "Forex Today: Easing Fed rate hike bets weigh on USD amid Mideast stalemate",
+            "source": "FXStreet",
+            "date": "2026-08-14T06:33:29Z",
+            "url": "https://www.fxstreet.com/news/forex-today-easing-fed-rate-hike-bets-weigh-on-usd-amid-mideast-stalemate-202608140633",
+            "summary": "Here is what you need to know on Friday, August 14:"
+          }
+        ],
+        "score_details": [
+          {
+            "title": "Japan may see more yen intervention, faster BOJ rate hikes, ex-top FX diplomat says",
+            "source": "Reuters",
+            "direction": 1.4,
+            "relevance": 1.8,
+            "score": 2.52,
+            "reason": "Reuters piece flags renewed risk of official yen intervention and faster BoJ normalisation — high‑impact for USD/JPY and global FX flows; elevated relevance."
+          },
+          {
+            "title": "US Dollar Index Price Forecast: DXY declines to 99.75-99.70 amid receding Fed hike bets",
+            "source": "FXStreet",
+            "direction": 1.2,
+            "relevance": 1.6,
+            "score": 1.92,
+            "reason": "Direct DXY decline is a high‑signal USD weakness impulse (receding Fed hike bets) that supports majors across the board; central to FX regime today."
+          },
+          {
+            "title": "GBP/USD Price Forecast: Picks up above 1.3500 amid generalised US Dollar weakness",
+            "source": "FXStreet",
+            "direction": 0.8,
+            "relevance": 1.2,
+            "score": 0.96,
+            "reason": "GBP strength is being driven by broad USD weakness (weaker Fed hike odds); relevant for major‑pair flows and the USD‑centric view."
+          },
+          {
+            "title": "British Pound: Growth resilience supports gains against US Dollar – MUFG",
+            "source": "FXStreet",
+            "direction": 0.6,
+            "relevance": 0.9,
+            "score": 0.54,
+            "reason": "Fundamental UK growth resilience supports GBP/USD beyond transitory USD moves; medium relevance as it reinforces the GBP outperformer narrative."
+          },
+          {
+            "title": "Australian Dollar: Upside risk intact above support against US Dollar – UOB",
+            "source": "FXStreet",
+            "direction": 0.5,
+            "relevance": 0.8,
+            "score": 0.4,
+            "reason": "Technical/strategic note that AUD retains upside vs USD, supported by hawkish RBA commentary; relevance limited by technical focus."
+          },
+          {
+            "title": "EUR/USD Price Forecast: Hawkish ECB prospects support Euro",
+            "source": "FXStreet",
+            "direction": 0.9,
+            "relevance": 1.4,
+            "score": 1.26,
+            "reason": "ECB hawkish prospects are a direct, high‑signal driver for EUR/USD; supports Euro vs USD and reinforces the broader USD‑weakness narrative."
+          },
+          {
+            "title": "Japanese Yen: BoJ tightening debate supports JPY – Rabobank",
+            "source": "FXStreet",
+            "direction": 0.9,
+            "relevance": 1.5,
+            "score": 1.35,
+            "reason": "BoJ tightness debate and recent intervention talk are direct support for JPY vs USD; material to FX given policy/intervention transmission."
+          },
+          {
+            "title": "Canadian Dollar hits fresh high since June on rising oil prices, Fed-inspired USD weakness",
+            "source": "FXStreet",
+            "direction": 0.7,
+            "relevance": 1.0,
+            "score": 0.7,
+            "reason": "CAD strength is tied to higher oil and USD weakness — a clear commodity‑FX transmission relevant for USD/CAD flows."
+          },
+          {
+            "title": "Forex Today: Easing Fed rate hike bets weigh on USD amid Mideast stalemate",
+            "source": "FXStreet",
+            "direction": 1.0,
+            "relevance": 1.5,
+            "score": 1.5,
+            "reason": "Concise thematic note: easing Fed bets + geopolitical risk = USD weakness narrative driving broad FX moves; useful for cross‑market context."
+          },
+          {
+            "title": "US Dollar: Labor slowdown gives mixed signals for Dollar - Commerzbank",
+            "source": "FXStreet",
+            "direction": -0.4,
+            "relevance": 0.8,
+            "score": -0.32,
+            "reason": "Bank note flags persistent underlying support for the USD despite some soft labour signals — a counter‑narrative that reduces the unilateral USD‑weakness case."
+          }
+        ],
+        "macro_calendar": [
+          {
+            "label": "GDP",
+            "title": "Euro Area GDP",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-08-14",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-14",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "China Fixed Asset Investment",
+            "title": "China Fixed Asset Investment",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China Industrial Production",
+            "title": "China Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China National Economic Performance",
+            "title": "China National Economic Performance",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          }
+        ],
         "earnings_calendar": [],
-        "key_watchpoints": [],
-        "key_events": []
+        "key_watchpoints": [
+          {
+            "label": "GDP",
+            "title": "Euro Area GDP",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-08-14",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-14",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "China Fixed Asset Investment",
+            "title": "China Fixed Asset Investment",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China Industrial Production",
+            "title": "China Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China National Economic Performance",
+            "title": "China National Economic Performance",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          }
+        ],
+        "key_events": [
+          {
+            "label": "GDP",
+            "title": "Euro Area GDP",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-08-14",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-14",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "China Fixed Asset Investment",
+            "title": "China Fixed Asset Investment",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China Industrial Production",
+            "title": "China Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "China National Economic Performance",
+            "title": "China National Economic Performance",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-08-17",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          }
+        ]
       },
       "Rates": {
         "tone": "Mixed",
-        "bias": 0.0,
-        "confidence": 0.2,
-        "commentary": "Rates remain data-dependent, with no clean trend yet across inflation and policy expectations. Bias +0.00, confidence 0.20.",
-        "top_news": [],
-        "score_details": [],
-        "macro_calendar": [],
+        "bias": 0.16,
+        "confidence": 0.761,
+        "commentary": "Rates remain data-dependent, with no clean trend yet across inflation and policy expectations. Bias +0.16, confidence 0.76. Primary flow source: Reuters.",
+        "top_news": [
+          {
+            "title": "AI-driven surge in bond yields could be next risk for markets and growth",
+            "source": "Reuters",
+            "date": "2026-08-14T09:01:38Z",
+            "url": "https://www.reuters.com/world/asia-pacific/ai-driven-surge-bond-yields-could-be-next-risk-markets-growth-2026-08-14/",
+            "summary": ""
+          },
+          {
+            "title": "PBOC’s First Mid-Month Overnight Reverse Repo Boosts Bonds",
+            "source": "Bloomberg",
+            "date": "2026-08-14T09:01:38Z",
+            "url": "https://www.bloomberg.com/news/articles/2026-08-14/pboc-conducts-mid-month-overnight-reverse-repo-for-first-time",
+            "summary": ""
+          },
+          {
+            "title": "US Dollar: Carry trades supported as Fed seen on hold – OCBC",
+            "source": "FXStreet",
+            "date": "2026-08-14T08:46:40Z",
+            "url": "https://www.fxstreet.com/news/us-dollar-carry-trades-supported-as-fed-seen-on-hold-ocbc-202608140846",
+            "summary": "OCBC’s Sim Moh Siong and Christopher Wong note that softer United States (US) Producer Price Index (PPI) and lower US Treasury yields have led markets to scale back expectations of a September Federal Reserve (Fed) hike, limiting US Dollar (USD) upside."
+          }
+        ],
+        "score_details": [
+          {
+            "title": "AI-driven surge in bond yields could be next risk for markets and growth",
+            "source": "Reuters",
+            "direction": -1.6,
+            "relevance": 1.6,
+            "score": -2.56,
+            "reason": "Headline flags a macro risk of a material rise in bond yields driven by AI-related dynamics — explicit bearish shock to bond prices (yields up). High relevance as this is a broad market/regime-level risk narrative that could drive yields higher across markets."
+          },
+          {
+            "title": "PBOC’s First Mid-Month Overnight Reverse Repo Boosts Bonds",
+            "source": "Bloomberg",
+            "direction": 1.2,
+            "relevance": 1.4,
+            "score": 1.68,
+            "reason": "PBOC conducting an intra-month reverse repo is a liquidity injection that directly supports local bond prices (yields down). Relevant for Rates because central-bank money-market operations change term-structure and risk premia."
+          },
+          {
+            "title": "Why Speculative Investors Are Betting on RBA Rate Hike in November",
+            "source": "Bloomberg",
+            "direction": -0.6,
+            "relevance": 0.8,
+            "score": -0.48,
+            "reason": "Stories about growing market bets for an RBA hike imply higher Australian yields ahead (local bond-negative). Regional central-bank tightening expectations have modest relevance to global rates and risk sentiment."
+          },
+          {
+            "title": "Mortgage rates fall for first time in 6 weeks",
+            "source": "foxbusiness.com",
+            "direction": 0.6,
+            "relevance": 0.6,
+            "score": 0.36,
+            "reason": "Reports a near-term decline in mortgage rates — modestly supportive of lower yields and bond prices rally in the consumer/mortgage segment. Lower relevance because this is secondary to sovereign market rates."
+          },
+          {
+            "title": "African Domestic Debt Outshines EM Peers as High-Yield Chase Intensifies",
+            "source": "Bloomberg",
+            "direction": 0.3,
+            "relevance": 0.6,
+            "score": 0.18,
+            "reason": "Describes investor demand chasing higher-yielding African domestic debt — supports tighter yields/stronger prices in those markets and signals cross-border flows into EM credit. Relevant to Rates as it reflects demand-side effects on yields, but limited global impact."
+          },
+          {
+            "title": "US Dollar: Carry trades supported as Fed seen on hold – OCBC",
+            "source": "FXStreet",
+            "direction": 1.0,
+            "relevance": 1.6,
+            "score": 1.6,
+            "reason": "Article explicitly notes lower US Treasury yields and reduced Fed hike odds — a clear bond-positive signal (yields down). High relevance because it signals a shift in Fed expectations and Treasury market direction."
+          },
+          {
+            "title": "AI’s infrastructure boom is getting more leveraged — and harder to track",
+            "source": "CNBC",
+            "direction": -0.9,
+            "relevance": 1.0,
+            "score": -0.9,
+            "reason": "Notes rising bond-financed leverage for AI infrastructure and the build-up of financing risk — a negative for bond markets if deleveraging or higher risk premia occur (upward pressure on yields). Relevant as it highlights a structural source of rate volatility."
+          },
+          {
+            "title": "US Dollar: Softer tone with falling yields – MUFG",
+            "source": "FXStreet",
+            "direction": 1.0,
+            "relevance": 1.4,
+            "score": 1.4,
+            "reason": "Direct reference to falling yields and scaled-back Fed hike expectations — reinforces a bond-friendly narrative (lower yields). Good relevance as it comes from a major FX/FX-rate strategist linking macro prints to Treasury yields."
+          },
+          {
+            "title": "Norwegian Krone: Weaker after Norges Bank holds rates – Danske Bank",
+            "source": "FXStreet",
+            "direction": -0.6,
+            "relevance": 0.8,
+            "score": -0.48,
+            "reason": "Norges Bank holding but retaining a tightening bias suggests potential for higher short-term Norwegian yields (local bond-negative). Relevant to Rates for regional rate-path expectations and term-premium implications."
+          },
+          {
+            "title": "Canadian Dollar gathers strength on easing Fed rate hike bets",
+            "source": "FXStreet",
+            "direction": 0.8,
+            "relevance": 1.0,
+            "score": 0.8,
+            "reason": "FX piece but explicitly links cooled US inflation and tempered Fed bets to USD weakness via lower US yield expectations — supports a modestly positive bond-price view (yields down). Relevance moderated because primary focus is FX."
+          }
+        ],
+        "macro_calendar": [
+          {
+            "label": "GDP",
+            "title": "Euro Area GDP",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-08-14",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-14",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "US Housing Starts / Building Permits",
+            "title": "US Housing Starts / Building Permits",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-18",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-08-18",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-08-19",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
+          }
+        ],
         "earnings_calendar": [],
-        "key_watchpoints": [],
-        "key_events": []
+        "key_watchpoints": [
+          {
+            "label": "GDP",
+            "title": "Euro Area GDP",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-08-14",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-14",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "US Housing Starts / Building Permits",
+            "title": "US Housing Starts / Building Permits",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-18",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-08-18",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-08-19",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
+          }
+        ],
+        "key_events": [
+          {
+            "label": "GDP",
+            "title": "Euro Area GDP",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-08-14",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-14",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "US Housing Starts / Building Permits",
+            "title": "US Housing Starts / Building Permits",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-08-18",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-08-18",
+            "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-08-19",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
+          }
+        ]
       },
       "Crypto": {
-        "tone": "Mixed",
-        "bias": 0.0,
-        "confidence": 0.2,
-        "commentary": "Crypto tone is balanced, with supportive narratives competing against uncertainty. Bias +0.00, confidence 0.20.",
-        "top_news": [],
-        "score_details": [],
+        "tone": "Cautious",
+        "bias": -0.824,
+        "confidence": 0.855,
+        "commentary": "Crypto remains fragile, with policy and risk appetite still key swing factors. Bias -0.82, confidence 0.85. Primary flow source: Bloomberg.",
+        "top_news": [
+          {
+            "title": "SEC Delays Crypto Regulation Meeting in Latest Industry Setback",
+            "source": "Bloomberg",
+            "date": "2026-08-14T09:01:38Z",
+            "url": "https://www.bloomberg.com/news/articles/2026-08-13/sec-delays-crypto-regulation-meeting-in-latest-industry-setback",
+            "summary": ""
+          },
+          {
+            "title": "SEC cancels long-awaited proposal of Reg Crypto, postponing meeting without new date",
+            "source": "CoinDesk",
+            "date": "2026-08-13T22:18:07Z",
+            "url": "https://www.coindesk.com/policy/2026/08/13/sec-cancels-long-awaited-proposal-of-reg-crypto-postponing-meeting-without-new-date",
+            "summary": ""
+          },
+          {
+            "title": "U.S. SEC to again delay 'innovation exemption' for tokenization amid Wall Street, White House concerns",
+            "source": "CoinDesk",
+            "date": "2026-08-13T23:09:14Z",
+            "url": "https://www.coindesk.com/policy/2026/08/13/u-s-sec-to-again-delay-innovation-exemption-for-tokenization-amid-wall-street-white-house-concerns",
+            "summary": ""
+          }
+        ],
+        "score_details": [
+          {
+            "title": "SEC Delays Crypto Regulation Meeting in Latest Industry Setback",
+            "source": "Bloomberg",
+            "direction": -1.6,
+            "relevance": 1.8,
+            "score": -2.88,
+            "reason": "Broad US regulatory delay is a material negative for crypto markets — slows rule clarity, product approvals and institutional flows. High relevance because it affects industry-wide policy and market access."
+          },
+          {
+            "title": "Cluster of headwinds weigh on bitcoin. XRP teeters near $1",
+            "source": "CoinDesk",
+            "direction": -1.1,
+            "relevance": 1.3,
+            "score": -1.43,
+            "reason": "Market-level negative momentum and multiple pressures on BTC/XRP signal weaker price action and sentiment; relevant for short-term market direction and trader flows."
+          },
+          {
+            "title": "Bitcoin holders Strategy and Metaplanet face stock-index exclusion under MSCI’s new proposal",
+            "source": "CoinDesk",
+            "direction": -0.9,
+            "relevance": 1.0,
+            "score": -0.9,
+            "reason": "Potential index exclusion for firms holding large BTC positions could pressure listing liquidity and investor demand for these equities, indirectly affecting market sentiment around concentrated BTC holders."
+          },
+          {
+            "title": "JPMorgan shuttered its banking relationship with predictions platform Polymarket: FT",
+            "source": "CoinDesk",
+            "direction": -1.0,
+            "relevance": 1.1,
+            "score": -1.1,
+            "reason": "Loss of a major banking relationship highlights ongoing friction between crypto businesses and traditional banks — negative for fiat on/off-ramps and operational stability."
+          },
+          {
+            "title": "U.S. SEC to again delay 'innovation exemption' for tokenization amid Wall Street, White House concerns",
+            "source": "CoinDesk",
+            "direction": -1.3,
+            "relevance": 1.5,
+            "score": -1.95,
+            "reason": "Delay to a tokenization-specific exemption directly slows institutional use-cases (securities tokenization, asset-backed tokens) — a negative for on‑chain capital markets adoption."
+          },
+          {
+            "title": "SEC cancels long-awaited proposal of Reg Crypto, postponing meeting without new date",
+            "source": "CoinDesk",
+            "direction": -1.4,
+            "relevance": 1.6,
+            "score": -2.24,
+            "reason": "Cancellation of a major regulatory proposal reinforces policy uncertainty for exchanges, tokens and institutional entrants — negative for sentiment and product rollout timing."
+          },
+          {
+            "title": "Tether says it completed long-promised 'Big Four' audit of finances behind $180 billion USDT stablecoin",
+            "source": "CoinDesk",
+            "direction": 1.2,
+            "relevance": 1.6,
+            "score": 1.92,
+            "reason": "Completion of a major audit for USDT reduces a core counterparty uncertainty for crypto markets and supports stablecoin trust/liquidity — positive for market plumbing and on‑chain flows."
+          },
+          {
+            "title": "Trezor warns 14,000 customers after fulfilment partner suffers data breach",
+            "source": "CoinDesk",
+            "direction": -0.8,
+            "relevance": 0.9,
+            "score": -0.72,
+            "reason": "Custody/consumer security breach undermines user trust and onboarding for hardware wallets — a localized but material negative for security-sensitive adoption channels."
+          },
+          {
+            "title": "Figure revenue doubles as blockchain loan marketplace volumes surge",
+            "source": "CoinDesk",
+            "direction": 0.8,
+            "relevance": 0.8,
+            "score": 0.64,
+            "reason": "Growth in DeFi/crypto lending volumes and revenue signals ongoing real-economy use of blockchain credit infrastructure — supportive for ecosystem adoption and on‑chain activity."
+          },
+          {
+            "title": "Brazil’s largest bitcoin treasury firm plans ETF with 95% allocation to Strategy's STRC",
+            "source": "CoinDesk",
+            "direction": 0.6,
+            "relevance": 0.7,
+            "score": 0.42,
+            "reason": "Launch of a large ETF product (Brazil) with concentrated BTC-linked allocation supports productization and institutional demand in regional markets — modestly positive for flows."
+          }
+        ],
         "macro_calendar": [],
         "earnings_calendar": [],
         "key_watchpoints": [],
@@ -613,38 +1414,21 @@
     },
     "top_long": [
       {
-        "symbol": "ZS",
-        "name": "Soybeans",
-        "asset_class": "Commodities",
-        "setup": "Pullback to Support",
-        "setup_status": "Reversing",
-        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: fib_0.382/ma200, fib_0.618/swing_high",
-        "score": 74.1,
-        "setup_score": 74.1,
-        "ret_20d_pct": -1.07,
-        "side": "LONG",
-        "tech_score": 0.741,
-        "fund_support": 0.5,
-        "macro_alignment": 0.5,
-        "final_score": 0.68075,
-        "rationale": "Pullback to Support: Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: fib_0.382/ma200, fib_0.618/swing_high. Broader commodities tone is mixed."
-      },
-      {
         "symbol": "AUDUSD",
         "name": "AUDUSD",
         "asset_class": "FX",
         "setup": "Trend Resumption",
         "setup_status": "Developing",
         "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_low/swing_high",
-        "score": 74.0,
-        "setup_score": 74.0,
+        "score": 74.1,
+        "setup_score": 74.1,
         "ret_20d_pct": 1.31,
         "side": "LONG",
-        "tech_score": 0.74,
-        "fund_support": 0.5,
-        "macro_alignment": 0.5,
-        "final_score": 0.6799999999999999,
-        "rationale": "Trend Resumption: Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_low/swing_high. Broader fx tone is mixed."
+        "tech_score": 0.741,
+        "fund_support": 0.8935,
+        "macro_alignment": 0.8935,
+        "final_score": 0.779125,
+        "rationale": "Trend Resumption: Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_low/swing_high. Broader fx tone is supportive."
       },
       {
         "symbol": "CT",
@@ -653,15 +1437,32 @@
         "setup": "Trend Resumption",
         "setup_status": "Developing",
         "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high, swing_high",
-        "score": 69.2,
-        "setup_score": 69.2,
-        "ret_20d_pct": 7.02,
+        "score": 69.0,
+        "setup_score": 69.0,
+        "ret_20d_pct": 6.93,
         "side": "LONG",
-        "tech_score": 0.6920000000000001,
-        "fund_support": 0.5,
-        "macro_alignment": 0.5,
-        "final_score": 0.644,
-        "rationale": "Trend Resumption: Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high, swing_high. Broader commodities tone is mixed."
+        "tech_score": 0.69,
+        "fund_support": 0.407163,
+        "macro_alignment": 0.407163,
+        "final_score": 0.61929075,
+        "rationale": "Trend Resumption: Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high, swing_high. Broader commodities tone is cautious."
+      },
+      {
+        "symbol": "CC",
+        "name": "Cocoa",
+        "asset_class": "Commodities",
+        "setup": "Pullback to Support",
+        "setup_status": "Reversing",
+        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: ma50/swing_low",
+        "score": 62.6,
+        "setup_score": 62.6,
+        "ret_20d_pct": 1.72,
+        "side": "LONG",
+        "tech_score": 0.626,
+        "fund_support": 0.407163,
+        "macro_alignment": 0.407163,
+        "final_score": 0.5712907500000001,
+        "rationale": "Pullback to Support: Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: ma50/swing_low. Broader commodities tone is cautious."
       }
     ],
     "top_short": [
@@ -677,27 +1478,10 @@
         "ret_20d_pct": -1.88,
         "side": "SHORT",
         "tech_score": 0.96,
-        "fund_support": 0.5,
-        "macro_alignment": 0.5,
-        "final_score": 0.845,
-        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: ma50/swing_low, swing_high. Broader crypto tone is mixed."
-      },
-      {
-        "symbol": "GC",
-        "name": "Gold",
-        "asset_class": "Commodities",
-        "setup": "Failed Breakout",
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/swing_low",
-        "score": -81.5,
-        "setup_score": 81.5,
-        "ret_20d_pct": 9.12,
-        "side": "SHORT",
-        "tech_score": 0.815,
-        "fund_support": 0.5,
-        "macro_alignment": 0.5,
-        "final_score": 0.73625,
-        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/swing_low. Broader commodities tone is mixed."
+        "fund_support": 0.85226,
+        "macro_alignment": 0.85226,
+        "final_score": 0.933065,
+        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: ma50/swing_low, swing_high. Broader crypto tone is cautious."
       },
       {
         "symbol": "GF",
@@ -711,12 +1495,368 @@
         "ret_20d_pct": -1.69,
         "side": "SHORT",
         "tech_score": 0.78,
-        "fund_support": 0.5,
-        "macro_alignment": 0.5,
-        "final_score": 0.71,
-        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low. Broader commodities tone is mixed."
+        "fund_support": 0.5928370000000001,
+        "macro_alignment": 0.5928370000000001,
+        "final_score": 0.73320925,
+        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low. Broader commodities tone is cautious."
+      },
+      {
+        "symbol": "LE",
+        "name": "Live Cattle",
+        "asset_class": "Commodities",
+        "setup": "Trend Resumption",
+        "setup_status": "Developing",
+        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/swing_high",
+        "score": -75.7,
+        "setup_score": 75.7,
+        "ret_20d_pct": -1.44,
+        "side": "SHORT",
+        "tech_score": 0.757,
+        "fund_support": 0.5928370000000001,
+        "macro_alignment": 0.5928370000000001,
+        "final_score": 0.71595925,
+        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/swing_high. Broader commodities tone is cautious."
       }
     ]
   },
-  "event_calendar": []
+  "event_calendar": [
+    {
+      "date": "2026-08-14",
+      "type": "Macro",
+      "title": "Euro Area GDP",
+      "country": "Euro Area",
+      "importance": "high",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/release-calendar",
+      "event_key": "EA_GDP",
+      "source_family": "Eurostat",
+      "scheduler_source": "Eurostat eventsJson",
+      "provider_title": "Flash estimate GDP and employment - EU and euro area",
+      "sources": [
+        "Eurostat"
+      ],
+      "urls": [
+        "https://ec.europa.eu/eurostat/news/release-calendar"
+      ]
+    },
+    {
+      "date": "2026-08-14",
+      "type": "Macro",
+      "title": "US Retail Sales",
+      "country": "US",
+      "importance": "high",
+      "markets": [
+        "Equities",
+        "Rates",
+        "FX"
+      ],
+      "source": "U.S. Census",
+      "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html",
+      "event_key": "US_RETAIL_SALES",
+      "source_family": "U.S. Census",
+      "scheduler_source": "New York Fed Economic Indicators Calendar",
+      "sources": [
+        "U.S. Census"
+      ],
+      "urls": [
+        "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+      ]
+    },
+    {
+      "date": "2026-08-17",
+      "type": "Macro",
+      "title": "China Fixed Asset Investment",
+      "country": "China",
+      "importance": "high",
+      "markets": [
+        "Commodities",
+        "Equities",
+        "FX"
+      ],
+      "source": "NBS China",
+      "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
+      "event_key": "CN_FIXED_ASSET_INVESTMENT",
+      "source_family": "NBS China",
+      "sources": [
+        "NBS China"
+      ],
+      "urls": [
+        "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+      ]
+    },
+    {
+      "date": "2026-08-17",
+      "type": "Macro",
+      "title": "China Industrial Production",
+      "country": "China",
+      "importance": "high",
+      "markets": [
+        "Commodities",
+        "Equities",
+        "FX"
+      ],
+      "source": "NBS China",
+      "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
+      "event_key": "CN_INDUSTRIAL_PRODUCTION",
+      "source_family": "NBS China",
+      "sources": [
+        "NBS China"
+      ],
+      "urls": [
+        "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+      ]
+    },
+    {
+      "date": "2026-08-17",
+      "type": "Macro",
+      "title": "China National Economic Performance",
+      "country": "China",
+      "importance": "high",
+      "markets": [
+        "Commodities",
+        "Equities",
+        "FX"
+      ],
+      "source": "NBS China",
+      "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
+      "event_key": "CN_NATIONAL_ECONOMIC_PERFORMANCE",
+      "source_family": "NBS China",
+      "sources": [
+        "NBS China"
+      ],
+      "urls": [
+        "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+      ]
+    },
+    {
+      "date": "2026-08-17",
+      "type": "Macro",
+      "title": "China Retail Sales",
+      "country": "China",
+      "importance": "high",
+      "markets": [
+        "Commodities",
+        "Equities",
+        "FX"
+      ],
+      "source": "NBS China",
+      "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
+      "event_key": "CN_RETAIL_SALES",
+      "source_family": "NBS China",
+      "sources": [
+        "NBS China"
+      ],
+      "urls": [
+        "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "type": "Earnings",
+      "title": "HD",
+      "ticker": "HD",
+      "company": "Home Depot Inc",
+      "country": "US",
+      "importance": "high",
+      "markets": [
+        "Equities"
+      ],
+      "source": "Finviz",
+      "url": "https://finviz.com/quote.ashx?t=HD",
+      "sources": [
+        "Finviz"
+      ],
+      "urls": [
+        "https://finviz.com/quote.ashx?t=HD"
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "type": "Macro",
+      "title": "US Housing Starts / Building Permits",
+      "country": "US",
+      "importance": "medium",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "U.S. Census",
+      "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html",
+      "event_key": "US_HOUSING_STARTS_BUILDING_PERMITS",
+      "source_family": "U.S. Census",
+      "scheduler_source": "New York Fed Economic Indicators Calendar",
+      "sources": [
+        "U.S. Census"
+      ],
+      "urls": [
+        "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "type": "Macro",
+      "title": "US Import/Export Prices",
+      "country": "US",
+      "importance": "medium",
+      "markets": [
+        "Rates",
+        "FX",
+        "Commodities",
+        "Equities"
+      ],
+      "source": "BLS",
+      "url": "https://www.newyorkfed.org/research/calendars/i-aug26.html",
+      "event_key": "US_IMPORT_EXPORT_PRICES",
+      "source_family": "BLS",
+      "scheduler_source": "New York Fed Economic Indicators Calendar",
+      "sources": [
+        "BLS"
+      ],
+      "urls": [
+        "https://www.newyorkfed.org/research/calendars/i-aug26.html"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "type": "Macro",
+      "title": "Euro Area CPI Final",
+      "country": "Euro Area",
+      "importance": "medium",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "ECB Statistical Calendar",
+      "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html",
+      "event_key": "EA_CPI_FINAL",
+      "source_family": "Eurostat",
+      "sources": [
+        "ECB Statistical Calendar"
+      ],
+      "urls": [
+        "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "type": "Macro",
+      "title": "Euro Area CPI Flash",
+      "country": "Euro Area",
+      "importance": "high",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/release-calendar",
+      "event_key": "EA_CPI_FLASH",
+      "source_family": "Eurostat",
+      "scheduler_source": "Eurostat eventsJson",
+      "provider_title": "Inflation (HICP)",
+      "sources": [
+        "Eurostat"
+      ],
+      "urls": [
+        "https://ec.europa.eu/eurostat/news/release-calendar"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "type": "Macro",
+      "title": "FOMC Minutes",
+      "country": "United States",
+      "importance": "medium",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities",
+        "Gold"
+      ],
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/newsevents/2026-august.htm",
+      "event_key": "US_FOMC_MINUTES",
+      "source_family": "Federal Reserve",
+      "scheduler_source": "Federal Reserve Calendar",
+      "provider_title": "FOMC Minutes",
+      "sources": [
+        "Federal Reserve"
+      ],
+      "urls": [
+        "https://www.federalreserve.gov/newsevents/2026-august.htm"
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "type": "Earnings",
+      "title": "BABA",
+      "ticker": "BABA",
+      "company": "Alibaba Group Holding Ltd ADR",
+      "country": "China",
+      "importance": "high",
+      "markets": [
+        "Equities"
+      ],
+      "source": "Finviz",
+      "url": "https://finviz.com/quote.ashx?t=BABA",
+      "sources": [
+        "Finviz"
+      ],
+      "urls": [
+        "https://finviz.com/quote.ashx?t=BABA"
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "type": "Earnings",
+      "title": "WMT",
+      "ticker": "WMT",
+      "company": "Walmart Inc",
+      "country": "US",
+      "importance": "high",
+      "markets": [
+        "Equities"
+      ],
+      "source": "Finviz",
+      "url": "https://finviz.com/quote.ashx?t=WMT",
+      "sources": [
+        "Finviz"
+      ],
+      "urls": [
+        "https://finviz.com/quote.ashx?t=WMT"
+      ]
+    },
+    {
+      "date": "2026-08-21",
+      "type": "Macro",
+      "title": "Euro Area PMI Flash",
+      "country": "Euro Area",
+      "importance": "high",
+      "markets": [
+        "Equities",
+        "Rates",
+        "FX",
+        "Commodities"
+      ],
+      "source": "S&P Global",
+      "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
+      "event_key": "EA_PMI_FLASH",
+      "source_family": "S&P Global",
+      "scheduler_source": "S&P Global PMI Release Calendar",
+      "provider_title": "S&P Global Flash Eurozone PMI",
+      "sources": [
+        "S&P Global"
+      ],
+      "urls": [
+        "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
+      ]
+    }
+  ]
 }
