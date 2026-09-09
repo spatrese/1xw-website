@@ -12,8 +12,8 @@
 :root{--ink:#17211d;--paper:#f4f2ea;--line:rgba(23,33,29,.16);--muted:#69716d;--green:#1f4b3e;--etica:#e46d4b;--conoscenza:#2f78aa;--esistenza:#8366ad;--politica:#d5a533;--mente:#3e9884;--linguaggio:#c15b78}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background-color:#e8e2d6;background-image:linear-gradient(rgba(244,242,234,.28),rgba(244,242,234,.28)),url("./assets/sassolini-riverbed.png?v=20260909-2");background-position:center top;background-size:cover;background-attachment:fixed;color:var(--ink);font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.55}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
+body{margin:0;background-color:#e8e2d6;background-image:linear-gradient(rgba(244,242,234,.76),rgba(244,242,234,.76)),url("./assets/sassolini-riverbed.png?v=20260909-3");background-position:center top;background-size:cover;background-attachment:fixed;color:var(--ink);font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.55}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
 .topbar{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5vw,76px)}
 .brand{display:flex;align-items:center;gap:11px;color:inherit;text-decoration:none;font-weight:600;letter-spacing:-.02em}
 .brand-mark{width:19px;height:15px;border-radius:55% 48% 52% 45%;background:var(--green);transform:rotate(-8deg);box-shadow:8px 6px 0 -5px #d5a533}
@@ -26,7 +26,7 @@ h1,h2,h3,p{margin-top:0}
 h1{font-family:"Newsreader",serif;font-weight:400;font-size:clamp(50px,7.3vw,94px);line-height:.92;letter-spacing:-.055em;margin:0}
 .intro-copy{font-family:"Newsreader",serif;font-size:clamp(20px,2vw,25px);line-height:1.35;color:#4e5954;margin:0 0 4px}
 .controls{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0}
-.search{height:58px;background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:3px;display:flex;align-items:center;padding:0 17px;gap:13px}
+.search{height:58px;background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:3px;display:flex;align-items:center;padding:0 17px;gap:13px;box-shadow:0 4px 18px rgba(23,33,29,.06)}
 .search:focus-within{outline:2px solid rgba(31,75,62,.35);outline-offset:2px;background:#fff}
 .search svg{width:20px;fill:none;stroke:var(--green);stroke-width:1.7}
 .search input{border:0;outline:0;background:transparent;flex:1;color:var(--ink);font:inherit;font-size:17px;min-width:0}
@@ -152,7 +152,7 @@ $("#dialog-close").addEventListener("click",()=>dialog.close());
 dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
 document.addEventListener("keydown",e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();search.focus()}});
 renderFilters();
-fetch("./content/sassolini.json?v=20260909-2",{cache:"no-store"})
+fetch("./content/sassolini.json?v=20260909-3",{cache:"no-store"})
  .then(response=>{if(!response.ok)throw new Error("Archivio non disponibile");return response.json()})
  .then(data=>{notes=data;render()})
  .catch(()=>{count.textContent="0";stones.hidden=true;empty.hidden=false;empty.querySelector("h3").textContent="Archivio non disponibile";empty.querySelector("p").textContent="Riprova tra qualche momento."});
