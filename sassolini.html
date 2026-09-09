@@ -152,7 +152,7 @@ $("#dialog-close").addEventListener("click",()=>dialog.close());
 dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
 document.addEventListener("keydown",e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();search.focus()}});
 renderFilters();
-fetch("./content/sassolini.json?v=20260909-3",{cache:"no-store"})
+fetch("/content/sassolini.json",{cache:"no-store"})
  .then(response=>{if(!response.ok)throw new Error("Archivio non disponibile");return response.json()})
  .then(data=>{notes=data;render()})
  .catch(()=>{count.textContent="0";stones.hidden=true;empty.hidden=false;empty.querySelector("h3").textContent="Archivio non disponibile";empty.querySelector("p").textContent="Riprova tra qualche momento."});
