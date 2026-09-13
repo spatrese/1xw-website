@@ -1,5 +1,5 @@
 {
-  "asof": "2026-09-11",
+  "asof": "2026-09-13",
   "week_id": "2026-W37",
   "technical_overview": {
     "by_symbol": {
@@ -7,16 +7,16 @@
         "symbol": "ES",
         "name": "S&P 500",
         "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": -2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -2.21,
-        "ret_60d_pct": -0.37,
-        "exhaustion": "Neutral- (41)"
+        "setup": "Failed Breakdown",
+        "score": 89.2,
+        "trend_score": 2.0,
+        "direction": "Long",
+        "setup_score": 89.2,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/swing_high, fib_0.500/20d_low",
+        "ret_20d_pct": -2.08,
+        "ret_60d_pct": 0.95,
+        "exhaustion": "Neutral- (49)"
       },
       "NQ": {
         "symbol": "NQ",
@@ -24,44 +24,44 @@
         "asset_class": "Equities",
         "setup": "No Clear Setup",
         "score": 0.0,
-        "trend_score": -2.0,
+        "trend_score": 0.0,
         "direction": "Neutral",
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -2.41,
-        "ret_60d_pct": -5.6,
-        "exhaustion": "Neutral- (43)"
+        "ret_20d_pct": -2.65,
+        "ret_60d_pct": -3.06,
+        "exhaustion": "Neutral- (50)"
       },
       "RTY": {
         "symbol": "RTY",
         "name": "Russell 2000",
         "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakdown",
+        "score": 62.7,
         "trend_score": -2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -5.22,
-        "ret_60d_pct": -3.19,
-        "exhaustion": "Oversold (29)"
+        "direction": "Long",
+        "setup_score": 62.7,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/60d_low",
+        "ret_20d_pct": -5.09,
+        "ret_60d_pct": -2.01,
+        "exhaustion": "Oversold (32)"
       },
       "DAX": {
         "symbol": "DAX",
         "name": "DAX",
         "asset_class": "Equities",
         "setup": "Failed Breakdown",
-        "score": 70.9,
+        "score": 79.3,
         "trend_score": 0.0,
         "direction": "Long",
-        "setup_score": 70.9,
+        "setup_score": 79.3,
         "setup_status": "Confirmed",
-        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/swing_high, ma200/swing_high",
-        "ret_20d_pct": -3.99,
-        "ret_60d_pct": 0.97,
-        "exhaustion": "Oversold (34)"
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/swing_high",
+        "ret_20d_pct": -3.5,
+        "ret_60d_pct": 1.49,
+        "exhaustion": "Neutral- (39)"
       },
       "NIY": {
         "symbol": "NIY",
@@ -74,88 +74,73 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -6.55,
-        "ret_60d_pct": -8.27,
-        "exhaustion": "Neutral- (36)"
+        "ret_20d_pct": -6.48,
+        "ret_60d_pct": -6.49,
+        "exhaustion": "Neutral- (41)"
       },
       "VIX": {
         "symbol": "VIX",
         "name": "VIX Index",
         "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 22.61,
-        "ret_60d_pct": 10.12,
-        "exhaustion": "Neutral+ (63)"
+        "setup": "Failed Breakout",
+        "score": -82.8,
+        "trend_score": -2.0,
+        "direction": "Short",
+        "setup_score": 82.8,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: ma50/swing_low",
+        "ret_20d_pct": 8.27,
+        "ret_60d_pct": -3.47,
+        "exhaustion": "Neutral- (49)"
       },
       "CL": {
         "symbol": "CL",
         "name": "WTI Crude",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakout",
+        "score": -57.8,
         "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 24.19,
-        "ret_60d_pct": 30.5,
-        "exhaustion": "Extreme OB (85)"
+        "direction": "Short",
+        "setup_score": 57.8,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high",
+        "ret_20d_pct": 24.25,
+        "ret_60d_pct": 35.28,
+        "exhaustion": "Overbought (80)"
       },
       "RB": {
         "symbol": "RB",
         "name": "RBOB Gasoline",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakout",
+        "score": -69.3,
         "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 18.16,
-        "ret_60d_pct": 37.57,
-        "exhaustion": "Extreme OB (82)"
+        "direction": "Short",
+        "setup_score": 69.3,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: 20d_high/60d_high",
+        "ret_20d_pct": 16.12,
+        "ret_60d_pct": 37.19,
+        "exhaustion": "Overbought (76)"
       },
       "NG": {
         "symbol": "NG",
         "name": "Natural Gas",
         "asset_class": "Commodities",
         "setup": "Rally to Resistance",
-        "score": -71.0,
-        "trend_score": -4.0,
+        "score": -71.1,
+        "trend_score": -2.0,
         "direction": "Short",
-        "setup_score": 71.0,
+        "setup_score": 71.1,
         "setup_status": "Reversing",
         "setup_reasons": "Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_low/swing_high",
-        "ret_20d_pct": -0.81,
-        "ret_60d_pct": -13.17,
+        "ret_20d_pct": 1.87,
+        "ret_60d_pct": -15.72,
         "exhaustion": "Neutral- (44)"
       },
       "HG": {
         "symbol": "HG",
         "name": "Copper",
-        "asset_class": "Commodities",
-        "setup": "Failed Breakout",
-        "score": -77.2,
-        "trend_score": -2.0,
-        "direction": "Short",
-        "setup_score": 77.2,
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/fib_0.618, swing_high/fib_0.382",
-        "ret_20d_pct": -2.5,
-        "ret_60d_pct": -1.71,
-        "exhaustion": "Neutral- (44)"
-      },
-      "GC": {
-        "symbol": "GC",
-        "name": "Gold",
         "asset_class": "Commodities",
         "setup": "No Clear Setup",
         "score": 0.0,
@@ -164,8 +149,23 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -1.37,
-        "ret_60d_pct": -0.21,
+        "ret_20d_pct": -2.39,
+        "ret_60d_pct": -1.82,
+        "exhaustion": "Neutral- (44)"
+      },
+      "GC": {
+        "symbol": "GC",
+        "name": "Gold",
+        "asset_class": "Commodities",
+        "setup": "Failed Breakdown",
+        "score": 62.0,
+        "trend_score": -2.0,
+        "direction": "Long",
+        "setup_score": 62.0,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: ma50/20d_low",
+        "ret_20d_pct": -0.28,
+        "ret_60d_pct": -0.25,
         "exhaustion": "Neutral- (49)"
       },
       "SI": {
@@ -179,9 +179,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -2.32,
-        "ret_60d_pct": -9.25,
-        "exhaustion": "Neutral- (48)"
+        "ret_20d_pct": -0.86,
+        "ret_60d_pct": -8.66,
+        "exhaustion": "Neutral- (49)"
       },
       "ZC": {
         "symbol": "ZC",
@@ -194,9 +194,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 11.02,
-        "ret_60d_pct": 20.83,
-        "exhaustion": "Overbought (74)"
+        "ret_20d_pct": 12.34,
+        "ret_60d_pct": 19.83,
+        "exhaustion": "Overbought (72)"
       },
       "ZW": {
         "symbol": "ZW",
@@ -209,9 +209,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 11.17,
-        "ret_60d_pct": 20.82,
-        "exhaustion": "Neutral+ (62)"
+        "ret_20d_pct": 8.77,
+        "ret_60d_pct": 17.5,
+        "exhaustion": "Neutral+ (55)"
       },
       "ZS": {
         "symbol": "ZS",
@@ -224,69 +224,69 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 12.59,
-        "ret_60d_pct": 17.4,
-        "exhaustion": "Extreme OB (82)"
+        "ret_20d_pct": 9.66,
+        "ret_60d_pct": 13.08,
+        "exhaustion": "Overbought (68)"
       },
       "SB": {
         "symbol": "SB",
         "name": "Sugar",
         "asset_class": "Commodities",
-        "setup": "Trend Resumption",
-        "score": 76.9,
+        "setup": "Failed Breakout",
+        "score": -78.2,
         "trend_score": 4.0,
-        "direction": "Long",
-        "setup_score": 76.9,
-        "setup_status": "Developing",
-        "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high",
-        "ret_20d_pct": 14.07,
-        "ret_60d_pct": 31.99,
-        "exhaustion": "Overbought (78)"
+        "direction": "Short",
+        "setup_score": 78.2,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high, swing_high/20d_high",
+        "ret_20d_pct": 7.91,
+        "ret_60d_pct": 26.83,
+        "exhaustion": "Overbought (69)"
       },
       "KC": {
         "symbol": "KC",
         "name": "Coffee",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakdown",
+        "score": 54.3,
         "trend_score": -2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -9.94,
-        "ret_60d_pct": 16.68,
-        "exhaustion": "Oversold (33)"
+        "direction": "Long",
+        "setup_score": 54.3,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/20d_low",
+        "ret_20d_pct": -8.66,
+        "ret_60d_pct": 9.93,
+        "exhaustion": "Oversold (31)"
       },
       "CC": {
         "symbol": "CC",
         "name": "Cocoa",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Pullback to Support",
+        "score": 77.7,
         "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 4.14,
-        "ret_60d_pct": 47.28,
+        "direction": "Long",
+        "setup_score": 77.7,
+        "setup_status": "Reversing",
+        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_low/fib_0.500, swing_low/swing_high",
+        "ret_20d_pct": 4.23,
+        "ret_60d_pct": 38.15,
         "exhaustion": "Neutral- (49)"
       },
       "CT": {
         "symbol": "CT",
         "name": "Cotton",
         "asset_class": "Commodities",
-        "setup": "Pullback to Support",
-        "score": 75.8,
+        "setup": "No Clear Setup",
+        "score": 0.0,
         "trend_score": 4.0,
-        "direction": "Long",
-        "setup_score": 75.8,
-        "setup_status": "Reversing",
-        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: fib_0.500, ma50/fib_0.618",
-        "ret_20d_pct": 4.62,
-        "ret_60d_pct": 12.36,
-        "exhaustion": "Neutral+ (55)"
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": 3.07,
+        "ret_60d_pct": 10.69,
+        "exhaustion": "Neutral- (50)"
       },
       "LE": {
         "symbol": "LE",
@@ -299,9 +299,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -2.67,
-        "ret_60d_pct": -8.96,
-        "exhaustion": "Neutral- (47)"
+        "ret_20d_pct": -0.17,
+        "ret_60d_pct": -10.38,
+        "exhaustion": "Neutral+ (52)"
       },
       "GF": {
         "symbol": "GF",
@@ -309,29 +309,29 @@
         "asset_class": "Commodities",
         "setup": "No Clear Setup",
         "score": 0.0,
-        "trend_score": -4.0,
+        "trend_score": 0.0,
         "direction": "Neutral",
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.86,
-        "ret_60d_pct": -7.2,
-        "exhaustion": "Neutral+ (52)"
+        "ret_20d_pct": 1.13,
+        "ret_60d_pct": -7.17,
+        "exhaustion": "Neutral+ (60)"
       },
       "HE": {
         "symbol": "HE",
         "name": "Lean Hogs",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Rally to Resistance",
+        "score": -57.1,
         "trend_score": -2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.48,
-        "ret_60d_pct": 1.31,
-        "exhaustion": "Neutral- (50)"
+        "direction": "Short",
+        "setup_score": 57.1,
+        "setup_status": "Reversing",
+        "setup_reasons": "Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_low",
+        "ret_20d_pct": -0.73,
+        "ret_60d_pct": 0.09,
+        "exhaustion": "Neutral- (40)"
       },
       "DX": {
         "symbol": "DX",
@@ -344,9 +344,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.54,
-        "ret_60d_pct": -1.59,
-        "exhaustion": "Neutral- (40)"
+        "ret_20d_pct": -0.47,
+        "ret_60d_pct": -1.51,
+        "exhaustion": "Neutral- (42)"
       },
       "EURUSD": {
         "symbol": "EURUSD",
@@ -359,9 +359,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 0.35,
-        "ret_60d_pct": 1.21,
-        "exhaustion": "Neutral+ (57)"
+        "ret_20d_pct": 0.25,
+        "ret_60d_pct": 1.11,
+        "exhaustion": "Neutral+ (54)"
       },
       "GBPUSD": {
         "symbol": "GBPUSD",
@@ -374,9 +374,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.1,
-        "ret_60d_pct": 2.19,
-        "exhaustion": "Neutral+ (51)"
+        "ret_20d_pct": -0.06,
+        "ret_60d_pct": 2.23,
+        "exhaustion": "Neutral+ (52)"
       },
       "AUDUSD": {
         "symbol": "AUDUSD",
@@ -389,9 +389,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 1.26,
-        "ret_60d_pct": 2.28,
-        "exhaustion": "Neutral+ (63)"
+        "ret_20d_pct": 1.2,
+        "ret_60d_pct": 2.22,
+        "exhaustion": "Neutral+ (62)"
       },
       "CADUSD": {
         "symbol": "CADUSD",
@@ -404,68 +404,68 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 0.25,
-        "ret_60d_pct": 2.19,
-        "exhaustion": "Neutral+ (59)"
+        "ret_20d_pct": 0.02,
+        "ret_60d_pct": 1.96,
+        "exhaustion": "Neutral+ (54)"
       },
       "JPYUSD": {
         "symbol": "JPYUSD",
         "name": "JPYUSD",
         "asset_class": "FX",
-        "setup": "Overbought Confluence",
-        "score": -65.8,
+        "setup": "No Clear Setup",
+        "score": -0.0,
         "trend_score": 4.0,
-        "direction": "Short",
-        "setup_score": 65.8,
-        "setup_status": "Early",
-        "setup_reasons": "Oversold condition; Multiple support levels align; Initial rebound; Support confluence: swing_low/20d_low",
-        "ret_20d_pct": 3.24,
-        "ret_60d_pct": 4.41,
-        "exhaustion": "Extreme OB (77)"
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": 3.58,
+        "ret_60d_pct": 4.75,
+        "exhaustion": "Extreme OB (79)"
       },
       "ZB": {
         "symbol": "ZB",
         "name": "US Treasury",
         "asset_class": "Rates",
         "setup": "Trend Resumption",
-        "score": -90.6,
+        "score": -85.4,
         "trend_score": -4.0,
         "direction": "Short",
-        "setup_score": 90.6,
-        "setup_status": "Triggered",
-        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low",
-        "ret_20d_pct": -1.58,
-        "ret_60d_pct": -4.68,
-        "exhaustion": "Oversold (28)"
+        "setup_score": 85.4,
+        "setup_status": "Developing",
+        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low",
+        "ret_20d_pct": -2.23,
+        "ret_60d_pct": -5.3,
+        "exhaustion": "Oversold (27)"
       },
       "BTP": {
         "symbol": "BTP",
         "name": "Italy BTP",
         "asset_class": "Rates",
         "setup": "Failed Breakdown",
-        "score": 37.6,
+        "score": 45.4,
         "trend_score": -4.0,
         "direction": "Long",
-        "setup_score": 37.6,
+        "setup_score": 45.4,
         "setup_status": "Confirmed",
         "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/60d_low",
-        "ret_20d_pct": -3.05,
-        "ret_60d_pct": -4.52,
-        "exhaustion": "Extreme OS (18)"
+        "ret_20d_pct": -2.93,
+        "ret_60d_pct": -4.4,
+        "exhaustion": "Extreme OS (19)"
       },
       "GBL": {
         "symbol": "GBL",
         "name": "Germany Bund",
         "asset_class": "Rates",
         "setup": "Failed Breakdown",
-        "score": 49.2,
+        "score": 46.5,
         "trend_score": -4.0,
         "direction": "Long",
-        "setup_score": 49.2,
+        "setup_score": 46.5,
         "setup_status": "Confirmed",
         "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/60d_low",
-        "ret_20d_pct": -2.45,
-        "ret_60d_pct": -3.76,
+        "ret_20d_pct": -2.48,
+        "ret_60d_pct": -3.79,
         "exhaustion": "Extreme OS (17)"
       },
       "MBT": {
@@ -479,8 +479,8 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 21.18,
-        "ret_60d_pct": 14.48,
+        "ret_20d_pct": 21.41,
+        "ret_60d_pct": 16.26,
         "exhaustion": "Overbought (66)"
       },
       "MET": {
@@ -494,25 +494,25 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 30.62,
-        "ret_60d_pct": 34.14,
-        "exhaustion": "Overbought (74)"
+        "ret_20d_pct": 34.23,
+        "ret_60d_pct": 40.33,
+        "exhaustion": "Overbought (78)"
       }
     },
     "by_asset_class": {
       "Equities": {
         "n": 6,
-        "avg_score": -1.0,
+        "avg_score": -0.667,
         "bullish": 1,
-        "bearish": 4,
-        "text": "Breadth is defensive: avg score -1.00, bullish 1/6, bearish 4/6."
+        "bearish": 3,
+        "text": "Breadth is balanced: avg score -0.67, bullish 1/6, bearish 3/6."
       },
       "Commodities": {
         "n": 16,
-        "avg_score": 0.625,
+        "avg_score": 1.0,
         "bullish": 8,
-        "bearish": 8,
-        "text": "Breadth is balanced: avg score 0.62, bullish 8/16, bearish 8/16."
+        "bearish": 7,
+        "text": "Breadth is constructive: avg score 1.00, bullish 8/16, bearish 7/16."
       },
       "FX": {
         "n": 5,
@@ -635,24 +635,6 @@
         ],
         "macro_calendar": [
           {
-            "label": "CPI",
-            "title": "US CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
-            "label": "CPI",
-            "title": "US Core CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
             "label": "China Fixed Asset Investment",
             "title": "China Fixed Asset Investment",
             "ticker": "",
@@ -678,29 +660,29 @@
             "source": "NBS China",
             "date": "2026-09-15",
             "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "China Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-09-15",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Euro Area Industrial Production",
+            "title": "Euro Area Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-09-16",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
           }
         ],
         "earnings_calendar": [],
         "key_watchpoints": [
           {
-            "label": "CPI",
-            "title": "US CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
-            "label": "CPI",
-            "title": "US Core CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
             "label": "China Fixed Asset Investment",
             "title": "China Fixed Asset Investment",
             "ticker": "",
@@ -726,28 +708,28 @@
             "source": "NBS China",
             "date": "2026-09-15",
             "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "China Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-09-15",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Euro Area Industrial Production",
+            "title": "Euro Area Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-09-16",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
           }
         ],
         "key_events": [
           {
-            "label": "CPI",
-            "title": "US CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
-            "label": "CPI",
-            "title": "US Core CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
             "label": "China Fixed Asset Investment",
             "title": "China Fixed Asset Investment",
             "ticker": "",
@@ -773,6 +755,24 @@
             "source": "NBS China",
             "date": "2026-09-15",
             "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "China Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-09-15",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Euro Area Industrial Production",
+            "title": "Euro Area Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-09-16",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
           }
         ]
       },
@@ -1197,24 +1197,6 @@
         ],
         "macro_calendar": [
           {
-            "label": "CPI",
-            "title": "US CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
-            "label": "CPI",
-            "title": "US Core CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
             "label": "China Fixed Asset Investment",
             "title": "China Fixed Asset Investment",
             "ticker": "",
@@ -1240,29 +1222,29 @@
             "source": "NBS China",
             "date": "2026-09-15",
             "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "China Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-09-15",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Euro Area Industrial Production",
+            "title": "Euro Area Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-09-16",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
           }
         ],
         "earnings_calendar": [],
         "key_watchpoints": [
           {
-            "label": "CPI",
-            "title": "US CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
-            "label": "CPI",
-            "title": "US Core CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
             "label": "China Fixed Asset Investment",
             "title": "China Fixed Asset Investment",
             "ticker": "",
@@ -1288,28 +1270,28 @@
             "source": "NBS China",
             "date": "2026-09-15",
             "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "China Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-09-15",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Euro Area Industrial Production",
+            "title": "Euro Area Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-09-16",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
           }
         ],
         "key_events": [
           {
-            "label": "CPI",
-            "title": "US CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
-            "label": "CPI",
-            "title": "US Core CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
             "label": "China Fixed Asset Investment",
             "title": "China Fixed Asset Investment",
             "ticker": "",
@@ -1335,6 +1317,24 @@
             "source": "NBS China",
             "date": "2026-09-15",
             "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "China Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "NBS China",
+            "date": "2026-09-15",
+            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+          },
+          {
+            "label": "Euro Area Industrial Production",
+            "title": "Euro Area Industrial Production",
+            "ticker": "",
+            "company": "",
+            "source": "Eurostat",
+            "date": "2026-09-16",
+            "url": "https://ec.europa.eu/eurostat/news/release-calendar"
           }
         ]
       },
@@ -1434,24 +1434,6 @@
         ],
         "macro_calendar": [
           {
-            "label": "CPI",
-            "title": "US CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
-            "label": "CPI",
-            "title": "US Core CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -1477,29 +1459,29 @@
             "source": "BLS",
             "date": "2026-09-16",
             "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-09-17",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
           }
         ],
         "earnings_calendar": [],
         "key_watchpoints": [
           {
-            "label": "CPI",
-            "title": "US CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
-            "label": "CPI",
-            "title": "US Core CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -1525,28 +1507,28 @@
             "source": "BLS",
             "date": "2026-09-16",
             "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-09-17",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
           }
         ],
         "key_events": [
           {
-            "label": "CPI",
-            "title": "US CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
-            "label": "CPI",
-            "title": "US Core CPI",
-            "ticker": "",
-            "company": "",
-            "source": "BLS",
-            "date": "2026-09-11",
-            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -1572,6 +1554,24 @@
             "source": "BLS",
             "date": "2026-09-16",
             "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-09-17",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
           }
         ]
       },
@@ -1704,38 +1704,38 @@
     },
     "top_long": [
       {
-        "symbol": "SB",
-        "name": "Sugar",
-        "asset_class": "Commodities",
-        "setup": "Trend Resumption",
-        "setup_status": "Developing",
-        "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high",
-        "score": 76.9,
-        "setup_score": 76.9,
-        "ret_20d_pct": 14.07,
-        "side": "LONG",
-        "tech_score": 0.769,
-        "fund_support": 0.5817095,
-        "macro_alignment": 0.5817095,
-        "final_score": 0.722177375,
-        "rationale": "Trend Resumption: Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high. Broader commodities tone is mixed."
-      },
-      {
-        "symbol": "CT",
-        "name": "Cotton",
+        "symbol": "CC",
+        "name": "Cocoa",
         "asset_class": "Commodities",
         "setup": "Pullback to Support",
         "setup_status": "Reversing",
-        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: fib_0.500, ma50/fib_0.618",
-        "score": 75.8,
-        "setup_score": 75.8,
-        "ret_20d_pct": 4.62,
+        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_low/fib_0.500, swing_low/swing_high",
+        "score": 77.7,
+        "setup_score": 77.7,
+        "ret_20d_pct": 4.23,
         "side": "LONG",
-        "tech_score": 0.758,
+        "tech_score": 0.777,
         "fund_support": 0.5817095,
         "macro_alignment": 0.5817095,
-        "final_score": 0.713927375,
-        "rationale": "Pullback to Support: Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: fib_0.500, ma50/fib_0.618. Broader commodities tone is mixed."
+        "final_score": 0.728177375,
+        "rationale": "Pullback to Support: Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_low/fib_0.500, swing_low/swing_high. Broader commodities tone is mixed."
+      },
+      {
+        "symbol": "ES",
+        "name": "S&P 500",
+        "asset_class": "Equities",
+        "setup": "Failed Breakdown",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/swing_high, fib_0.500/20d_low",
+        "score": 89.2,
+        "setup_score": 89.2,
+        "ret_20d_pct": -2.08,
+        "side": "LONG",
+        "tech_score": 0.892,
+        "fund_support": 0.23579449999999996,
+        "macro_alignment": 0.23579449999999996,
+        "final_score": 0.727948625,
+        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/swing_high, fib_0.500/20d_low. Broader equities tone is cautious."
       },
       {
         "symbol": "DAX",
@@ -1743,16 +1743,16 @@
         "asset_class": "Equities",
         "setup": "Failed Breakdown",
         "setup_status": "Confirmed",
-        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/swing_high, ma200/swing_high",
-        "score": 70.9,
-        "setup_score": 70.9,
-        "ret_20d_pct": -3.99,
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/swing_high",
+        "score": 79.3,
+        "setup_score": 79.3,
+        "ret_20d_pct": -3.5,
         "side": "LONG",
-        "tech_score": 0.7090000000000001,
+        "tech_score": 0.7929999999999999,
         "fund_support": 0.23579449999999996,
         "macro_alignment": 0.23579449999999996,
-        "final_score": 0.590698625,
-        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/swing_high, ma200/swing_high. Broader equities tone is cautious."
+        "final_score": 0.6536986249999999,
+        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/swing_high. Broader equities tone is cautious."
       }
     ],
     "top_short": [
@@ -1761,101 +1761,55 @@
         "name": "US Treasury",
         "asset_class": "Rates",
         "setup": "Trend Resumption",
-        "setup_status": "Triggered",
-        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low",
-        "score": -90.6,
-        "setup_score": 90.6,
-        "ret_20d_pct": -1.58,
+        "setup_status": "Developing",
+        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low",
+        "score": -85.4,
+        "setup_score": 85.4,
+        "ret_20d_pct": -2.23,
         "side": "SHORT",
-        "tech_score": 0.9059999999999999,
+        "tech_score": 0.8540000000000001,
         "fund_support": 0.975,
         "macro_alignment": 0.975,
-        "final_score": 0.92325,
-        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low. Broader rates tone is cautious."
+        "final_score": 0.8842500000000001,
+        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low. Broader rates tone is cautious."
       },
       {
-        "symbol": "HG",
-        "name": "Copper",
+        "symbol": "VIX",
+        "name": "VIX Index",
+        "asset_class": "Equities",
+        "setup": "Failed Breakout",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: ma50/swing_low",
+        "score": -82.8,
+        "setup_score": 82.8,
+        "ret_20d_pct": 8.27,
+        "side": "SHORT",
+        "tech_score": 0.828,
+        "fund_support": 0.7642055000000001,
+        "macro_alignment": 0.7642055000000001,
+        "final_score": 0.812051375,
+        "rationale": "Volatility compression setup as risk sentiment stabilises."
+      },
+      {
+        "symbol": "SB",
+        "name": "Sugar",
         "asset_class": "Commodities",
         "setup": "Failed Breakout",
         "setup_status": "Confirmed",
-        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/fib_0.618, swing_high/fib_0.382",
-        "score": -77.2,
-        "setup_score": 77.2,
-        "ret_20d_pct": -2.5,
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high, swing_high/20d_high",
+        "score": -78.2,
+        "setup_score": 78.2,
+        "ret_20d_pct": 7.91,
         "side": "SHORT",
-        "tech_score": 0.772,
+        "tech_score": 0.782,
         "fund_support": 0.4182905,
         "macro_alignment": 0.4182905,
-        "final_score": 0.6835726249999999,
-        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/fib_0.618, swing_high/fib_0.382. Broader commodities tone is mixed."
-      },
-      {
-        "symbol": "NG",
-        "name": "Natural Gas",
-        "asset_class": "Commodities",
-        "setup": "Rally to Resistance",
-        "setup_status": "Reversing",
-        "setup_reasons": "Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_low/swing_high",
-        "score": -71.0,
-        "setup_score": 71.0,
-        "ret_20d_pct": -0.81,
-        "side": "SHORT",
-        "tech_score": 0.71,
-        "fund_support": 0.4182905,
-        "macro_alignment": 0.4182905,
-        "final_score": 0.637072625,
-        "rationale": "Rally to Resistance: Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_low/swing_high. Broader commodities tone is mixed."
+        "final_score": 0.691072625,
+        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high, swing_high/20d_high. Broader commodities tone is mixed."
       }
     ]
   },
   "event_calendar": [
-    {
-      "date": "2026-09-11",
-      "type": "Macro",
-      "title": "US CPI",
-      "country": "US",
-      "importance": "high",
-      "markets": [
-        "Rates",
-        "FX",
-        "Equities"
-      ],
-      "source": "BLS",
-      "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html",
-      "event_key": "US_CPI",
-      "source_family": "BLS",
-      "scheduler_source": "New York Fed Economic Indicators Calendar",
-      "sources": [
-        "BLS"
-      ],
-      "urls": [
-        "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-      ]
-    },
-    {
-      "date": "2026-09-11",
-      "type": "Macro",
-      "title": "US Core CPI",
-      "country": "US",
-      "importance": "high",
-      "markets": [
-        "Rates",
-        "FX",
-        "Equities"
-      ],
-      "source": "BLS",
-      "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html",
-      "event_key": "US_CORE_CPI",
-      "source_family": "BLS",
-      "scheduler_source": "New York Fed Economic Indicators Calendar",
-      "sources": [
-        "BLS"
-      ],
-      "urls": [
-        "https://www.newyorkfed.org/research/calendars/i-sep26.html"
-      ]
-    },
     {
       "date": "2026-09-15",
       "type": "Macro",
