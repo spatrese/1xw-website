@@ -1,5 +1,5 @@
 {
-  "asof": "2026-09-15",
+  "asof": "2026-09-16",
   "week_id": "2026-W38",
   "technical_overview": {
     "by_symbol": {
@@ -7,16 +7,16 @@
         "symbol": "ES",
         "name": "S&P 500",
         "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakdown",
+        "score": 60.0,
         "trend_score": 0.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -2.3,
-        "ret_60d_pct": 1.77,
-        "exhaustion": "Neutral- (45)"
+        "direction": "Long",
+        "setup_score": 60.0,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: fib_0.500/20d_low",
+        "ret_20d_pct": -1.38,
+        "ret_60d_pct": 0.87,
+        "exhaustion": "Neutral- (43)"
       },
       "NQ": {
         "symbol": "NQ",
@@ -29,39 +29,39 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -3.28,
-        "ret_60d_pct": -2.81,
+        "ret_20d_pct": -1.67,
+        "ret_60d_pct": -5.1,
         "exhaustion": "Neutral- (44)"
       },
       "RTY": {
         "symbol": "RTY",
         "name": "Russell 2000",
         "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakdown",
+        "score": 64.7,
         "trend_score": -2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -5.86,
-        "ret_60d_pct": -1.63,
-        "exhaustion": "Oversold (30)"
+        "direction": "Long",
+        "setup_score": 64.7,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/20d_low",
+        "ret_20d_pct": -4.83,
+        "ret_60d_pct": -4.76,
+        "exhaustion": "Oversold (28)"
       },
       "DAX": {
         "symbol": "DAX",
         "name": "DAX",
         "asset_class": "Equities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakdown",
+        "score": 86.8,
         "trend_score": 0.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -3.6,
-        "ret_60d_pct": 0.65,
-        "exhaustion": "Oversold (31)"
+        "direction": "Long",
+        "setup_score": 86.8,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/fib_0.618, ma200/swing_high",
+        "ret_20d_pct": -2.65,
+        "ret_60d_pct": 2.43,
+        "exhaustion": "Neutral- (37)"
       },
       "NIY": {
         "symbol": "NIY",
@@ -74,9 +74,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -7.91,
-        "ret_60d_pct": -9.49,
-        "exhaustion": "Oversold (33)"
+        "ret_20d_pct": -2.76,
+        "ret_60d_pct": -11.87,
+        "exhaustion": "Neutral- (43)"
       },
       "VIX": {
         "symbol": "VIX",
@@ -84,44 +84,44 @@
         "asset_class": "Equities",
         "setup": "No Clear Setup",
         "score": 0.0,
-        "trend_score": 2.0,
+        "trend_score": 0.0,
         "direction": "Neutral",
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 17.91,
-        "ret_60d_pct": 9.21,
-        "exhaustion": "Neutral+ (61)"
+        "ret_20d_pct": 5.62,
+        "ret_60d_pct": -3.18,
+        "exhaustion": "Neutral+ (54)"
       },
       "CL": {
         "symbol": "CL",
         "name": "WTI Crude",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakout",
+        "score": -72.8,
         "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 24.16,
-        "ret_60d_pct": 35.75,
-        "exhaustion": "Extreme OB (81)"
+        "direction": "Short",
+        "setup_score": 72.8,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/20d_high",
+        "ret_20d_pct": 23.51,
+        "ret_60d_pct": 43.06,
+        "exhaustion": "Extreme OB (80)"
       },
       "RB": {
         "symbol": "RB",
         "name": "RBOB Gasoline",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakout",
+        "score": -54.6,
         "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 14.41,
-        "ret_60d_pct": 36.62,
-        "exhaustion": "Overbought (76)"
+        "direction": "Short",
+        "setup_score": 54.6,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: 20d_high/60d_high",
+        "ret_20d_pct": 13.84,
+        "ret_60d_pct": 38.78,
+        "exhaustion": "Overbought (78)"
       },
       "NG": {
         "symbol": "NG",
@@ -129,14 +129,14 @@
         "asset_class": "Commodities",
         "setup": "No Clear Setup",
         "score": 0.0,
-        "trend_score": -2.0,
+        "trend_score": 0.0,
         "direction": "Neutral",
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 3.99,
-        "ret_60d_pct": -11.22,
-        "exhaustion": "Neutral+ (51)"
+        "ret_20d_pct": 4.38,
+        "ret_60d_pct": -12.48,
+        "exhaustion": "Neutral+ (59)"
       },
       "HG": {
         "symbol": "HG",
@@ -149,9 +149,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -4.6,
-        "ret_60d_pct": -3.82,
-        "exhaustion": "Neutral- (37)"
+        "ret_20d_pct": -1.41,
+        "ret_60d_pct": -0.47,
+        "exhaustion": "Neutral- (43)"
       },
       "GC": {
         "symbol": "GC",
@@ -159,14 +159,14 @@
         "asset_class": "Commodities",
         "setup": "No Clear Setup",
         "score": 0.0,
-        "trend_score": -2.0,
+        "trend_score": 0.0,
         "direction": "Neutral",
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -1.95,
-        "ret_60d_pct": -2.15,
-        "exhaustion": "Neutral- (44)"
+        "ret_20d_pct": -0.68,
+        "ret_60d_pct": 2.95,
+        "exhaustion": "Neutral- (48)"
       },
       "SI": {
         "symbol": "SI",
@@ -174,14 +174,14 @@
         "asset_class": "Commodities",
         "setup": "No Clear Setup",
         "score": 0.0,
-        "trend_score": -2.0,
+        "trend_score": 0.0,
         "direction": "Neutral",
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -2.63,
-        "ret_60d_pct": -11.08,
-        "exhaustion": "Neutral- (45)"
+        "ret_20d_pct": 0.59,
+        "ret_60d_pct": -2.53,
+        "exhaustion": "Neutral- (50)"
       },
       "ZC": {
         "symbol": "ZC",
@@ -194,13 +194,28 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 10.35,
-        "ret_60d_pct": 18.83,
-        "exhaustion": "Overbought (73)"
+        "ret_20d_pct": 9.84,
+        "ret_60d_pct": 21.96,
+        "exhaustion": "Overbought (74)"
       },
       "ZW": {
         "symbol": "ZW",
         "name": "Wheat",
+        "asset_class": "Commodities",
+        "setup": "Pullback to Support",
+        "score": 61.5,
+        "trend_score": 4.0,
+        "direction": "Long",
+        "setup_score": 61.5,
+        "setup_status": "Reversing",
+        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_high/fib_0.500",
+        "ret_20d_pct": 7.6,
+        "ret_60d_pct": 18.13,
+        "exhaustion": "Neutral+ (57)"
+      },
+      "ZS": {
+        "symbol": "ZS",
+        "name": "Soybeans",
         "asset_class": "Commodities",
         "setup": "No Clear Setup",
         "score": 0.0,
@@ -209,39 +224,24 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 4.75,
-        "ret_60d_pct": 13.79,
-        "exhaustion": "Neutral+ (54)"
-      },
-      "ZS": {
-        "symbol": "ZS",
-        "name": "Soybeans",
-        "asset_class": "Commodities",
-        "setup": "Overbought Confluence",
-        "score": -54.9,
-        "trend_score": 4.0,
-        "direction": "Short",
-        "setup_score": 54.9,
-        "setup_status": "Early",
-        "setup_reasons": "Overbought condition; Multiple resistance levels align; Initial rejection; Resistance confluence: swing_high, 20d_high/60d_high",
-        "ret_20d_pct": 9.37,
-        "ret_60d_pct": 13.49,
-        "exhaustion": "Overbought (70)"
+        "ret_20d_pct": 8.92,
+        "ret_60d_pct": 16.1,
+        "exhaustion": "Overbought (76)"
       },
       "SB": {
         "symbol": "SB",
         "name": "Sugar",
         "asset_class": "Commodities",
         "setup": "Overbought Confluence",
-        "score": -59.3,
+        "score": -51.8,
         "trend_score": 4.0,
         "direction": "Short",
-        "setup_score": 59.3,
+        "setup_score": 51.8,
         "setup_status": "Early",
         "setup_reasons": "Overbought condition; Multiple resistance levels align; Initial rejection; Resistance confluence: swing_high, swing_high/20d_high",
-        "ret_20d_pct": 7.35,
-        "ret_60d_pct": 28.17,
-        "exhaustion": "Overbought (67)"
+        "ret_20d_pct": 3.26,
+        "ret_60d_pct": 30.35,
+        "exhaustion": "Overbought (66)"
       },
       "KC": {
         "symbol": "KC",
@@ -249,89 +249,89 @@
         "asset_class": "Commodities",
         "setup": "No Clear Setup",
         "score": 0.0,
-        "trend_score": 0.0,
+        "trend_score": -2.0,
         "direction": "Neutral",
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -7.57,
-        "ret_60d_pct": 12.14,
-        "exhaustion": "Neutral- (36)"
+        "ret_20d_pct": -15.85,
+        "ret_60d_pct": 9.96,
+        "exhaustion": "Oversold (28)"
       },
       "CC": {
         "symbol": "CC",
         "name": "Cocoa",
         "asset_class": "Commodities",
         "setup": "Pullback to Support",
-        "score": 70.9,
+        "score": 74.9,
         "trend_score": 4.0,
         "direction": "Long",
-        "setup_score": 70.9,
+        "setup_score": 74.9,
         "setup_status": "Reversing",
-        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_low/fib_0.500",
-        "ret_20d_pct": 4.33,
-        "ret_60d_pct": 39.49,
-        "exhaustion": "Neutral+ (51)"
+        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: fib_0.500/swing_low",
+        "ret_20d_pct": 0.79,
+        "ret_60d_pct": 26.69,
+        "exhaustion": "Neutral- (49)"
       },
       "CT": {
         "symbol": "CT",
         "name": "Cotton",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakdown",
+        "score": 57.5,
         "trend_score": 2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.8,
-        "ret_60d_pct": 6.44,
-        "exhaustion": "Neutral- (44)"
+        "direction": "Long",
+        "setup_score": 57.5,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/fib_0.786",
+        "ret_20d_pct": -1.01,
+        "ret_60d_pct": 6.47,
+        "exhaustion": "Neutral- (43)"
       },
       "LE": {
         "symbol": "LE",
         "name": "Live Cattle",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 0.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 1.54,
-        "ret_60d_pct": -9.2,
-        "exhaustion": "Neutral+ (59)"
+        "setup": "Failed Breakout",
+        "score": -78.5,
+        "trend_score": -2.0,
+        "direction": "Short",
+        "setup_score": 78.5,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: fib_0.500/swing_low",
+        "ret_20d_pct": 0.56,
+        "ret_60d_pct": -9.52,
+        "exhaustion": "Neutral+ (54)"
       },
       "GF": {
         "symbol": "GF",
         "name": "Feeder Cattle",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakout",
+        "score": -69.0,
         "trend_score": 0.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 3.82,
-        "ret_60d_pct": -5.82,
-        "exhaustion": "Overbought (67)"
+        "direction": "Short",
+        "setup_score": 69.0,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_low/fib_0.786",
+        "ret_20d_pct": 2.01,
+        "ret_60d_pct": -7.95,
+        "exhaustion": "Neutral+ (58)"
       },
       "HE": {
         "symbol": "HE",
         "name": "Lean Hogs",
         "asset_class": "Commodities",
-        "setup": "Trend Resumption",
-        "score": -62.6,
+        "setup": "Failed Breakdown",
+        "score": 44.0,
         "trend_score": -4.0,
-        "direction": "Short",
-        "setup_score": 62.6,
-        "setup_status": "Triggered",
-        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low",
-        "ret_20d_pct": -2.63,
-        "ret_60d_pct": -3.75,
-        "exhaustion": "Oversold (31)"
+        "direction": "Long",
+        "setup_score": 44.0,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/60d_low",
+        "ret_20d_pct": -3.46,
+        "ret_60d_pct": -6.0,
+        "exhaustion": "Oversold (26)"
       },
       "DX": {
         "symbol": "DX",
@@ -344,39 +344,39 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 0.06,
-        "ret_60d_pct": -1.54,
-        "exhaustion": "Neutral+ (53)"
+        "ret_20d_pct": 0.97,
+        "ret_60d_pct": -1.68,
+        "exhaustion": "Neutral+ (55)"
       },
       "EURUSD": {
         "symbol": "EURUSD",
         "name": "EURUSD",
         "asset_class": "FX",
-        "setup": "Failed Breakdown",
-        "score": 60.5,
+        "setup": "No Clear Setup",
+        "score": 0.0,
         "trend_score": 0.0,
-        "direction": "Long",
-        "setup_score": 60.5,
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/20d_low, swing_low/swing_high",
-        "ret_20d_pct": -0.33,
-        "ret_60d_pct": 1.37,
-        "exhaustion": "Neutral- (42)"
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -1.2,
+        "ret_60d_pct": 1.58,
+        "exhaustion": "Neutral- (41)"
       },
       "GBPUSD": {
         "symbol": "GBPUSD",
         "name": "GBPUSD",
         "asset_class": "FX",
-        "setup": "Failed Breakdown",
-        "score": 59.2,
+        "setup": "No Clear Setup",
+        "score": 0.0,
         "trend_score": 0.0,
-        "direction": "Long",
-        "setup_score": 59.2,
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/fib_0.618",
-        "ret_20d_pct": -0.41,
-        "ret_60d_pct": 2.07,
-        "exhaustion": "Neutral- (43)"
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -1.1,
+        "ret_60d_pct": 2.19,
+        "exhaustion": "Neutral- (39)"
       },
       "AUDUSD": {
         "symbol": "AUDUSD",
@@ -389,9 +389,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 0.56,
-        "ret_60d_pct": 3.05,
-        "exhaustion": "Neutral+ (52)"
+        "ret_20d_pct": 0.04,
+        "ret_60d_pct": 3.29,
+        "exhaustion": "Neutral+ (51)"
       },
       "CADUSD": {
         "symbol": "CADUSD",
@@ -404,73 +404,88 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.04,
-        "ret_60d_pct": 2.17,
-        "exhaustion": "Neutral- (49)"
+        "ret_20d_pct": -0.95,
+        "ret_60d_pct": 2.07,
+        "exhaustion": "Neutral- (44)"
       },
       "JPYUSD": {
         "symbol": "JPYUSD",
         "name": "JPYUSD",
         "asset_class": "FX",
         "setup": "Overbought Confluence",
-        "score": -44.9,
+        "score": -44.2,
         "trend_score": 4.0,
         "direction": "Short",
-        "setup_score": 44.9,
+        "setup_score": 44.2,
         "setup_status": "Early",
         "setup_reasons": "Oversold condition; Multiple support levels align; Initial rebound; Support confluence: swing_low/swing_high",
-        "ret_20d_pct": 2.96,
-        "ret_60d_pct": 4.12,
-        "exhaustion": "Overbought (69)"
+        "ret_20d_pct": 1.85,
+        "ret_60d_pct": 4.04,
+        "exhaustion": "Overbought (67)"
       },
       "ZB": {
         "symbol": "ZB",
         "name": "US Treasury",
         "asset_class": "Rates",
-        "setup": "Trend Resumption",
-        "score": -72.9,
+        "setup": "Oversold Confluence",
+        "score": 42.8,
         "trend_score": -4.0,
-        "direction": "Short",
-        "setup_score": 72.9,
-        "setup_status": "Developing",
-        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low",
-        "ret_20d_pct": -1.24,
-        "ret_60d_pct": -4.91,
-        "exhaustion": "Oversold (31)"
+        "direction": "Long",
+        "setup_score": 42.8,
+        "setup_status": "Early",
+        "setup_reasons": "Oversold condition; Multiple support levels align; Initial rebound; Support confluence: 20d_low/60d_low",
+        "ret_20d_pct": -1.18,
+        "ret_60d_pct": -4.73,
+        "exhaustion": "Oversold (32)"
       },
       "BTP": {
         "symbol": "BTP",
         "name": "Italy BTP",
         "asset_class": "Rates",
         "setup": "Failed Breakdown",
-        "score": 39.2,
+        "score": 71.9,
         "trend_score": -4.0,
         "direction": "Long",
-        "setup_score": 39.2,
+        "setup_score": 71.9,
         "setup_status": "Confirmed",
         "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/60d_low",
-        "ret_20d_pct": -2.76,
-        "ret_60d_pct": -5.39,
-        "exhaustion": "Extreme OS (17)"
+        "ret_20d_pct": -2.45,
+        "ret_60d_pct": -5.37,
+        "exhaustion": "Oversold (20)"
       },
       "GBL": {
         "symbol": "GBL",
         "name": "Germany Bund",
         "asset_class": "Rates",
         "setup": "Failed Breakdown",
-        "score": 37.9,
+        "score": 63.8,
         "trend_score": -4.0,
         "direction": "Long",
-        "setup_score": 37.9,
+        "setup_score": 63.8,
         "setup_status": "Confirmed",
         "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/60d_low",
-        "ret_20d_pct": -2.33,
-        "ret_60d_pct": -4.64,
-        "exhaustion": "Extreme OS (16)"
+        "ret_20d_pct": -2.06,
+        "ret_60d_pct": -4.78,
+        "exhaustion": "Extreme OS (18)"
       },
       "MBT": {
         "symbol": "MBT",
         "name": "Bitcoin",
+        "asset_class": "Crypto",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": 2.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": 16.28,
+        "ret_60d_pct": 15.72,
+        "exhaustion": "Neutral+ (57)"
+      },
+      "MET": {
+        "symbol": "MET",
+        "name": "Ethereum",
         "asset_class": "Crypto",
         "setup": "No Clear Setup",
         "score": 0.0,
@@ -479,40 +494,25 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 25.09,
-        "ret_60d_pct": 21.48,
-        "exhaustion": "Overbought (70)"
-      },
-      "MET": {
-        "symbol": "MET",
-        "name": "Ethereum",
-        "asset_class": "Crypto",
-        "setup": "Failed Breakout",
-        "score": -74.3,
-        "trend_score": 4.0,
-        "direction": "Short",
-        "setup_score": 74.3,
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: 20d_high/60d_high",
-        "ret_20d_pct": 34.73,
-        "ret_60d_pct": 45.34,
-        "exhaustion": "Overbought (78)"
+        "ret_20d_pct": 24.47,
+        "ret_60d_pct": 36.73,
+        "exhaustion": "Neutral+ (61)"
       }
     },
     "by_asset_class": {
       "Equities": {
         "n": 6,
-        "avg_score": -0.667,
-        "bullish": 1,
+        "avg_score": -1.0,
+        "bullish": 0,
         "bearish": 3,
-        "text": "Breadth is balanced: avg score -0.67, bullish 1/6, bearish 3/6."
+        "text": "Breadth is defensive: avg score -1.00, bullish 0/6, bearish 3/6."
       },
       "Commodities": {
         "n": 16,
-        "avg_score": 1.125,
+        "avg_score": 1.25,
         "bullish": 8,
-        "bearish": 5,
-        "text": "Breadth is constructive: avg score 1.12, bullish 8/16, bearish 5/16."
+        "bearish": 4,
+        "text": "Breadth is constructive: avg score 1.25, bullish 8/16, bearish 4/16."
       },
       "FX": {
         "n": 5,
@@ -530,10 +530,10 @@
       },
       "Crypto": {
         "n": 2,
-        "avg_score": 4.0,
+        "avg_score": 3.0,
         "bullish": 2,
         "bearish": 0,
-        "text": "Breadth is constructive: avg score 4.00, bullish 2/2, bearish 0/2."
+        "text": "Breadth is constructive: avg score 3.00, bullish 2/2, bearish 0/2."
       }
     }
   },
@@ -635,42 +635,6 @@
         ],
         "macro_calendar": [
           {
-            "label": "China Fixed Asset Investment",
-            "title": "China Fixed Asset Investment",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China Industrial Production",
-            "title": "China Industrial Production",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China National Economic Performance",
-            "title": "China National Economic Performance",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "Retail Sales",
-            "title": "China Retail Sales",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -678,47 +642,47 @@
             "source": "Eurostat",
             "date": "2026-09-16",
             "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Fed",
+            "title": "FOMC Rate Decision",
+            "ticker": "",
+            "company": "",
+            "source": "Federal Reserve",
+            "date": "2026-09-16",
+            "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-09-17",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
           }
         ],
         "earnings_calendar": [],
         "key_watchpoints": [
           {
-            "label": "China Fixed Asset Investment",
-            "title": "China Fixed Asset Investment",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China Industrial Production",
-            "title": "China Industrial Production",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China National Economic Performance",
-            "title": "China National Economic Performance",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "Retail Sales",
-            "title": "China Retail Sales",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -726,46 +690,46 @@
             "source": "Eurostat",
             "date": "2026-09-16",
             "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Fed",
+            "title": "FOMC Rate Decision",
+            "ticker": "",
+            "company": "",
+            "source": "Federal Reserve",
+            "date": "2026-09-16",
+            "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-09-17",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
           }
         ],
         "key_events": [
           {
-            "label": "China Fixed Asset Investment",
-            "title": "China Fixed Asset Investment",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China Industrial Production",
-            "title": "China Industrial Production",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China National Economic Performance",
-            "title": "China National Economic Performance",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "Retail Sales",
-            "title": "China Retail Sales",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -773,6 +737,42 @@
             "source": "Eurostat",
             "date": "2026-09-16",
             "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Fed",
+            "title": "FOMC Rate Decision",
+            "ticker": "",
+            "company": "",
+            "source": "Federal Reserve",
+            "date": "2026-09-16",
+            "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-09-17",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
           }
         ]
       },
@@ -936,42 +936,6 @@
         ],
         "macro_calendar": [
           {
-            "label": "China Fixed Asset Investment",
-            "title": "China Fixed Asset Investment",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China Industrial Production",
-            "title": "China Industrial Production",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China National Economic Performance",
-            "title": "China National Economic Performance",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "Retail Sales",
-            "title": "China Retail Sales",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -979,47 +943,38 @@
             "source": "Eurostat",
             "date": "2026-09-16",
             "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Fed",
+            "title": "FOMC Rate Decision",
+            "ticker": "",
+            "company": "",
+            "source": "Federal Reserve",
+            "date": "2026-09-16",
+            "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "PMI",
+            "title": "Euro Area PMI Flash",
+            "ticker": "",
+            "company": "",
+            "source": "S&P Global",
+            "date": "2026-09-23",
+            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
           }
         ],
         "earnings_calendar": [],
         "key_watchpoints": [
           {
-            "label": "China Fixed Asset Investment",
-            "title": "China Fixed Asset Investment",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China Industrial Production",
-            "title": "China Industrial Production",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China National Economic Performance",
-            "title": "China National Economic Performance",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "Retail Sales",
-            "title": "China Retail Sales",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -1027,46 +982,37 @@
             "source": "Eurostat",
             "date": "2026-09-16",
             "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Fed",
+            "title": "FOMC Rate Decision",
+            "ticker": "",
+            "company": "",
+            "source": "Federal Reserve",
+            "date": "2026-09-16",
+            "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "PMI",
+            "title": "Euro Area PMI Flash",
+            "ticker": "",
+            "company": "",
+            "source": "S&P Global",
+            "date": "2026-09-23",
+            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
           }
         ],
         "key_events": [
           {
-            "label": "China Fixed Asset Investment",
-            "title": "China Fixed Asset Investment",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China Industrial Production",
-            "title": "China Industrial Production",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China National Economic Performance",
-            "title": "China National Economic Performance",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "Retail Sales",
-            "title": "China Retail Sales",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -1074,6 +1020,33 @@
             "source": "Eurostat",
             "date": "2026-09-16",
             "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Fed",
+            "title": "FOMC Rate Decision",
+            "ticker": "",
+            "company": "",
+            "source": "Federal Reserve",
+            "date": "2026-09-16",
+            "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "PMI",
+            "title": "Euro Area PMI Flash",
+            "ticker": "",
+            "company": "",
+            "source": "S&P Global",
+            "date": "2026-09-23",
+            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
           }
         ]
       },
@@ -1197,42 +1170,6 @@
         ],
         "macro_calendar": [
           {
-            "label": "China Fixed Asset Investment",
-            "title": "China Fixed Asset Investment",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China Industrial Production",
-            "title": "China Industrial Production",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China National Economic Performance",
-            "title": "China National Economic Performance",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "Retail Sales",
-            "title": "China Retail Sales",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -1240,47 +1177,47 @@
             "source": "Eurostat",
             "date": "2026-09-16",
             "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Fed",
+            "title": "FOMC Rate Decision",
+            "ticker": "",
+            "company": "",
+            "source": "Federal Reserve",
+            "date": "2026-09-16",
+            "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-09-17",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
           }
         ],
         "earnings_calendar": [],
         "key_watchpoints": [
           {
-            "label": "China Fixed Asset Investment",
-            "title": "China Fixed Asset Investment",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China Industrial Production",
-            "title": "China Industrial Production",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China National Economic Performance",
-            "title": "China National Economic Performance",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "Retail Sales",
-            "title": "China Retail Sales",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -1288,46 +1225,46 @@
             "source": "Eurostat",
             "date": "2026-09-16",
             "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Fed",
+            "title": "FOMC Rate Decision",
+            "ticker": "",
+            "company": "",
+            "source": "Federal Reserve",
+            "date": "2026-09-16",
+            "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-09-17",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
           }
         ],
         "key_events": [
           {
-            "label": "China Fixed Asset Investment",
-            "title": "China Fixed Asset Investment",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China Industrial Production",
-            "title": "China Industrial Production",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "China National Economic Performance",
-            "title": "China National Economic Performance",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
-            "label": "Retail Sales",
-            "title": "China Retail Sales",
-            "ticker": "",
-            "company": "",
-            "source": "NBS China",
-            "date": "2026-09-15",
-            "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-          },
-          {
             "label": "Euro Area Industrial Production",
             "title": "Euro Area Industrial Production",
             "ticker": "",
@@ -1335,6 +1272,42 @@
             "source": "Eurostat",
             "date": "2026-09-16",
             "url": "https://ec.europa.eu/eurostat/news/release-calendar"
+          },
+          {
+            "label": "Fed",
+            "title": "FOMC Rate Decision",
+            "ticker": "",
+            "company": "",
+            "source": "Federal Reserve",
+            "date": "2026-09-16",
+            "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+          },
+          {
+            "label": "US Import/Export Prices",
+            "title": "US Import/Export Prices",
+            "ticker": "",
+            "company": "",
+            "source": "BLS",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "Retail Sales",
+            "title": "US Retail Sales",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-09-16",
+            "url": "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+          },
+          {
+            "label": "CPI",
+            "title": "Euro Area CPI Final",
+            "ticker": "",
+            "company": "",
+            "source": "ECB Statistical Calendar",
+            "date": "2026-09-17",
+            "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
           }
         ]
       },
@@ -1704,200 +1677,112 @@
     },
     "top_long": [
       {
+        "symbol": "DAX",
+        "name": "DAX",
+        "asset_class": "Equities",
+        "setup": "Failed Breakdown",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/fib_0.618, ma200/swing_high",
+        "score": 86.8,
+        "setup_score": 86.8,
+        "ret_20d_pct": -2.65,
+        "side": "LONG",
+        "tech_score": 0.868,
+        "fund_support": 0.23579449999999996,
+        "macro_alignment": 0.23579449999999996,
+        "final_score": 0.709948625,
+        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/fib_0.618, ma200/swing_high. Broader equities tone is cautious."
+      },
+      {
         "symbol": "CC",
         "name": "Cocoa",
         "asset_class": "Commodities",
         "setup": "Pullback to Support",
         "setup_status": "Reversing",
-        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_low/fib_0.500",
-        "score": 70.9,
-        "setup_score": 70.9,
-        "ret_20d_pct": 4.33,
+        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: fib_0.500/swing_low",
+        "score": 74.9,
+        "setup_score": 74.9,
+        "ret_20d_pct": 0.79,
         "side": "LONG",
-        "tech_score": 0.7090000000000001,
+        "tech_score": 0.7490000000000001,
         "fund_support": 0.5817095,
         "macro_alignment": 0.5817095,
-        "final_score": 0.6771773750000001,
-        "rationale": "Pullback to Support: Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_low/fib_0.500. Broader commodities tone is mixed."
+        "final_score": 0.7071773750000001,
+        "rationale": "Pullback to Support: Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: fib_0.500/swing_low. Broader commodities tone is mixed."
       },
       {
-        "symbol": "EURUSD",
-        "name": "EURUSD",
-        "asset_class": "FX",
-        "setup": "Failed Breakdown",
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/20d_low, swing_low/swing_high",
-        "score": 60.5,
-        "setup_score": 60.5,
-        "ret_20d_pct": -0.33,
+        "symbol": "ZW",
+        "name": "Wheat",
+        "asset_class": "Commodities",
+        "setup": "Pullback to Support",
+        "setup_status": "Reversing",
+        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_high/fib_0.500",
+        "score": 61.5,
+        "setup_score": 61.5,
+        "ret_20d_pct": 7.6,
         "side": "LONG",
-        "tech_score": 0.605,
-        "fund_support": 0.46256600000000003,
-        "macro_alignment": 0.46256600000000003,
-        "final_score": 0.5693915,
-        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/20d_low, swing_low/swing_high. Broader fx tone is mixed."
-      },
-      {
-        "symbol": "GBPUSD",
-        "name": "GBPUSD",
-        "asset_class": "FX",
-        "setup": "Failed Breakdown",
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/fib_0.618",
-        "score": 59.2,
-        "setup_score": 59.2,
-        "ret_20d_pct": -0.41,
-        "side": "LONG",
-        "tech_score": 0.5920000000000001,
-        "fund_support": 0.46256600000000003,
-        "macro_alignment": 0.46256600000000003,
-        "final_score": 0.5596415000000001,
-        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/fib_0.618. Broader fx tone is mixed."
+        "tech_score": 0.615,
+        "fund_support": 0.5817095,
+        "macro_alignment": 0.5817095,
+        "final_score": 0.606677375,
+        "rationale": "Pullback to Support: Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_high/fib_0.500. Broader commodities tone is mixed."
       }
     ],
     "top_short": [
       {
-        "symbol": "ZB",
-        "name": "US Treasury",
-        "asset_class": "Rates",
-        "setup": "Trend Resumption",
-        "setup_status": "Developing",
-        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low",
-        "score": -72.9,
-        "setup_score": 72.9,
-        "ret_20d_pct": -1.24,
-        "side": "SHORT",
-        "tech_score": 0.7290000000000001,
-        "fund_support": 0.975,
-        "macro_alignment": 0.975,
-        "final_score": 0.7905000000000001,
-        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low. Broader rates tone is cautious."
-      },
-      {
-        "symbol": "MET",
-        "name": "Ethereum",
-        "asset_class": "Crypto",
+        "symbol": "LE",
+        "name": "Live Cattle",
+        "asset_class": "Commodities",
         "setup": "Failed Breakout",
         "setup_status": "Confirmed",
-        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: 20d_high/60d_high",
-        "score": -74.3,
-        "setup_score": 74.3,
-        "ret_20d_pct": 34.73,
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: fib_0.500/swing_low",
+        "score": -78.5,
+        "setup_score": 78.5,
+        "ret_20d_pct": 0.56,
         "side": "SHORT",
-        "tech_score": 0.743,
-        "fund_support": 0.31057999999999997,
-        "macro_alignment": 0.31057999999999997,
-        "final_score": 0.634895,
-        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: 20d_high/60d_high. Broader crypto tone is supportive."
-      },
-      {
-        "symbol": "HE",
-        "name": "Lean Hogs",
-        "asset_class": "Commodities",
-        "setup": "Trend Resumption",
-        "setup_status": "Triggered",
-        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low",
-        "score": -62.6,
-        "setup_score": 62.6,
-        "ret_20d_pct": -2.63,
-        "side": "SHORT",
-        "tech_score": 0.626,
+        "tech_score": 0.785,
         "fund_support": 0.4182905,
         "macro_alignment": 0.4182905,
-        "final_score": 0.574072625,
-        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low. Broader commodities tone is mixed."
+        "final_score": 0.693322625,
+        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: fib_0.500/swing_low. Broader commodities tone is mixed."
+      },
+      {
+        "symbol": "CL",
+        "name": "WTI Crude",
+        "asset_class": "Commodities",
+        "setup": "Failed Breakout",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/20d_high",
+        "score": -72.8,
+        "setup_score": 72.8,
+        "ret_20d_pct": 23.51,
+        "side": "SHORT",
+        "tech_score": 0.728,
+        "fund_support": 0.4182905,
+        "macro_alignment": 0.4182905,
+        "final_score": 0.650572625,
+        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/20d_high. Broader commodities tone is mixed."
+      },
+      {
+        "symbol": "GF",
+        "name": "Feeder Cattle",
+        "asset_class": "Commodities",
+        "setup": "Failed Breakout",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_low/fib_0.786",
+        "score": -69.0,
+        "setup_score": 69.0,
+        "ret_20d_pct": 2.01,
+        "side": "SHORT",
+        "tech_score": 0.69,
+        "fund_support": 0.4182905,
+        "macro_alignment": 0.4182905,
+        "final_score": 0.6220726249999999,
+        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_low/fib_0.786. Broader commodities tone is mixed."
       }
     ]
   },
   "event_calendar": [
-    {
-      "date": "2026-09-15",
-      "type": "Macro",
-      "title": "China Fixed Asset Investment",
-      "country": "China",
-      "importance": "high",
-      "markets": [
-        "Commodities",
-        "Equities",
-        "FX"
-      ],
-      "source": "NBS China",
-      "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
-      "event_key": "CN_FIXED_ASSET_INVESTMENT",
-      "source_family": "NBS China",
-      "sources": [
-        "NBS China"
-      ],
-      "urls": [
-        "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-      ]
-    },
-    {
-      "date": "2026-09-15",
-      "type": "Macro",
-      "title": "China Industrial Production",
-      "country": "China",
-      "importance": "high",
-      "markets": [
-        "Commodities",
-        "Equities",
-        "FX"
-      ],
-      "source": "NBS China",
-      "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
-      "event_key": "CN_INDUSTRIAL_PRODUCTION",
-      "source_family": "NBS China",
-      "sources": [
-        "NBS China"
-      ],
-      "urls": [
-        "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-      ]
-    },
-    {
-      "date": "2026-09-15",
-      "type": "Macro",
-      "title": "China National Economic Performance",
-      "country": "China",
-      "importance": "high",
-      "markets": [
-        "Commodities",
-        "Equities",
-        "FX"
-      ],
-      "source": "NBS China",
-      "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
-      "event_key": "CN_NATIONAL_ECONOMIC_PERFORMANCE",
-      "source_family": "NBS China",
-      "sources": [
-        "NBS China"
-      ],
-      "urls": [
-        "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-      ]
-    },
-    {
-      "date": "2026-09-15",
-      "type": "Macro",
-      "title": "China Retail Sales",
-      "country": "China",
-      "importance": "high",
-      "markets": [
-        "Commodities",
-        "Equities",
-        "FX"
-      ],
-      "source": "NBS China",
-      "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
-      "event_key": "CN_RETAIL_SALES",
-      "source_family": "NBS China",
-      "sources": [
-        "NBS China"
-      ],
-      "urls": [
-        "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
-      ]
-    },
     {
       "date": "2026-09-16",
       "type": "Macro",
@@ -2060,6 +1945,31 @@
       ],
       "urls": [
         "https://www.newyorkfed.org/research/calendars/i-sep26.html"
+      ]
+    },
+    {
+      "date": "2026-09-23",
+      "type": "Macro",
+      "title": "Euro Area PMI Flash",
+      "country": "Euro Area",
+      "importance": "high",
+      "markets": [
+        "Equities",
+        "Rates",
+        "FX",
+        "Commodities"
+      ],
+      "source": "S&P Global",
+      "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
+      "event_key": "EA_PMI_FLASH",
+      "source_family": "S&P Global",
+      "scheduler_source": "S&P Global PMI Release Calendar",
+      "provider_title": "S&P Global Flash Eurozone PMI",
+      "sources": [
+        "S&P Global"
+      ],
+      "urls": [
+        "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
       ]
     }
   ]
