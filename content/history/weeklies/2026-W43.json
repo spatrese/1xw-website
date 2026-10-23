@@ -1,5 +1,5 @@
 {
-  "asof": "2026-10-22",
+  "asof": "2026-10-23",
   "week_id": "2026-W43",
   "technical_overview": {
     "by_symbol": {
@@ -7,16 +7,16 @@
         "symbol": "ES",
         "name": "S&P 500",
         "asset_class": "Equities",
-        "setup": "Pullback to Support",
-        "score": 58.7,
-        "trend_score": 4.0,
-        "direction": "Long",
-        "setup_score": 58.7,
-        "setup_status": "Reversing",
-        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_high/ma50",
-        "ret_20d_pct": 0.36,
-        "ret_60d_pct": 3.57,
-        "exhaustion": "Neutral+ (53)"
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": 0.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -0.8,
+        "ret_60d_pct": 3.89,
+        "exhaustion": "Neutral- (41)"
       },
       "NQ": {
         "symbol": "NQ",
@@ -29,9 +29,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -2.46,
-        "ret_60d_pct": 6.39,
-        "exhaustion": "Neutral- (45)"
+        "ret_20d_pct": -5.28,
+        "ret_60d_pct": 5.52,
+        "exhaustion": "Oversold (32)"
       },
       "RTY": {
         "symbol": "RTY",
@@ -44,13 +44,28 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -2.31,
-        "ret_60d_pct": -6.44,
-        "exhaustion": "Neutral- (35)"
+        "ret_20d_pct": -2.12,
+        "ret_60d_pct": -4.8,
+        "exhaustion": "Neutral- (36)"
       },
       "DAX": {
         "symbol": "DAX",
         "name": "DAX",
+        "asset_class": "Equities",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": -2.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -0.52,
+        "ret_60d_pct": -1.76,
+        "exhaustion": "Neutral- (45)"
+      },
+      "NIY": {
+        "symbol": "NIY",
+        "name": "Nikkei 225",
         "asset_class": "Equities",
         "setup": "No Clear Setup",
         "score": 0.0,
@@ -59,24 +74,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 0.17,
-        "ret_60d_pct": -1.43,
-        "exhaustion": "Neutral- (46)"
-      },
-      "NIY": {
-        "symbol": "NIY",
-        "name": "Nikkei 225",
-        "asset_class": "Equities",
-        "setup": "Pullback to Support",
-        "score": 77.0,
-        "trend_score": 0.0,
-        "direction": "Long",
-        "setup_score": 77.0,
-        "setup_status": "Reversing",
-        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_low, swing_low/20d_low",
-        "ret_20d_pct": -1.38,
-        "ret_60d_pct": 4.21,
-        "exhaustion": "Neutral- (40)"
+        "ret_20d_pct": -4.56,
+        "ret_60d_pct": 2.47,
+        "exhaustion": "Oversold (30)"
       },
       "VIX": {
         "symbol": "VIX",
@@ -89,144 +89,144 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 16.4,
-        "ret_60d_pct": -11.71,
-        "exhaustion": "Neutral+ (60)"
+        "ret_20d_pct": 21.44,
+        "ret_60d_pct": -7.89,
+        "exhaustion": "Neutral+ (63)"
       },
       "CL": {
         "symbol": "CL",
         "name": "WTI Crude",
         "asset_class": "Commodities",
         "setup": "Trend Resumption",
-        "score": 88.8,
+        "score": 88.6,
         "trend_score": 4.0,
         "direction": "Long",
-        "setup_score": 88.8,
+        "setup_score": 88.6,
         "setup_status": "Developing",
-        "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high/fib_0.618",
-        "ret_20d_pct": 7.96,
-        "ret_60d_pct": 32.77,
-        "exhaustion": "Overbought (72)"
+        "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: fib_0.786/swing_high",
+        "ret_20d_pct": 7.67,
+        "ret_60d_pct": 27.57,
+        "exhaustion": "Overbought (77)"
       },
       "RB": {
         "symbol": "RB",
         "name": "RBOB Gasoline",
         "asset_class": "Commodities",
-        "setup": "Failed Breakdown",
-        "score": 71.7,
+        "setup": "No Clear Setup",
+        "score": 0.0,
         "trend_score": 2.0,
-        "direction": "Long",
-        "setup_score": 71.7,
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: fib_0.500/ma50",
-        "ret_20d_pct": -6.06,
-        "ret_60d_pct": 18.33,
-        "exhaustion": "Neutral- (48)"
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -4.29,
+        "ret_60d_pct": 17.25,
+        "exhaustion": "Neutral+ (53)"
       },
       "NG": {
         "symbol": "NG",
         "name": "Natural Gas",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakdown",
+        "score": 55.5,
         "trend_score": -4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -11.51,
-        "ret_60d_pct": -2.81,
+        "direction": "Long",
+        "setup_score": 55.5,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/20d_low, swing_low",
+        "ret_20d_pct": -17.03,
+        "ret_60d_pct": -3.36,
         "exhaustion": "Oversold (32)"
       },
       "HG": {
         "symbol": "HG",
         "name": "Copper",
         "asset_class": "Commodities",
-        "setup": "Pullback to Support",
-        "score": 62.6,
-        "trend_score": 0.0,
-        "direction": "Long",
-        "setup_score": 62.6,
-        "setup_status": "Reversing",
-        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_low/20d_low",
-        "ret_20d_pct": -2.58,
-        "ret_60d_pct": 1.92,
-        "exhaustion": "Neutral- (43)"
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": -2.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -5.77,
+        "ret_60d_pct": -0.14,
+        "exhaustion": "Oversold (31)"
       },
       "GC": {
         "symbol": "GC",
         "name": "Gold",
         "asset_class": "Commodities",
         "setup": "Trend Resumption",
-        "score": -80.3,
-        "trend_score": -2.0,
+        "score": -70.9,
+        "trend_score": -4.0,
         "direction": "Short",
-        "setup_score": 80.3,
-        "setup_status": "Developing",
-        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low, swing_high",
-        "ret_20d_pct": -3.89,
-        "ret_60d_pct": 1.24,
-        "exhaustion": "Oversold (33)"
+        "setup_score": 70.9,
+        "setup_status": "Triggered",
+        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low",
+        "ret_20d_pct": -5.53,
+        "ret_60d_pct": -0.89,
+        "exhaustion": "Oversold (25)"
       },
       "SI": {
         "symbol": "SI",
         "name": "Silver",
         "asset_class": "Commodities",
-        "setup": "Oversold Confluence",
-        "score": 58.2,
+        "setup": "No Clear Setup",
+        "score": 0.0,
         "trend_score": -4.0,
-        "direction": "Long",
-        "setup_score": 58.2,
-        "setup_status": "Early",
-        "setup_reasons": "Oversold condition; Multiple support levels align; Initial rebound; Support confluence: swing_low, swing_low/20d_low",
-        "ret_20d_pct": -11.17,
-        "ret_60d_pct": -0.84,
-        "exhaustion": "Oversold (31)"
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -14.05,
+        "ret_60d_pct": -6.39,
+        "exhaustion": "Oversold (22)"
       },
       "ZC": {
         "symbol": "ZC",
         "name": "Corn",
         "asset_class": "Commodities",
         "setup": "Failed Breakdown",
-        "score": 52.2,
+        "score": 75.2,
         "trend_score": -4.0,
         "direction": "Long",
-        "setup_score": 52.2,
+        "setup_score": 75.2,
         "setup_status": "Confirmed",
-        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/60d_low",
-        "ret_20d_pct": -12.43,
-        "ret_60d_pct": -3.59,
-        "exhaustion": "Extreme OS (19)"
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low, swing_high/20d_low",
+        "ret_20d_pct": -12.7,
+        "ret_60d_pct": -2.38,
+        "exhaustion": "Extreme OS (18)"
       },
       "ZW": {
         "symbol": "ZW",
         "name": "Wheat",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakdown",
+        "score": 41.1,
         "trend_score": -4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -11.33,
-        "ret_60d_pct": -7.17,
-        "exhaustion": "Extreme OS (19)"
+        "direction": "Long",
+        "setup_score": 41.1,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/swing_low",
+        "ret_20d_pct": -11.63,
+        "ret_60d_pct": -7.44,
+        "exhaustion": "Extreme OS (18)"
       },
       "ZS": {
         "symbol": "ZS",
         "name": "Soybeans",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakdown",
+        "score": 73.9,
         "trend_score": 0.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -5.64,
-        "ret_60d_pct": 1.94,
-        "exhaustion": "Oversold (29)"
+        "direction": "Long",
+        "setup_score": 73.9,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/fib_0.500",
+        "ret_20d_pct": -5.12,
+        "ret_60d_pct": 4.81,
+        "exhaustion": "Oversold (33)"
       },
       "SB": {
         "symbol": "SB",
@@ -239,39 +239,39 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 9.99,
-        "ret_60d_pct": 34.24,
-        "exhaustion": "Neutral+ (63)"
+        "ret_20d_pct": 8.17,
+        "ret_60d_pct": 32.01,
+        "exhaustion": "Neutral+ (57)"
       },
       "KC": {
         "symbol": "KC",
         "name": "Coffee",
         "asset_class": "Commodities",
-        "setup": "Failed Breakout",
-        "score": -53.7,
-        "trend_score": 2.0,
-        "direction": "Short",
-        "setup_score": 53.7,
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: fib_0.618/20d_high, swing_high/fib_0.786",
-        "ret_20d_pct": 14.59,
-        "ret_60d_pct": -2.24,
-        "exhaustion": "Overbought (68)"
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": 4.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": 13.47,
+        "ret_60d_pct": 0.65,
+        "exhaustion": "Neutral+ (64)"
       },
       "CC": {
         "symbol": "CC",
         "name": "Cocoa",
         "asset_class": "Commodities",
-        "setup": "Trend Resumption",
-        "score": 74.9,
-        "trend_score": 4.0,
-        "direction": "Long",
-        "setup_score": 74.9,
-        "setup_status": "Developing",
-        "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_low/ma50, swing_low/swing_high",
-        "ret_20d_pct": 5.7,
-        "ret_60d_pct": 10.24,
-        "exhaustion": "Neutral+ (55)"
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": 0.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -0.14,
+        "ret_60d_pct": 5.64,
+        "exhaustion": "Neutral- (43)"
       },
       "CT": {
         "symbol": "CT",
@@ -284,54 +284,54 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -2.18,
-        "ret_60d_pct": 2.46,
-        "exhaustion": "Neutral- (46)"
+        "ret_20d_pct": -2.25,
+        "ret_60d_pct": 0.22,
+        "exhaustion": "Neutral- (42)"
       },
       "LE": {
         "symbol": "LE",
         "name": "Live Cattle",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakout",
+        "score": -71.2,
         "trend_score": 2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 3.95,
-        "ret_60d_pct": 2.69,
+        "direction": "Short",
+        "setup_score": 71.2,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/ma200, swing_low/swing_high",
+        "ret_20d_pct": 4.53,
+        "ret_60d_pct": 1.86,
         "exhaustion": "Overbought (76)"
       },
       "GF": {
         "symbol": "GF",
         "name": "Feeder Cattle",
         "asset_class": "Commodities",
-        "setup": "No Clear Setup",
-        "score": 0.0,
+        "setup": "Failed Breakout",
+        "score": -71.0,
         "trend_score": 4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 6.57,
-        "ret_60d_pct": 9.08,
-        "exhaustion": "Overbought (78)"
+        "direction": "Short",
+        "setup_score": 71.0,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/20d_high",
+        "ret_20d_pct": 6.47,
+        "ret_60d_pct": 7.58,
+        "exhaustion": "Overbought (76)"
       },
       "HE": {
         "symbol": "HE",
         "name": "Lean Hogs",
         "asset_class": "Commodities",
-        "setup": "Trend Resumption",
-        "score": -66.9,
+        "setup": "No Clear Setup",
+        "score": 0.0,
         "trend_score": -4.0,
-        "direction": "Short",
-        "setup_score": 66.9,
-        "setup_status": "Triggered",
-        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: 20d_low/60d_low",
-        "ret_20d_pct": -6.54,
-        "ret_60d_pct": -16.82,
-        "exhaustion": "Oversold (26)"
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -5.65,
+        "ret_60d_pct": -14.55,
+        "exhaustion": "Oversold (25)"
       },
       "DX": {
         "symbol": "DX",
@@ -344,9 +344,9 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 0.38,
-        "ret_60d_pct": 1.95,
-        "exhaustion": "Neutral+ (59)"
+        "ret_20d_pct": 0.79,
+        "ret_60d_pct": 1.98,
+        "exhaustion": "Neutral+ (61)"
       },
       "EURUSD": {
         "symbol": "EURUSD",
@@ -359,24 +359,24 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -1.27,
-        "ret_60d_pct": -2.53,
-        "exhaustion": "Oversold (32)"
+        "ret_20d_pct": -1.58,
+        "ret_60d_pct": -2.71,
+        "exhaustion": "Oversold (29)"
       },
       "GBPUSD": {
         "symbol": "GBPUSD",
         "name": "GBPUSD",
         "asset_class": "FX",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": 0.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 1.44,
-        "ret_60d_pct": -0.42,
-        "exhaustion": "Neutral+ (59)"
+        "setup": "Failed Breakout",
+        "score": -67.7,
+        "trend_score": -2.0,
+        "direction": "Short",
+        "setup_score": 67.7,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_low/fib_0.500, swing_high/swing_low",
+        "ret_20d_pct": 1.07,
+        "ret_60d_pct": -0.68,
+        "exhaustion": "Neutral+ (56)"
       },
       "AUDUSD": {
         "symbol": "AUDUSD",
@@ -389,23 +389,23 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 0.02,
-        "ret_60d_pct": -0.2,
-        "exhaustion": "Neutral- (47)"
+        "ret_20d_pct": -0.04,
+        "ret_60d_pct": 0.03,
+        "exhaustion": "Neutral- (48)"
       },
       "CADUSD": {
         "symbol": "CADUSD",
         "name": "CADUSD",
         "asset_class": "FX",
-        "setup": "No Clear Setup",
-        "score": -0.0,
-        "trend_score": -2.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 0.85,
-        "ret_60d_pct": -0.04,
+        "setup": "Failed Breakout",
+        "score": -55.3,
+        "trend_score": 2.0,
+        "direction": "Short",
+        "setup_score": 55.3,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/20d_low, swing_high/fib_0.618",
+        "ret_20d_pct": 0.92,
+        "ret_60d_pct": 0.06,
         "exhaustion": "Neutral+ (60)"
       },
       "JPYUSD": {
@@ -413,49 +413,19 @@
         "name": "JPYUSD",
         "asset_class": "FX",
         "setup": "Pullback to Support",
-        "score": 65.1,
+        "score": 71.4,
         "trend_score": 4.0,
         "direction": "Long",
-        "setup_score": 65.1,
+        "setup_score": 71.4,
         "setup_status": "Reversing",
-        "setup_reasons": "Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_high/swing_low",
-        "ret_20d_pct": 1.06,
-        "ret_60d_pct": 1.47,
-        "exhaustion": "Neutral+ (57)"
+        "setup_reasons": "Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_low/ma50, swing_low/ma200",
+        "ret_20d_pct": 0.12,
+        "ret_60d_pct": 0.23,
+        "exhaustion": "Neutral+ (58)"
       },
       "ZB": {
         "symbol": "ZB",
         "name": "US Treasury",
-        "asset_class": "Rates",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": -4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.32,
-        "ret_60d_pct": -4.33,
-        "exhaustion": "Neutral+ (52)"
-      },
-      "BTP": {
-        "symbol": "BTP",
-        "name": "Italy BTP",
-        "asset_class": "Rates",
-        "setup": "No Clear Setup",
-        "score": 0.0,
-        "trend_score": -4.0,
-        "direction": "Neutral",
-        "setup_score": 0.0,
-        "setup_status": "Inactive",
-        "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.41,
-        "ret_60d_pct": -4.41,
-        "exhaustion": "Neutral- (36)"
-      },
-      "GBL": {
-        "symbol": "GBL",
-        "name": "Germany Bund",
         "asset_class": "Rates",
         "setup": "No Clear Setup",
         "score": 0.0,
@@ -464,9 +434,39 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": 1.76,
-        "ret_60d_pct": -1.6,
-        "exhaustion": "Neutral+ (59)"
+        "ret_20d_pct": 2.53,
+        "ret_60d_pct": -1.88,
+        "exhaustion": "Overbought (68)"
+      },
+      "BTP": {
+        "symbol": "BTP",
+        "name": "Italy BTP",
+        "asset_class": "Rates",
+        "setup": "Rally to Resistance",
+        "score": -74.5,
+        "trend_score": -4.0,
+        "direction": "Short",
+        "setup_score": 74.5,
+        "setup_status": "Reversing",
+        "setup_reasons": "Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_low/swing_high, swing_high/20d_high",
+        "ret_20d_pct": -0.08,
+        "ret_60d_pct": -3.91,
+        "exhaustion": "Neutral- (41)"
+      },
+      "GBL": {
+        "symbol": "GBL",
+        "name": "Germany Bund",
+        "asset_class": "Rates",
+        "setup": "Failed Breakout",
+        "score": -53.6,
+        "trend_score": 0.0,
+        "direction": "Short",
+        "setup_score": 53.6,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_low/fib_0.786",
+        "ret_20d_pct": 2.28,
+        "ret_60d_pct": -1.05,
+        "exhaustion": "Neutral+ (64)"
       },
       "MBT": {
         "symbol": "MBT",
@@ -479,126 +479,166 @@
         "setup_score": 0.0,
         "setup_status": "Inactive",
         "setup_reasons": "No setup currently meets the detection rules",
-        "ret_20d_pct": -0.74,
-        "ret_60d_pct": 30.07,
-        "exhaustion": "Overbought (67)"
+        "ret_20d_pct": -4.3,
+        "ret_60d_pct": 25.86,
+        "exhaustion": "Neutral- (50)"
       },
       "MET": {
         "symbol": "MET",
         "name": "Ethereum",
         "asset_class": "Crypto",
-        "setup": "Pullback to Support",
-        "score": 78.8,
-        "trend_score": 2.0,
-        "direction": "Long",
-        "setup_score": 78.8,
-        "setup_status": "Reversing",
-        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_high/fib_0.786, swing_low/swing_high",
-        "ret_20d_pct": -7.36,
-        "ret_60d_pct": 28.0,
-        "exhaustion": "Neutral- (50)"
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": 0.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -12.08,
+        "ret_60d_pct": 24.45,
+        "exhaustion": "Neutral- (38)"
       }
     },
     "by_asset_class": {
       "Equities": {
         "n": 6,
-        "avg_score": 0.333,
-        "bullish": 2,
-        "bearish": 1,
-        "text": "Breadth is balanced: avg score 0.33, bullish 2/6, bearish 1/6."
+        "avg_score": -0.667,
+        "bullish": 1,
+        "bearish": 2,
+        "text": "Breadth is balanced: avg score -0.67, bullish 1/6, bearish 2/6."
       },
       "Commodities": {
         "n": 16,
-        "avg_score": 0.0,
-        "bullish": 7,
-        "bearish": 6,
-        "text": "Breadth is balanced: avg score 0.00, bullish 7/16, bearish 6/16."
+        "avg_score": -0.375,
+        "bullish": 6,
+        "bearish": 7,
+        "text": "Breadth is balanced: avg score -0.38, bullish 6/16, bearish 7/16."
       },
       "FX": {
         "n": 5,
-        "avg_score": -0.8,
-        "bullish": 1,
+        "avg_score": -0.4,
+        "bullish": 2,
         "bearish": 3,
-        "text": "Breadth is balanced: avg score -0.80, bullish 1/5, bearish 3/5."
+        "text": "Breadth is balanced: avg score -0.40, bullish 2/5, bearish 3/5."
       },
       "Rates": {
         "n": 3,
-        "avg_score": -2.667,
+        "avg_score": -1.333,
         "bullish": 0,
-        "bearish": 2,
-        "text": "Breadth is defensive: avg score -2.67, bullish 0/3, bearish 2/3."
+        "bearish": 1,
+        "text": "Breadth is defensive: avg score -1.33, bullish 0/3, bearish 1/3."
       },
       "Crypto": {
         "n": 2,
-        "avg_score": 2.0,
-        "bullish": 2,
+        "avg_score": 1.0,
+        "bullish": 1,
         "bearish": 0,
-        "text": "Breadth is constructive: avg score 2.00, bullish 2/2, bearish 0/2."
+        "text": "Breadth is constructive: avg score 1.00, bullish 1/2, bearish 0/2."
       }
     }
   },
   "fundamental_overview": {
     "by_asset_class": {
       "Equities": {
-        "tone": "Mixed",
-        "bias": 0.188,
-        "confidence": 0.828,
-        "commentary": "Equity signals are balanced, with supportive pockets offset by an uneven backdrop. Bias +0.19, confidence 0.83. Primary flow source: Bloomberg.",
+        "tone": "Cautious",
+        "bias": -1.0,
+        "confidence": 0.869,
+        "commentary": "Equity tone is cautious, with macro uncertainty limiting broad participation. Bias -1.00, confidence 0.87. Primary flow source: Bloomberg.",
         "top_news": [
           {
-            "title": "China Stocks Set for Bear Market as AI Trade, Policy Hopes Fade",
+            "title": "Nasdaq 100 Drops 3% as Risk-Off Dominates With Oil Prices Rising",
             "source": "Bloomberg",
-            "date": "2026-10-22T08:02:00Z",
-            "url": "https://www.bloomberg.com/news/articles/2026-10-22/china-stocks-set-for-bear-market-as-ai-trade-policy-hopes-fade",
+            "date": "2026-10-23T06:40:47Z",
+            "url": "https://www.bloomberg.com/news/articles/2026-10-22/us-futures-slip-as-risk-off-sentiment-dominates-with-oil-rising",
             "summary": ""
           },
           {
-            "title": "Nasdaq leads Wall Street gains as SpaceX, Super Micro boost AI sentiment",
+            "title": "S&P 500, Nasdaq end sharply lower as revived AI doubts ignite tech selloff",
             "source": "Reuters",
-            "date": "2026-10-22T08:02:00Z",
-            "url": "https://www.reuters.com/legal/transactional/nasdaq-futures-lead-gains-spacex-super-micro-results-lift-ai-trade-2026-10-21/",
+            "date": "2026-10-23T06:40:47Z",
+            "url": "https://www.reuters.com/business/nasdaq-futures-drop-over-1-ai-worries-resurface-oil-climbs-2026-10-22/",
             "summary": ""
           },
           {
-            "title": "Stocks rise on AI-led earnings, France's 10-year bond yield hits 5%",
-            "source": "Reuters",
-            "date": "2026-10-22T08:02:00Z",
-            "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-10-21/",
-            "summary": ""
+            "title": "Meta stock sinks nearly 7% as AI spend pushes free cash flow negative",
+            "source": "CNBC",
+            "date": "2026-10-22T20:03:03Z",
+            "url": "https://www.cnbc.com/2026/10/22/meta-stock-q3-earnings-free-cash-flow.html",
+            "summary": "Prices for the social media giant's five-year credit default swaps are reaching all-time highs as investors signal growing credit concerns."
           }
         ],
         "score_details": [
           {
-            "title": "Stocks rise on AI-led earnings, France's 10-year bond yield hits 5%",
-            "source": "Reuters",
-            "direction": 1.2,
-            "relevance": 1.6,
-            "score": 1.92,
-            "reason": "Headline captures the prevailing equity narrative: AI-led earnings are driving tech/market risk appetite (positive for equities), but the simultaneous rise in France 10-year yields introduces a macro/interest-rate headwind. Net effect scored positive with meaningful relevance due to multi-asset impl"
-          },
-          {
-            "title": "Nasdaq leads Wall Street gains as SpaceX, Super Micro boost AI sentiment",
-            "source": "Reuters",
-            "direction": 1.3,
-            "relevance": 1.6,
-            "score": 2.08,
-            "reason": "Reinforces the dominant positive AI leadership theme: strong results from AI-related names (SpaceX, Super Micro) are lifting Nasdaq and risk sentiment more broadly. High relevance as it signals a market-regime rally led by AI earnings momentum."
-          },
-          {
-            "title": "China Stocks Set for Bear Market as AI Trade, Policy Hopes Fade",
+            "title": "Nasdaq 100 Drops 3% as Risk-Off Dominates With Oil Prices Rising",
             "source": "Bloomberg",
-            "direction": -1.5,
-            "relevance": 1.7,
-            "score": -2.55,
-            "reason": "Significant negative signal for regional/global equities: fading AI/policy hopes and a sustained selloff push China into bear-market territory, increasing downside risk and reducing the breadth of the AI-led rally. High relevance given scale and potential spillovers."
+            "direction": -1.6,
+            "relevance": 1.5,
+            "score": -2.4,
+            "reason": "Large tech-led decline and explicit 'risk-off' framing — signals a strong negative equity regime shift, with oil-driven risk premium adding to market stress. High relevance to broad equity risk sentiment."
           },
           {
-            "title": "Asian markets dip as investors weigh tech earnings, Gulf tensions",
+            "title": "S&P 500, Nasdaq end sharply lower as revived AI doubts ignite tech selloff",
             "source": "Reuters",
-            "direction": -0.7,
+            "direction": -1.5,
+            "relevance": 1.6,
+            "score": -2.4,
+            "reason": "Direct confirmation that renewed AI skepticism is triggering broad-tech weakness and market-wide declines — central to the prevailing equity narrative (AI leadership under pressure)."
+          },
+          {
+            "title": "Stock Market News, Oct. 22, 2026: Tech Selloff Deepens as Flight Into Treasurys Drives Yields Lower",
+            "source": "WSJ",
+            "direction": -1.2,
+            "relevance": 1.3,
+            "score": -1.56,
+            "reason": "Cross-market transmission: equity selling tied to safe-haven Treasury demand and falling yields. Important because it links equity risk-off to bond-market flows and liquidity dynamics."
+          },
+          {
+            "title": "China Stocks Sink Further as State Buying Offers Little Relief",
+            "source": "Bloomberg",
+            "direction": -1.2,
             "relevance": 1.0,
-            "score": -0.7,
-            "reason": "Captures short-term risk-off pressure: investors are trimming positions on geopolitical (Gulf) tensions and mixed tech earnings. Moderate relevance as a near-term sentiment/volatility headwind that tempers the AI-led upside."
+            "score": -1.2,
+            "reason": "Significant China equity weakness despite state support — reinforces global risk-off backdrop and reduces risk appetite for cyclicals and EM-linked flows."
+          },
+          {
+            "title": "China AI Model Stocks’ $150 Billion Drop Shows No Sign of Easing",
+            "source": "Bloomberg",
+            "direction": -1.3,
+            "relevance": 1.1,
+            "score": -1.43,
+            "reason": "Reinforces the AI-theme unwind in a major market (China) — adds to evidence that AI leadership is under pressure globally, amplifying equity downside risk."
+          },
+          {
+            "title": "Rapid Junk Rout Amplifies Arini’s Losses and Erases Sona’s Gains",
+            "source": "Bloomberg",
+            "direction": -1.1,
+            "relevance": 0.9,
+            "score": -0.99,
+            "reason": "Credit-market stress (junk rout) is feeding equity volatility and risk-off dynamics — supportive of a broader deleveraging/flight-to-quality narrative that pressures stocks."
+          },
+          {
+            "title": "Winter arrives in markets",
+            "source": "Financial Times",
+            "direction": -1.0,
+            "relevance": 1.0,
+            "score": -1.0,
+            "reason": "Macro-synthesis piece: both bond and equity markets pointing to a 'chilly' regime. Useful to weight the broader market regime (risk-off, lower risk appetite) rather than idiosyncratic moves."
+          },
+          {
+            "title": "Moderna shares plunge after cancer vaccine data leaks — despite positive results",
+            "source": "CNBC",
+            "direction": -0.8,
+            "relevance": 0.8,
+            "score": -0.64,
+            "reason": "Large single-stock move driven by leaked clinical data. Relevant as a near-term volatility driver and illustrative of risk-off 'sell-the-news' dynamics, but idiosyncratic compared with the AI/tech-led market regime."
+          },
+          {
+            "title": "Meta stock sinks nearly 7% as AI spend pushes free cash flow negative",
+            "source": "CNBC",
+            "direction": -1.4,
+            "relevance": 1.2,
+            "score": -1.68,
+            "reason": "Large-cap tech (Meta) pain tied explicitly to AI capex and cash-flow concerns — meaningful because Meta is a market leader and its stress propagates to the AI trade and the broader tech complex."
           }
         ],
         "macro_calendar": [
@@ -650,15 +690,6 @@
         ],
         "earnings_calendar": [
           {
-            "label": "Procter & Gamble Co",
-            "title": "PG",
-            "ticker": "PG",
-            "company": "Procter & Gamble Co",
-            "source": "Finviz",
-            "date": "2026-10-22",
-            "url": "https://finviz.com/quote.ashx?t=PG"
-          },
-          {
             "label": "American Express Co",
             "title": "AXP",
             "ticker": "AXP",
@@ -693,19 +724,19 @@
             "source": "Finviz",
             "date": "2026-10-27",
             "url": "https://finviz.com/quote.ashx?t=NVS"
+          },
+          {
+            "label": "Visa Inc",
+            "title": "V",
+            "ticker": "V",
+            "company": "Visa Inc",
+            "source": "Finviz",
+            "date": "2026-10-27",
+            "url": "https://finviz.com/quote.ashx?t=V"
           }
         ],
         "key_watchpoints": [
           {
-            "label": "Procter & Gamble Co",
-            "title": "PG",
-            "ticker": "PG",
-            "company": "Procter & Gamble Co",
-            "source": "Finviz",
-            "date": "2026-10-22",
-            "url": "https://finviz.com/quote.ashx?t=PG"
-          },
-          {
             "label": "American Express Co",
             "title": "AXP",
             "ticker": "AXP",
@@ -740,19 +771,19 @@
             "source": "Finviz",
             "date": "2026-10-27",
             "url": "https://finviz.com/quote.ashx?t=KO"
+          },
+          {
+            "label": "Novartis AG ADR",
+            "title": "NVS",
+            "ticker": "NVS",
+            "company": "Novartis AG ADR",
+            "source": "Finviz",
+            "date": "2026-10-27",
+            "url": "https://finviz.com/quote.ashx?t=NVS"
           }
         ],
         "key_events": [
           {
-            "label": "Procter & Gamble Co",
-            "title": "PG",
-            "ticker": "PG",
-            "company": "Procter & Gamble Co",
-            "source": "Finviz",
-            "date": "2026-10-22",
-            "url": "https://finviz.com/quote.ashx?t=PG"
-          },
-          {
             "label": "American Express Co",
             "title": "AXP",
             "ticker": "AXP",
@@ -787,125 +818,118 @@
             "source": "Finviz",
             "date": "2026-10-27",
             "url": "https://finviz.com/quote.ashx?t=KO"
+          },
+          {
+            "label": "Novartis AG ADR",
+            "title": "NVS",
+            "ticker": "NVS",
+            "company": "Novartis AG ADR",
+            "source": "Finviz",
+            "date": "2026-10-27",
+            "url": "https://finviz.com/quote.ashx?t=NVS"
           }
         ]
       },
       "Commodities": {
-        "tone": "Supportive",
-        "bias": 0.62,
-        "confidence": 0.882,
-        "commentary": "Commodity tone is supportive, with supply dynamics still relevant. Bias +0.62, confidence 0.88. Primary flow source: Bloomberg.",
+        "tone": "Mixed",
+        "bias": 0.123,
+        "confidence": 0.95,
+        "commentary": "Commodity signals are mixed, with demand uncertainty offsetting selective support. Bias +0.12, confidence 0.95. Primary flow source: Bloomberg.",
         "top_news": [
           {
-            "title": "Oil Rises as Deadly Saudi Attack Fans Middle East Supply Fears",
+            "title": "Oil Holds Biggest Gain in Week as Saudi Attacks Fan Supply Risks",
             "source": "Bloomberg",
-            "date": "2026-10-22T08:02:00Z",
-            "url": "https://www.bloomberg.com/news/articles/2026-10-21/latest-oil-market-news-and-analysis-for-oct-22",
+            "date": "2026-10-23T06:40:47Z",
+            "url": "https://www.bloomberg.com/news/articles/2026-10-22/latest-oil-market-news-and-analysis-for-oct-23",
             "summary": ""
           },
           {
-            "title": "Oil: Risk premium supported by Gulf tensions – ING",
+            "title": "WTI trades near $99.00, five-week highs amid escalating Middle East supply risks",
             "source": "FXStreet",
-            "date": "2026-10-22T06:20:35Z",
-            "url": "https://www.fxstreet.com/news/oil-risk-premium-supported-by-gulf-tensions-ing-202610220620",
-            "summary": "ING analysts Warren Patterson and Ewa Manthey note that Oil prices remain well supported as ICE Brent trades back above $110/bbl following new attacks on Saudi Arabia."
+            "date": "2026-10-23T01:01:37Z",
+            "url": "https://www.fxstreet.com/news/wti-trades-near-9900-five-week-highs-amid-escalating-middle-east-supply-risks-202610230101",
+            "summary": "West Texas Intermediate (WTI) oil price remains stronger for the second successive day, trading around $98.80 per barrel during Asian hours on Friday. WTI price remains near its highest level in five weeks, driven by escalating geopolitical tensions and supply"
           },
           {
-            "title": "U.S. pulls diplomats from Saudi Arabia as it reportedly readies Iran strikes after midterms",
-            "source": "CNBC",
-            "date": "2026-10-22T04:35:54Z",
-            "url": "https://www.cnbc.com/2026/10/22/us-iran-trump-hormuz-.html",
-            "summary": "The U.S. ordered non-emergency staff out of Saudi Arabia after Houthi strikes on an airport and an oil field, reviving fears of a widening regional conflict."
+            "title": "Gold heads for steep weekly loss as oil prices fuel Fed rate concerns",
+            "source": "Reuters",
+            "date": "2026-10-23T06:40:47Z",
+            "url": "https://www.reuters.com/world/india/gold-heads-steep-weekly-loss-oil-prices-fuel-fed-rate-concerns-2026-10-23/",
+            "summary": ""
           }
         ],
         "score_details": [
           {
-            "title": "Gold drops over 1% as oil rally reinforces higher-for-longer rate outlook",
-            "source": "Reuters",
-            "direction": -1.2,
-            "relevance": 1.5,
-            "score": -1.8,
-            "reason": "Macro-driven negative for gold: oil-driven higher-for-longer rate expectations raise real yields and weigh on non-yielding gold. Reuters piece signals broad market drivers rather than idiosyncratic technicals, so assign elevated relevance."
+            "title": "Oil Holds Biggest Gain in Week as Saudi Attacks Fan Supply Risks",
+            "source": "Bloomberg",
+            "direction": 1.7,
+            "relevance": 1.8,
+            "score": 3.06,
+            "reason": "Direct report of supply-risk shock (Saudi attacks) — significant upside pressure on oil and related commodity markets, high macro relevance."
           },
           {
-            "title": "Oil Rises as Deadly Saudi Attack Fans Middle East Supply Fears",
-            "source": "Bloomberg",
+            "title": "Oil prices near Iran-war highs as soaring tanker rates trigger an energy squeeze",
+            "source": "MarketWatch",
             "direction": 1.5,
-            "relevance": 1.6,
-            "score": 2.4,
-            "reason": "Direct supply-risk shock to oil: deadly attack on Saudi assets raises risk premium and near-term supply concerns, supporting higher crude prices. High relevance given immediate market-moving geopolitical supply implications."
+            "relevance": 1.4,
+            "score": 2.1,
+            "reason": "Tanker-rate-driven supply/delivery frictions combine with geopolitical tensions to tighten physical oil markets — supportive for prices."
+          },
+          {
+            "title": "Oil Tankers Sailing the US-China Route Are Commanding $60 Million and It’s Crushing Demand",
+            "source": "Bloomberg",
+            "direction": -1.1,
+            "relevance": 1.3,
+            "score": -1.43,
+            "reason": "Extreme freight costs are reducing effective demand/flows on a major route — weighs on oil consumption and is a material negative signal for crude demand."
+          },
+          {
+            "title": "Pentagon’s Venezuelan Oil Partner Nabep Adds Rig, Boosts Output",
+            "source": "Bloomberg",
+            "direction": -1.2,
+            "relevance": 1.3,
+            "score": -1.56,
+            "reason": "Reported increase in Venezuelan production adds tangible incremental supply — negative for oil price backdrop, offsets some geopolitical premia."
           },
           {
             "title": "Category 2 Hurricane Isaias nears landfall, leading to production shut-ins",
             "source": "EIA Today in Energy",
-            "direction": 1.0,
-            "relevance": 1.2,
-            "score": 1.2,
-            "reason": "Official EIA notice of potential Gulf production shut-ins — a tangible supply-side risk for US oil and natural gas, supportive for prices in the near term. Relevance elevated given source and physical supply implications."
-          },
-          {
-            "title": "Santos Posts Record Quarterly Output on New LNG, Oil Projects",
-            "source": "Bloomberg",
-            "direction": -1.0,
-            "relevance": 1.2,
-            "score": -1.2,
-            "reason": "Higher LNG/oil output from Santos increases supply — structurally negative for natural gas and oil prices. Bloomberg report from a major producer signals meaningful incremental supply, warranting moderate relevance."
-          },
-          {
-            "title": "Copper Declines as Tech-Stock Selloff Dulls Appetite for Risk",
-            "source": "Bloomberg",
-            "direction": -1.0,
-            "relevance": 1.2,
-            "score": -1.2,
-            "reason": "Demand-sensitivity hit: copper down on risk-off sentiment tied to a tech selloff, reflecting weaker near-term industrial demand expectations. Moderately relevant to base metals given macro-driven demand pressure."
-          },
-          {
-            "title": "‘Super’ El Niño may soon make your coffee super expensive",
-            "source": "MarketWatch",
             "direction": 1.2,
-            "relevance": 1.4,
-            "score": 1.68,
-            "reason": "Climate-driven supply risk for coffee from a strong El Niño — positive for coffee prices. Weather-driven commodity supply shocks are high-relevance fundamentals for agricultural markets."
+            "relevance": 1.2,
+            "score": 1.44,
+            "reason": "Gulf production shut-ins risk reduces supply availability for oil/natgas — supportive near-term for energy prices."
           },
           {
-            "title": "Oil: Risk premium supported by Gulf tensions – ING",
-            "source": "FXStreet",
-            "direction": 1.4,
+            "title": "Gold heads for steep weekly loss as oil prices fuel Fed rate concerns",
+            "source": "Reuters",
+            "direction": -1.6,
             "relevance": 1.6,
-            "score": 2.24,
-            "reason": "Analyst note reinforcing a persistent oil risk premium from Gulf tensions; supports the prevailing bullish oil regime. Multiple confirmations of the same narrative boost relevance."
+            "score": -2.56,
+            "reason": "Rising oil/inflation and resulting Fed-rate-hike repricing are pressuring gold — a broad, market-significant driver pushing gold lower this week."
           },
           {
-            "title": "WTI Price Forecast: Advances above mid-$98.00s as bullish setup backs additional gains",
+            "title": "Gold Holds Near Three-Month Low as AI Jitters Fuel Volatility",
+            "source": "Bloomberg",
+            "direction": -1.3,
+            "relevance": 1.2,
+            "score": -1.56,
+            "reason": "Continued gold downside tied to macro risk-on dynamics, rate expectations and volatility — reinforces dominant negative tone for the metal."
+          },
+          {
+            "title": "Silver Price Forecast: XAG/USD slides further below $54.00, fresh YTD low and counting",
             "source": "FXStreet",
-            "direction": 1.0,
-            "relevance": 0.8,
-            "score": 0.8,
-            "reason": "Price-forecast/technical piece on WTI: bullish technical setup supports additional gains. Per rules, price-forecast items get capped relevance (technical focus rather than new fundamental information)."
+            "direction": -1.1,
+            "relevance": 1.0,
+            "score": -1.1,
+            "reason": "Silver hitting YTD lows signals ongoing bearish momentum, likely amplified by gold weakness and weaker industrial demand cues."
           },
           {
-            "title": "U.S. pulls diplomats from Saudi Arabia as it reportedly readies Iran strikes after midterms",
-            "source": "CNBC",
-            "direction": 1.3,
-            "relevance": 1.4,
-            "score": 1.82,
-            "reason": "Political/military escalation risk with direct transmission to oil markets via heightened Middle East risk premium and potential supply disruptions. Government actions (diplomatic withdrawals) increase near-term oil risk and market sensitivity."
-          },
-          {
-            "title": "Silver Price Forecast: XAG/USD slips below $57.00 as surging oil fuels inflation fears",
+            "title": "WTI trades near $99.00, five-week highs amid escalating Middle East supply risks",
             "source": "FXStreet",
-            "direction": -1.0,
-            "relevance": 0.8,
-            "score": -0.8,
-            "reason": "Technical/forecast note: silver under pressure from oil-driven inflation and Fed expectations. As a price-forecast technical piece, assign capped relevance despite clear downside signal."
-          },
-          {
-            "title": "WTI rises above $97.50 due to drone attacks on Saudi, Russia",
-            "source": "FXStreet",
-            "direction": 1.2,
-            "relevance": 1.4,
-            "score": 1.68,
-            "reason": "Immediate price move tied to supply disruption/drone attacks — positive for WTI. High intraday relevance given clear causal link between attacks and crude buying."
+            "direction": 1.6,
+            "relevance": 1.7,
+            "score": 2.72,
+            "reason": "Clear, market-driving oil price move driven by Middle East supply risk — increases crude price pressure and dominates commodities narrative."
           }
         ],
         "macro_calendar": [
@@ -998,113 +1022,177 @@
         ]
       },
       "FX": {
-        "tone": "Supportive",
-        "bias": 0.656,
-        "confidence": 0.758,
-        "commentary": "Major currencies are broadly supported against the dollar, with macro divergence favouring the rest of the world. Bias +0.66, confidence 0.76. Primary flow source: FXStreet.",
+        "tone": "Mixed",
+        "bias": 0.114,
+        "confidence": 0.69,
+        "commentary": "Major currencies show mixed signals against the dollar, with no clean macro direction yet. Bias +0.11, confidence 0.69. Primary flow source: FXStreet.",
         "top_news": [
           {
-            "title": "Forex Today: US Dollar extends slide as US yields stretch lower",
+            "title": "United States Dollar Index struggles due to weak tech earnings",
             "source": "FXStreet",
-            "date": "2026-10-22T06:53:14Z",
-            "url": "https://www.fxstreet.com/news/forex-today-us-dollar-extends-slide-as-us-yields-stretch-lower-202610220653",
-            "summary": "Here is what you need to know on Thursday, October 22:"
+            "date": "2026-10-23T02:01:48Z",
+            "url": "https://www.fxstreet.com/news/united-states-dollar-index-struggles-due-to-weak-tech-earnings-202610230201",
+            "summary": "The US Dollar Index (DXY), which measures the value of the US Dollar (USD) against six major currencies, is remaining subdued for the fourth successive day and trading near 101.60 during Asian hours on Friday."
           },
           {
-            "title": "Canadian Dollar gathers strength on elevated oil prices",
-            "source": "FXStreet",
-            "date": "2026-10-22T06:38:09Z",
-            "url": "https://www.fxstreet.com/news/canadian-dollar-gathers-strength-on-elevated-oil-prices-202610220638",
-            "summary": "The USD/CAD pair weakens to around 1.4025 during the early European trading hours on Thursday. The pair hits the lowest since September 21 as elevated crude oil prices underpin the commodity-linked Canadian Dollar (CAD) against the US Dollar (USD)."
-          },
-          {
-            "title": "Surging sterling shakes off Britain's budget blues",
-            "source": "Reuters",
-            "date": "2026-10-22T08:02:00Z",
-            "url": "https://www.reuters.com/commentary/reuters-open-interest/surging-sterling-shakes-off-britains-budget-blues-2026-10-22/",
+            "title": "Philip R. Lane: Euro liquidity lines and the international monetary system",
+            "source": "ECB",
+            "date": "2026-10-21T04:15:00Z",
+            "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261021~401d6c4b70.en.html",
             "summary": ""
+          },
+          {
+            "title": "Euro edges higher as USD selling remains unabated; France's debt worries cap gains",
+            "source": "FXStreet",
+            "date": "2026-10-23T01:24:30Z",
+            "url": "https://www.fxstreet.com/news/euro-edges-higher-as-usd-selling-remains-unabated-frances-debt-worries-cap-gains-202610230124",
+            "summary": "The EUR/USD pair builds on the overnight bounce from sub-1.1200 levels and attracts some follow-through buying during the Asian session on Friday. Spot prices, however, remain confined within a one-week-old range, currently trading around the 1.1225 area amid "
           }
         ],
         "score_details": [
           {
-            "title": "Surging sterling shakes off Britain's budget blues",
+            "title": "French bond pain puts euro zone's weak links on notice",
             "source": "Reuters",
-            "direction": 1.0,
-            "relevance": 1.4,
-            "score": 1.4,
-            "reason": "Reuters commentary indicates a broader market regime in which sterling is outperforming despite domestic fiscal noise — a significant cross‑market narrative supporting GBP vs USD. Elevated relevance due to market‑wide implications for capital flows into GBP."
+            "direction": -0.9,
+            "relevance": 1.3,
+            "score": -1.17,
+            "reason": "Sovereign bond stress in France increases Europe-specific tail risk and undermines the euro, leading to USD strength via safe-haven and funding-channel moves. Elevated relevance due to cross-market sovereign/FX transmission."
           },
           {
-            "title": "Forex Today: US Dollar extends slide as US yields stretch lower",
-            "source": "FXStreet",
-            "direction": 1.4,
-            "relevance": 2.0,
-            "score": 2.8,
-            "reason": "Broad USD weakness driven by lower US yields is a primary FX driver today — this is a market/regime-level signal that supports EUR/GBP/AUD/CAD/JPY strength vs USD. High relevance because it frames cross‑currency moves and risk sentiment."
+            "title": "Rupee Rally Faces Limits From India’s Oil and Dollar Problem",
+            "source": "Bloomberg",
+            "direction": -0.7,
+            "relevance": 0.9,
+            "score": -0.63,
+            "reason": "Headline indicates rupee upside constrained by oil and dollar strength — supports USD demand and EM FX pressure via commodity/import channels. Moderate relevance as country/commodity-specific but market-impacting for INR."
           },
           {
-            "title": "Iran's IRGC warns US of wider response, says seven vessels hit",
+            "title": "Euro: Range trading intact near recent lows against US Dollar – UOB",
             "source": "FXStreet",
-            "direction": -1.0,
-            "relevance": 1.4,
-            "score": -1.4,
-            "reason": "Escalation risk in the Middle East raises safe‑haven flows that can lift USD/JPY and USD generally. This is a material geopolitical counter‑signal to the USD‑weakness theme and thus carries above‑average relevance for FX positioning."
+            "direction": 0.4,
+            "relevance": 0.9,
+            "score": 0.36,
+            "reason": "Bank strategist note emphasizing choppy EUR/USD and modest EUR outperformance as USD softens. Useful as color on limited follow-through; relevance moderate given bank research perspective."
           },
           {
-            "title": "Australian Dollar: RBA expectations support Aussie against US Dollar – Commerzbank",
+            "title": "Indian Rupee wipes out weekly gains as oil prices continue to rise",
             "source": "FXStreet",
-            "direction": 0.8,
+            "direction": -0.7,
+            "relevance": 0.9,
+            "score": -0.63,
+            "reason": "Rupee weakness driven by higher oil (import shock) and Middle East risks implies USD strength vs INR. Country-specific but relevant because oil-driven EM FX moves can amplify USD demand."
+          },
+          {
+            "title": "United Kingdom Retail Sales falls 0.4% MoM in September vs. -0.1% estimates",
+            "source": "FXStreet",
+            "direction": -0.6,
+            "relevance": 1.1,
+            "score": -0.66,
+            "reason": "Weaker UK retail data undermines GBP vs USD (policy/real-activity transmission), supporting a near-term USD bid. Relevant to G10 FX given GBP's weight and macro indicator significance."
+          },
+          {
+            "title": "EUR/USD Price Forecast: Softens to near 1.1200, sub-100-day SMA keep outlook bearish",
+            "source": "FXStreet",
+            "direction": -0.6,
+            "relevance": 0.7,
+            "score": -0.42,
+            "reason": "Technical/forecast piece: bearish EUR outlook tied to French debt stress implies USD strength. Relevance capped due to technical focus (price-forecast), but still feeds EUR downside narrative."
+          },
+          {
+            "title": "Japanese Yen retreats from one-month top vs recovering USD as focus remains on Fed and BoJ",
+            "source": "FXStreet",
+            "direction": -0.8,
             "relevance": 1.2,
-            "score": 0.96,
-            "reason": "Higher RBA hike odds support AUD vs USD via yield differentials — a direct central‑bank expectations transmission into FX. Moderate relevance: policy expectations are a meaningful but not singular market mover today."
+            "score": -0.96,
+            "reason": "USD/JPY rebound signals near-term USD strength vs JPY tied to Fed/BoJ focus and Japan inflation; meaningful for FX as JPY is a major funding/safe-haven currency. Relevance raised for central-bank-driven moves and cross-market flows."
           },
           {
-            "title": "Canadian Dollar gathers strength on elevated oil prices",
+            "title": "Indonesian Rupiah strengthens against US Dollar as safe-haven demand shifts",
+            "source": "FXStreet",
+            "direction": 0.5,
+            "relevance": 0.7,
+            "score": 0.35,
+            "reason": "IDR gains as USD softens amid AI-sustainability doubts; EM FX reaction to USD moves is relevant but should carry lower weight than majors."
+          },
+          {
+            "title": "Global tech sell-off sparks flight to safety",
+            "source": "Financial Times",
+            "direction": 0.7,
+            "relevance": 1.2,
+            "score": 0.84,
+            "reason": "Flight-to-quality rally in JPY and Japanese bonds signals USD weakness vs JPY and broader risk-off FX dynamics. Relevant as it reflects cross-asset flows shifting into safe-haven currencies."
+          },
+          {
+            "title": "Swiss Franc inches lower as US Dollar recovers recent losses",
+            "source": "FXStreet",
+            "direction": -0.5,
+            "relevance": 0.8,
+            "score": -0.4,
+            "reason": "USD recovery vs CHF points to renewed USD strength/safety-bias dynamics; CHF is a key funding/safe-haven currency so moves merit moderate relevance."
+          },
+          {
+            "title": "New Zealand Dollar gains ground to near 0.5700 on RBNZ rate hike prospects",
+            "source": "FXStreet",
+            "direction": 0.6,
+            "relevance": 1.0,
+            "score": 0.6,
+            "reason": "Rate-hike expectations supporting NZD vs USD is a clear FX-native transmission (carry/yield differentials). Relevant to USD-basket given policy-driven flows in small major currencies."
+          },
+          {
+            "title": "United States Dollar Index struggles due to weak tech earnings",
             "source": "FXStreet",
             "direction": 1.0,
             "relevance": 1.6,
             "score": 1.6,
-            "reason": "Commodity‑linked CAD strength from rising crude is a clear USD‑cross FX flow driver (USD/CAD lower). High relevance because oil moves are directly transmitting into FX via Canada’s terms‑of‑trade/yield differentials."
+            "reason": "Direct DXY move: softening DXY implies broad USD weakness vs majors (EUR/JPY/GBP/AUD etc). High relevance because DXY is the primary USD gauge and tech earnings are driving risk/currency flows."
           },
           {
-            "title": "GBP/USD Price Forecast: Holds onto monthly high near 1.3410",
+            "title": "Canadian Dollar advances as US Dollar weakens on tech earnings, Middle East risk aversion",
             "source": "FXStreet",
-            "direction": 0.7,
-            "relevance": 0.8,
-            "score": 0.56,
-            "reason": "GBP strength vs USD consistent with the dollar’s weakness; this is primarily a technical/price‑forecast piece so relevance is capped. It reinforces the broader GBP‑up narrative but is not a standalone macro driver."
+            "direction": 0.8,
+            "relevance": 1.0,
+            "score": 0.8,
+            "reason": "USD/CAD losing streak reflects broad USD softness and CAD strength (risk/commodity and cross-border flows). Relevant as CAD is a major USD pair and oil/Middle East risk can drive FX flows."
           },
           {
-            "title": "Indonesian Rupiah faces challenges amid higher oil prices, inflationary risks",
+            "title": "Euro edges higher as USD selling remains unabated; France's debt worries cap gains",
+            "source": "FXStreet",
+            "direction": 0.9,
+            "relevance": 1.4,
+            "score": 1.26,
+            "reason": "EUR/USD strength amid USD selling is a core FX narrative; France sovereign risk caps upside which moderates but does not negate the EUR move. High relevance given EUR's weight in DXY and regional sovereign implications."
+          },
+          {
+            "title": "Australian Dollar losses steam at 0.7000 as PMIs signal a deceleration",
+            "source": "FXStreet",
+            "direction": -0.5,
+            "relevance": 0.9,
+            "score": -0.45,
+            "reason": "AUD weakness vs USD driven by weaker PMIs and risk/commodity dynamics; AUD is a major dollar pair so this contributes to the cross-asset USD/risk narrative. Moderate relevance due to mixed drivers."
+          },
+          {
+            "title": "Mexican Peso nears 18.75 as Iran risks and AI selloff hit sentiment",
             "source": "FXStreet",
             "direction": -0.6,
             "relevance": 0.8,
             "score": -0.48,
-            "reason": "USD/IDR strength (IDR weakness) reflects EMFX pressure from oil‑driven inflation/fiscal concerns — a localized EM negative vs the broader USD. Lower relevance because it's an EM‑specific flow, not a major global FX regime shift."
+            "reason": "USD/MXN holding firm amid risk and geopolitical tensions points to USD strength; relevant regionally and for EM FX flows but lower than G10 moves."
           },
           {
-            "title": "Swiss Franc struggles as US Dollar declines on Fed rate pause expectations",
+            "title": "Chinese Yuan: Gradual gains toward 6.6640 against US Dollar – UOB",
             "source": "FXStreet",
             "direction": 0.5,
-            "relevance": 0.8,
-            "score": 0.4,
-            "reason": "USD decline is transmitting into CHF crosses (USD/CHF down -> CHF stronger). Technical/flow note with capped relevance; useful as a secondary confirmation of USD weakness across safe‑haven FX."
+            "relevance": 0.9,
+            "score": 0.45,
+            "reason": "CNH drifting lower (yuan gains) reflects managed/market pressures vs USD. Relevant because China FX moves can influence broader EM and carry flows; bank note increases credibility but expectation of limited break caps relevance."
           },
           {
-            "title": "Japanese Yen extends range play vs USD as focus remains on Fed, BoJ meetings next week",
-            "source": "FXStreet",
-            "direction": 0.2,
-            "relevance": 1.2,
-            "score": 0.24,
-            "reason": "USD/JPY is range‑bound ahead of key Fed/BoJ meetings — this caps any large JPY move today but makes the pair sensitive to policy surprises. Moderate relevance because BoJ/Fed are primary potential FX catalysts next week."
-          },
-          {
-            "title": "Euro posts modest gains above 1.1200 despite French political unrest, fiscal worries",
-            "source": "FXStreet",
-            "direction": 0.6,
-            "relevance": 0.8,
-            "score": 0.48,
-            "reason": "EUR showing mild strength vs USD in line with the broader dollar slide. Technical/fundamental piece with political constraints on upside — treated as lower‑relevance (technical/price forecast) contribution to the USD‑weakness narrative."
+            "title": "Philip R. Lane: Euro liquidity lines and the international monetary system",
+            "source": "ECB",
+            "direction": 1.0,
+            "relevance": 1.6,
+            "score": 1.6,
+            "reason": "ECB commentary on euro liquidity lines and international monetary system is a high-impact policy/FX native item that can support EUR and change cross-border USD funding dynamics. High relevance assigned for systemic implications."
           }
         ],
         "macro_calendar": [
@@ -1251,97 +1339,73 @@
         ]
       },
       "Rates": {
-        "tone": "Cautious",
-        "bias": -0.235,
-        "confidence": 0.804,
-        "commentary": "Rates remain cautious, with inflation and policy communication driving repricing risk. Bias -0.24, confidence 0.80. Primary flow source: Bloomberg.",
+        "tone": "Supportive",
+        "bias": 1.0,
+        "confidence": 0.834,
+        "commentary": "Rates are leaning supportive for duration, but incoming data remains key. Bias +1.00, confidence 0.83. Primary flow source: CNBC.",
         "top_news": [
           {
-            "title": "Long-End US Yield Hits One-Month Low as AI Fears Fuel Haven Bid",
+            "title": "10-year Treasury yield tumbles below 5% to lowest level in nearly a month",
+            "source": "CNBC",
+            "date": "2026-10-22T20:05:13Z",
+            "url": "https://www.cnbc.com/2026/10/22/treasurys-bonds-ai-yields.html",
+            "summary": "Treasury yields dove dramatically lower on Thursday as investors monitored a slump in stocks and surging oil prices."
+          },
+          {
+            "title": "Treasuries’ Link to AI Shows Sharp Shift as Haven Trade Returns",
             "source": "Bloomberg",
-            "date": "2026-10-22T08:02:00Z",
-            "url": "https://www.bloomberg.com/news/articles/2026-10-22/long-end-us-yield-hits-one-month-low-as-ai-fears-fuel-haven-bid",
+            "date": "2026-10-23T06:40:47Z",
+            "url": "https://www.bloomberg.com/news/articles/2026-10-23/treasuries-link-to-ai-shows-sharp-shift-as-haven-trade-returns",
             "summary": ""
           },
           {
-            "title": "French yields breach 5% amid Paris budget paralysis and nationwide unrest",
-            "source": "Investing.com",
-            "date": "2026-10-22T07:52:08Z",
-            "url": "https://www.investing.com/news/forex-news/french-yields-breach-5-amid-paris-budget-paralysis-and-nationwide-unrest-4964673",
-            "summary": ""
-          },
-          {
-            "title": "Treasuries Slide After Middle East Strife Report Spurs Oil Gains",
-            "source": "Bloomberg",
-            "date": "2026-10-22T08:02:00Z",
-            "url": "https://www.bloomberg.com/news/articles/2026-10-21/treasuries-slide-after-middle-east-strife-report-spurs-oil-gains",
+            "title": "Japan's core inflation exceeds BOJ target, cements near-term rate hike chance",
+            "source": "Reuters",
+            "date": "2026-10-23T06:40:47Z",
+            "url": "https://www.reuters.com/world/asia-pacific/japan-core-inflation-exceeds-boj-target-cements-near-term-rate-hike-chance-2026-10-22/",
             "summary": ""
           }
         ],
         "score_details": [
           {
-            "title": "Long-End US Yield Hits One-Month Low as AI Fears Fuel Haven Bid",
+            "title": "Treasuries’ Link to AI Shows Sharp Shift as Haven Trade Returns",
             "source": "Bloomberg",
             "direction": 1.4,
-            "relevance": 1.6,
-            "score": 2.24,
-            "reason": "Direct report of long-end Treasury yields falling to a one-month low driven by safe-haven flows — high-relevance, sizable positive for bond prices (yields down)."
-          },
-          {
-            "title": "Treasuries Slide After Middle East Strife Report Spurs Oil Gains",
-            "source": "Bloomberg",
-            "direction": -1.2,
             "relevance": 1.5,
-            "score": -1.8,
-            "reason": "Reports of a Treasury selloff tied to geopolitical/oil risk — yields rising (negative for Rates) and a clear driver of bond market weakness."
+            "score": 2.1,
+            "reason": "Narrative connecting tech/AI-driven equity selloff to renewed Treasury haven flows — supports a meaningful bond rally and lower yields; important thematic driver for moves in USTs."
           },
           {
-            "title": "Japanese investors sell foreign bonds for fifth straight week, eye home market",
+            "title": "Japan's core inflation exceeds BOJ target, cements near-term rate hike chance",
             "source": "Reuters",
-            "direction": -0.9,
-            "relevance": 1.0,
-            "score": -0.9,
-            "reason": "Flow story: sustained selling of foreign bonds by Japanese investors can exert upward pressure on yields abroad — a moderate negative for global bond markets."
-          },
-          {
-            "title": "BNP Paribas AM Builds Long-End JGB Bet on Steep Yield Curve",
-            "source": "Bloomberg",
-            "direction": -0.8,
-            "relevance": 0.9,
-            "score": -0.72,
-            "reason": "Portfolio positioning toward long-end JGBs on a steepening view implies an expectation of higher long-end yields — negative for bond prices, moderate relevance."
-          },
-          {
-            "title": "French yields breach 5% amid Paris budget paralysis and nationwide unrest",
-            "source": "Investing.com",
             "direction": -1.3,
-            "relevance": 1.4,
-            "score": -1.82,
-            "reason": "Significant move higher in French sovereign yields tied to domestic political stress — meaningful negative signal for European bond markets and risk to broader rates."
-          },
-          {
-            "title": "US Dollar Index hovers around 101.70 as sliding US bond yields counters Fed hike bets",
-            "source": "FXStreet",
-            "direction": 1.0,
             "relevance": 1.2,
-            "score": 1.2,
-            "reason": "Calls out sliding US bond yields directly; implies a Treasury rally (yields down) which is positive for the Rates asset class."
+            "score": -1.56,
+            "reason": "Higher-than-target core CPI raises odds of BOJ tightening -> upward pressure on JGB yields (negative for bond prices). Material regional policy risk that can influence global rate differentials and flow."
           },
           {
-            "title": "BlackRock's Rick Rieder sees 'historic' opportunity in high-quality bonds",
-            "source": "CNBC",
-            "direction": 0.6,
-            "relevance": 0.8,
-            "score": 0.48,
-            "reason": "Major asset manager calling a buying opportunity in high-quality bonds supports demand for Treasuries/IG bonds — modest positive for Rates."
+            "title": "Japanese Bond Yields Fall as AI Jitters Spur Haven Demand",
+            "source": "Bloomberg",
+            "direction": 1.2,
+            "relevance": 1.2,
+            "score": 1.44,
+            "reason": "JGB yields falling due to global risk-off/haven flows reinforces the cross-market bond rally narrative; supports lower yields and tighter global term premia despite local inflation headline."
           },
           {
-            "title": "Housing is flashing warning signs just as the Fed weighs more interest rate hikes",
+            "title": "Traders’ Cost of Hedging Against Big Treasuries Rally Is Soaring",
+            "source": "Bloomberg",
+            "direction": 1.0,
+            "relevance": 0.9,
+            "score": 0.9,
+            "reason": "Rising hedging costs indicate strong demand and positioning for a Treasury rally but also signal crowded trades and potential for volatile reversals; supportive for near-term bond prices with caveats on risk."
+          },
+          {
+            "title": "10-year Treasury yield tumbles below 5% to lowest level in nearly a month",
             "source": "CNBC",
-            "direction": -0.7,
-            "relevance": 0.8,
-            "score": -0.56,
-            "reason": "Deteriorating housing alongside ongoing Fed rate considerations introduces ambiguity but the headline flags potential for further policy-driven rate volatility — modest negative for bond prices."
+            "direction": 1.6,
+            "relevance": 1.6,
+            "score": 2.56,
+            "reason": "Clear, market-moving drop in US Treasury yields -> bond-price positive. Reflects broad haven demand and materially eases rate front-end/term premium pressures; high relevance to global rates and positioning."
           }
         ],
         "macro_calendar": [
@@ -1488,129 +1552,97 @@
         ]
       },
       "Crypto": {
-        "tone": "Mixed",
-        "bias": 0.113,
-        "confidence": 0.724,
-        "commentary": "Crypto tone is balanced, with supportive narratives competing against uncertainty. Bias +0.11, confidence 0.72. Primary flow source: CoinDesk.",
+        "tone": "Cautious",
+        "bias": -0.43,
+        "confidence": 0.806,
+        "commentary": "Crypto remains fragile, with policy and risk appetite still key swing factors. Bias -0.43, confidence 0.81. Primary flow source: CoinDesk.",
         "top_news": [
-          {
-            "title": "Bitcoin ETFs attract $1.08 billion in 3 days but it may not be enough for a steep rally",
-            "source": "CoinDesk",
-            "date": "2026-10-22T04:41:59Z",
-            "url": "https://www.coindesk.com/markets/2026/10/22/bitcoin-etfs-attract-usd1-08-billion-in-3-days-but-it-may-not-be-enough-for-a-steep-rally",
-            "summary": ""
-          },
-          {
-            "title": "Why centralized exchanges refuse to list legacy crypto tokens without explicit SEC immunity",
-            "source": "CoinDesk",
-            "date": "2026-10-21T12:12:36Z",
-            "url": "https://www.coindesk.com/policy/2026/10/21/why-centralized-exchanges-refuse-to-list-legacy-crypto-tokens-without-explicit-sec-immunity",
-            "summary": ""
-          },
           {
             "title": "China seeks to seize 61,800 BTC tied to $5.7 billion fraud scheme",
             "source": "CoinDesk",
             "date": "2026-10-22T06:24:10Z",
             "url": "https://www.coindesk.com/markets/2026/10/22/china-seeks-to-seize-61-800-btc-tied-to-usd5-7-billion-fraud-scheme",
             "summary": ""
+          },
+          {
+            "title": "Senate's top Democratic investigator looking into Tether payments to Bo Hines' firm",
+            "source": "CoinDesk",
+            "date": "2026-10-22T22:43:36Z",
+            "url": "https://www.coindesk.com/policy/2026/10/22/senate-s-top-democratic-investigator-looking-into-tether-payments-to-bo-hines-firm",
+            "summary": ""
+          },
+          {
+            "title": "Ethereum delays Glamsterdam test after security devs flag risk to existing contracts",
+            "source": "CoinDesk",
+            "date": "2026-10-23T04:59:34Z",
+            "url": "https://www.coindesk.com/tech/2026/10/23/ethereum-delays-glamsterdam-test-after-security-devs-flag-risk-to-existing-contracts",
+            "summary": ""
           }
         ],
         "score_details": [
           {
-            "title": "China seeks to seize 61,800 BTC tied to $5.7 billion fraud scheme",
+            "title": "Ethereum delays Glamsterdam test after security devs flag risk to existing contracts",
             "source": "CoinDesk",
             "direction": -1.0,
             "relevance": 1.4,
             "score": -1.4,
-            "reason": "Large sovereign/legal claims on substantial BTC balances raise supply/liquidity and custody-risk concerns. This is a direct negative for BTC market sentiment and potential available float, so moderate-to-high relevance and negative direction."
+            "reason": "A security-related delay for an Ethereum test undermines confidence in ETH protocol upgrades and increases short-term technical risk for ETH liquidity and developer trust — negative for ETH and altcoin sentiment."
+          },
+          {
+            "title": "Senate's top Democratic investigator looking into Tether payments to Bo Hines' firm",
+            "source": "CoinDesk",
+            "direction": -1.3,
+            "relevance": 1.6,
+            "score": -2.08,
+            "reason": "A Senate investigation involving Tether raises systemic regulatory and counterparty risk for the broader crypto ecosystem and stablecoin plumbing — material negative for market confidence/liquidity."
+          },
+          {
+            "title": "Ethereum’s four-minute settlement plan could lower the cost of moving crypto",
+            "source": "CoinDesk",
+            "direction": 1.0,
+            "relevance": 1.2,
+            "score": 1.2,
+            "reason": "A plan to shorten settlement should improve ETH utility and onchain capital efficiency, supporting longer-term adoption and reducing friction costs — positive for ETH/market structure."
+          },
+          {
+            "title": "Crypto traders seek shelter in bitcoin as altcoins slide and ETF flows wobble",
+            "source": "CoinDesk",
+            "direction": 0.8,
+            "relevance": 1.2,
+            "score": 0.96,
+            "reason": "Shows market re-risking toward BTC as a relative safe-haven amid altcoin weakness and uncertain ETF flows — supportive for BTC dominance and ETF-driven liquidity."
+          },
+          {
+            "title": "Bitcoin slides below $82,000 as AI doubts return, with DeFi tokens leading declines",
+            "source": "CoinDesk",
+            "direction": -0.9,
+            "relevance": 1.0,
+            "score": -0.9,
+            "reason": "Headline price weakness driven by risk-on/risk-off swings and rotation away from AI/DeFi narratives — near-term negative for crypto prices, with DeFi/altcoins hit harder."
+          },
+          {
+            "title": "China seeks to seize 61,800 BTC tied to $5.7 billion fraud scheme",
+            "source": "CoinDesk",
+            "direction": -1.4,
+            "relevance": 1.6,
+            "score": -2.24,
+            "reason": "Large-scale BTC seizure by Chinese authorities increases the risk of forced selling and highlights geopolitical/legal tail risks for BTC liquidity — materially negative for market sentiment."
           },
           {
             "title": "Solana’s biggest network change since 2020 is live. Here’s how users benefit",
             "source": "CoinDesk",
-            "direction": 1.0,
-            "relevance": 1.4,
-            "score": 1.4,
-            "reason": "A large network upgrade that improves performance/utility is a clear positive for Solana (onchain usage, developer activity). This is an asset-specific adoption positive with meaningful relevance for SOL and ecosystem flows."
+            "direction": 0.5,
+            "relevance": 0.6,
+            "score": 0.3,
+            "reason": "A major Solana upgrade improves chain capabilities and user experience; constructive for Solana-specific demand though limited market-wide impact."
           },
           {
             "title": "Bitcoin ETFs attract $1.08 billion in 3 days but it may not be enough for a steep rally",
             "source": "CoinDesk",
-            "direction": 1.5,
-            "relevance": 1.8,
-            "score": 2.7,
-            "reason": "Material institutional inflows into Bitcoin ETFs are a clear adoption and liquidity positive for BTC. This reinforces the dominant narrative of institutional demand supporting higher Bitcoin valuations, so assign a strong positive direction and high relevance."
-          },
-          {
-            "title": "XRP Ledger bug fix moved to November after validator support dipped for two hours",
-            "source": "CoinDesk",
-            "direction": -0.8,
-            "relevance": 1.0,
-            "score": -0.8,
-            "reason": "A delayed bug fix and temporary validator support dip raises reliability and decentralization concerns for the XRP Ledger. This is a clear negative for XRP-specific technical risk and short-term sentiment."
-          },
-          {
-            "title": "Bybit will look for big broker partnerships to take on Robinhood in the U.S.",
-            "source": "CoinDesk",
-            "direction": 0.7,
-            "relevance": 0.9,
-            "score": 0.63,
-            "reason": "Bybit pursuing large broker partnerships to expand U.S. distribution suggests increased retail/institutional access and competition — a positive for exchange-led flows and broader adoption. Moderate relevance for market access."
-          },
-          {
-            "title": "Why centralized exchanges refuse to list legacy crypto tokens without explicit SEC immunity",
-            "source": "CoinDesk",
-            "direction": -1.1,
-            "relevance": 1.3,
-            "score": -1.43,
-            "reason": "Regulatory uncertainty (SEC exposure) is a meaningful headwind to listings and liquidity for legacy tokens. This increases listing friction and constrains altcoin flows — negative directional impact with elevated relevance for market structure and access."
-          },
-          {
-            "title": "Bitcoin risk management grows more popular as the 'just bet on price' era fades",
-            "source": "CoinDesk",
-            "direction": 0.5,
-            "relevance": 0.7,
-            "score": 0.35,
-            "reason": "Growing adoption of risk-management tools signals market maturation and could reduce tail volatility and speculative flows. Positive for institutionalization with modest relevance to near-term price direction."
-          },
-          {
-            "title": "OCC's final rule to start fresh in weighing stablecoin rewards against GENIUS Act ban",
-            "source": "CoinDesk",
-            "direction": -0.5,
-            "relevance": 1.0,
-            "score": -0.5,
-            "reason": "Policy review around stablecoin rewards and potential conflicts with legislative bans is a regulatory-risk item for the stablecoin space and products built on top of them. Assign a modest negative direction with solid relevance to payments/stablecoin markets."
-          },
-          {
-            "title": "Monero futures are again heating with leverage, raising volatility risks",
-            "source": "CoinDesk",
-            "direction": -0.7,
-            "relevance": 0.8,
-            "score": -0.56,
-            "reason": "Rising leveraged activity in Monero futures increases tail-risk and potential for liquidations/spillovers. It's a negative for risk management and volatility in privacy-coin markets, with moderate relevance to derivatives risk."
-          },
-          {
-            "title": "Tether leads $15 million funding round for AI-focused payment startup Mural",
-            "source": "CoinDesk",
-            "direction": 0.3,
-            "relevance": 0.5,
-            "score": 0.15,
-            "reason": "Tether investing in an AI payments startup is a small adoption/partnership positive that signals stablecoin issuers moving into broader payments and fintech, but the funding size and immediacy limit relevance."
-          },
-          {
-            "title": "Zcash developers confirm November date for upgrade that triples payment speed",
-            "source": "CoinDesk",
-            "direction": 0.8,
-            "relevance": 0.9,
+            "direction": 0.6,
+            "relevance": 1.2,
             "score": 0.72,
-            "reason": "A confirmed upgrade that materially improves payment speed is a positive technical/adoption catalyst for Zcash. It's asset-specific but actionable for market participants so assign a positive direction and moderate relevance."
-          },
-          {
-            "title": "U.S. CFTC sets agenda for AI forum, exploring trading and agentic finance",
-            "source": "CoinDesk",
-            "direction": 0.2,
-            "relevance": 0.5,
-            "score": 0.1,
-            "reason": "Regulatory engagement on AI in trading and 'agentic finance' may shape future market structure and automated trading in crypto; it's a low-immediacy positive (engagement > restriction) with modest relevance."
+            "reason": "Continued ETF inflows are a constructive institutional-demand signal for BTC, but the article tempers expectations for a strong, immediate price impulse."
           }
         ],
         "macro_calendar": [],
@@ -1637,127 +1669,107 @@
         "asset_class": "Commodities",
         "setup": "Trend Resumption",
         "setup_status": "Developing",
-        "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high/fib_0.618",
-        "score": 88.8,
-        "setup_score": 88.8,
-        "ret_20d_pct": 7.96,
+        "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: fib_0.786/swing_high",
+        "score": 88.6,
+        "setup_score": 88.6,
+        "ret_20d_pct": 7.67,
         "side": "LONG",
-        "tech_score": 0.888,
-        "fund_support": 0.77342,
-        "macro_alignment": 0.77342,
-        "final_score": 0.8593550000000001,
-        "rationale": "Trend Resumption: Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high/fib_0.618. Broader commodities tone is supportive."
+        "tech_score": 0.8859999999999999,
+        "fund_support": 0.558425,
+        "macro_alignment": 0.558425,
+        "final_score": 0.8041062499999998,
+        "rationale": "Trend Resumption: Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: fib_0.786/swing_high. Broader commodities tone is mixed."
       },
       {
-        "symbol": "CC",
-        "name": "Cocoa",
-        "asset_class": "Commodities",
-        "setup": "Trend Resumption",
-        "setup_status": "Developing",
-        "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_low/ma50, swing_low/swing_high",
-        "score": 74.9,
-        "setup_score": 74.9,
-        "ret_20d_pct": 5.7,
-        "side": "LONG",
-        "tech_score": 0.7490000000000001,
-        "fund_support": 0.77342,
-        "macro_alignment": 0.77342,
-        "final_score": 0.7551050000000001,
-        "rationale": "Trend Resumption: Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_low/ma50, swing_low/swing_high. Broader commodities tone is supportive."
-      },
-      {
-        "symbol": "RB",
-        "name": "RBOB Gasoline",
+        "symbol": "ZC",
+        "name": "Corn",
         "asset_class": "Commodities",
         "setup": "Failed Breakdown",
         "setup_status": "Confirmed",
-        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: fib_0.500/ma50",
-        "score": 71.7,
-        "setup_score": 71.7,
-        "ret_20d_pct": -6.06,
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low, swing_high/20d_low",
+        "score": 75.2,
+        "setup_score": 75.2,
+        "ret_20d_pct": -12.7,
         "side": "LONG",
-        "tech_score": 0.7170000000000001,
-        "fund_support": 0.77342,
-        "macro_alignment": 0.77342,
-        "final_score": 0.7311050000000001,
-        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: fib_0.500/ma50. Broader commodities tone is supportive."
+        "tech_score": 0.752,
+        "fund_support": 0.558425,
+        "macro_alignment": 0.558425,
+        "final_score": 0.70360625,
+        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low, swing_high/20d_low. Broader commodities tone is mixed."
+      },
+      {
+        "symbol": "ZS",
+        "name": "Soybeans",
+        "asset_class": "Commodities",
+        "setup": "Failed Breakdown",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/fib_0.500",
+        "score": 73.9,
+        "setup_score": 73.9,
+        "ret_20d_pct": -5.12,
+        "side": "LONG",
+        "tech_score": 0.7390000000000001,
+        "fund_support": 0.558425,
+        "macro_alignment": 0.558425,
+        "final_score": 0.6938562500000001,
+        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/fib_0.500. Broader commodities tone is mixed."
       }
     ],
     "top_short": [
+      {
+        "symbol": "LE",
+        "name": "Live Cattle",
+        "asset_class": "Commodities",
+        "setup": "Failed Breakout",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/ma200, swing_low/swing_high",
+        "score": -71.2,
+        "setup_score": 71.2,
+        "ret_20d_pct": 4.53,
+        "side": "SHORT",
+        "tech_score": 0.7120000000000001,
+        "fund_support": 0.441575,
+        "macro_alignment": 0.441575,
+        "final_score": 0.64439375,
+        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/ma200, swing_low/swing_high. Broader commodities tone is mixed."
+      },
+      {
+        "symbol": "GF",
+        "name": "Feeder Cattle",
+        "asset_class": "Commodities",
+        "setup": "Failed Breakout",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/20d_high",
+        "score": -71.0,
+        "setup_score": 71.0,
+        "ret_20d_pct": 6.47,
+        "side": "SHORT",
+        "tech_score": 0.71,
+        "fund_support": 0.441575,
+        "macro_alignment": 0.441575,
+        "final_score": 0.6428937499999999,
+        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/20d_high. Broader commodities tone is mixed."
+      },
       {
         "symbol": "GC",
         "name": "Gold",
         "asset_class": "Commodities",
         "setup": "Trend Resumption",
-        "setup_status": "Developing",
-        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low, swing_high",
-        "score": -80.3,
-        "setup_score": 80.3,
-        "ret_20d_pct": -3.89,
-        "side": "SHORT",
-        "tech_score": 0.8029999999999999,
-        "fund_support": 0.22658,
-        "macro_alignment": 0.22658,
-        "final_score": 0.658895,
-        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low, swing_high. Broader commodities tone is supportive."
-      },
-      {
-        "symbol": "HE",
-        "name": "Lean Hogs",
-        "asset_class": "Commodities",
-        "setup": "Trend Resumption",
         "setup_status": "Triggered",
-        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: 20d_low/60d_low",
-        "score": -66.9,
-        "setup_score": 66.9,
-        "ret_20d_pct": -6.54,
+        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low",
+        "score": -70.9,
+        "setup_score": 70.9,
+        "ret_20d_pct": -5.53,
         "side": "SHORT",
-        "tech_score": 0.669,
-        "fund_support": 0.22658,
-        "macro_alignment": 0.22658,
-        "final_score": 0.558395,
-        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: 20d_low/60d_low. Broader commodities tone is supportive."
-      },
-      {
-        "symbol": "KC",
-        "name": "Coffee",
-        "asset_class": "Commodities",
-        "setup": "Failed Breakout",
-        "setup_status": "Confirmed",
-        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: fib_0.618/20d_high, swing_high/fib_0.786",
-        "score": -53.7,
-        "setup_score": 53.7,
-        "ret_20d_pct": 14.59,
-        "side": "SHORT",
-        "tech_score": 0.537,
-        "fund_support": 0.22658,
-        "macro_alignment": 0.22658,
-        "final_score": 0.45939500000000005,
-        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: fib_0.618/20d_high, swing_high/fib_0.786. Broader commodities tone is supportive."
+        "tech_score": 0.7090000000000001,
+        "fund_support": 0.441575,
+        "macro_alignment": 0.441575,
+        "final_score": 0.64214375,
+        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low. Broader commodities tone is mixed."
       }
     ]
   },
   "event_calendar": [
-    {
-      "date": "2026-10-22",
-      "type": "Earnings",
-      "title": "PG",
-      "ticker": "PG",
-      "company": "Procter & Gamble Co",
-      "country": "US",
-      "importance": "high",
-      "markets": [
-        "Equities"
-      ],
-      "source": "Finviz",
-      "url": "https://finviz.com/quote.ashx?t=PG",
-      "sources": [
-        "Finviz"
-      ],
-      "urls": [
-        "https://finviz.com/quote.ashx?t=PG"
-      ]
-    },
     {
       "date": "2026-10-23",
       "type": "Earnings",
@@ -2243,6 +2255,114 @@
       ],
       "urls": [
         "https://www.newyorkfed.org/research/calendars/i-oct26.html"
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "type": "Earnings",
+      "title": "AZN",
+      "ticker": "AZN",
+      "company": "Astrazeneca plc",
+      "country": "EU",
+      "importance": "high",
+      "markets": [
+        "Equities"
+      ],
+      "source": "Finviz",
+      "url": "https://finviz.com/quote.ashx?t=AZN",
+      "sources": [
+        "Finviz"
+      ],
+      "urls": [
+        "https://finviz.com/quote.ashx?t=AZN"
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "type": "Earnings",
+      "title": "CVX",
+      "ticker": "CVX",
+      "company": "Chevron Corp",
+      "country": "US",
+      "importance": "high",
+      "markets": [
+        "Equities"
+      ],
+      "source": "Finviz",
+      "url": "https://finviz.com/quote.ashx?t=CVX",
+      "sources": [
+        "Finviz"
+      ],
+      "urls": [
+        "https://finviz.com/quote.ashx?t=CVX"
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "type": "Earnings",
+      "title": "XOM",
+      "ticker": "XOM",
+      "company": "ExxonMobil Holdings Corp",
+      "country": "US",
+      "importance": "high",
+      "markets": [
+        "Equities"
+      ],
+      "source": "Finviz",
+      "url": "https://finviz.com/quote.ashx?t=XOM",
+      "sources": [
+        "Finviz"
+      ],
+      "urls": [
+        "https://finviz.com/quote.ashx?t=XOM"
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "type": "Macro",
+      "title": "Euro Area GDP",
+      "country": "Euro Area",
+      "importance": "high",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/release-calendar",
+      "event_key": "EA_GDP",
+      "source_family": "Eurostat",
+      "scheduler_source": "Eurostat eventsJson",
+      "provider_title": "Preliminary flash estimate GDP - EU and euro area",
+      "sources": [
+        "Eurostat"
+      ],
+      "urls": [
+        "https://ec.europa.eu/eurostat/news/release-calendar"
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "type": "Macro",
+      "title": "Euro Area Unemployment",
+      "country": "Euro Area",
+      "importance": "high",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/release-calendar",
+      "event_key": "EA_UNEMPLOYMENT",
+      "source_family": "Eurostat",
+      "scheduler_source": "Eurostat eventsJson",
+      "provider_title": "Unemployment",
+      "sources": [
+        "Eurostat"
+      ],
+      "urls": [
+        "https://ec.europa.eu/eurostat/news/release-calendar"
       ]
     }
   ]
