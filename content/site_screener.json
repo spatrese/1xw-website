@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T07:39:45Z",
+  "updatedAt": "2026-11-16T07:30:49Z",
   "tradeIdeas": [
     {
       "id": "IB-LONG-CL",
@@ -4336,6 +4336,114 @@
       ],
       "notes": "Downtrend intact; 20-day consolidation/compression; Price near or below range low",
       "week": "2026-W46"
+    },
+    {
+      "id": "IB-SHORT-EURUSD",
+      "date": "2026-11-16",
+      "asset": "EURUSD",
+      "direction": "Short",
+      "status": "Open",
+      "setup": "Trend Resumption",
+      "thesis": "Trend Resumption Short; setup quality 86.9/100.",
+      "structure": "Setup signal (IB technical engine)",
+      "horizon": "2-8w",
+      "confidence": 4,
+      "tags": [
+        "FX",
+        "setup-engine"
+      ],
+      "notes": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low",
+      "week": "2026-W47"
+    },
+    {
+      "id": "IB-SHORT-GBPUSD",
+      "date": "2026-11-16",
+      "asset": "GBPUSD",
+      "direction": "Short",
+      "status": "Open",
+      "setup": "Trend Resumption",
+      "thesis": "Trend Resumption Short; setup quality 85.3/100.",
+      "structure": "Setup signal (IB technical engine)",
+      "horizon": "2-8w",
+      "confidence": 4,
+      "tags": [
+        "FX",
+        "setup-engine"
+      ],
+      "notes": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: 20d_low/swing_low, swing_low/swing_high",
+      "week": "2026-W47"
+    },
+    {
+      "id": "IB-SHORT-CT",
+      "date": "2026-11-16",
+      "asset": "CT",
+      "direction": "Short",
+      "status": "Open",
+      "setup": "Trend Resumption",
+      "thesis": "Trend Resumption Short; setup quality 83.0/100.",
+      "structure": "Setup signal (IB technical engine)",
+      "horizon": "2-8w",
+      "confidence": 4,
+      "tags": [
+        "Commodities",
+        "setup-engine"
+      ],
+      "notes": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low, fib_0.382/swing_low",
+      "week": "2026-W47"
+    },
+    {
+      "id": "IB-SHORT-ZB",
+      "date": "2026-11-16",
+      "asset": "ZB",
+      "direction": "Short",
+      "status": "Open",
+      "setup": "Trend Resumption",
+      "thesis": "Trend Resumption Short; setup quality 78.8/100.",
+      "structure": "Setup signal (IB technical engine)",
+      "horizon": "2-8w",
+      "confidence": 4,
+      "tags": [
+        "Rates",
+        "setup-engine"
+      ],
+      "notes": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: ma50/fib_0.382",
+      "week": "2026-W47"
+    },
+    {
+      "id": "IB-LONG-ZW",
+      "date": "2026-11-16",
+      "asset": "ZW",
+      "direction": "Long",
+      "status": "Open",
+      "setup": "Failed Breakdown",
+      "thesis": "Failed Breakdown Long; setup quality 78.4/100.",
+      "structure": "Setup signal (IB technical engine)",
+      "horizon": "2-8w",
+      "confidence": 4,
+      "tags": [
+        "Commodities",
+        "setup-engine"
+      ],
+      "notes": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/20d_low",
+      "week": "2026-W47"
+    },
+    {
+      "id": "IB-SHORT-GC",
+      "date": "2026-11-16",
+      "asset": "GC",
+      "direction": "Short",
+      "status": "Open",
+      "setup": "Trend Resumption",
+      "thesis": "Trend Resumption Short; setup quality 77.9/100.",
+      "structure": "Setup signal (IB technical engine)",
+      "horizon": "2-8w",
+      "confidence": 4,
+      "tags": [
+        "Commodities",
+        "setup-engine"
+      ],
+      "notes": "Downtrend intact; 20-day consolidation/compression; Price near or below range low",
+      "week": "2026-W47"
     }
   ],
   "modelTrades": [
@@ -5067,18 +5175,18 @@
       "name": "DAX",
       "asset_class": "Equity",
       "contract_type": "FUT",
-      "score": -61.9,
+      "score": 0.0,
       "trend_score": 4,
-      "setup": "Failed Breakout",
-      "direction": "Short",
-      "setup_score": 61.9,
-      "setup_status": "Confirmed",
-      "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/20d_high",
+      "setup": "No Clear Setup",
+      "direction": "Neutral",
+      "setup_score": 0.0,
+      "setup_status": "Inactive",
+      "setup_reasons": "No setup currently meets the detection rules",
       "price_zones": [
         {
           "price": 26992.552,
           "side": "resistance",
-          "distance_atr": -0.35,
+          "distance_atr": -0.31,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -5091,7 +5199,7 @@
         {
           "price": 26237.575,
           "side": "support",
-          "distance_atr": 1.28,
+          "distance_atr": 1.39,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -5099,38 +5207,38 @@
           ]
         },
         {
-          "price": 25927.831152,
+          "price": 25929.154832,
           "side": "support",
-          "distance_atr": 1.95,
+          "distance_atr": 2.09,
           "touches": 10,
           "strength": 100.0,
           "types": [
-            "ma50",
             "swing_high",
+            "ma50",
             "fib_0.500",
             "swing_low",
             "fib_0.382"
           ]
         },
         {
-          "price": 25474.84903091,
+          "price": 25453.99944083,
           "side": "support",
-          "distance_atr": 2.94,
-          "touches": 11,
+          "distance_atr": 3.16,
+          "touches": 12,
           "strength": 100.0,
           "types": [
-            "swing_low",
             "swing_high",
+            "swing_low",
             "fib_0.786",
             "ma200",
             "fib_0.618"
           ]
         },
         {
-          "price": 24969.23,
+          "price": 24944.463,
           "side": "support",
-          "distance_atr": 4.03,
-          "touches": 11,
+          "distance_atr": 4.31,
+          "touches": 10,
           "strength": 100.0,
           "types": [
             "swing_high",
@@ -5142,7 +5250,7 @@
         {
           "price": 24421.895,
           "side": "support",
-          "distance_atr": 5.22,
+          "distance_atr": 5.48,
           "touches": 4,
           "strength": 100.0,
           "types": [
@@ -5154,28 +5262,18 @@
         {
           "price": 24023.365,
           "side": "support",
-          "distance_atr": 6.08,
+          "distance_atr": 6.38,
           "touches": 2,
           "strength": 44.0,
           "types": [
             "swing_low"
           ]
-        },
-        {
-          "price": 23185.09,
-          "side": "support",
-          "distance_atr": 7.9,
-          "touches": 1,
-          "strength": 26.0,
-          "types": [
-            "swing_low"
-          ]
         }
       ],
-      "close": 26829.0,
-      "ret_20d_pct": 4.17,
-      "ret_60d_pct": 1.73,
-      "exhaustion": "Overbought (68)"
+      "close": 26857.0,
+      "ret_20d_pct": 5.67,
+      "ret_60d_pct": 1.88,
+      "exhaustion": "Overbought (69)"
     },
     {
       "symbol": "NIY",
@@ -7201,18 +7299,40 @@
       "name": "Cotton",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 0.0,
+      "score": -83.0,
       "trend_score": -4,
-      "setup": "No Clear Setup",
-      "direction": "Neutral",
-      "setup_score": 0.0,
-      "setup_status": "Inactive",
-      "setup_reasons": "No setup currently meets the detection rules",
+      "setup": "Trend Resumption",
+      "direction": "Short",
+      "setup_score": 83.0,
+      "setup_status": "Developing",
+      "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low, fib_0.382/swing_low",
       "price_zones": [
         {
-          "price": 82.96540364,
+          "price": 81.5034,
           "side": "resistance",
-          "distance_atr": -0.27,
+          "distance_atr": -0.03,
+          "touches": 1,
+          "strength": 26.0,
+          "types": [
+            "swing_low"
+          ]
+        },
+        {
+          "price": 80.33425,
+          "side": "support",
+          "distance_atr": 0.86,
+          "touches": 4,
+          "strength": 100.0,
+          "types": [
+            "swing_low",
+            "20d_low",
+            "60d_low"
+          ]
+        },
+        {
+          "price": 82.97326644,
+          "side": "resistance",
+          "distance_atr": -1.16,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -7223,19 +7343,21 @@
           ]
         },
         {
-          "price": 81.5034,
+          "price": 78.7169,
           "side": "support",
-          "distance_atr": 0.85,
-          "touches": 1,
-          "strength": 26.0,
+          "distance_atr": 2.1,
+          "touches": 4,
+          "strength": 100.0,
           "types": [
-            "swing_low"
+            "swing_high",
+            "swing_low",
+            "120d_low"
           ]
         },
         {
-          "price": 84.42095307,
+          "price": 84.39075007,
           "side": "resistance",
-          "distance_atr": -1.4,
+          "distance_atr": -2.24,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -7247,21 +7369,9 @@
           ]
         },
         {
-          "price": 80.33425,
-          "side": "support",
-          "distance_atr": 1.75,
-          "touches": 4,
-          "strength": 100.0,
-          "types": [
-            "swing_low",
-            "20d_low",
-            "60d_low"
-          ]
-        },
-        {
           "price": 86.06874,
           "side": "resistance",
-          "distance_atr": -2.67,
+          "distance_atr": -3.52,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -7270,21 +7380,19 @@
           ]
         },
         {
-          "price": 78.7169,
+          "price": 76.6147,
           "side": "support",
-          "distance_atr": 3.0,
-          "touches": 4,
-          "strength": 100.0,
+          "distance_atr": 3.71,
+          "touches": 1,
+          "strength": 26.0,
           "types": [
-            "swing_high",
-            "swing_low",
-            "120d_low"
+            "swing_high"
           ]
         },
         {
           "price": 86.9873,
           "side": "resistance",
-          "distance_atr": -3.37,
+          "distance_atr": -4.23,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -7292,29 +7400,30 @@
           ]
         },
         {
-          "price": 76.6147,
+          "price": 75.179225,
           "side": "support",
-          "distance_atr": 4.62,
-          "touches": 1,
-          "strength": 26.0,
+          "distance_atr": 4.8,
+          "touches": 4,
+          "strength": 88.0,
           "types": [
-            "swing_high"
+            "swing_high",
+            "swing_low"
           ]
         },
         {
-          "price": 75.671,
+          "price": 73.59952,
           "side": "support",
-          "distance_atr": 5.35,
-          "touches": 1,
-          "strength": 26.0,
+          "distance_atr": 6.01,
+          "touches": 5,
+          "strength": 98.0,
           "types": [
-            "swing_high"
+            "swing_low"
           ]
         },
         {
           "price": 89.6567,
           "side": "resistance",
-          "distance_atr": -5.43,
+          "distance_atr": -6.27,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -7322,20 +7431,9 @@
           ]
         },
         {
-          "price": 74.65544,
+          "price": 71.40436667,
           "side": "support",
-          "distance_atr": 6.13,
-          "touches": 5,
-          "strength": 100.0,
-          "types": [
-            "swing_low",
-            "swing_high"
-          ]
-        },
-        {
-          "price": 73.25543333,
-          "side": "support",
-          "distance_atr": 7.21,
+          "distance_atr": 7.69,
           "touches": 3,
           "strength": 62.0,
           "types": [
@@ -7343,10 +7441,10 @@
           ]
         }
       ],
-      "close": 82.61,
-      "ret_20d_pct": -1.52,
-      "ret_60d_pct": -10.82,
-      "exhaustion": "Neutral- (39)"
+      "close": 81.46,
+      "ret_20d_pct": -3.05,
+      "ret_60d_pct": -12.07,
+      "exhaustion": "Oversold (31)"
     },
     {
       "symbol": "LE",
@@ -7771,18 +7869,18 @@
       "name": "Dollar Index",
       "asset_class": "FX",
       "contract_type": "FUT",
-      "score": 72.9,
+      "score": 66.1,
       "trend_score": 4,
       "setup": "Trend Resumption",
       "direction": "Long",
-      "setup_score": 72.9,
+      "setup_score": 66.1,
       "setup_status": "Triggered",
       "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: 20d_high/60d_high, swing_high",
       "price_zones": [
         {
-          "price": 103.17,
+          "price": 103.34,
           "side": "support",
-          "distance_atr": 0.3,
+          "distance_atr": 0.03,
           "touches": 3,
           "strength": 87.6,
           "types": [
@@ -7794,7 +7892,7 @@
         {
           "price": 102.735,
           "side": "support",
-          "distance_atr": 1.14,
+          "distance_atr": 1.22,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -7804,7 +7902,7 @@
         {
           "price": 102.32,
           "side": "support",
-          "distance_atr": 1.95,
+          "distance_atr": 2.04,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -7812,9 +7910,9 @@
           ]
         },
         {
-          "price": 101.12769456,
+          "price": 101.13760789,
           "side": "support",
-          "distance_atr": 4.25,
+          "distance_atr": 4.37,
           "touches": 9,
           "strength": 100.0,
           "types": [
@@ -7828,7 +7926,7 @@
         {
           "price": 100.53025,
           "side": "support",
-          "distance_atr": 5.41,
+          "distance_atr": 5.57,
           "touches": 1,
           "strength": 27.6,
           "types": [
@@ -7838,7 +7936,7 @@
         {
           "price": 100.02030967,
           "side": "support",
-          "distance_atr": 6.4,
+          "distance_atr": 6.57,
           "touches": 3,
           "strength": 79.6,
           "types": [
@@ -7848,9 +7946,9 @@
           ]
         },
         {
-          "price": 99.6745025,
+          "price": 99.681896,
           "side": "support",
-          "distance_atr": 7.07,
+          "distance_atr": 7.24,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -7860,11 +7958,11 @@
           ]
         },
         {
-          "price": 99.119211,
+          "price": 99.05665825,
           "side": "support",
-          "distance_atr": 8.14,
-          "touches": 3,
-          "strength": 79.6,
+          "distance_atr": 8.47,
+          "touches": 4,
+          "strength": 97.6,
           "types": [
             "swing_low",
             "swing_high",
@@ -7872,33 +7970,22 @@
           ]
         },
         {
-          "price": 98.67433333,
+          "price": 98.3275,
           "side": "support",
-          "distance_atr": 9.0,
-          "touches": 3,
-          "strength": 70.0,
-          "types": [
-            "swing_high",
-            "swing_low"
-          ]
-        },
-        {
-          "price": 98.2499375,
-          "side": "support",
-          "distance_atr": 9.83,
-          "touches": 8,
+          "distance_atr": 9.91,
+          "touches": 10,
           "strength": 100.0,
           "types": [
             "swing_low",
-            "120d_low",
             "swing_high",
+            "120d_low",
             "60d_low"
           ]
         },
         {
           "price": 96.9001,
           "side": "support",
-          "distance_atr": 12.44,
+          "distance_atr": 12.72,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -7907,9 +7994,9 @@
           ]
         }
       ],
-      "close": 103.325,
-      "ret_20d_pct": 1.64,
-      "ret_60d_pct": 4.93,
+      "close": 103.355,
+      "ret_20d_pct": 1.54,
+      "ret_60d_pct": 4.74,
       "exhaustion": "Overbought (77)"
     },
     {
@@ -7917,18 +8004,18 @@
       "name": "EURUSD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": -84.1,
+      "score": -86.9,
       "trend_score": -4,
       "setup": "Trend Resumption",
       "direction": "Short",
-      "setup_score": 84.1,
-      "setup_status": "Triggered",
-      "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: 20d_low/60d_low, swing_low",
+      "setup_score": 86.9,
+      "setup_status": "Developing",
+      "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low",
       "price_zones": [
         {
-          "price": 1.10455,
-          "side": "resistance",
-          "distance_atr": -0.33,
+          "price": 1.102,
+          "side": "support",
+          "distance_atr": 0.0,
           "touches": 3,
           "strength": 87.6,
           "types": [
@@ -7940,7 +8027,7 @@
         {
           "price": 1.110875,
           "side": "resistance",
-          "distance_atr": -1.28,
+          "distance_atr": -1.37,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -7950,7 +8037,7 @@
         {
           "price": 1.11615,
           "side": "resistance",
-          "distance_atr": -2.07,
+          "distance_atr": -2.18,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -7958,9 +8045,9 @@
           ]
         },
         {
-          "price": 1.12773725,
+          "price": 1.127436,
           "side": "resistance",
-          "distance_atr": -3.8,
+          "distance_atr": -3.92,
           "touches": 4,
           "strength": 99.2,
           "types": [
@@ -7972,7 +8059,7 @@
         {
           "price": 1.13326177,
           "side": "resistance",
-          "distance_atr": -4.63,
+          "distance_atr": -4.82,
           "touches": 3,
           "strength": 71.6,
           "types": [
@@ -7983,7 +8070,7 @@
         {
           "price": 1.139075,
           "side": "resistance",
-          "distance_atr": -5.5,
+          "distance_atr": -5.71,
           "touches": 3,
           "strength": 71.6,
           "types": [
@@ -7992,10 +8079,10 @@
           ]
         },
         {
-          "price": 1.14784496,
+          "price": 1.14728578,
           "side": "resistance",
-          "distance_atr": -6.81,
-          "touches": 7,
+          "distance_atr": -6.98,
+          "touches": 6,
           "strength": 100.0,
           "types": [
             "swing_low",
@@ -8004,23 +8091,22 @@
           ]
         },
         {
-          "price": 1.15645484,
+          "price": 1.15232922,
           "side": "resistance",
-          "distance_atr": -8.1,
-          "touches": 7,
-          "strength": 100.0,
+          "distance_atr": -7.76,
+          "touches": 3,
+          "strength": 83.6,
           "types": [
+            "swing_low",
             "ma200",
-            "fib_0.786",
-            "swing_low",
-            "swing_high"
+            "fib_0.786"
           ]
         },
         {
-          "price": 1.16401429,
+          "price": 1.15941875,
           "side": "resistance",
-          "distance_atr": -9.23,
-          "touches": 7,
+          "distance_atr": -8.85,
+          "touches": 8,
           "strength": 100.0,
           "types": [
             "swing_low",
@@ -8028,22 +8114,33 @@
           ]
         },
         {
-          "price": 1.17108333,
+          "price": 1.16704286,
           "side": "resistance",
-          "distance_atr": -10.29,
-          "touches": 6,
+          "distance_atr": -10.03,
+          "touches": 7,
           "strength": 100.0,
           "types": [
             "swing_high",
             "swing_low",
-            "60d_high",
-            "120d_high"
+            "60d_high"
+          ]
+        },
+        {
+          "price": 1.17216667,
+          "side": "resistance",
+          "distance_atr": -10.82,
+          "touches": 3,
+          "strength": 82.0,
+          "types": [
+            "swing_high",
+            "120d_high",
+            "swing_low"
           ]
         },
         {
           "price": 1.1793875,
           "side": "resistance",
-          "distance_atr": -11.54,
+          "distance_atr": -11.93,
           "touches": 4,
           "strength": 88.0,
           "types": [
@@ -8052,39 +8149,39 @@
           ]
         }
       ],
-      "close": 1.10235,
-      "ret_20d_pct": -1.9,
-      "ret_60d_pct": -5.62,
-      "exhaustion": "Oversold (23)"
+      "close": 1.102,
+      "ret_20d_pct": -1.72,
+      "ret_60d_pct": -5.52,
+      "exhaustion": "Oversold (22)"
     },
     {
       "symbol": "GBPUSD",
       "name": "GBPUSD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": -68.8,
+      "score": -85.3,
       "trend_score": -4,
       "setup": "Trend Resumption",
       "direction": "Short",
-      "setup_score": 68.8,
-      "setup_status": "Triggered",
-      "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low, swing_low/swing_high",
+      "setup_score": 85.3,
+      "setup_status": "Developing",
+      "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: 20d_low/swing_low, swing_low/swing_high",
       "price_zones": [
         {
-          "price": 1.32478,
+          "price": 1.32255,
           "side": "resistance",
-          "distance_atr": -0.48,
-          "touches": 5,
-          "strength": 100.0,
+          "distance_atr": -0.28,
+          "touches": 3,
+          "strength": 71.6,
           "types": [
-            "swing_low",
-            "20d_low"
+            "20d_low",
+            "swing_low"
           ]
         },
         {
           "price": 1.31485833,
           "side": "support",
-          "distance_atr": 0.9,
+          "distance_atr": 0.8,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -8094,10 +8191,10 @@
           ]
         },
         {
-          "price": 1.33207834,
+          "price": 1.33094193,
           "side": "resistance",
-          "distance_atr": -1.5,
-          "touches": 7,
+          "distance_atr": -1.47,
+          "touches": 9,
           "strength": 100.0,
           "types": [
             "swing_low",
@@ -8107,19 +8204,9 @@
           ]
         },
         {
-          "price": 1.3038,
-          "side": "support",
-          "distance_atr": 2.43,
-          "touches": 1,
-          "strength": 26.0,
-          "types": [
-            "swing_low"
-          ]
-        },
-        {
-          "price": 1.34042041,
+          "price": 1.34038559,
           "side": "resistance",
-          "distance_atr": -2.66,
+          "distance_atr": -2.8,
           "touches": 7,
           "strength": 100.0,
           "types": [
@@ -8133,7 +8220,7 @@
         {
           "price": 1.34854256,
           "side": "resistance",
-          "distance_atr": -3.79,
+          "distance_atr": -3.95,
           "touches": 11,
           "strength": 100.0,
           "types": [
@@ -8146,7 +8233,7 @@
         {
           "price": 1.35670833,
           "side": "resistance",
-          "distance_atr": -4.93,
+          "distance_atr": -5.1,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -8154,9 +8241,9 @@
           ]
         },
         {
-          "price": 1.36676,
+          "price": 1.36637,
           "side": "resistance",
-          "distance_atr": -6.32,
+          "distance_atr": -6.46,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -8168,7 +8255,7 @@
         {
           "price": 1.37125,
           "side": "resistance",
-          "distance_atr": -6.95,
+          "distance_atr": -7.15,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -8176,10 +8263,10 @@
           ]
         }
       ],
-      "close": 1.3213,
-      "ret_20d_pct": -0.86,
-      "ret_60d_pct": -3.14,
-      "exhaustion": "Oversold (35)"
+      "close": 1.32055,
+      "ret_20d_pct": -0.75,
+      "ret_60d_pct": -3.13,
+      "exhaustion": "Oversold (34)"
     },
     {
       "symbol": "AUDUSD",
@@ -8195,22 +8282,13 @@
       "setup_reasons": "No setup currently meets the detection rules",
       "price_zones": [
         {
-          "price": 0.67665,
-          "side": "support",
-          "distance_atr": 0.1,
-          "touches": 1,
-          "strength": 26.0,
-          "types": [
-            "swing_high"
-          ]
-        },
-        {
-          "price": 0.6798,
+          "price": 0.676875,
           "side": "resistance",
-          "distance_atr": -0.51,
-          "touches": 3,
-          "strength": 87.6,
+          "distance_atr": -0.15,
+          "touches": 4,
+          "strength": 100.0,
           "types": [
+            "swing_high",
             "20d_low",
             "60d_low",
             "120d_low"
@@ -8219,7 +8297,7 @@
         {
           "price": 0.67275,
           "side": "support",
-          "distance_atr": 0.85,
+          "distance_atr": 0.66,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -8229,7 +8307,7 @@
         {
           "price": 0.68335,
           "side": "resistance",
-          "distance_atr": -1.2,
+          "distance_atr": -1.42,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -8239,7 +8317,7 @@
         {
           "price": 0.6673,
           "side": "support",
-          "distance_atr": 1.9,
+          "distance_atr": 1.73,
           "touches": 2,
           "strength": 52.0,
           "types": [
@@ -8250,7 +8328,7 @@
         {
           "price": 0.6890125,
           "side": "resistance",
-          "distance_atr": -2.29,
+          "distance_atr": -2.54,
           "touches": 4,
           "strength": 80.0,
           "types": [
@@ -8258,9 +8336,19 @@
           ]
         },
         {
+          "price": 0.65925,
+          "side": "support",
+          "distance_atr": 3.31,
+          "touches": 1,
+          "strength": 26.0,
+          "types": [
+            "swing_low"
+          ]
+        },
+        {
           "price": 0.69335,
           "side": "resistance",
-          "distance_atr": -3.13,
+          "distance_atr": -3.39,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -8268,67 +8356,69 @@
           ]
         },
         {
-          "price": 0.65925,
-          "side": "support",
-          "distance_atr": 3.46,
-          "touches": 1,
-          "strength": 26.0,
-          "types": [
-            "swing_low"
-          ]
-        },
-        {
-          "price": 0.6979,
+          "price": 0.70110316,
           "side": "resistance",
-          "distance_atr": -4.01,
-          "touches": 1,
-          "strength": 26.0,
-          "types": [
-            "swing_low"
-          ]
-        },
-        {
-          "price": 0.7021327,
-          "side": "resistance",
-          "distance_atr": -4.83,
-          "touches": 4,
+          "distance_atr": -4.91,
+          "touches": 5,
           "strength": 100.0,
           "types": [
-            "ma50",
             "swing_low",
+            "ma50",
             "swing_high",
             "fib_0.382"
           ]
         },
         {
-          "price": 0.70824731,
+          "price": 0.70795132,
           "side": "resistance",
-          "distance_atr": -6.01,
-          "touches": 11,
+          "distance_atr": -6.25,
+          "touches": 10,
           "strength": 100.0,
           "types": [
             "ma200",
             "swing_high",
             "20d_high",
             "fib_0.500",
-            "swing_low",
-            "fib_0.618"
+            "swing_low"
           ]
         },
         {
           "price": 0.64215,
           "side": "support",
-          "distance_atr": 6.76,
+          "distance_atr": 6.67,
           "touches": 1,
           "strength": 26.0,
           "types": [
             "swing_low"
           ]
+        },
+        {
+          "price": 0.7128853,
+          "side": "resistance",
+          "distance_atr": -7.22,
+          "touches": 4,
+          "strength": 97.6,
+          "types": [
+            "fib_0.618",
+            "swing_low",
+            "swing_high"
+          ]
+        },
+        {
+          "price": 0.7190756,
+          "side": "resistance",
+          "distance_atr": -8.44,
+          "touches": 4,
+          "strength": 89.6,
+          "types": [
+            "fib_0.786",
+            "swing_high"
+          ]
         }
       ],
-      "close": 0.67715,
-      "ret_20d_pct": -2.51,
-      "ret_60d_pct": -5.58,
+      "close": 0.6761,
+      "ret_20d_pct": -3.13,
+      "ret_60d_pct": -5.44,
       "exhaustion": "Oversold (21)"
     },
     {
@@ -8336,30 +8426,18 @@
       "name": "USDCAD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": 81.3,
+      "score": 0.0,
       "trend_score": 4,
-      "setup": "Trend Resumption",
-      "direction": "Long",
-      "setup_score": 81.3,
-      "setup_status": "Developing",
-      "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: fib_0.786/swing_high",
+      "setup": "No Clear Setup",
+      "direction": "Neutral",
+      "setup_score": 0.0,
+      "setup_status": "Inactive",
+      "setup_reasons": "No setup currently meets the detection rules",
       "price_zones": [
-        {
-          "price": 1.42474283,
-          "side": "support",
-          "distance_atr": 0.34,
-          "touches": 4,
-          "strength": 99.2,
-          "types": [
-            "fib_0.786",
-            "swing_high",
-            "20d_high"
-          ]
-        },
         {
           "price": 1.43,
           "side": "resistance",
-          "distance_atr": -0.47,
+          "distance_atr": -0.35,
           "touches": 3,
           "strength": 86.0,
           "types": [
@@ -8369,9 +8447,21 @@
           ]
         },
         {
+          "price": 1.42480533,
+          "side": "support",
+          "distance_atr": 0.48,
+          "touches": 4,
+          "strength": 99.2,
+          "types": [
+            "fib_0.786",
+            "swing_high",
+            "20d_high"
+          ]
+        },
+        {
           "price": 1.41422422,
           "side": "support",
-          "distance_atr": 1.96,
+          "distance_atr": 2.19,
           "touches": 4,
           "strength": 97.6,
           "types": [
@@ -8381,9 +8471,9 @@
           ]
         },
         {
-          "price": 1.40836762,
+          "price": 1.40855302,
           "side": "support",
-          "distance_atr": 2.86,
+          "distance_atr": 3.1,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -8396,7 +8486,7 @@
         {
           "price": 1.3987,
           "side": "support",
-          "distance_atr": 4.35,
+          "distance_atr": 4.69,
           "touches": 3,
           "strength": 70.0,
           "types": [
@@ -8405,9 +8495,9 @@
           ]
         },
         {
-          "price": 1.39266283,
+          "price": 1.39272275,
           "side": "support",
-          "distance_atr": 5.28,
+          "distance_atr": 5.65,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -8420,7 +8510,7 @@
         {
           "price": 1.3806,
           "side": "support",
-          "distance_atr": 7.13,
+          "distance_atr": 7.6,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -8428,22 +8518,22 @@
           ]
         },
         {
-          "price": 1.37352727,
+          "price": 1.37378182,
           "side": "support",
-          "distance_atr": 8.22,
+          "distance_atr": 8.7,
           "touches": 11,
           "strength": 100.0,
           "types": [
             "swing_high",
             "swing_low",
-            "60d_low",
-            "120d_low"
+            "120d_low",
+            "60d_low"
           ]
         },
         {
           "price": 1.35038333,
           "side": "support",
-          "distance_atr": 11.78,
+          "distance_atr": 12.47,
           "touches": 3,
           "strength": 62.0,
           "types": [
@@ -8451,63 +8541,76 @@
           ]
         }
       ],
-      "close": 1.42695,
-      "ret_20d_pct": 0.91,
-      "ret_60d_pct": 3.71,
-      "exhaustion": "Overbought (74)"
+      "close": 1.4278,
+      "ret_20d_pct": 1.18,
+      "ret_60d_pct": 3.13,
+      "exhaustion": "Overbought (75)"
     },
     {
       "symbol": "USDJPY",
       "name": "USDJPY",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": 79.2,
+      "score": 75.8,
       "trend_score": 4,
       "setup": "Trend Resumption",
       "direction": "Long",
-      "setup_score": 79.2,
+      "setup_score": 75.8,
       "setup_status": "Developing",
-      "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: ma200/swing_high",
+      "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_low/ma200",
       "price_zones": [
         {
-          "price": 160.24627778,
+          "price": 159.81666667,
           "side": "resistance",
-          "distance_atr": -0.59,
-          "touches": 9,
+          "distance_atr": -0.46,
+          "touches": 6,
           "strength": 100.0,
           "types": [
             "swing_high",
-            "20d_high",
+            "swing_low",
+            "20d_high"
+          ]
+        },
+        {
+          "price": 158.83451833,
+          "side": "support",
+          "distance_atr": 0.64,
+          "touches": 6,
+          "strength": 100.0,
+          "types": [
+            "swing_low",
+            "ma200",
+            "swing_high"
+          ]
+        },
+        {
+          "price": 160.492,
+          "side": "resistance",
+          "distance_atr": -1.21,
+          "touches": 5,
+          "strength": 100.0,
+          "types": [
+            "swing_high",
             "60d_high",
             "swing_low"
           ]
         },
         {
-          "price": 159.10213714,
+          "price": 157.6926275,
           "side": "support",
-          "distance_atr": 0.66,
-          "touches": 7,
+          "distance_atr": 1.91,
+          "touches": 8,
           "strength": 100.0,
           "types": [
-            "ma200",
-            "swing_high",
-            "swing_low"
-          ]
-        },
-        {
-          "price": 158.15,
-          "side": "support",
-          "distance_atr": 1.7,
-          "touches": 2,
-          "strength": 44.0,
-          "types": [
-            "swing_low"
+            "swing_low",
+            "ma50",
+            "swing_high"
           ]
         },
         {
           "price": 161.2815,
           "side": "resistance",
-          "distance_atr": -1.72,
+          "distance_atr": -2.09,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -8515,32 +8618,21 @@
           ]
         },
         {
-          "price": 157.47419818,
+          "price": 156.96720333,
           "side": "support",
-          "distance_atr": 2.44,
-          "touches": 11,
-          "strength": 100.0,
+          "distance_atr": 2.72,
+          "touches": 3,
+          "strength": 79.6,
           "types": [
             "fib_0.382",
             "swing_high",
-            "swing_low",
-            "ma50"
-          ]
-        },
-        {
-          "price": 162.77575,
-          "side": "resistance",
-          "distance_atr": -3.36,
-          "touches": 2,
-          "strength": 44.0,
-          "types": [
-            "swing_high"
+            "swing_low"
           ]
         },
         {
           "price": 156.124625,
           "side": "support",
-          "distance_atr": 3.92,
+          "distance_atr": 3.66,
           "touches": 4,
           "strength": 99.2,
           "types": [
@@ -8550,20 +8642,19 @@
           ]
         },
         {
-          "price": 163.988,
+          "price": 162.77575,
           "side": "resistance",
-          "distance_atr": -4.69,
+          "distance_atr": -3.75,
           "touches": 2,
-          "strength": 56.0,
+          "strength": 44.0,
           "types": [
-            "swing_high",
-            "120d_high"
+            "swing_high"
           ]
         },
         {
           "price": 155.16579667,
           "side": "support",
-          "distance_atr": 4.97,
+          "distance_atr": 4.72,
           "touches": 3,
           "strength": 71.6,
           "types": [
@@ -8572,9 +8663,20 @@
           ]
         },
         {
+          "price": 163.988,
+          "side": "resistance",
+          "distance_atr": -5.1,
+          "touches": 2,
+          "strength": 56.0,
+          "types": [
+            "swing_high",
+            "120d_high"
+          ]
+        },
+        {
           "price": 154.31651,
           "side": "support",
-          "distance_atr": 5.9,
+          "distance_atr": 5.67,
           "touches": 3,
           "strength": 71.6,
           "types": [
@@ -8585,7 +8687,7 @@
         {
           "price": 152.892,
           "side": "support",
-          "distance_atr": 7.46,
+          "distance_atr": 7.26,
           "touches": 3,
           "strength": 86.0,
           "types": [
@@ -8595,10 +8697,10 @@
           ]
         }
       ],
-      "close": 159.707,
-      "ret_20d_pct": 1.06,
-      "ret_60d_pct": 0.45,
-      "exhaustion": "Overbought (68)"
+      "close": 159.4065,
+      "ret_20d_pct": 0.57,
+      "ret_60d_pct": 0.2,
+      "exhaustion": "Neutral+ (64)"
     },
     {
       "symbol": "ZB",
@@ -8760,18 +8862,18 @@
       "name": "Italy BTP",
       "asset_class": "Rates",
       "contract_type": "FUT",
-      "score": -56.9,
+      "score": -57.8,
       "trend_score": 0,
       "setup": "Rally to Resistance",
       "direction": "Short",
-      "setup_score": 56.9,
+      "setup_score": 57.8,
       "setup_status": "Reversing",
       "setup_reasons": "Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_high/swing_low",
       "price_zones": [
         {
           "price": 112.27229,
           "side": "support",
-          "distance_atr": 0.21,
+          "distance_atr": 0.33,
           "touches": 2,
           "strength": 53.6,
           "types": [
@@ -8782,7 +8884,7 @@
         {
           "price": 113.29276667,
           "side": "resistance",
-          "distance_atr": -1.07,
+          "distance_atr": -1.03,
           "touches": 3,
           "strength": 70.0,
           "types": [
@@ -8791,9 +8893,9 @@
           ]
         },
         {
-          "price": 111.46016667,
+          "price": 111.4556,
           "side": "support",
-          "distance_atr": 1.23,
+          "distance_atr": 1.42,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -8808,17 +8910,18 @@
         {
           "price": 113.98,
           "side": "resistance",
-          "distance_atr": -1.93,
-          "touches": 1,
-          "strength": 27.6,
+          "distance_atr": -1.95,
+          "touches": 2,
+          "strength": 53.6,
           "types": [
+            "swing_high",
             "20d_high"
           ]
         },
         {
           "price": 114.773175,
           "side": "resistance",
-          "distance_atr": -2.93,
+          "distance_atr": -3.01,
           "touches": 4,
           "strength": 80.0,
           "types": [
@@ -8828,7 +8931,7 @@
         {
           "price": 110.06,
           "side": "support",
-          "distance_atr": 2.99,
+          "distance_atr": 3.28,
           "touches": 2,
           "strength": 53.6,
           "types": [
@@ -8839,7 +8942,7 @@
         {
           "price": 109.53,
           "side": "support",
-          "distance_atr": 3.66,
+          "distance_atr": 3.99,
           "touches": 4,
           "strength": 100.0,
           "types": [
@@ -8849,9 +8952,9 @@
           ]
         },
         {
-          "price": 115.72679037,
+          "price": 115.71870087,
           "side": "resistance",
-          "distance_atr": -4.13,
+          "distance_atr": -4.27,
           "touches": 4,
           "strength": 100.0,
           "types": [
@@ -8864,7 +8967,7 @@
         {
           "price": 116.43465,
           "side": "resistance",
-          "distance_atr": -5.02,
+          "distance_atr": -5.22,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -8874,7 +8977,7 @@
         {
           "price": 117.5041875,
           "side": "resistance",
-          "distance_atr": -6.36,
+          "distance_atr": -6.65,
           "touches": 8,
           "strength": 100.0,
           "types": [
@@ -8885,7 +8988,7 @@
         {
           "price": 118.39215,
           "side": "resistance",
-          "distance_atr": -7.48,
+          "distance_atr": -7.83,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -8896,7 +8999,7 @@
         {
           "price": 119.14692,
           "side": "resistance",
-          "distance_atr": -8.43,
+          "distance_atr": -8.84,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -8905,28 +9008,28 @@
           ]
         }
       ],
-      "close": 112.44,
-      "ret_20d_pct": 0.56,
-      "ret_60d_pct": -2.14,
-      "exhaustion": "Neutral+ (55)"
+      "close": 112.52,
+      "ret_20d_pct": 1.49,
+      "ret_60d_pct": -2.08,
+      "exhaustion": "Neutral+ (57)"
     },
     {
       "symbol": "GBL",
       "name": "Germany Bund",
       "asset_class": "Rates",
       "contract_type": "FUT",
-      "score": -60.4,
+      "score": -60.9,
       "trend_score": 0,
       "setup": "Rally to Resistance",
       "direction": "Short",
-      "setup_score": 60.4,
+      "setup_score": 60.9,
       "setup_status": "Reversing",
       "setup_reasons": "Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_high, swing_high/swing_low",
       "price_zones": [
         {
           "price": 122.055,
           "side": "resistance",
-          "distance_atr": -0.23,
+          "distance_atr": -0.06,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -8934,14 +9037,12 @@
           ]
         },
         {
-          "price": 121.15546,
+          "price": 121.3542,
           "side": "support",
-          "distance_atr": 1.22,
-          "touches": 4,
-          "strength": 100.0,
+          "distance_atr": 1.12,
+          "touches": 2,
+          "strength": 53.6,
           "types": [
-            "fib_0.382",
-            "20d_low",
             "ma50",
             "swing_high"
           ]
@@ -8949,7 +9050,7 @@
         {
           "price": 122.75276667,
           "side": "resistance",
-          "distance_atr": -1.36,
+          "distance_atr": -1.24,
           "touches": 3,
           "strength": 70.0,
           "types": [
@@ -8958,21 +9059,20 @@
           ]
         },
         {
-          "price": 120.39398667,
+          "price": 120.95902,
           "side": "support",
-          "distance_atr": 2.44,
-          "touches": 3,
-          "strength": 81.2,
+          "distance_atr": 1.79,
+          "touches": 2,
+          "strength": 55.2,
           "types": [
-            "fib_0.618",
-            "swing_low",
-            "fib_0.500"
+            "fib_0.382",
+            "20d_low"
           ]
         },
         {
           "price": 123.43378333,
           "side": "resistance",
-          "distance_atr": -2.46,
+          "distance_atr": -2.39,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -8982,20 +9082,21 @@
           ]
         },
         {
-          "price": 119.85746,
+          "price": 120.39398667,
           "side": "support",
-          "distance_atr": 3.31,
-          "touches": 2,
-          "strength": 53.6,
+          "distance_atr": 2.75,
+          "touches": 3,
+          "strength": 81.2,
           "types": [
-            "fib_0.786",
-            "swing_low"
+            "fib_0.618",
+            "swing_low",
+            "fib_0.500"
           ]
         },
         {
-          "price": 123.9690797,
+          "price": 123.9649295,
           "side": "resistance",
-          "distance_atr": -3.32,
+          "distance_atr": -3.29,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -9006,9 +9107,20 @@
           ]
         },
         {
+          "price": 119.85746,
+          "side": "support",
+          "distance_atr": 3.65,
+          "touches": 2,
+          "strength": 53.6,
+          "types": [
+            "fib_0.786",
+            "swing_low"
+          ]
+        },
+        {
           "price": 124.46693333,
           "side": "resistance",
-          "distance_atr": -4.12,
+          "distance_atr": -4.13,
           "touches": 3,
           "strength": 62.0,
           "types": [
@@ -9018,7 +9130,7 @@
         {
           "price": 119.19,
           "side": "support",
-          "distance_atr": 4.38,
+          "distance_atr": 4.78,
           "touches": 3,
           "strength": 86.0,
           "types": [
@@ -9030,7 +9142,7 @@
         {
           "price": 125.22651667,
           "side": "resistance",
-          "distance_atr": -5.34,
+          "distance_atr": -5.42,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -9041,30 +9153,19 @@
         {
           "price": 125.8773,
           "side": "resistance",
-          "distance_atr": -6.39,
+          "distance_atr": -6.52,
           "touches": 7,
           "strength": 100.0,
           "types": [
             "swing_low",
             "swing_high"
           ]
-        },
-        {
-          "price": 126.68144,
-          "side": "resistance",
-          "distance_atr": -7.69,
-          "touches": 5,
-          "strength": 100.0,
-          "types": [
-            "swing_high",
-            "120d_high"
-          ]
         }
       ],
-      "close": 121.91,
-      "ret_20d_pct": 0.24,
-      "ret_60d_pct": -0.87,
-      "exhaustion": "Neutral+ (51)"
+      "close": 122.02,
+      "ret_20d_pct": 0.73,
+      "ret_60d_pct": -0.81,
+      "exhaustion": "Neutral+ (53)"
     },
     {
       "symbol": "MBT",
@@ -9779,18 +9880,18 @@
       "name": "DAX",
       "asset_class": "Equity",
       "contract_type": "FUT",
-      "score": -61.9,
+      "score": 0.0,
       "trend_score": 4,
-      "setup": "Failed Breakout",
-      "direction": "Short",
-      "setup_score": 61.9,
-      "setup_status": "Confirmed",
-      "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_high/20d_high",
+      "setup": "No Clear Setup",
+      "direction": "Neutral",
+      "setup_score": 0.0,
+      "setup_status": "Inactive",
+      "setup_reasons": "No setup currently meets the detection rules",
       "price_zones": [
         {
           "price": 26992.552,
           "side": "resistance",
-          "distance_atr": -0.35,
+          "distance_atr": -0.31,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -9803,7 +9904,7 @@
         {
           "price": 26237.575,
           "side": "support",
-          "distance_atr": 1.28,
+          "distance_atr": 1.39,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -9811,38 +9912,38 @@
           ]
         },
         {
-          "price": 25927.831152,
+          "price": 25929.154832,
           "side": "support",
-          "distance_atr": 1.95,
+          "distance_atr": 2.09,
           "touches": 10,
           "strength": 100.0,
           "types": [
-            "ma50",
             "swing_high",
+            "ma50",
             "fib_0.500",
             "swing_low",
             "fib_0.382"
           ]
         },
         {
-          "price": 25474.84903091,
+          "price": 25453.99944083,
           "side": "support",
-          "distance_atr": 2.94,
-          "touches": 11,
+          "distance_atr": 3.16,
+          "touches": 12,
           "strength": 100.0,
           "types": [
-            "swing_low",
             "swing_high",
+            "swing_low",
             "fib_0.786",
             "ma200",
             "fib_0.618"
           ]
         },
         {
-          "price": 24969.23,
+          "price": 24944.463,
           "side": "support",
-          "distance_atr": 4.03,
-          "touches": 11,
+          "distance_atr": 4.31,
+          "touches": 10,
           "strength": 100.0,
           "types": [
             "swing_high",
@@ -9854,7 +9955,7 @@
         {
           "price": 24421.895,
           "side": "support",
-          "distance_atr": 5.22,
+          "distance_atr": 5.48,
           "touches": 4,
           "strength": 100.0,
           "types": [
@@ -9866,28 +9967,18 @@
         {
           "price": 24023.365,
           "side": "support",
-          "distance_atr": 6.08,
+          "distance_atr": 6.38,
           "touches": 2,
           "strength": 44.0,
           "types": [
             "swing_low"
           ]
-        },
-        {
-          "price": 23185.09,
-          "side": "support",
-          "distance_atr": 7.9,
-          "touches": 1,
-          "strength": 26.0,
-          "types": [
-            "swing_low"
-          ]
         }
       ],
-      "close": 26829.0,
-      "ret_20d_pct": 4.17,
-      "ret_60d_pct": 1.73,
-      "exhaustion": "Overbought (68)"
+      "close": 26857.0,
+      "ret_20d_pct": 5.67,
+      "ret_60d_pct": 1.88,
+      "exhaustion": "Overbought (69)"
     },
     "NIY": {
       "symbol": "NIY",
@@ -11913,18 +12004,40 @@
       "name": "Cotton",
       "asset_class": "Commodities",
       "contract_type": "FUT",
-      "score": 0.0,
+      "score": -83.0,
       "trend_score": -4,
-      "setup": "No Clear Setup",
-      "direction": "Neutral",
-      "setup_score": 0.0,
-      "setup_status": "Inactive",
-      "setup_reasons": "No setup currently meets the detection rules",
+      "setup": "Trend Resumption",
+      "direction": "Short",
+      "setup_score": 83.0,
+      "setup_status": "Developing",
+      "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low, fib_0.382/swing_low",
       "price_zones": [
         {
-          "price": 82.96540364,
+          "price": 81.5034,
           "side": "resistance",
-          "distance_atr": -0.27,
+          "distance_atr": -0.03,
+          "touches": 1,
+          "strength": 26.0,
+          "types": [
+            "swing_low"
+          ]
+        },
+        {
+          "price": 80.33425,
+          "side": "support",
+          "distance_atr": 0.86,
+          "touches": 4,
+          "strength": 100.0,
+          "types": [
+            "swing_low",
+            "20d_low",
+            "60d_low"
+          ]
+        },
+        {
+          "price": 82.97326644,
+          "side": "resistance",
+          "distance_atr": -1.16,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -11935,19 +12048,21 @@
           ]
         },
         {
-          "price": 81.5034,
+          "price": 78.7169,
           "side": "support",
-          "distance_atr": 0.85,
-          "touches": 1,
-          "strength": 26.0,
+          "distance_atr": 2.1,
+          "touches": 4,
+          "strength": 100.0,
           "types": [
-            "swing_low"
+            "swing_high",
+            "swing_low",
+            "120d_low"
           ]
         },
         {
-          "price": 84.42095307,
+          "price": 84.39075007,
           "side": "resistance",
-          "distance_atr": -1.4,
+          "distance_atr": -2.24,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -11959,21 +12074,9 @@
           ]
         },
         {
-          "price": 80.33425,
-          "side": "support",
-          "distance_atr": 1.75,
-          "touches": 4,
-          "strength": 100.0,
-          "types": [
-            "swing_low",
-            "20d_low",
-            "60d_low"
-          ]
-        },
-        {
           "price": 86.06874,
           "side": "resistance",
-          "distance_atr": -2.67,
+          "distance_atr": -3.52,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -11982,21 +12085,19 @@
           ]
         },
         {
-          "price": 78.7169,
+          "price": 76.6147,
           "side": "support",
-          "distance_atr": 3.0,
-          "touches": 4,
-          "strength": 100.0,
+          "distance_atr": 3.71,
+          "touches": 1,
+          "strength": 26.0,
           "types": [
-            "swing_high",
-            "swing_low",
-            "120d_low"
+            "swing_high"
           ]
         },
         {
           "price": 86.9873,
           "side": "resistance",
-          "distance_atr": -3.37,
+          "distance_atr": -4.23,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -12004,29 +12105,30 @@
           ]
         },
         {
-          "price": 76.6147,
+          "price": 75.179225,
           "side": "support",
-          "distance_atr": 4.62,
-          "touches": 1,
-          "strength": 26.0,
+          "distance_atr": 4.8,
+          "touches": 4,
+          "strength": 88.0,
           "types": [
-            "swing_high"
+            "swing_high",
+            "swing_low"
           ]
         },
         {
-          "price": 75.671,
+          "price": 73.59952,
           "side": "support",
-          "distance_atr": 5.35,
-          "touches": 1,
-          "strength": 26.0,
+          "distance_atr": 6.01,
+          "touches": 5,
+          "strength": 98.0,
           "types": [
-            "swing_high"
+            "swing_low"
           ]
         },
         {
           "price": 89.6567,
           "side": "resistance",
-          "distance_atr": -5.43,
+          "distance_atr": -6.27,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -12034,20 +12136,9 @@
           ]
         },
         {
-          "price": 74.65544,
+          "price": 71.40436667,
           "side": "support",
-          "distance_atr": 6.13,
-          "touches": 5,
-          "strength": 100.0,
-          "types": [
-            "swing_low",
-            "swing_high"
-          ]
-        },
-        {
-          "price": 73.25543333,
-          "side": "support",
-          "distance_atr": 7.21,
+          "distance_atr": 7.69,
           "touches": 3,
           "strength": 62.0,
           "types": [
@@ -12055,10 +12146,10 @@
           ]
         }
       ],
-      "close": 82.61,
-      "ret_20d_pct": -1.52,
-      "ret_60d_pct": -10.82,
-      "exhaustion": "Neutral- (39)"
+      "close": 81.46,
+      "ret_20d_pct": -3.05,
+      "ret_60d_pct": -12.07,
+      "exhaustion": "Oversold (31)"
     },
     "LE": {
       "symbol": "LE",
@@ -12483,18 +12574,18 @@
       "name": "Dollar Index",
       "asset_class": "FX",
       "contract_type": "FUT",
-      "score": 72.9,
+      "score": 66.1,
       "trend_score": 4,
       "setup": "Trend Resumption",
       "direction": "Long",
-      "setup_score": 72.9,
+      "setup_score": 66.1,
       "setup_status": "Triggered",
       "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: 20d_high/60d_high, swing_high",
       "price_zones": [
         {
-          "price": 103.17,
+          "price": 103.34,
           "side": "support",
-          "distance_atr": 0.3,
+          "distance_atr": 0.03,
           "touches": 3,
           "strength": 87.6,
           "types": [
@@ -12506,7 +12597,7 @@
         {
           "price": 102.735,
           "side": "support",
-          "distance_atr": 1.14,
+          "distance_atr": 1.22,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -12516,7 +12607,7 @@
         {
           "price": 102.32,
           "side": "support",
-          "distance_atr": 1.95,
+          "distance_atr": 2.04,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -12524,9 +12615,9 @@
           ]
         },
         {
-          "price": 101.12769456,
+          "price": 101.13760789,
           "side": "support",
-          "distance_atr": 4.25,
+          "distance_atr": 4.37,
           "touches": 9,
           "strength": 100.0,
           "types": [
@@ -12540,7 +12631,7 @@
         {
           "price": 100.53025,
           "side": "support",
-          "distance_atr": 5.41,
+          "distance_atr": 5.57,
           "touches": 1,
           "strength": 27.6,
           "types": [
@@ -12550,7 +12641,7 @@
         {
           "price": 100.02030967,
           "side": "support",
-          "distance_atr": 6.4,
+          "distance_atr": 6.57,
           "touches": 3,
           "strength": 79.6,
           "types": [
@@ -12560,9 +12651,9 @@
           ]
         },
         {
-          "price": 99.6745025,
+          "price": 99.681896,
           "side": "support",
-          "distance_atr": 7.07,
+          "distance_atr": 7.24,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -12572,11 +12663,11 @@
           ]
         },
         {
-          "price": 99.119211,
+          "price": 99.05665825,
           "side": "support",
-          "distance_atr": 8.14,
-          "touches": 3,
-          "strength": 79.6,
+          "distance_atr": 8.47,
+          "touches": 4,
+          "strength": 97.6,
           "types": [
             "swing_low",
             "swing_high",
@@ -12584,33 +12675,22 @@
           ]
         },
         {
-          "price": 98.67433333,
+          "price": 98.3275,
           "side": "support",
-          "distance_atr": 9.0,
-          "touches": 3,
-          "strength": 70.0,
-          "types": [
-            "swing_high",
-            "swing_low"
-          ]
-        },
-        {
-          "price": 98.2499375,
-          "side": "support",
-          "distance_atr": 9.83,
-          "touches": 8,
+          "distance_atr": 9.91,
+          "touches": 10,
           "strength": 100.0,
           "types": [
             "swing_low",
-            "120d_low",
             "swing_high",
+            "120d_low",
             "60d_low"
           ]
         },
         {
           "price": 96.9001,
           "side": "support",
-          "distance_atr": 12.44,
+          "distance_atr": 12.72,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -12619,9 +12699,9 @@
           ]
         }
       ],
-      "close": 103.325,
-      "ret_20d_pct": 1.64,
-      "ret_60d_pct": 4.93,
+      "close": 103.355,
+      "ret_20d_pct": 1.54,
+      "ret_60d_pct": 4.74,
       "exhaustion": "Overbought (77)"
     },
     "EURUSD": {
@@ -12629,18 +12709,18 @@
       "name": "EURUSD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": -84.1,
+      "score": -86.9,
       "trend_score": -4,
       "setup": "Trend Resumption",
       "direction": "Short",
-      "setup_score": 84.1,
-      "setup_status": "Triggered",
-      "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: 20d_low/60d_low, swing_low",
+      "setup_score": 86.9,
+      "setup_status": "Developing",
+      "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low",
       "price_zones": [
         {
-          "price": 1.10455,
-          "side": "resistance",
-          "distance_atr": -0.33,
+          "price": 1.102,
+          "side": "support",
+          "distance_atr": 0.0,
           "touches": 3,
           "strength": 87.6,
           "types": [
@@ -12652,7 +12732,7 @@
         {
           "price": 1.110875,
           "side": "resistance",
-          "distance_atr": -1.28,
+          "distance_atr": -1.37,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -12662,7 +12742,7 @@
         {
           "price": 1.11615,
           "side": "resistance",
-          "distance_atr": -2.07,
+          "distance_atr": -2.18,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -12670,9 +12750,9 @@
           ]
         },
         {
-          "price": 1.12773725,
+          "price": 1.127436,
           "side": "resistance",
-          "distance_atr": -3.8,
+          "distance_atr": -3.92,
           "touches": 4,
           "strength": 99.2,
           "types": [
@@ -12684,7 +12764,7 @@
         {
           "price": 1.13326177,
           "side": "resistance",
-          "distance_atr": -4.63,
+          "distance_atr": -4.82,
           "touches": 3,
           "strength": 71.6,
           "types": [
@@ -12695,7 +12775,7 @@
         {
           "price": 1.139075,
           "side": "resistance",
-          "distance_atr": -5.5,
+          "distance_atr": -5.71,
           "touches": 3,
           "strength": 71.6,
           "types": [
@@ -12704,10 +12784,10 @@
           ]
         },
         {
-          "price": 1.14784496,
+          "price": 1.14728578,
           "side": "resistance",
-          "distance_atr": -6.81,
-          "touches": 7,
+          "distance_atr": -6.98,
+          "touches": 6,
           "strength": 100.0,
           "types": [
             "swing_low",
@@ -12716,23 +12796,22 @@
           ]
         },
         {
-          "price": 1.15645484,
+          "price": 1.15232922,
           "side": "resistance",
-          "distance_atr": -8.1,
-          "touches": 7,
-          "strength": 100.0,
+          "distance_atr": -7.76,
+          "touches": 3,
+          "strength": 83.6,
           "types": [
+            "swing_low",
             "ma200",
-            "fib_0.786",
-            "swing_low",
-            "swing_high"
+            "fib_0.786"
           ]
         },
         {
-          "price": 1.16401429,
+          "price": 1.15941875,
           "side": "resistance",
-          "distance_atr": -9.23,
-          "touches": 7,
+          "distance_atr": -8.85,
+          "touches": 8,
           "strength": 100.0,
           "types": [
             "swing_low",
@@ -12740,22 +12819,33 @@
           ]
         },
         {
-          "price": 1.17108333,
+          "price": 1.16704286,
           "side": "resistance",
-          "distance_atr": -10.29,
-          "touches": 6,
+          "distance_atr": -10.03,
+          "touches": 7,
           "strength": 100.0,
           "types": [
             "swing_high",
             "swing_low",
-            "60d_high",
-            "120d_high"
+            "60d_high"
+          ]
+        },
+        {
+          "price": 1.17216667,
+          "side": "resistance",
+          "distance_atr": -10.82,
+          "touches": 3,
+          "strength": 82.0,
+          "types": [
+            "swing_high",
+            "120d_high",
+            "swing_low"
           ]
         },
         {
           "price": 1.1793875,
           "side": "resistance",
-          "distance_atr": -11.54,
+          "distance_atr": -11.93,
           "touches": 4,
           "strength": 88.0,
           "types": [
@@ -12764,39 +12854,39 @@
           ]
         }
       ],
-      "close": 1.10235,
-      "ret_20d_pct": -1.9,
-      "ret_60d_pct": -5.62,
-      "exhaustion": "Oversold (23)"
+      "close": 1.102,
+      "ret_20d_pct": -1.72,
+      "ret_60d_pct": -5.52,
+      "exhaustion": "Oversold (22)"
     },
     "GBPUSD": {
       "symbol": "GBPUSD",
       "name": "GBPUSD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": -68.8,
+      "score": -85.3,
       "trend_score": -4,
       "setup": "Trend Resumption",
       "direction": "Short",
-      "setup_score": 68.8,
-      "setup_status": "Triggered",
-      "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low/20d_low, swing_low/swing_high",
+      "setup_score": 85.3,
+      "setup_status": "Developing",
+      "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: 20d_low/swing_low, swing_low/swing_high",
       "price_zones": [
         {
-          "price": 1.32478,
+          "price": 1.32255,
           "side": "resistance",
-          "distance_atr": -0.48,
-          "touches": 5,
-          "strength": 100.0,
+          "distance_atr": -0.28,
+          "touches": 3,
+          "strength": 71.6,
           "types": [
-            "swing_low",
-            "20d_low"
+            "20d_low",
+            "swing_low"
           ]
         },
         {
           "price": 1.31485833,
           "side": "support",
-          "distance_atr": 0.9,
+          "distance_atr": 0.8,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -12806,10 +12896,10 @@
           ]
         },
         {
-          "price": 1.33207834,
+          "price": 1.33094193,
           "side": "resistance",
-          "distance_atr": -1.5,
-          "touches": 7,
+          "distance_atr": -1.47,
+          "touches": 9,
           "strength": 100.0,
           "types": [
             "swing_low",
@@ -12819,19 +12909,9 @@
           ]
         },
         {
-          "price": 1.3038,
-          "side": "support",
-          "distance_atr": 2.43,
-          "touches": 1,
-          "strength": 26.0,
-          "types": [
-            "swing_low"
-          ]
-        },
-        {
-          "price": 1.34042041,
+          "price": 1.34038559,
           "side": "resistance",
-          "distance_atr": -2.66,
+          "distance_atr": -2.8,
           "touches": 7,
           "strength": 100.0,
           "types": [
@@ -12845,7 +12925,7 @@
         {
           "price": 1.34854256,
           "side": "resistance",
-          "distance_atr": -3.79,
+          "distance_atr": -3.95,
           "touches": 11,
           "strength": 100.0,
           "types": [
@@ -12858,7 +12938,7 @@
         {
           "price": 1.35670833,
           "side": "resistance",
-          "distance_atr": -4.93,
+          "distance_atr": -5.1,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -12866,9 +12946,9 @@
           ]
         },
         {
-          "price": 1.36676,
+          "price": 1.36637,
           "side": "resistance",
-          "distance_atr": -6.32,
+          "distance_atr": -6.46,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -12880,7 +12960,7 @@
         {
           "price": 1.37125,
           "side": "resistance",
-          "distance_atr": -6.95,
+          "distance_atr": -7.15,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -12888,10 +12968,10 @@
           ]
         }
       ],
-      "close": 1.3213,
-      "ret_20d_pct": -0.86,
-      "ret_60d_pct": -3.14,
-      "exhaustion": "Oversold (35)"
+      "close": 1.32055,
+      "ret_20d_pct": -0.75,
+      "ret_60d_pct": -3.13,
+      "exhaustion": "Oversold (34)"
     },
     "AUDUSD": {
       "symbol": "AUDUSD",
@@ -12907,22 +12987,13 @@
       "setup_reasons": "No setup currently meets the detection rules",
       "price_zones": [
         {
-          "price": 0.67665,
-          "side": "support",
-          "distance_atr": 0.1,
-          "touches": 1,
-          "strength": 26.0,
-          "types": [
-            "swing_high"
-          ]
-        },
-        {
-          "price": 0.6798,
+          "price": 0.676875,
           "side": "resistance",
-          "distance_atr": -0.51,
-          "touches": 3,
-          "strength": 87.6,
+          "distance_atr": -0.15,
+          "touches": 4,
+          "strength": 100.0,
           "types": [
+            "swing_high",
             "20d_low",
             "60d_low",
             "120d_low"
@@ -12931,7 +13002,7 @@
         {
           "price": 0.67275,
           "side": "support",
-          "distance_atr": 0.85,
+          "distance_atr": 0.66,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -12941,7 +13012,7 @@
         {
           "price": 0.68335,
           "side": "resistance",
-          "distance_atr": -1.2,
+          "distance_atr": -1.42,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -12951,7 +13022,7 @@
         {
           "price": 0.6673,
           "side": "support",
-          "distance_atr": 1.9,
+          "distance_atr": 1.73,
           "touches": 2,
           "strength": 52.0,
           "types": [
@@ -12962,7 +13033,7 @@
         {
           "price": 0.6890125,
           "side": "resistance",
-          "distance_atr": -2.29,
+          "distance_atr": -2.54,
           "touches": 4,
           "strength": 80.0,
           "types": [
@@ -12970,9 +13041,19 @@
           ]
         },
         {
+          "price": 0.65925,
+          "side": "support",
+          "distance_atr": 3.31,
+          "touches": 1,
+          "strength": 26.0,
+          "types": [
+            "swing_low"
+          ]
+        },
+        {
           "price": 0.69335,
           "side": "resistance",
-          "distance_atr": -3.13,
+          "distance_atr": -3.39,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -12980,67 +13061,69 @@
           ]
         },
         {
-          "price": 0.65925,
-          "side": "support",
-          "distance_atr": 3.46,
-          "touches": 1,
-          "strength": 26.0,
-          "types": [
-            "swing_low"
-          ]
-        },
-        {
-          "price": 0.6979,
+          "price": 0.70110316,
           "side": "resistance",
-          "distance_atr": -4.01,
-          "touches": 1,
-          "strength": 26.0,
-          "types": [
-            "swing_low"
-          ]
-        },
-        {
-          "price": 0.7021327,
-          "side": "resistance",
-          "distance_atr": -4.83,
-          "touches": 4,
+          "distance_atr": -4.91,
+          "touches": 5,
           "strength": 100.0,
           "types": [
-            "ma50",
             "swing_low",
+            "ma50",
             "swing_high",
             "fib_0.382"
           ]
         },
         {
-          "price": 0.70824731,
+          "price": 0.70795132,
           "side": "resistance",
-          "distance_atr": -6.01,
-          "touches": 11,
+          "distance_atr": -6.25,
+          "touches": 10,
           "strength": 100.0,
           "types": [
             "ma200",
             "swing_high",
             "20d_high",
             "fib_0.500",
-            "swing_low",
-            "fib_0.618"
+            "swing_low"
           ]
         },
         {
           "price": 0.64215,
           "side": "support",
-          "distance_atr": 6.76,
+          "distance_atr": 6.67,
           "touches": 1,
           "strength": 26.0,
           "types": [
             "swing_low"
           ]
+        },
+        {
+          "price": 0.7128853,
+          "side": "resistance",
+          "distance_atr": -7.22,
+          "touches": 4,
+          "strength": 97.6,
+          "types": [
+            "fib_0.618",
+            "swing_low",
+            "swing_high"
+          ]
+        },
+        {
+          "price": 0.7190756,
+          "side": "resistance",
+          "distance_atr": -8.44,
+          "touches": 4,
+          "strength": 89.6,
+          "types": [
+            "fib_0.786",
+            "swing_high"
+          ]
         }
       ],
-      "close": 0.67715,
-      "ret_20d_pct": -2.51,
-      "ret_60d_pct": -5.58,
+      "close": 0.6761,
+      "ret_20d_pct": -3.13,
+      "ret_60d_pct": -5.44,
       "exhaustion": "Oversold (21)"
     },
     "USDCAD": {
@@ -13048,30 +13131,18 @@
       "name": "USDCAD",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": 81.3,
+      "score": 0.0,
       "trend_score": 4,
-      "setup": "Trend Resumption",
-      "direction": "Long",
-      "setup_score": 81.3,
-      "setup_status": "Developing",
-      "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: fib_0.786/swing_high",
+      "setup": "No Clear Setup",
+      "direction": "Neutral",
+      "setup_score": 0.0,
+      "setup_status": "Inactive",
+      "setup_reasons": "No setup currently meets the detection rules",
       "price_zones": [
-        {
-          "price": 1.42474283,
-          "side": "support",
-          "distance_atr": 0.34,
-          "touches": 4,
-          "strength": 99.2,
-          "types": [
-            "fib_0.786",
-            "swing_high",
-            "20d_high"
-          ]
-        },
         {
           "price": 1.43,
           "side": "resistance",
-          "distance_atr": -0.47,
+          "distance_atr": -0.35,
           "touches": 3,
           "strength": 86.0,
           "types": [
@@ -13081,9 +13152,21 @@
           ]
         },
         {
+          "price": 1.42480533,
+          "side": "support",
+          "distance_atr": 0.48,
+          "touches": 4,
+          "strength": 99.2,
+          "types": [
+            "fib_0.786",
+            "swing_high",
+            "20d_high"
+          ]
+        },
+        {
           "price": 1.41422422,
           "side": "support",
-          "distance_atr": 1.96,
+          "distance_atr": 2.19,
           "touches": 4,
           "strength": 97.6,
           "types": [
@@ -13093,9 +13176,9 @@
           ]
         },
         {
-          "price": 1.40836762,
+          "price": 1.40855302,
           "side": "support",
-          "distance_atr": 2.86,
+          "distance_atr": 3.1,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -13108,7 +13191,7 @@
         {
           "price": 1.3987,
           "side": "support",
-          "distance_atr": 4.35,
+          "distance_atr": 4.69,
           "touches": 3,
           "strength": 70.0,
           "types": [
@@ -13117,9 +13200,9 @@
           ]
         },
         {
-          "price": 1.39266283,
+          "price": 1.39272275,
           "side": "support",
-          "distance_atr": 5.28,
+          "distance_atr": 5.65,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -13132,7 +13215,7 @@
         {
           "price": 1.3806,
           "side": "support",
-          "distance_atr": 7.13,
+          "distance_atr": 7.6,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -13140,22 +13223,22 @@
           ]
         },
         {
-          "price": 1.37352727,
+          "price": 1.37378182,
           "side": "support",
-          "distance_atr": 8.22,
+          "distance_atr": 8.7,
           "touches": 11,
           "strength": 100.0,
           "types": [
             "swing_high",
             "swing_low",
-            "60d_low",
-            "120d_low"
+            "120d_low",
+            "60d_low"
           ]
         },
         {
           "price": 1.35038333,
           "side": "support",
-          "distance_atr": 11.78,
+          "distance_atr": 12.47,
           "touches": 3,
           "strength": 62.0,
           "types": [
@@ -13163,63 +13246,76 @@
           ]
         }
       ],
-      "close": 1.42695,
-      "ret_20d_pct": 0.91,
-      "ret_60d_pct": 3.71,
-      "exhaustion": "Overbought (74)"
+      "close": 1.4278,
+      "ret_20d_pct": 1.18,
+      "ret_60d_pct": 3.13,
+      "exhaustion": "Overbought (75)"
     },
     "USDJPY": {
       "symbol": "USDJPY",
       "name": "USDJPY",
       "asset_class": "FX",
       "contract_type": "CASH",
-      "score": 79.2,
+      "score": 75.8,
       "trend_score": 4,
       "setup": "Trend Resumption",
       "direction": "Long",
-      "setup_score": 79.2,
+      "setup_score": 75.8,
       "setup_status": "Developing",
-      "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: ma200/swing_high",
+      "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_low/ma200",
       "price_zones": [
         {
-          "price": 160.24627778,
+          "price": 159.81666667,
           "side": "resistance",
-          "distance_atr": -0.59,
-          "touches": 9,
+          "distance_atr": -0.46,
+          "touches": 6,
           "strength": 100.0,
           "types": [
             "swing_high",
-            "20d_high",
+            "swing_low",
+            "20d_high"
+          ]
+        },
+        {
+          "price": 158.83451833,
+          "side": "support",
+          "distance_atr": 0.64,
+          "touches": 6,
+          "strength": 100.0,
+          "types": [
+            "swing_low",
+            "ma200",
+            "swing_high"
+          ]
+        },
+        {
+          "price": 160.492,
+          "side": "resistance",
+          "distance_atr": -1.21,
+          "touches": 5,
+          "strength": 100.0,
+          "types": [
+            "swing_high",
             "60d_high",
             "swing_low"
           ]
         },
         {
-          "price": 159.10213714,
+          "price": 157.6926275,
           "side": "support",
-          "distance_atr": 0.66,
-          "touches": 7,
+          "distance_atr": 1.91,
+          "touches": 8,
           "strength": 100.0,
           "types": [
-            "ma200",
-            "swing_high",
-            "swing_low"
-          ]
-        },
-        {
-          "price": 158.15,
-          "side": "support",
-          "distance_atr": 1.7,
-          "touches": 2,
-          "strength": 44.0,
-          "types": [
-            "swing_low"
+            "swing_low",
+            "ma50",
+            "swing_high"
           ]
         },
         {
           "price": 161.2815,
           "side": "resistance",
-          "distance_atr": -1.72,
+          "distance_atr": -2.09,
           "touches": 1,
           "strength": 26.0,
           "types": [
@@ -13227,32 +13323,21 @@
           ]
         },
         {
-          "price": 157.47419818,
+          "price": 156.96720333,
           "side": "support",
-          "distance_atr": 2.44,
-          "touches": 11,
-          "strength": 100.0,
+          "distance_atr": 2.72,
+          "touches": 3,
+          "strength": 79.6,
           "types": [
             "fib_0.382",
             "swing_high",
-            "swing_low",
-            "ma50"
-          ]
-        },
-        {
-          "price": 162.77575,
-          "side": "resistance",
-          "distance_atr": -3.36,
-          "touches": 2,
-          "strength": 44.0,
-          "types": [
-            "swing_high"
+            "swing_low"
           ]
         },
         {
           "price": 156.124625,
           "side": "support",
-          "distance_atr": 3.92,
+          "distance_atr": 3.66,
           "touches": 4,
           "strength": 99.2,
           "types": [
@@ -13262,20 +13347,19 @@
           ]
         },
         {
-          "price": 163.988,
+          "price": 162.77575,
           "side": "resistance",
-          "distance_atr": -4.69,
+          "distance_atr": -3.75,
           "touches": 2,
-          "strength": 56.0,
+          "strength": 44.0,
           "types": [
-            "swing_high",
-            "120d_high"
+            "swing_high"
           ]
         },
         {
           "price": 155.16579667,
           "side": "support",
-          "distance_atr": 4.97,
+          "distance_atr": 4.72,
           "touches": 3,
           "strength": 71.6,
           "types": [
@@ -13284,9 +13368,20 @@
           ]
         },
         {
+          "price": 163.988,
+          "side": "resistance",
+          "distance_atr": -5.1,
+          "touches": 2,
+          "strength": 56.0,
+          "types": [
+            "swing_high",
+            "120d_high"
+          ]
+        },
+        {
           "price": 154.31651,
           "side": "support",
-          "distance_atr": 5.9,
+          "distance_atr": 5.67,
           "touches": 3,
           "strength": 71.6,
           "types": [
@@ -13297,7 +13392,7 @@
         {
           "price": 152.892,
           "side": "support",
-          "distance_atr": 7.46,
+          "distance_atr": 7.26,
           "touches": 3,
           "strength": 86.0,
           "types": [
@@ -13307,10 +13402,10 @@
           ]
         }
       ],
-      "close": 159.707,
-      "ret_20d_pct": 1.06,
-      "ret_60d_pct": 0.45,
-      "exhaustion": "Overbought (68)"
+      "close": 159.4065,
+      "ret_20d_pct": 0.57,
+      "ret_60d_pct": 0.2,
+      "exhaustion": "Neutral+ (64)"
     },
     "ZB": {
       "symbol": "ZB",
@@ -13472,18 +13567,18 @@
       "name": "Italy BTP",
       "asset_class": "Rates",
       "contract_type": "FUT",
-      "score": -56.9,
+      "score": -57.8,
       "trend_score": 0,
       "setup": "Rally to Resistance",
       "direction": "Short",
-      "setup_score": 56.9,
+      "setup_score": 57.8,
       "setup_status": "Reversing",
       "setup_reasons": "Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_high/swing_low",
       "price_zones": [
         {
           "price": 112.27229,
           "side": "support",
-          "distance_atr": 0.21,
+          "distance_atr": 0.33,
           "touches": 2,
           "strength": 53.6,
           "types": [
@@ -13494,7 +13589,7 @@
         {
           "price": 113.29276667,
           "side": "resistance",
-          "distance_atr": -1.07,
+          "distance_atr": -1.03,
           "touches": 3,
           "strength": 70.0,
           "types": [
@@ -13503,9 +13598,9 @@
           ]
         },
         {
-          "price": 111.46016667,
+          "price": 111.4556,
           "side": "support",
-          "distance_atr": 1.23,
+          "distance_atr": 1.42,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -13520,17 +13615,18 @@
         {
           "price": 113.98,
           "side": "resistance",
-          "distance_atr": -1.93,
-          "touches": 1,
-          "strength": 27.6,
+          "distance_atr": -1.95,
+          "touches": 2,
+          "strength": 53.6,
           "types": [
+            "swing_high",
             "20d_high"
           ]
         },
         {
           "price": 114.773175,
           "side": "resistance",
-          "distance_atr": -2.93,
+          "distance_atr": -3.01,
           "touches": 4,
           "strength": 80.0,
           "types": [
@@ -13540,7 +13636,7 @@
         {
           "price": 110.06,
           "side": "support",
-          "distance_atr": 2.99,
+          "distance_atr": 3.28,
           "touches": 2,
           "strength": 53.6,
           "types": [
@@ -13551,7 +13647,7 @@
         {
           "price": 109.53,
           "side": "support",
-          "distance_atr": 3.66,
+          "distance_atr": 3.99,
           "touches": 4,
           "strength": 100.0,
           "types": [
@@ -13561,9 +13657,9 @@
           ]
         },
         {
-          "price": 115.72679037,
+          "price": 115.71870087,
           "side": "resistance",
-          "distance_atr": -4.13,
+          "distance_atr": -4.27,
           "touches": 4,
           "strength": 100.0,
           "types": [
@@ -13576,7 +13672,7 @@
         {
           "price": 116.43465,
           "side": "resistance",
-          "distance_atr": -5.02,
+          "distance_atr": -5.22,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -13586,7 +13682,7 @@
         {
           "price": 117.5041875,
           "side": "resistance",
-          "distance_atr": -6.36,
+          "distance_atr": -6.65,
           "touches": 8,
           "strength": 100.0,
           "types": [
@@ -13597,7 +13693,7 @@
         {
           "price": 118.39215,
           "side": "resistance",
-          "distance_atr": -7.48,
+          "distance_atr": -7.83,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -13608,7 +13704,7 @@
         {
           "price": 119.14692,
           "side": "resistance",
-          "distance_atr": -8.43,
+          "distance_atr": -8.84,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -13617,28 +13713,28 @@
           ]
         }
       ],
-      "close": 112.44,
-      "ret_20d_pct": 0.56,
-      "ret_60d_pct": -2.14,
-      "exhaustion": "Neutral+ (55)"
+      "close": 112.52,
+      "ret_20d_pct": 1.49,
+      "ret_60d_pct": -2.08,
+      "exhaustion": "Neutral+ (57)"
     },
     "GBL": {
       "symbol": "GBL",
       "name": "Germany Bund",
       "asset_class": "Rates",
       "contract_type": "FUT",
-      "score": -60.4,
+      "score": -60.9,
       "trend_score": 0,
       "setup": "Rally to Resistance",
       "direction": "Short",
-      "setup_score": 60.4,
+      "setup_score": 60.9,
       "setup_status": "Reversing",
       "setup_reasons": "Primary downtrend intact; Price testing an important resistance zone; Initial rejection; Resistance confluence: swing_high, swing_high/swing_low",
       "price_zones": [
         {
           "price": 122.055,
           "side": "resistance",
-          "distance_atr": -0.23,
+          "distance_atr": -0.06,
           "touches": 2,
           "strength": 44.0,
           "types": [
@@ -13646,14 +13742,12 @@
           ]
         },
         {
-          "price": 121.15546,
+          "price": 121.3542,
           "side": "support",
-          "distance_atr": 1.22,
-          "touches": 4,
-          "strength": 100.0,
+          "distance_atr": 1.12,
+          "touches": 2,
+          "strength": 53.6,
           "types": [
-            "fib_0.382",
-            "20d_low",
             "ma50",
             "swing_high"
           ]
@@ -13661,7 +13755,7 @@
         {
           "price": 122.75276667,
           "side": "resistance",
-          "distance_atr": -1.36,
+          "distance_atr": -1.24,
           "touches": 3,
           "strength": 70.0,
           "types": [
@@ -13670,21 +13764,20 @@
           ]
         },
         {
-          "price": 120.39398667,
+          "price": 120.95902,
           "side": "support",
-          "distance_atr": 2.44,
-          "touches": 3,
-          "strength": 81.2,
+          "distance_atr": 1.79,
+          "touches": 2,
+          "strength": 55.2,
           "types": [
-            "fib_0.618",
-            "swing_low",
-            "fib_0.500"
+            "fib_0.382",
+            "20d_low"
           ]
         },
         {
           "price": 123.43378333,
           "side": "resistance",
-          "distance_atr": -2.46,
+          "distance_atr": -2.39,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -13694,20 +13787,21 @@
           ]
         },
         {
-          "price": 119.85746,
+          "price": 120.39398667,
           "side": "support",
-          "distance_atr": 3.31,
-          "touches": 2,
-          "strength": 53.6,
+          "distance_atr": 2.75,
+          "touches": 3,
+          "strength": 81.2,
           "types": [
-            "fib_0.786",
-            "swing_low"
+            "fib_0.618",
+            "swing_low",
+            "fib_0.500"
           ]
         },
         {
-          "price": 123.9690797,
+          "price": 123.9649295,
           "side": "resistance",
-          "distance_atr": -3.32,
+          "distance_atr": -3.29,
           "touches": 5,
           "strength": 100.0,
           "types": [
@@ -13718,9 +13812,20 @@
           ]
         },
         {
+          "price": 119.85746,
+          "side": "support",
+          "distance_atr": 3.65,
+          "touches": 2,
+          "strength": 53.6,
+          "types": [
+            "fib_0.786",
+            "swing_low"
+          ]
+        },
+        {
           "price": 124.46693333,
           "side": "resistance",
-          "distance_atr": -4.12,
+          "distance_atr": -4.13,
           "touches": 3,
           "strength": 62.0,
           "types": [
@@ -13730,7 +13835,7 @@
         {
           "price": 119.19,
           "side": "support",
-          "distance_atr": 4.38,
+          "distance_atr": 4.78,
           "touches": 3,
           "strength": 86.0,
           "types": [
@@ -13742,7 +13847,7 @@
         {
           "price": 125.22651667,
           "side": "resistance",
-          "distance_atr": -5.34,
+          "distance_atr": -5.42,
           "touches": 6,
           "strength": 100.0,
           "types": [
@@ -13753,30 +13858,19 @@
         {
           "price": 125.8773,
           "side": "resistance",
-          "distance_atr": -6.39,
+          "distance_atr": -6.52,
           "touches": 7,
           "strength": 100.0,
           "types": [
             "swing_low",
             "swing_high"
           ]
-        },
-        {
-          "price": 126.68144,
-          "side": "resistance",
-          "distance_atr": -7.69,
-          "touches": 5,
-          "strength": 100.0,
-          "types": [
-            "swing_high",
-            "120d_high"
-          ]
         }
       ],
-      "close": 121.91,
-      "ret_20d_pct": 0.24,
-      "ret_60d_pct": -0.87,
-      "exhaustion": "Neutral+ (51)"
+      "close": 122.02,
+      "ret_20d_pct": 0.73,
+      "ret_60d_pct": -0.81,
+      "exhaustion": "Neutral+ (53)"
     },
     "MBT": {
       "symbol": "MBT",
