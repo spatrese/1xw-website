@@ -1,0 +1,1903 @@
+{
+  "asof": "2026-11-24",
+  "week_id": "2026-W48",
+  "technical_overview": {
+    "by_symbol": {
+      "ES": {
+        "symbol": "ES",
+        "name": "S&P 500",
+        "asset_class": "Equities",
+        "setup": "Failed Breakdown",
+        "score": 78.8,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 78.8,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/swing_low, swing_low/fib_0.500",
+        "ret_20d_pct": -5.96,
+        "ret_60d_pct": -6.88,
+        "exhaustion": "Neutral- (37)"
+      },
+      "NQ": {
+        "symbol": "NQ",
+        "name": "Nasdaq 100",
+        "asset_class": "Equities",
+        "setup": "Failed Breakdown",
+        "score": 71.7,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 71.7,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/fib_0.618",
+        "ret_20d_pct": -8.93,
+        "ret_60d_pct": -10.01,
+        "exhaustion": "Neutral- (37)"
+      },
+      "RTY": {
+        "symbol": "RTY",
+        "name": "Russell 2000",
+        "asset_class": "Equities",
+        "setup": "Failed Breakdown",
+        "score": 77.6,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 77.6,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/swing_high, 20d_low/60d_low",
+        "ret_20d_pct": -4.41,
+        "ret_60d_pct": -10.85,
+        "exhaustion": "Neutral- (37)"
+      },
+      "DAX": {
+        "symbol": "DAX",
+        "name": "DAX",
+        "asset_class": "Equities",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": -2.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -1.38,
+        "ret_60d_pct": -3.1,
+        "exhaustion": "Neutral- (42)"
+      },
+      "NIY": {
+        "symbol": "NIY",
+        "name": "Nikkei 225",
+        "asset_class": "Equities",
+        "setup": "Failed Breakdown",
+        "score": 55.3,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 55.3,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low",
+        "ret_20d_pct": -7.77,
+        "ret_60d_pct": -11.67,
+        "exhaustion": "Neutral- (37)"
+      },
+      "VIX": {
+        "symbol": "VIX",
+        "name": "VIX Index",
+        "asset_class": "Equities",
+        "setup": "Failed Breakdown",
+        "score": 81.9,
+        "trend_score": 4.0,
+        "direction": "Long",
+        "setup_score": 81.9,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: ma200/ma50",
+        "ret_20d_pct": 52.05,
+        "ret_60d_pct": 78.55,
+        "exhaustion": "Neutral+ (58)"
+      },
+      "CL": {
+        "symbol": "CL",
+        "name": "WTI Crude",
+        "asset_class": "Commodities",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": 0.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -20.31,
+        "ret_60d_pct": 4.37,
+        "exhaustion": "Oversold (28)"
+      },
+      "RB": {
+        "symbol": "RB",
+        "name": "RBOB Gasoline",
+        "asset_class": "Commodities",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": -4.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -22.76,
+        "ret_60d_pct": -11.58,
+        "exhaustion": "Extreme OS (19)"
+      },
+      "NG": {
+        "symbol": "NG",
+        "name": "Natural Gas",
+        "asset_class": "Commodities",
+        "setup": "Failed Breakout",
+        "score": -86.4,
+        "trend_score": -2.0,
+        "direction": "Short",
+        "setup_score": 86.4,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_low/fib_0.382",
+        "ret_20d_pct": 5.35,
+        "ret_60d_pct": -8.99,
+        "exhaustion": "Neutral- (45)"
+      },
+      "HG": {
+        "symbol": "HG",
+        "name": "Copper",
+        "asset_class": "Commodities",
+        "setup": "Failed Breakdown",
+        "score": 79.3,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 79.3,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/60d_low",
+        "ret_20d_pct": -13.88,
+        "ret_60d_pct": -15.39,
+        "exhaustion": "Oversold (21)"
+      },
+      "GC": {
+        "symbol": "GC",
+        "name": "Gold",
+        "asset_class": "Commodities",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": -4.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -9.58,
+        "ret_60d_pct": -19.38,
+        "exhaustion": "Oversold (26)"
+      },
+      "SI": {
+        "symbol": "SI",
+        "name": "Silver",
+        "asset_class": "Commodities",
+        "setup": "Failed Breakdown",
+        "score": 70.2,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 70.2,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/60d_low",
+        "ret_20d_pct": -20.55,
+        "ret_60d_pct": -36.31,
+        "exhaustion": "Oversold (22)"
+      },
+      "ZC": {
+        "symbol": "ZC",
+        "name": "Corn",
+        "asset_class": "Commodities",
+        "setup": "Trend Resumption",
+        "score": -77.5,
+        "trend_score": -4.0,
+        "direction": "Short",
+        "setup_score": 77.5,
+        "setup_status": "Developing",
+        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low",
+        "ret_20d_pct": -3.85,
+        "ret_60d_pct": -18.45,
+        "exhaustion": "Oversold (25)"
+      },
+      "ZW": {
+        "symbol": "ZW",
+        "name": "Wheat",
+        "asset_class": "Commodities",
+        "setup": "Trend Resumption",
+        "score": -84.8,
+        "trend_score": -4.0,
+        "direction": "Short",
+        "setup_score": 84.8,
+        "setup_status": "Developing",
+        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low",
+        "ret_20d_pct": -5.7,
+        "ret_60d_pct": -25.91,
+        "exhaustion": "Oversold (26)"
+      },
+      "ZS": {
+        "symbol": "ZS",
+        "name": "Soybeans",
+        "asset_class": "Commodities",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": -4.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -1.9,
+        "ret_60d_pct": -5.7,
+        "exhaustion": "Neutral- (42)"
+      },
+      "SB": {
+        "symbol": "SB",
+        "name": "Sugar",
+        "asset_class": "Commodities",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": -2.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -8.28,
+        "ret_60d_pct": -5.98,
+        "exhaustion": "Oversold (32)"
+      },
+      "KC": {
+        "symbol": "KC",
+        "name": "Coffee",
+        "asset_class": "Commodities",
+        "setup": "Trend Resumption",
+        "score": -78.9,
+        "trend_score": -4.0,
+        "direction": "Short",
+        "setup_score": 78.9,
+        "setup_status": "Developing",
+        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_high/ma200",
+        "ret_20d_pct": -9.19,
+        "ret_60d_pct": -12.64,
+        "exhaustion": "Neutral- (36)"
+      },
+      "CC": {
+        "symbol": "CC",
+        "name": "Cocoa",
+        "asset_class": "Commodities",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": -2.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -5.66,
+        "ret_60d_pct": -22.1,
+        "exhaustion": "Neutral- (44)"
+      },
+      "CT": {
+        "symbol": "CT",
+        "name": "Cotton",
+        "asset_class": "Commodities",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": -4.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -1.04,
+        "ret_60d_pct": -17.06,
+        "exhaustion": "Neutral- (41)"
+      },
+      "LE": {
+        "symbol": "LE",
+        "name": "Live Cattle",
+        "asset_class": "Commodities",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": 0.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": -2.89,
+        "ret_60d_pct": 4.68,
+        "exhaustion": "Neutral+ (58)"
+      },
+      "GF": {
+        "symbol": "GF",
+        "name": "Feeder Cattle",
+        "asset_class": "Commodities",
+        "setup": "Pullback to Support",
+        "score": 74.0,
+        "trend_score": 2.0,
+        "direction": "Long",
+        "setup_score": 74.0,
+        "setup_status": "Reversing",
+        "setup_reasons": "Primary uptrend intact; Price testing an important support zone; Initial rebound; Support confluence: swing_high/ma50, swing_low/fib_0.500",
+        "ret_20d_pct": -3.37,
+        "ret_60d_pct": 8.88,
+        "exhaustion": "Neutral+ (54)"
+      },
+      "HE": {
+        "symbol": "HE",
+        "name": "Lean Hogs",
+        "asset_class": "Commodities",
+        "setup": "Oversold Confluence",
+        "score": 60.3,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 60.3,
+        "setup_status": "Early",
+        "setup_reasons": "Oversold condition; Multiple support levels align; Initial rebound; Support confluence: 20d_low/60d_low",
+        "ret_20d_pct": -19.98,
+        "ret_60d_pct": -29.42,
+        "exhaustion": "Extreme OS (19)"
+      },
+      "DX": {
+        "symbol": "DX",
+        "name": "DX",
+        "asset_class": "FX",
+        "setup": "Failed Breakout",
+        "score": -53.3,
+        "trend_score": 4.0,
+        "direction": "Short",
+        "setup_score": 53.3,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: 20d_high/60d_high",
+        "ret_20d_pct": 2.0,
+        "ret_60d_pct": 4.85,
+        "exhaustion": "Extreme OB (80)"
+      },
+      "EURUSD": {
+        "symbol": "EURUSD",
+        "name": "EURUSD",
+        "asset_class": "FX",
+        "setup": "Failed Breakdown",
+        "score": 51.9,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 51.9,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/60d_low",
+        "ret_20d_pct": -1.92,
+        "ret_60d_pct": -5.88,
+        "exhaustion": "Extreme OS (18)"
+      },
+      "GBPUSD": {
+        "symbol": "GBPUSD",
+        "name": "GBPUSD",
+        "asset_class": "FX",
+        "setup": "Failed Breakdown",
+        "score": 52.5,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 52.5,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: 20d_low/60d_low",
+        "ret_20d_pct": -1.96,
+        "ret_60d_pct": -3.48,
+        "exhaustion": "Oversold (25)"
+      },
+      "AUDUSD": {
+        "symbol": "AUDUSD",
+        "name": "AUDUSD",
+        "asset_class": "FX",
+        "setup": "Failed Breakdown",
+        "score": 62.1,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 62.1,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/20d_low",
+        "ret_20d_pct": -5.66,
+        "ret_60d_pct": -7.24,
+        "exhaustion": "Extreme OS (15)"
+      },
+      "CADUSD": {
+        "symbol": "CADUSD",
+        "name": "CADUSD",
+        "asset_class": "FX",
+        "setup": "Failed Breakdown",
+        "score": 50.9,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 50.9,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: 20d_high/60d_high",
+        "ret_20d_pct": -2.19,
+        "ret_60d_pct": -3.33,
+        "exhaustion": "Extreme OS (20)"
+      },
+      "JPYUSD": {
+        "symbol": "JPYUSD",
+        "name": "JPYUSD",
+        "asset_class": "FX",
+        "setup": "Trend Resumption",
+        "score": -81.4,
+        "trend_score": -2.0,
+        "direction": "Short",
+        "setup_score": 81.4,
+        "setup_status": "Developing",
+        "setup_reasons": "Uptrend intact; 20-day consolidation/compression; Price near or above range high; Support confluence: swing_high/ma200, swing_low/fib_0.500",
+        "ret_20d_pct": -0.87,
+        "ret_60d_pct": 0.53,
+        "exhaustion": "Neutral- (40)"
+      },
+      "ZB": {
+        "symbol": "ZB",
+        "name": "US Treasury",
+        "asset_class": "Rates",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": 0.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": 0.38,
+        "ret_60d_pct": -1.2,
+        "exhaustion": "Neutral+ (64)"
+      },
+      "BTP": {
+        "symbol": "BTP",
+        "name": "Italy BTP",
+        "asset_class": "Rates",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": 0.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": 1.52,
+        "ret_60d_pct": -0.78,
+        "exhaustion": "Overbought (69)"
+      },
+      "GBL": {
+        "symbol": "GBL",
+        "name": "Germany Bund",
+        "asset_class": "Rates",
+        "setup": "No Clear Setup",
+        "score": 0.0,
+        "trend_score": 2.0,
+        "direction": "Neutral",
+        "setup_score": 0.0,
+        "setup_status": "Inactive",
+        "setup_reasons": "No setup currently meets the detection rules",
+        "ret_20d_pct": 0.7,
+        "ret_60d_pct": 0.58,
+        "exhaustion": "Overbought (68)"
+      },
+      "MBT": {
+        "symbol": "MBT",
+        "name": "Bitcoin",
+        "asset_class": "Crypto",
+        "setup": "Failed Breakdown",
+        "score": 83.2,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 83.2,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low, 20d_low/60d_low",
+        "ret_20d_pct": -22.94,
+        "ret_60d_pct": -21.59,
+        "exhaustion": "Extreme OS (19)"
+      },
+      "MET": {
+        "symbol": "MET",
+        "name": "Ethereum",
+        "asset_class": "Crypto",
+        "setup": "Failed Breakdown",
+        "score": 77.8,
+        "trend_score": -4.0,
+        "direction": "Long",
+        "setup_score": 77.8,
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/120d_low",
+        "ret_20d_pct": -25.74,
+        "ret_60d_pct": -30.17,
+        "exhaustion": "Oversold (21)"
+      }
+    },
+    "by_asset_class": {
+      "Equities": {
+        "n": 6,
+        "avg_score": -2.333,
+        "bullish": 1,
+        "bearish": 5,
+        "text": "Breadth is defensive: avg score -2.33, bullish 1/6, bearish 5/6."
+      },
+      "Commodities": {
+        "n": 16,
+        "avg_score": -2.75,
+        "bullish": 1,
+        "bearish": 13,
+        "text": "Breadth is defensive: avg score -2.75, bullish 1/16, bearish 13/16."
+      },
+      "FX": {
+        "n": 5,
+        "avg_score": -3.6,
+        "bullish": 0,
+        "bearish": 5,
+        "text": "Breadth is defensive: avg score -3.60, bullish 0/5, bearish 5/5."
+      },
+      "Rates": {
+        "n": 3,
+        "avg_score": 0.667,
+        "bullish": 1,
+        "bearish": 0,
+        "text": "Breadth is balanced: avg score 0.67, bullish 1/3, bearish 0/3."
+      },
+      "Crypto": {
+        "n": 2,
+        "avg_score": -4.0,
+        "bullish": 0,
+        "bearish": 2,
+        "text": "Breadth is defensive: avg score -4.00, bullish 0/2, bearish 2/2."
+      }
+    }
+  },
+  "fundamental_overview": {
+    "by_asset_class": {
+      "Equities": {
+        "tone": "Supportive",
+        "bias": 0.852,
+        "confidence": 0.816,
+        "commentary": "Risk sentiment remains constructive, though leadership is selective. Bias +0.85, confidence 0.82. Primary flow source: CNBC.",
+        "top_news": [
+          {
+            "title": "Jensen Huang reinstated as Nvidia CEO. Stock skyrockets 31%",
+            "source": "CNBC",
+            "date": "2026-11-23T21:08:05Z",
+            "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html",
+            "summary": "The Nvidia board said it had input from senior levels of the U.S. government."
+          },
+          {
+            "title": "Asian stocks rally as Huang's return to Nvidia revives the AI trade",
+            "source": "Reuters",
+            "date": "2026-11-24T08:48:26Z",
+            "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-11-24/",
+            "summary": ""
+          },
+          {
+            "title": "Citadel Securities Says 2018 Playbook Warns of More Market Pain",
+            "source": "Bloomberg",
+            "date": "2026-11-24T08:48:26Z",
+            "url": "https://www.bloomberg.com/news/articles/2026-11-23/citadel-securities-says-2018-playbook-warns-of-more-market-pain",
+            "summary": ""
+          }
+        ],
+        "score_details": [
+          {
+            "title": "Asian stocks rally as Huang's return to Nvidia revives the AI trade",
+            "source": "Reuters",
+            "direction": 1.5,
+            "relevance": 1.6,
+            "score": 2.4,
+            "reason": "Confirms cross-border spillover of the Nvidia-led risk-on move: Asian markets and chip suppliers rally, reinforcing a regional/global equity bid and momentum into cyclicals/tech."
+          },
+          {
+            "title": "Citadel Securities Says 2018 Playbook Warns of More Market Pain",
+            "source": "Bloomberg",
+            "direction": -1.0,
+            "relevance": 1.2,
+            "score": -1.2,
+            "reason": "Notable cautionary signal from a major market player pointing to potential further volatility/deleveraging. Acts as a counterweight to the rally—relevant for risk management and positioning."
+          },
+          {
+            "title": "Franklin Templeton Urges Investors to Look Beyond the AI Trade",
+            "source": "Bloomberg",
+            "direction": -0.5,
+            "relevance": 0.6,
+            "score": -0.3,
+            "reason": "Institutional note urging diversification / caution versus concentrated AI positioning. Mildly bearish signal that tempers the prevailing bullish narrative but limited immediate market-moving power."
+          },
+          {
+            "title": "Jensen Huang is ‘too big to fire,’ putting Nvidia’s governance in focus: analysts",
+            "source": "CNBC",
+            "direction": -0.7,
+            "relevance": 0.7,
+            "score": -0.49,
+            "reason": "Corporate-governance concern that raises medium-term risk/discount to Nvidia and the concentration risk in the AI trade. Relevant to structural durability of the rally but lower immediate market influence."
+          },
+          {
+            "title": "S&P 500: Strong rebound and ambitious 2027 target – Deutsche Bank",
+            "source": "FXStreet",
+            "direction": 1.2,
+            "relevance": 1.0,
+            "score": 1.2,
+            "reason": "Bullish institutional price-path / narrative that amplifies the short-term rally into a longer-term constructive view for equities; supportive but a single forecast so moderated relevance."
+          },
+          {
+            "title": "Jensen Huang reinstated as Nvidia CEO. Stock skyrockets 31%",
+            "source": "CNBC",
+            "direction": 1.75,
+            "relevance": 2.0,
+            "score": 3.5,
+            "reason": "Direct, market-moving catalyst: reinstatement of Nvidia CEO triggers a massive tech/AI-led rally, large liquidity flows back into AI leaders and broad risk-on repositioning. Very high relevance to overall equity sentiment and positioning."
+          }
+        ],
+        "macro_calendar": [
+          {
+            "label": "US Consumer Confidence",
+            "title": "US Consumer Confidence",
+            "ticker": "",
+            "company": "",
+            "source": "Conference Board",
+            "date": "2026-11-24",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US Core PCE",
+            "title": "US Core PCE",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          },
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US PCE Inflation",
+            "title": "US PCE Inflation",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          }
+        ],
+        "earnings_calendar": [],
+        "key_watchpoints": [
+          {
+            "label": "US Consumer Confidence",
+            "title": "US Consumer Confidence",
+            "ticker": "",
+            "company": "",
+            "source": "Conference Board",
+            "date": "2026-11-24",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US Core PCE",
+            "title": "US Core PCE",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          },
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US PCE Inflation",
+            "title": "US PCE Inflation",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          }
+        ],
+        "key_events": [
+          {
+            "label": "US Consumer Confidence",
+            "title": "US Consumer Confidence",
+            "ticker": "",
+            "company": "",
+            "source": "Conference Board",
+            "date": "2026-11-24",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US Core PCE",
+            "title": "US Core PCE",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          },
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US PCE Inflation",
+            "title": "US PCE Inflation",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          }
+        ]
+      },
+      "Commodities": {
+        "tone": "Cautious",
+        "bias": -0.661,
+        "confidence": 0.741,
+        "commentary": "Commodity tone is cautious, with growth uncertainty weighing against supply support. Bias -0.66, confidence 0.74. Primary flow source: Reuters.",
+        "top_news": [
+          {
+            "title": "Oil holds near three-month low as rising supply offsets Hormuz threat",
+            "source": "Reuters",
+            "date": "2026-11-24T08:48:26Z",
+            "url": "https://www.reuters.com/business/energy/oil-holds-near-three-month-low-rising-supply-offsets-hormuz-threat-2026-11-24/",
+            "summary": ""
+          },
+          {
+            "title": "U.S. natural gas inventories end injection season above normal levels",
+            "source": "EIA Today in Energy",
+            "date": "2026-11-18T14:00:00Z",
+            "url": "https://www.eia.gov/todayinenergy/detail.php?id=68484",
+            "summary": "Working natural gas in storage in the Lower 48 states ended the natural gas injection season at 3,810 billion cubic feet (Bcf), exceeding the five-year average by almost 2%, according to estimates based on data from our Weekly Natural Gas Storage Report releas"
+          },
+          {
+            "title": "Copper Erases Nvidia Bounce on ‘Multiple Reasons’ to Be Short",
+            "source": "Bloomberg",
+            "date": "2026-11-24T08:48:26Z",
+            "url": "https://www.bloomberg.com/news/articles/2026-11-24/copper-resumes-decline-as-investors-look-beyond-drama-at-nvidia",
+            "summary": ""
+          }
+        ],
+        "score_details": [
+          {
+            "title": "Category 2 Hurricane Isaias nears landfall, leading to production shut-ins",
+            "source": "EIA Today in Energy",
+            "direction": 1.0,
+            "relevance": 1.1,
+            "score": 1.1,
+            "reason": "Gulf Coast landfall risk can force production and refinery shut-ins, tightening near-term crude/natural gas supply — supportive for energy prices in the short run; localized and temporary so relevance is moderate."
+          },
+          {
+            "title": "Oil holds near three-month low as rising supply offsets Hormuz threat",
+            "source": "Reuters",
+            "direction": -1.3,
+            "relevance": 1.4,
+            "score": -1.82,
+            "reason": "Market narrative: rising global supply (including Middle East flows, restarts) is outweighing geopolitical risk around Hormuz — a material bearish regime signal for crude with above-normal relevance."
+          },
+          {
+            "title": "Copper Erases Nvidia Bounce on ‘Multiple Reasons’ to Be Short",
+            "source": "Bloomberg",
+            "direction": -1.0,
+            "relevance": 1.2,
+            "score": -1.2,
+            "reason": "Headline signals renewed bearish positioning in copper (investor flow/short bias and demand concerns). Industrial-metal sell signal with meaningful relevance to copper prices and market positioning."
+          },
+          {
+            "title": "Silver Price Forecast: XAG/USD grips recovery above $43; outlook remains cautious",
+            "source": "FXStreet",
+            "direction": 0.5,
+            "relevance": 0.8,
+            "score": 0.4,
+            "reason": "Technical/price-forecast item: recovery from a 14-month low suggests tentative support for silver, but this is price-technical in nature and given guidance relevance is capped (lower structural signal)."
+          },
+          {
+            "title": "Gold gives back early gains as global AI stocks regain traction",
+            "source": "FXStreet",
+            "direction": -0.6,
+            "relevance": 0.8,
+            "score": -0.48,
+            "reason": "Equities/AI-led risk-on reduces safe-haven demand for gold — price-action/flow-driven downward impulse. Classified as price/market commentary so relevance capped."
+          },
+          {
+            "title": "Oil flows through Middle East chokepoints increased in the third quarter",
+            "source": "EIA Today in Energy",
+            "direction": -1.0,
+            "relevance": 1.2,
+            "score": -1.2,
+            "reason": "19% rise in shipments through Middle East chokepoints implies higher crude flows into world markets, increasing available supply and reducing risk premium — bearish for oil prices (commodity supply-led signal)."
+          },
+          {
+            "title": "U.S. natural gas inventories end injection season above normal levels",
+            "source": "EIA Today in Energy",
+            "direction": -1.1,
+            "relevance": 1.3,
+            "score": -1.43,
+            "reason": "Inventories finishing the injection season above the five-year average implies looser-than-expected supply/demand balance heading into winter — bearish for natural gas prices (fundamental inventory signal)."
+          }
+        ],
+        "macro_calendar": [
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "PMI",
+            "title": "Euro Area PMI Manufacturing",
+            "ticker": "",
+            "company": "",
+            "source": "S&P Global",
+            "date": "2026-12-01",
+            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
+          },
+          {
+            "label": "PMI",
+            "title": "ISM Manufacturing PMI",
+            "ticker": "",
+            "company": "",
+            "source": "ISM",
+            "date": "2026-12-01",
+            "url": "https://www.newyorkfed.org/research/calendars/i-dec26.html"
+          }
+        ],
+        "earnings_calendar": [],
+        "key_watchpoints": [
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "PMI",
+            "title": "Euro Area PMI Manufacturing",
+            "ticker": "",
+            "company": "",
+            "source": "S&P Global",
+            "date": "2026-12-01",
+            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
+          },
+          {
+            "label": "PMI",
+            "title": "ISM Manufacturing PMI",
+            "ticker": "",
+            "company": "",
+            "source": "ISM",
+            "date": "2026-12-01",
+            "url": "https://www.newyorkfed.org/research/calendars/i-dec26.html"
+          }
+        ],
+        "key_events": [
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "PMI",
+            "title": "Euro Area PMI Manufacturing",
+            "ticker": "",
+            "company": "",
+            "source": "S&P Global",
+            "date": "2026-12-01",
+            "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
+          },
+          {
+            "label": "PMI",
+            "title": "ISM Manufacturing PMI",
+            "ticker": "",
+            "company": "",
+            "source": "ISM",
+            "date": "2026-12-01",
+            "url": "https://www.newyorkfed.org/research/calendars/i-dec26.html"
+          }
+        ]
+      },
+      "FX": {
+        "tone": "Mixed",
+        "bias": -0.074,
+        "confidence": 0.727,
+        "commentary": "Major currencies show mixed signals against the dollar, with no clean macro direction yet. Bias -0.07, confidence 0.73. Primary flow source: FXStreet.",
+        "top_news": [
+          {
+            "title": "Euro languishes at 19-month lows amid reviving hopes of aggressive Fed hikes",
+            "source": "FXStreet",
+            "date": "2026-11-24T07:23:52Z",
+            "url": "https://www.fxstreet.com/news/euro-languishes-at-19-month-lows-amid-reviving-hopes-of-aggressive-fed-hikes-202611240723",
+            "summary": "The Euro (EUR) consolidates losses against a stronger US Dollar (USD) on Tuesday as the sharp rally of AI stocks has fuelled hopes that the Federal Reserve (Fed) might go for a large rate hike in December."
+          },
+          {
+            "title": "Japanese Yen strengthens amid intervention fears, traders await US PCE inflation data",
+            "source": "FXStreet",
+            "date": "2026-11-24T01:35:13Z",
+            "url": "https://www.fxstreet.com/news/japanese-yen-strengthens-amid-intervention-fears-traders-await-us-pce-inflation-data-202611240135",
+            "summary": "The USD/JPY pair declines to near 158.95 during the early Asian trading hours on Tuesday. The Japanese Yen (JPY) edges higher against the US Dollar (USD) as traders remain on high alert for market action, recalling the joint US-Japan currency intervention exec"
+          },
+          {
+            "title": "British Pound trades vulnerably against US Dollar on revival of US AI stocks",
+            "source": "FXStreet",
+            "date": "2026-11-24T04:54:32Z",
+            "url": "https://www.fxstreet.com/news/british-pound-trades-vulnerably-against-us-dollar-on-revival-of-us-ai-stocks-202611240454",
+            "summary": "The British Pound (GBP) is under pressure against the US Dollar (USD) in the Asian session on Tuesday, trading close to its fresh yearly low of 1.3011 posted the previous day."
+          }
+        ],
+        "score_details": [
+          {
+            "title": "Singapore, China Deepen Yuan Ties With Focus on Corporates",
+            "source": "Bloomberg",
+            "direction": 0.7,
+            "relevance": 1.2,
+            "score": 0.84,
+            "reason": "Title signals policy/cooperation to deepen yuan usage between Singapore and China — likely supportive for RMB internationalisation and non‑USD flows in Asia. Moderate relevance for FX given potential structural impact on USD/RMB flows."
+          },
+          {
+            "title": "US Dollar Index Price Forecast: Experts flag rally near 104.60 as overdone",
+            "source": "FXStreet",
+            "direction": -0.7,
+            "relevance": 1.0,
+            "score": -0.7,
+            "reason": "DXY near multi‑month highs — primary narrative is USD strength (negative for non‑USD FX). The ‘overdone’ caution is a moderating signal, so direction is USD‑positive (negative here) with medium relevance."
+          },
+          {
+            "title": "CEE FX: Central banks seen key to recovery – ING",
+            "source": "FXStreet",
+            "direction": 0.2,
+            "relevance": 0.4,
+            "score": 0.08,
+            "reason": "Regional note: CEE FX rallies despite a stronger USD — indicates central‑bank and local drivers can offset USD strength in pockets; small positive direction and low relevance for broader FX."
+          },
+          {
+            "title": "Euro languishes at 19-month lows amid reviving hopes of aggressive Fed hikes",
+            "source": "FXStreet",
+            "direction": -1.3,
+            "relevance": 1.7,
+            "score": -2.21,
+            "reason": "Clear USD‑strength narrative (Fed hike bets driven by AI rally) pushing EUR to 19‑month lows — broad macro driver with high relevance and negative direction for EUR/USD (i.e., USD up)."
+          },
+          {
+            "title": "Australian Dollar gathers strength above 0.6600 on risk-on mood, traders brace for US PCE data",
+            "source": "FXStreet",
+            "direction": 0.6,
+            "relevance": 1.0,
+            "score": 0.6,
+            "reason": "AUD rebound on risk‑on sentiment supports AUD/USD (non‑USD strength). Risk‑driven currency moves matter but are more tactical, so moderate positive direction and relevance."
+          },
+          {
+            "title": "Swiss Franc trades calm against US Dollar, PCE data in focus",
+            "source": "FXStreet",
+            "direction": 0.1,
+            "relevance": 0.3,
+            "score": 0.03,
+            "reason": "CHF range‑trading/flat vs USD is low‑signal for the broader USD narrative; included for completeness with very low relevance."
+          },
+          {
+            "title": "EUR/USD Price Forecast: Inches higher above 1.0900 but stays bearish amid oversold conditions",
+            "source": "FXStreet",
+            "direction": 0.3,
+            "relevance": 0.6,
+            "score": 0.18,
+            "reason": "Short‑term EUR/USD bounce inside an overall bearish USD‑dominated regime — minor positive signal for EUR with limited relevance (technical/near‑term)."
+          },
+          {
+            "title": "British Pound trades vulnerably against US Dollar on revival of US AI stocks",
+            "source": "FXStreet",
+            "direction": -1.0,
+            "relevance": 1.2,
+            "score": -1.2,
+            "reason": "GBP weakness against USD tied to AI‑led US equity rally and Fed hike expectations — a clear USD‑strength macro narrative with above‑average relevance for G10 FX."
+          },
+          {
+            "title": "United States Dollar Index softens below 104.50, renewed AI euphoria underpins Fed hike bets",
+            "source": "FXStreet",
+            "direction": 0.8,
+            "relevance": 1.4,
+            "score": 1.12,
+            "reason": "DXY softening (from highs) implies a short‑term relief for non‑USD currencies. The story is DXY‑centric and materially affects FX flows, so positive direction for non‑USD with meaningful relevance."
+          },
+          {
+            "title": "New Zealand Dollar trades with caution as NASDAQ revival boosts US Dollar’s outlook",
+            "source": "FXStreet",
+            "direction": -0.8,
+            "relevance": 1.0,
+            "score": -0.8,
+            "reason": "NZD near multi‑year lows as USD outlook improves on equity/NASDAQ revival — USD‑centric downside for NZD with normal relevance."
+          },
+          {
+            "title": "Canadian Dollar trades weakly against US Dollar, US PCE in focus",
+            "source": "FXStreet",
+            "direction": -0.9,
+            "relevance": 1.1,
+            "score": -0.99,
+            "reason": "USD/CAD near 19‑month highs signals USD strength vs CAD; strong USD narrative driven by Fed expectations — meaningful regionally for CAD and cross‑asset flows (negative for CAD)."
+          },
+          {
+            "title": "Japanese Yen strengthens amid intervention fears, traders await US PCE inflation data",
+            "source": "FXStreet",
+            "direction": 1.2,
+            "relevance": 1.8,
+            "score": 2.16,
+            "reason": "JPY strength vs USD (USD/JPY down to ~158.95) plus explicit intervention fears is a high‑impact FX narrative — supportive for non‑USD currencies and potentially market moving, hence high relevance and positive direction for FX (non‑USD) exposure."
+          }
+        ],
+        "macro_calendar": [
+          {
+            "label": "US Consumer Confidence",
+            "title": "US Consumer Confidence",
+            "ticker": "",
+            "company": "",
+            "source": "Conference Board",
+            "date": "2026-11-24",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US Core PCE",
+            "title": "US Core PCE",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          },
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US PCE Inflation",
+            "title": "US PCE Inflation",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          }
+        ],
+        "earnings_calendar": [],
+        "key_watchpoints": [
+          {
+            "label": "US Consumer Confidence",
+            "title": "US Consumer Confidence",
+            "ticker": "",
+            "company": "",
+            "source": "Conference Board",
+            "date": "2026-11-24",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US Core PCE",
+            "title": "US Core PCE",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          },
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US PCE Inflation",
+            "title": "US PCE Inflation",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          }
+        ],
+        "key_events": [
+          {
+            "label": "US Consumer Confidence",
+            "title": "US Consumer Confidence",
+            "ticker": "",
+            "company": "",
+            "source": "Conference Board",
+            "date": "2026-11-24",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US Core PCE",
+            "title": "US Core PCE",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          },
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US PCE Inflation",
+            "title": "US PCE Inflation",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          }
+        ]
+      },
+      "Rates": {
+        "tone": "Cautious",
+        "bias": -0.35,
+        "confidence": 0.722,
+        "commentary": "Rates remain cautious, with inflation and policy communication driving repricing risk. Bias -0.35, confidence 0.72. Primary flow source: CNBC.",
+        "top_news": [
+          {
+            "title": "Fed's John Williams indicates higher interest rates likely 'over time' to address inflation",
+            "source": "CNBC",
+            "date": "2026-11-23T21:02:17Z",
+            "url": "https://www.cnbc.com/2026/11/23/john-williams-fed-inflation-rate-hikes.html",
+            "summary": "The influential central banker expressed confidence that inflation will get closer to the Fed's 2% target in 2027."
+          },
+          {
+            "title": "Market rout kills 50 basis points December Fed rate hike bets",
+            "source": "CoinDesk",
+            "date": "2026-11-23T04:45:47Z",
+            "url": "https://www.coindesk.com/markets/2026/11/23/market-rout-kills-50-basis-points-december-fed-rate-hike-bets",
+            "summary": ""
+          },
+          {
+            "title": "Commerzbank Weighs Partial Withdrawal From US Treasury Market",
+            "source": "Bloomberg",
+            "date": "2026-11-24T08:48:26Z",
+            "url": "https://www.bloomberg.com/news/articles/2026-11-24/commerzbank-weighs-partial-withdrawal-from-us-treasury-market",
+            "summary": ""
+          }
+        ],
+        "score_details": [
+          {
+            "title": "Wall Street soars on Huang's return to Nvidia, Treasury yields rise",
+            "source": "Reuters",
+            "direction": -0.9,
+            "relevance": 0.9,
+            "score": -0.81,
+            "reason": "Market-driven rise in Treasury yields tied to an equity rally — relevant to rates but primarily an equity-flow story, so moderate negative impulse for bond prices."
+          },
+          {
+            "title": "Commerzbank Weighs Partial Withdrawal From US Treasury Market",
+            "source": "Bloomberg",
+            "direction": -1.0,
+            "relevance": 1.2,
+            "score": -1.2,
+            "reason": "A major dealer considering reduced participation in the U.S. Treasury market implies weaker structural demand for Treasuries, a meaningful negative for bond prices."
+          },
+          {
+            "title": "Australia Bonds Set for Longest Rally Since June on RBA Cut Bets",
+            "source": "Bloomberg",
+            "direction": 0.9,
+            "relevance": 0.9,
+            "score": 0.81,
+            "reason": "Local bond rally driven by growing bets on RBA easing; positive for Australian rates and indicates easing-rate expectations in the region."
+          },
+          {
+            "title": "South Korea Considers Potential $3 Billion Dollar Bond Sale",
+            "source": "Bloomberg",
+            "direction": -0.2,
+            "relevance": 0.3,
+            "score": -0.06,
+            "reason": "Potential sovereign dollar bond issuance implies modest incremental supply pressure on global dollar rates; low relevance unless sale size/format confirmed."
+          },
+          {
+            "title": "Fed's John Williams indicates higher interest rates likely 'over time' to address inflation",
+            "source": "CNBC",
+            "direction": -1.5,
+            "relevance": 1.6,
+            "score": -2.4,
+            "reason": "Senior Fed official signalling that rates will likely need to be higher 'over time' is a hawkish policy signal that pushes Treasury yields up and is highly relevant to rates markets."
+          },
+          {
+            "title": "Market rout kills 50 basis points December Fed rate hike bets",
+            "source": "CoinDesk",
+            "direction": 1.3,
+            "relevance": 1.2,
+            "score": 1.56,
+            "reason": "Market repricing that reduces odds of a December Fed hike lowers forward rate expectations and supports bond prices — a clear positive for rates."
+          }
+        ],
+        "macro_calendar": [
+          {
+            "label": "US Consumer Confidence",
+            "title": "US Consumer Confidence",
+            "ticker": "",
+            "company": "",
+            "source": "Conference Board",
+            "date": "2026-11-24",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US Core PCE",
+            "title": "US Core PCE",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          },
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US PCE Inflation",
+            "title": "US PCE Inflation",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          }
+        ],
+        "earnings_calendar": [],
+        "key_watchpoints": [
+          {
+            "label": "US Consumer Confidence",
+            "title": "US Consumer Confidence",
+            "ticker": "",
+            "company": "",
+            "source": "Conference Board",
+            "date": "2026-11-24",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US Core PCE",
+            "title": "US Core PCE",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          },
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US PCE Inflation",
+            "title": "US PCE Inflation",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          }
+        ],
+        "key_events": [
+          {
+            "label": "US Consumer Confidence",
+            "title": "US Consumer Confidence",
+            "ticker": "",
+            "company": "",
+            "source": "Conference Board",
+            "date": "2026-11-24",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US Core PCE",
+            "title": "US Core PCE",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          },
+          {
+            "label": "US Durable Goods Orders",
+            "title": "US Durable Goods Orders",
+            "ticker": "",
+            "company": "",
+            "source": "U.S. Census",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "GDP",
+            "title": "US GDP",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+          },
+          {
+            "label": "US PCE Inflation",
+            "title": "US PCE Inflation",
+            "ticker": "",
+            "company": "",
+            "source": "BEA",
+            "date": "2026-11-25",
+            "url": "https://www.bea.gov/news/schedule/full"
+          }
+        ]
+      },
+      "Crypto": {
+        "tone": "Cautious",
+        "bias": -0.666,
+        "confidence": 0.799,
+        "commentary": "Crypto remains fragile, with policy and risk appetite still key swing factors. Bias -0.67, confidence 0.80. Primary flow source: CoinDesk.",
+        "top_news": [
+          {
+            "title": "Binance hackers push $247 million through transactions designed to cloud the source",
+            "source": "CoinDesk",
+            "date": "2026-11-23T15:29:01Z",
+            "url": "https://www.coindesk.com/business/2026/11/23/binance-hackers-push-usd247-million-through-transactions-designed-to-cloud-the-source",
+            "summary": ""
+          },
+          {
+            "title": "Fidelity Investments, Strive, Etoro join OKX-ICE tokenized securities venue",
+            "source": "CoinDesk",
+            "date": "2026-11-23T13:49:44Z",
+            "url": "https://www.coindesk.com/business/2026/11/23/fidelity-investments-strive-etoro-join-okx-ice-tokenized-securities-venue",
+            "summary": ""
+          },
+          {
+            "title": "Cathie Wood's ARK Invest pulls the plug on two planned crypto ETFs",
+            "source": "CoinDesk",
+            "date": "2026-11-23T16:39:03Z",
+            "url": "https://www.coindesk.com/business/2026/11/23/cathie-wood-s-ark-invest-pulls-the-plug-on-two-planned-crypto-etfs",
+            "summary": ""
+          }
+        ],
+        "score_details": [
+          {
+            "title": "U.S. CFTC sets policies on event contract data, using crypto to check financial boxes",
+            "source": "CoinDesk",
+            "direction": 0.6,
+            "relevance": 1.0,
+            "score": 0.6,
+            "reason": "Regulatory clarification from a major U.S. regulator provides legal certainty on data/policy handling, which generally supports institutional participation and product development."
+          },
+          {
+            "title": "Cathie Wood's ARK Invest pulls the plug on two planned crypto ETFs",
+            "source": "CoinDesk",
+            "direction": -1.2,
+            "relevance": 1.6,
+            "score": -1.92,
+            "reason": "Cancellation of planned crypto ETFs by a high-profile asset manager reduces near-term institutional distribution prospects and dents investor enthusiasm for ETF-led inflows."
+          },
+          {
+            "title": "Binance hackers push $247 million through transactions designed to cloud the source",
+            "source": "CoinDesk",
+            "direction": -1.6,
+            "relevance": 1.8,
+            "score": -2.88,
+            "reason": "Large-scale obfuscated movement of stolen funds undermines exchange custody/security trust and raises systemic counterparty and AML concerns — a significant negative for market confidence."
+          },
+          {
+            "title": "Eric Trump-backed American Bitcoin secures $150 million loan against its bitcoin",
+            "source": "CoinDesk",
+            "direction": 0.3,
+            "relevance": 0.8,
+            "score": 0.24,
+            "reason": "Institutional lending against BTC signals maturation of crypto capital markets and financing tools, supporting liquidity and use cases, though it also increases leverage/market-structure risk."
+          },
+          {
+            "title": "Fidelity Investments, Strive, Etoro join OKX-ICE tokenized securities venue",
+            "source": "CoinDesk",
+            "direction": 1.3,
+            "relevance": 1.6,
+            "score": 2.08,
+            "reason": "Major financial firms joining a tokenized securities platform is a clear institutional-adoption signal that expands on‑chain use cases and potential regulated capital flows into tokenized assets."
+          },
+          {
+            "title": "Bitcoin's losing streak is second-longest ever, and some observers see more downside",
+            "source": "CoinDesk",
+            "direction": -1.0,
+            "relevance": 1.4,
+            "score": -1.4,
+            "reason": "Extended negative price momentum for BTC weighs on risk appetite and can trigger further deleveraging and outflows from speculative holders."
+          },
+          {
+            "title": "Ethereum wallets holding $72 billion ETH are under threat of a future quantum attack",
+            "source": "CoinDesk",
+            "direction": -0.7,
+            "relevance": 0.9,
+            "score": -0.63,
+            "reason": "Longer‑term cryptographic threats, even if theoretical, raise concerns about protocol resilience and custodial risk; this dampens confidence in ETH holdings until mitigations are clearly planned."
+          },
+          {
+            "title": "Japan to ramp up crypto tax audits after uncovering $24.5 million in hidden income",
+            "source": "CoinDesk",
+            "direction": -0.9,
+            "relevance": 1.2,
+            "score": -1.08,
+            "reason": "Increased tax enforcement signals tighter regulatory scrutiny, potentially discouraging retail/wholesale flows and increasing compliance costs for market participants."
+          },
+          {
+            "title": "Crypto thieves are using online ads to infect iPhones with a single tap, research finds",
+            "source": "CoinDesk",
+            "direction": -0.9,
+            "relevance": 1.0,
+            "score": -0.9,
+            "reason": "Active malware campaigns targeting mobile wallets increase security risk for retail users and can suppress on‑chain activity and trust in self-custody solutions."
+          },
+          {
+            "title": "This Swedish bitcoin treasury firm lost 30 BTC trading part of its own stack",
+            "source": "CoinDesk",
+            "direction": -0.6,
+            "relevance": 0.6,
+            "score": -0.36,
+            "reason": "Operational/trading losses by a treasury-style holder highlight execution and risk-management pitfalls for firms with on‑chain treasuries; a localized but relevant negative signal for professional holders."
+          },
+          {
+            "title": "More on the pending oversight hearings: State of Crypto",
+            "source": "CoinDesk",
+            "direction": -0.9,
+            "relevance": 1.2,
+            "score": -1.08,
+            "reason": "Ongoing political oversight and hearings increase regulatory risk and policy uncertainty for the sector, which can depress institutional risk-taking and retail confidence."
+          }
+        ],
+        "macro_calendar": [],
+        "earnings_calendar": [],
+        "key_watchpoints": [],
+        "key_events": []
+      }
+    }
+  },
+  "top_ideas": {
+    "methodology": {
+      "final": {
+        "tech_weight": 0.75,
+        "fund_weight": 0.25
+      },
+      "technical_source": "setup_score",
+      "direction_source": "setup_direction",
+      "no_event_tilt": true
+    },
+    "top_long": [
+      {
+        "symbol": "VIX",
+        "name": "VIX Index",
+        "asset_class": "Equities",
+        "setup": "Failed Breakdown",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: ma200/ma50",
+        "score": 81.9,
+        "setup_score": 81.9,
+        "ret_20d_pct": 52.05,
+        "side": "LONG",
+        "tech_score": 0.8190000000000001,
+        "fund_support": 0.8476159999999999,
+        "macro_alignment": 0.8476159999999999,
+        "final_score": 0.826154,
+        "rationale": "Volatility setup with risk-off implications."
+      },
+      {
+        "symbol": "ES",
+        "name": "S&P 500",
+        "asset_class": "Equities",
+        "setup": "Failed Breakdown",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/swing_low, swing_low/fib_0.500",
+        "score": 78.8,
+        "setup_score": 78.8,
+        "ret_20d_pct": -5.96,
+        "side": "LONG",
+        "tech_score": 0.7879999999999999,
+        "fund_support": 0.8476159999999999,
+        "macro_alignment": 0.8476159999999999,
+        "final_score": 0.802904,
+        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: swing_high/swing_low, swing_low/fib_0.500. Broader equities tone is supportive."
+      },
+      {
+        "symbol": "RTY",
+        "name": "Russell 2000",
+        "asset_class": "Equities",
+        "setup": "Failed Breakdown",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/swing_high, 20d_low/60d_low",
+        "score": 77.6,
+        "setup_score": 77.6,
+        "ret_20d_pct": -4.41,
+        "side": "LONG",
+        "tech_score": 0.7759999999999999,
+        "fund_support": 0.8476159999999999,
+        "macro_alignment": 0.8476159999999999,
+        "final_score": 0.7939039999999999,
+        "rationale": "Failed Breakdown: Price broke below the prior range and recovered; Support confluence; Support confluence: swing_low/swing_high, 20d_low/60d_low. Broader equities tone is supportive."
+      }
+    ],
+    "top_short": [
+      {
+        "symbol": "NG",
+        "name": "Natural Gas",
+        "asset_class": "Commodities",
+        "setup": "Failed Breakout",
+        "setup_status": "Confirmed",
+        "setup_reasons": "Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_low/fib_0.382",
+        "score": -86.4,
+        "setup_score": 86.4,
+        "ret_20d_pct": 5.35,
+        "side": "SHORT",
+        "tech_score": 0.8640000000000001,
+        "fund_support": 0.7449005,
+        "macro_alignment": 0.7449005,
+        "final_score": 0.8342251250000001,
+        "rationale": "Failed Breakout: Price broke above the prior range and closed back below; Resistance confluence; Resistance confluence: swing_low/fib_0.382. Broader commodities tone is cautious."
+      },
+      {
+        "symbol": "ZW",
+        "name": "Wheat",
+        "asset_class": "Commodities",
+        "setup": "Trend Resumption",
+        "setup_status": "Developing",
+        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low",
+        "score": -84.8,
+        "setup_score": 84.8,
+        "ret_20d_pct": -5.7,
+        "side": "SHORT",
+        "tech_score": 0.848,
+        "fund_support": 0.7449005,
+        "macro_alignment": 0.7449005,
+        "final_score": 0.822225125,
+        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_low. Broader commodities tone is cautious."
+      },
+      {
+        "symbol": "KC",
+        "name": "Coffee",
+        "asset_class": "Commodities",
+        "setup": "Trend Resumption",
+        "setup_status": "Developing",
+        "setup_reasons": "Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_high/ma200",
+        "score": -78.9,
+        "setup_score": 78.9,
+        "ret_20d_pct": -9.19,
+        "side": "SHORT",
+        "tech_score": 0.789,
+        "fund_support": 0.7449005,
+        "macro_alignment": 0.7449005,
+        "final_score": 0.777975125,
+        "rationale": "Trend Resumption: Downtrend intact; 20-day consolidation/compression; Price near or below range low; Resistance confluence: swing_high/ma200. Broader commodities tone is cautious."
+      }
+    ]
+  },
+  "event_calendar": [
+    {
+      "date": "2026-11-24",
+      "type": "Macro",
+      "title": "US Consumer Confidence",
+      "country": "US",
+      "importance": "medium",
+      "markets": [
+        "Equities",
+        "Rates",
+        "FX"
+      ],
+      "source": "Conference Board",
+      "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html",
+      "event_key": "US_CONSUMER_CONFIDENCE",
+      "source_family": "Conference Board",
+      "scheduler_source": "New York Fed Economic Indicators Calendar",
+      "sources": [
+        "Conference Board"
+      ],
+      "urls": [
+        "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "type": "Macro",
+      "title": "US Core PCE",
+      "country": "US",
+      "importance": "high",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "BEA",
+      "url": "https://www.bea.gov/news/schedule/full",
+      "event_key": "US_CORE_PCE",
+      "source_family": "BEA",
+      "sources": [
+        "BEA"
+      ],
+      "urls": [
+        "https://www.bea.gov/news/schedule/full"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "type": "Macro",
+      "title": "US Durable Goods Orders",
+      "country": "US",
+      "importance": "medium",
+      "markets": [
+        "Equities",
+        "Rates",
+        "FX",
+        "Commodities"
+      ],
+      "source": "U.S. Census",
+      "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html",
+      "event_key": "US_DURABLE_GOODS_ORDERS",
+      "source_family": "U.S. Census",
+      "scheduler_source": "New York Fed Economic Indicators Calendar",
+      "sources": [
+        "U.S. Census"
+      ],
+      "urls": [
+        "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "type": "Macro",
+      "title": "US GDP",
+      "country": "US",
+      "importance": "high",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "BEA",
+      "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html",
+      "event_key": "US_GDP",
+      "source_family": "BEA",
+      "scheduler_source": "New York Fed Economic Indicators Calendar",
+      "sources": [
+        "BEA"
+      ],
+      "urls": [
+        "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "type": "Macro",
+      "title": "US PCE Inflation",
+      "country": "US",
+      "importance": "high",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "BEA",
+      "url": "https://www.bea.gov/news/schedule/full",
+      "event_key": "US_PCE",
+      "source_family": "BEA",
+      "sources": [
+        "BEA"
+      ],
+      "urls": [
+        "https://www.bea.gov/news/schedule/full"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "type": "Macro",
+      "title": "US Personal Income & Outlays",
+      "country": "US",
+      "importance": "high",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "BEA",
+      "url": "https://www.newyorkfed.org/research/calendars/i-nov26.html",
+      "event_key": "US_PERSONAL_INCOME_OUTLAYS",
+      "source_family": "BEA",
+      "scheduler_source": "New York Fed Economic Indicators Calendar",
+      "sources": [
+        "BEA"
+      ],
+      "urls": [
+        "https://www.newyorkfed.org/research/calendars/i-nov26.html"
+      ]
+    },
+    {
+      "date": "2026-12-01",
+      "type": "Macro",
+      "title": "Euro Area CPI Flash",
+      "country": "Euro Area",
+      "importance": "high",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "ECB Statistical Calendar",
+      "url": "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html",
+      "event_key": "EA_CPI_FLASH",
+      "source_family": "Eurostat",
+      "sources": [
+        "ECB Statistical Calendar"
+      ],
+      "urls": [
+        "https://www.ecb.europa.eu/press/calendars/statscal/html/index.en.html"
+      ]
+    },
+    {
+      "date": "2026-12-01",
+      "type": "Macro",
+      "title": "Euro Area PMI Manufacturing",
+      "country": "Euro Area",
+      "importance": "medium",
+      "markets": [
+        "Equities",
+        "Rates",
+        "FX",
+        "Commodities"
+      ],
+      "source": "S&P Global",
+      "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
+      "event_key": "EA_PMI_MANUFACTURING",
+      "source_family": "S&P Global",
+      "scheduler_source": "S&P Global PMI Release Calendar",
+      "provider_title": "S&P Global Eurozone Manufacturing PMI",
+      "sources": [
+        "S&P Global"
+      ],
+      "urls": [
+        "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
+      ]
+    },
+    {
+      "date": "2026-12-01",
+      "type": "Macro",
+      "title": "ISM Manufacturing PMI",
+      "country": "US",
+      "importance": "medium",
+      "markets": [
+        "Equities",
+        "Rates",
+        "FX",
+        "Commodities"
+      ],
+      "source": "ISM",
+      "url": "https://www.newyorkfed.org/research/calendars/i-dec26.html",
+      "event_key": "US_ISM_MANUFACTURING_PMI",
+      "source_family": "ISM",
+      "scheduler_source": "New York Fed Economic Indicators Calendar",
+      "sources": [
+        "ISM"
+      ],
+      "urls": [
+        "https://www.newyorkfed.org/research/calendars/i-dec26.html"
+      ]
+    },
+    {
+      "date": "2026-12-01",
+      "type": "Macro",
+      "title": "US JOLTS Job Openings",
+      "country": "US",
+      "importance": "medium",
+      "markets": [
+        "Rates",
+        "FX",
+        "Equities"
+      ],
+      "source": "BLS",
+      "url": "https://www.newyorkfed.org/research/calendars/i-dec26.html",
+      "event_key": "US_JOLTS",
+      "source_family": "BLS",
+      "scheduler_source": "New York Fed Economic Indicators Calendar",
+      "sources": [
+        "BLS"
+      ],
+      "urls": [
+        "https://www.newyorkfed.org/research/calendars/i-dec26.html"
+      ]
+    }
+  ]
+}
